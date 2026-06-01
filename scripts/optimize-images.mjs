@@ -24,6 +24,9 @@ const WIDTHS = {
   fleet_sedan: 900,
   fleet_suv: 900,
   fleet_van: 900,
+  fleet_suburban: 1600,
+  chauffeur: 1500,
+  airport_pickup: 1600,
 };
 const DEFAULT_WIDTH = 1280;
 
