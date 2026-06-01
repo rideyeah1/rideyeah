@@ -105,4 +105,36 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://rideyeah.com/es/chofer-por-horas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rideyeah.com/es/chofer-por-horas"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rideyeah.com/hourly-chauffeur.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rideyeah.com/hourly-chauffeur.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rideyeah.com/es/rutas-populares</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rideyeah.com/es/rutas-populares"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rideyeah.com/popular-routes.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rideyeah.com/popular-routes.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rideyeah.com/es/nosotros</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rideyeah.com/es/nosotros"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rideyeah.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rideyeah.com/about.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://rideyeah.com/es/empleo</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rideyeah.com/es/empleo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rideyeah.com/careers.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rideyeah.com/careers.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>

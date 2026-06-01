@@ -19,6 +19,10 @@ const SLUG = {
   "airport-transfers.html": "es/traslados-aeropuerto-lax.html",
   "black-car-service.html": "es/servicio-black-car.html",
   "fleet.html": "es/flota.html",
+  "about.html": "es/nosotros.html",
+  "careers.html": "es/empleo.html",
+  "hourly-chauffeur.html": "es/chofer-por-horas.html",
+  "popular-routes.html": "es/rutas-populares.html",
 };
 
 /* ---- shared nav / footer / chrome translations (apply to every page) ---- */
@@ -254,6 +258,253 @@ const PAGES = [
       [">Get your fixed quote <svg", ">Obtén tu tarifa fija <svg"],
     ],
   },
+  {
+    src: "about.html",
+    out: "es/nosotros.html",
+    enUrl: "https://rideyeah.com/about.html",
+    esCanonical: "https://rideyeah.com/es/nosotros",
+    map: [
+      /* head */
+      ["About us · RideYeah — Luxury Ground Transportation",
+       "Nosotros · RideYeah — Transporte Terrestre de Lujo"],
+      ["RideYeah is a luxury ground-transportation company serving Los Angeles and Orange County. Discreet, punctual chauffeur service with fixed, transparent pricing.",
+       "RideYeah es una empresa de transporte terrestre de lujo en Los Ángeles y Orange County. Servicio de chofer discreto y puntual con tarifas fijas y transparentes."],
+      ["About RideYeah · Luxury Ground Transportation", "Sobre RideYeah · Transporte Terrestre de Lujo"],
+      ["Discreet, punctual chauffeur service across LA & Orange County, with fixed transparent pricing.",
+       "Servicio de chofer discreto y puntual en LA y Orange County, con tarifas fijas y transparentes."],
+      /* breadcrumb + eyebrow */
+      [" · About</div>", " · Nosotros</div>"],
+      [">About RideYeah</span>", ">Sobre RideYeah</span>"],
+      /* hero */
+      ['Luxury, measured<br>in <span class="em">calm.</span>',
+       'Lujo, medido<br>en <span class="em">calma.</span>'],
+      ["We move executives, families and visitors across Los Angeles and Orange County with the discretion, punctuality and quiet comfort the moment deserves.",
+       "Movemos a ejecutivos, familias y visitantes por Los Ángeles y Orange County con la discreción, la puntualidad y el confort silencioso que el momento merece."],
+      /* story */
+      [">Our story</span>", ">Nuestra historia</span>"],
+      ["Built for the ride that matters.", "Hecho para el viaje que importa."],
+      ["RideYeah began with a simple belief: getting there should feel as considered as the destination. No surge pricing, no uncertainty at the curb — just a professional chauffeur, a spotless car and a fixed price quoted upfront.",
+       "RideYeah nació de una idea simple: llegar debería sentirse tan cuidado como el destino. Sin recargos por demanda, sin incertidumbre en la acera — solo un chofer profesional, un auto impecable y un precio fijo cotizado por adelantado."],
+      ["From <strong>LAX</strong> and <strong>John Wayne (SNA)</strong> to downtown boardrooms and weekend getaways in Santa Barbara or Palm Springs, every detail is handled so you can simply step in and let the city move around you.",
+       "Desde <strong>LAX</strong> y <strong>John Wayne (SNA)</strong> hasta salas de juntas en el centro y escapadas de fin de semana a Santa Bárbara o Palm Springs, cada detalle está resuelto para que solo subas y dejes que la ciudad se mueva a tu alrededor."],
+      /* values */
+      [">What we stand for</span>", ">En lo que creemos</span>"],
+      ["Principles, not promises.", "Principios, no promesas."],
+      ["<h3>Punctuality</h3>", "<h3>Puntualidad</h3>"],
+      ["On-time guarantee with live flight tracking. If we're late, the wait is on us.",
+       "Garantía de puntualidad con seguimiento de vuelos en vivo. Si llegamos tarde, la espera corre por nuestra cuenta."],
+      ["<h3>Discretion</h3>", "<h3>Discreción</h3>"],
+      ["Vetted, licensed and insured chauffeurs who value your privacy and your time.",
+       "Choferes verificados, con licencia y asegurados que valoran tu privacidad y tu tiempo."],
+      ["<h3>Transparency</h3>", "<h3>Transparencia</h3>"],
+      ["Fixed fares quoted upfront. No surge, no surprises — ever.",
+       "Tarifas fijas cotizadas por adelantado. Sin recargos, sin sorpresas — nunca."],
+      /* stats */
+      ['<div class="l">Booking &amp; support</div>', '<div class="l">Reservas y soporte</div>'],
+      ['<div class="l">Airports &amp; private terminals</div>', '<div class="l">Aeropuertos y terminales privadas</div>'],
+      ['<div class="l">Licensed &amp; insured chauffeurs</div>', '<div class="l">Choferes con licencia y seguro</div>'],
+      /* CTA */
+      [">Ready when you are</span>", ">Cuando tú quieras</span>"],
+      ["Experience the difference.", "Vive la diferencia."],
+      ["Book in under a minute. Fixed price, professional chauffeur, on time — every time.",
+       "Reserva en menos de un minuto. Precio fijo, chofer profesional, puntual — siempre."],
+      [">Reserve your ride <svg", ">Reserva tu viaje <svg"],
+    ],
+  },
+  {
+    src: "careers.html",
+    out: "es/empleo.html",
+    enUrl: "https://rideyeah.com/careers.html",
+    esCanonical: "https://rideyeah.com/es/empleo",
+    map: [
+      /* head */
+      ["Careers · Drive with RideYeah — Chauffeur Jobs in Los Angeles",
+       "Empleo · Conduce con RideYeah — Trabajo de Chofer en Los Ángeles"],
+      ["RideYeah is hiring professional chauffeurs (drivers) across Los Angeles & Orange County. Competitive pay, flexible schedule, premium vehicles. Apply today.",
+       "RideYeah busca choferes profesionales (drivers) en Los Ángeles y Orange County. Pago competitivo, horario flexible, vehículos premium. Postúlate hoy."],
+      ["Drive with RideYeah · Chauffeur Jobs in Los Angeles", "Conduce con RideYeah · Trabajo de Chofer en Los Ángeles"],
+      ["We're hiring professional drivers across LA & Orange County. Competitive pay, flexible schedule, premium vehicles.",
+       "Buscamos choferes profesionales en LA y Orange County. Pago competitivo, horario flexible, vehículos premium."],
+      /* JSON-LD */
+      ['"title": "Professional Chauffeur / Driver"', '"title": "Chofer profesional / Driver"'],
+      ["RideYeah is hiring professional, licensed chauffeurs to provide luxury ground transportation across Los Angeles and Orange County. Drivers operate our fleet of late-model Chevrolet Suburban SUVs, providing airport transfers and private chauffeur service with discretion and punctuality.",
+       "RideYeah busca choferes profesionales y con licencia para brindar transporte terrestre de lujo en Los Ángeles y Orange County. Los choferes operan nuestra flota de SUV Chevrolet Suburban de último modelo, ofreciendo traslados al aeropuerto y servicio de chofer privado con discreción y puntualidad."],
+      /* breadcrumb + eyebrow */
+      [" · Careers</div>", " · Empleo</div>"],
+      [">We're hiring drivers</span>", ">Buscamos choferes</span>"],
+      /* hero */
+      ['Drive with <span class="em">RideYeah.</span>', 'Conduce con <span class="em">RideYeah.</span>'],
+      ["We're looking for professional, courteous chauffeurs across Los Angeles &amp; Orange County. Premium cars, real respect and pay that reflects the standard we hold.",
+       "Buscamos choferes profesionales y atentos en Los Ángeles y Orange County. Autos premium, respeto de verdad y un pago a la altura del estándar que mantenemos."],
+      [">Apply now <svg", ">Postúlate ahora <svg"],
+      /* why */
+      [">Why drive with us</span>", ">Por qué conducir con nosotros</span>"],
+      ["A driver's seat worth taking.", "Un asiento que vale la pena tomar."],
+      ["<h3>Competitive pay</h3>", "<h3>Pago competitivo</h3>"],
+      ["Strong base rates plus tips. You're paid for your professionalism, not squeezed by an algorithm.",
+       "Tarifas base sólidas más propinas. Te pagamos por tu profesionalismo, no te exprime un algoritmo."],
+      ["<h3>Flexible schedule</h3>", "<h3>Horario flexible</h3>"],
+      ["Full-time or part-time shifts that fit your life. Pick up airport runs, corporate days or evenings.",
+       "Turnos de tiempo completo o parcial que se adaptan a tu vida. Toma traslados al aeropuerto, días corporativos o noches."],
+      ["<h3>Premium fleet &amp; respect</h3>", "<h3>Flota premium y respeto</h3>"],
+      ["Drive immaculate, late-model vehicles and represent a brand that values its chauffeurs.",
+       "Conduce vehículos impecables de último modelo y representa una marca que valora a sus choferes."],
+      /* role */
+      [">The role</span>", ">El puesto</span>"],
+      [">Professional chauffeur</h2>", ">Chofer profesional</h2>"],
+      ["You'll provide airport transfers and private chauffeur service across LA &amp; Orange County — greeting guests, handling luggage and delivering a calm, on-time, five-star ride every time.",
+       "Brindarás traslados al aeropuerto y servicio de chofer privado en LA y Orange County — recibiendo a los pasajeros, gestionando el equipaje y ofreciendo un viaje tranquilo, puntual y de cinco estrellas cada vez."],
+      ["Valid California driver's license &amp; <span>clean driving record</span>",
+       "Licencia de conducir de California vigente y <span>historial de manejo limpio</span>"],
+      ["21+ years old &amp; <span>eligible to work in the US</span>",
+       "Mayor de 21 años y <span>con permiso para trabajar en EE. UU.</span>"],
+      ["Professional appearance &amp; <span>excellent customer service</span>",
+       "Presentación profesional y <span>excelente servicio al cliente</span>"],
+      ["Knowledge of LA / OC routes &amp; <span>smartphone comfortable</span>",
+       "Conocimiento de las rutas de LA / OC y <span>buen manejo del smartphone</span>"],
+      ["Livery / TCP or chauffeur experience <span>— a plus, not required</span>",
+       "Experiencia de livery / TCP o como chofer <span>— un plus, no un requisito</span>"],
+      /* how to apply */
+      [">How to apply</span>", ">Cómo postularte</span>"],
+      ["Three steps to the wheel.", "Tres pasos al volante."],
+      ["<h3>Send your details</h3>", "<h3>Envía tus datos</h3>"],
+      ["Email us your info using the button below — it pre-fills everything we need.",
+       "Escríbenos tu información con el botón de abajo — ya viene con todo lo que necesitamos."],
+      ["<h3>Quick interview</h3>", "<h3>Entrevista rápida</h3>"],
+      ["A short call and a check of your license and driving record.",
+       "Una llamada corta y una verificación de tu licencia e historial de manejo."],
+      ["<h3>Onboard &amp; drive</h3>", "<h3>Súbete y conduce</h3>"],
+      ["Get set up with the app and your schedule, then hit the road.",
+       "Te configuramos la app y tu horario, y a la carretera."],
+      /* apply CTA */
+      [">Join the team</span>", ">Únete al equipo</span>"],
+      ["Ready to drive with us?", "¿Listo para conducir con nosotros?"],
+      ['Tap below to email your application — or write us directly at <a href="mailto:info@rideyeah.com" style="color:var(--gold)">info@rideyeah.com</a> / call <a href="tel:+18052851570" style="color:var(--gold)">+1 (805) 285-1570</a>.',
+       'Toca abajo para enviar tu solicitud por correo — o escríbenos directamente a <a href="mailto:info@rideyeah.com" style="color:var(--gold)">info@rideyeah.com</a> / llama al <a href="tel:+18052851570" style="color:var(--gold)">+1 (805) 285-1570</a>.'],
+      ["subject=Driver%20Application%20-%20RideYeah&body=Hi%20RideYeah%20team%2C%0D%0A%0D%0AI%27d%20like%20to%20apply%20for%20the%20chauffeur%20%2F%20driver%20position.%0D%0A%0D%0AFull%20name%3A%0D%0APhone%3A%0D%0ACity%3A%0D%0ADriver%27s%20license%20%23%3A%0D%0AYears%20of%20driving%20experience%3A%0D%0ALivery%2FTCP%20experience%20(if%20any)%3A%0D%0AAvailability%20(full%2Fpart-time)%3A%0D%0A%0D%0AThank%20you.",
+       "subject=Solicitud%20de%20Driver%20-%20RideYeah&body=Hola%20equipo%20RideYeah%2C%0D%0A%0D%0AMe%20gustar%C3%ADa%20postularme%20para%20el%20puesto%20de%20chofer%20%2F%20driver.%0D%0A%0D%0ANombre%20completo%3A%0D%0ATel%C3%A9fono%3A%0D%0ACiudad%3A%0D%0AN%C3%BAmero%20de%20licencia%20de%20conducir%3A%0D%0AA%C3%B1os%20de%20experiencia%20conduciendo%3A%0D%0AExperiencia%20Livery%2FTCP%20(si%20tienes)%3A%0D%0ADisponibilidad%20(tiempo%20completo%2Fparcial)%3A%0D%0A%0D%0AGracias."],
+      ["Apply by email <svg", "Postúlate por correo <svg"],
+    ],
+  },
+  {
+    src: "hourly-chauffeur.html",
+    out: "es/chofer-por-horas.html",
+    enUrl: "https://rideyeah.com/hourly-chauffeur.html",
+    esCanonical: "https://rideyeah.com/es/chofer-por-horas",
+    map: [
+      /* head */
+      ["Hourly Chauffeur & Car Service by the Hour | RideYeah Los Angeles",
+       "Chofer por Horas y Servicio de Auto por Hora | RideYeah Los Ángeles"],
+      ["Hire a chauffeur by the hour in Los Angeles & Orange County. A dedicated luxury car and driver for meetings, events, shopping or a night out — fixed hourly rates.",
+       "Contrata un chofer por horas en Los Ángeles y Orange County. Un auto de lujo y chofer a tu disposición para reuniones, eventos, compras o una noche fuera — tarifas por hora fijas."],
+      ["hourly chauffeur Los Angeles, car service by the hour, chauffeur hire LA, hourly car service, as-directed chauffeur Orange County",
+       "chofer por horas Los Ángeles, servicio de auto por hora, contratar chofer LA, servicio de auto por horas, chofer a disposición Orange County"],
+      ["Hourly Chauffeur & Car Service by the Hour | RideYeah", "Chofer por Horas y Servicio de Auto por Hora | RideYeah"],
+      ["A dedicated luxury car and chauffeur by the hour across LA & Orange County. Fixed hourly rates.",
+       "Un auto de lujo y chofer por horas en LA y Orange County. Tarifas por hora fijas."],
+      /* JSON-LD */
+      ['"serviceType": "Hourly chauffeur hire"', '"serviceType": "Contratación de chofer por horas"'],
+      ['"name": "Car Service by the Hour"', '"name": "Servicio de Auto por Hora"'],
+      ["Hire a professional chauffeur and luxury vehicle by the hour across Los Angeles and Orange County, charged at a fixed hourly rate.",
+       "Contrata un chofer profesional y un vehículo de lujo por horas en Los Ángeles y Orange County, con una tarifa por hora fija."],
+      /* breadcrumb + eyebrow */
+      [" · By the hour</div>", " · Por horas</div>"],
+      [">As-directed · hourly hire</span>", ">A disposición · por horas</span>"],
+      /* hero */
+      ['Your chauffeur,<br><span class="em">by the hour.</span>',
+       'Tu chofer,<br><span class="em">por horas.</span>'],
+      ["A dedicated luxury car and professional driver at your disposal — for back-to-back meetings, shopping, events or a night out. Pay only for the time you reserve.",
+       "Un auto de lujo y un chofer profesional a tu disposición — para reuniones seguidas, compras, eventos o una noche fuera. Pagas solo el tiempo que reservas."],
+      [">Reserve hourly <svg", ">Reservar por horas <svg"],
+      /* perfect for */
+      [">Perfect for</span>", ">Ideal para</span>"],
+      ["A car that waits, so you<br>never have to.", "Un auto que espera, para que tú<br>nunca lo hagas."],
+      ["<h3>Meetings &amp; roadshows</h3>", "<h3>Reuniones y roadshows</h3>"],
+      ["Multiple stops across the city with a chauffeur who waits between each — no re-booking, no surge, no waiting on the curb.",
+       "Varias paradas por la ciudad con un chofer que espera entre cada una — sin volver a reservar, sin recargos, sin esperar en la acera."],
+      ["<h3>Shopping &amp; leisure</h3>", "<h3>Compras y ocio</h3>"],
+      ["Rodeo Drive, South Coast Plaza or a day at the coast. Your driver handles parking and bags while you enjoy the day.",
+       "Rodeo Drive, South Coast Plaza o un día en la costa. Tu chofer se encarga del estacionamiento y las bolsas mientras disfrutas el día."],
+      ["<h3>Events &amp; nights out</h3>", "<h3>Eventos y noches fuera</h3>"],
+      ["Dinner, a show and drinks — all on one reservation. Arrive and leave on your schedule, with the same car all night.",
+       "Cena, un show y unas copas — todo en una sola reserva. Llega y vete según tu horario, con el mismo auto toda la noche."],
+      /* how hourly works */
+      [">How hourly works</span>", ">Cómo funciona por horas</span>"],
+      ["Simple, by design.", "Simple, por diseño."],
+      ["Reserve a block of hours <span>· a typical minimum is 3 hours</span>",
+       "Reserva un bloque de horas <span>· el mínimo habitual es 3 horas</span>"],
+      ["Your chauffeur stays with you <span>· as-directed, stop to stop</span>",
+       "Tu chofer se queda contigo <span>· a tu disposición, parada tras parada</span>"],
+      ["Fixed hourly rate <span>· quoted before you book, gratuity included</span>",
+       "Tarifa por hora fija <span>· cotizada antes de reservar, propina incluida</span>"],
+      ["Spacious Chevrolet Suburban <span>· seats up to 6 with luggage</span>",
+       "Espaciosa Chevrolet Suburban <span>· hasta 6 pasajeros con equipaje</span>"],
+      [">Reserve by the hour <svg", ">Reservar por horas <svg"],
+      /* CTA */
+      [">Ready when you are</span>", ">Cuando tú quieras</span>"],
+      ["Book a chauffeur by the hour.", "Reserva un chofer por horas."],
+      ["One car, one driver, your whole day. Reserve in under a minute with a fixed hourly rate.",
+       "Un auto, un chofer, todo tu día. Reserva en menos de un minuto con una tarifa por hora fija."],
+      [">Reserve your ride <svg", ">Reserva tu viaje <svg"],
+    ],
+  },
+  {
+    src: "popular-routes.html",
+    out: "es/rutas-populares.html",
+    enUrl: "https://rideyeah.com/popular-routes.html",
+    esCanonical: "https://rideyeah.com/es/rutas-populares",
+    map: [
+      /* head */
+      ["Popular Luxury Routes & Fixed Fares | LAX Suburban Service | RideYeah",
+       "Rutas de Lujo Populares y Tarifas Fijas | Servicio Suburban LAX | RideYeah"],
+      ["Fixed-price luxury Suburban car service on LA & Orange County's top routes: LAX to Beverly Hills, Newport Beach, Anaheim, Disneyland, Santa Monica, Malibu & more.",
+       "Servicio de auto Suburban de lujo a precio fijo en las mejores rutas de LA y Orange County: LAX a Beverly Hills, Newport Beach, Anaheim, Disneyland, Santa Mónica, Malibú y más."],
+      ["LAX to Orange County car service, LAX to Disneyland car service, LA to San Diego car service, LAX to Santa Barbara, car service to Palm Springs",
+       "servicio de auto LAX a Orange County, servicio de auto LAX a Disneyland, servicio de auto LA a San Diego, LAX a Santa Bárbara, servicio de auto a Palm Springs"],
+      ["Popular Routes & Fixed Fares | RideYeah", "Rutas Populares y Tarifas Fijas | RideYeah"],
+      ["Fixed-price luxury car service on Southern California's most popular routes — LAX, Disneyland, San Diego, Santa Barbara, Palm Springs.",
+       "Servicio de auto de lujo a precio fijo en las rutas más populares del sur de California — LAX, Disneyland, San Diego, Santa Bárbara, Palm Springs."],
+      /* JSON-LD */
+      ['"serviceType": "Point-to-point car service"', '"serviceType": "Servicio de auto punto a punto"'],
+      ['"name": "Popular Routes — Fixed Fares"', '"name": "Rutas Populares — Tarifas Fijas"'],
+      ["Fixed-price luxury car service on popular Southern California routes including LAX to Orange County, LAX to Disneyland, LA to San Diego, Santa Barbara and Palm Springs.",
+       "Servicio de auto de lujo a precio fijo en rutas populares del sur de California, incluyendo LAX a Orange County, LAX a Disneyland, LA a San Diego, Santa Bárbara y Palm Springs."],
+      /* breadcrumb + eyebrow */
+      [" · Popular routes</div>", " · Rutas populares</div>"],
+      [">Fixed fares · Southern California</span>", ">Tarifas fijas · Sur de California</span>"],
+      /* hero */
+      ['Popular routes,<br><span class="em">fixed fares.</span>',
+       'Rutas populares,<br><span class="em">tarifas fijas.</span>'],
+      ["The rides we run most — LAX to Orange County, LAX to Disneyland, LA to San Diego and beyond. One transparent price, quoted before you book.",
+       "Los viajes que más hacemos — LAX a Orange County, LAX a Disneyland, LA a San Diego y más allá. Un precio transparente, cotizado antes de reservar."],
+      /* route cards */
+      ["~30 min · Suburban. Door-to-door to Beverly Hills hotels, residences and Rodeo Drive.",
+       "~30 min · Suburban. Puerta a puerta a hoteles, residencias y Rodeo Drive en Beverly Hills."],
+      ["~50 min · Suburban. To Newport Beach, Fashion Island, Balboa and the Orange County coast.",
+       "~50 min · Suburban. A Newport Beach, Fashion Island, Balboa y la costa de Orange County."],
+      ["~40 min · Suburban. Convention Center, hotels, Honda Center and the Disneyland Resort.",
+       "~40 min · Suburban. Convention Center, hoteles, Honda Center y el Disneyland Resort."],
+      ["~40 min · Suburban. Spacious for families and luggage; child seats on request.",
+       "~40 min · Suburban. Espaciosa para familias y equipaje; sillas para niños a pedido."],
+      ["~25 min · Suburban. To Santa Monica, Venice and the Westside beaches, door to door.",
+       "~25 min · Suburban. A Santa Mónica, Venice y las playas del Westside, puerta a puerta."],
+      ["~50 min · Suburban. A scenic coast run up to Malibu along the Pacific.",
+       "~50 min · Suburban. Un recorrido escénico por la costa del Pacífico hasta Malibú."],
+      ["~35 min · Suburban. To Pasadena, Old Town and the San Gabriel Valley.",
+       "~35 min · Suburban. A Pasadena, Old Town y el Valle de San Gabriel."],
+      ["~45 min · Suburban. Business travel to Irvine, the Spectrum and South Orange County.",
+       "~45 min · Suburban. Viajes de negocios a Irvine, el Spectrum y el sur de Orange County."],
+      [">View route →</a>", ">Ver ruta →</a>"],
+      ['Indicative fares for illustration. Your exact, all-in price is shown at booking. Don\'t see your route? <a href="index.html#book" style="color:var(--gold)">Get a quote</a>.',
+       'Tarifas indicativas a modo de ejemplo. Tu precio exacto y total se muestra al reservar. ¿No ves tu ruta? <a href="index.html#book" style="color:var(--gold)">Pide una cotización</a>.'],
+      /* CTA */
+      [">Anywhere in Southern California</span>", ">En cualquier lugar del sur de California</span>"],
+      ["Get your fixed fare.", "Obtén tu tarifa fija."],
+      ["Enter your pickup and destination for an instant, all-in price — no surge, no surprises.",
+       "Ingresa tu lugar de recogida y destino para un precio total al instante — sin recargos, sin sorpresas."],
+      [">See prices &amp; book <svg", ">Ver precios y reservar <svg"],
+    ],
+  },
 ];
 
 mkdirSync("es", { recursive: true });
@@ -287,7 +538,11 @@ for (const page of PAGES) {
   rep('href="airport-transfers.html"', 'href="/es/traslados-aeropuerto-lax.html"');
   rep('href="black-car-service.html"', 'href="/es/servicio-black-car.html"');
   rep('href="fleet.html"', 'href="/es/flota.html"');
-  /* remaining EN .html links (about, careers, hourly, popular-routes) -> root-absolute */
+  rep('href="about.html"', 'href="/es/nosotros.html"');
+  rep('href="careers.html"', 'href="/es/empleo.html"');
+  rep('href="hourly-chauffeur.html"', 'href="/es/chofer-por-horas.html"');
+  rep('href="popular-routes.html"', 'href="/es/rutas-populares.html"');
+  /* remaining EN .html links (e.g. route landing pages) -> root-absolute */
   h = h.replace(/href="([a-z0-9-]+\.html)"/g, 'href="/$1"');
 
   /* 5 · asset paths -> root-absolute (so they resolve from /es/) */
