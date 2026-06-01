@@ -22,9 +22,23 @@ const DIST = "dist";
 
 rmSync(DIST, { recursive: true, force: true });
 mkdirSync(join(DIST, "images"), { recursive: true });
+mkdirSync(join(DIST, "assets"), { recursive: true });
 
 // Homepage → index.html
 copyFileSync("rideyeah-home.html", join(DIST, "index.html"));
+
+// Standalone pages (copied as-is)
+for (const page of ["about.html", "fleet.html", "careers.html"]) {
+  if (existsSync(page)) copyFileSync(page, join(DIST, page));
+}
+
+// Shared assets (CSS/JS for subpages)
+if (existsSync("assets")) {
+  for (const file of readdirSync("assets")) {
+    const src = join("assets", file);
+    if (!statSync(src).isDirectory()) copyFileSync(src, join(DIST, "assets", file));
+  }
+}
 
 // Root static assets (copy when present)
 for (const file of ["404.html", "favicon.svg", "apple-touch-icon.png", "robots.txt", "sitemap.xml"]) {
