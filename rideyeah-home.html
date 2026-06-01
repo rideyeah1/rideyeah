@@ -55,6 +55,10 @@
   "priceRange": "$$$",
   "areaServed": [
     { "@type": "City", "name": "Los Angeles" },
+    { "@type": "City", "name": "Beverly Hills" },
+    { "@type": "City", "name": "Santa Monica" },
+    { "@type": "City", "name": "Newport Beach" },
+    { "@type": "City", "name": "Anaheim" },
     { "@type": "AdministrativeArea", "name": "Orange County" }
   ],
   "address": { "@type": "PostalAddress", "addressLocality": "Los Angeles", "addressRegion": "CA", "addressCountry": "US" },
@@ -156,8 +160,39 @@ header.nav.scrolled{background:rgba(10,10,11,.78);backdrop-filter:blur(14px);-we
 .hero h1 .l:nth-child(1){animation-delay:.35s}
 .hero h1 .l:nth-child(2){animation-delay:.5s}
 .hero p.sub{font-size:18px;color:var(--mute);max-width:460px;margin-bottom:38px;opacity:0;animation:rise 1s .7s forwards}
+.hero p.sub{margin-bottom:18px}
+.hero-locations{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:32px;opacity:0;animation:rise 1s .78s forwards}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:rise 1s .85s forwards}
+.hero-trust{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--mute);max-width:430px;margin-top:24px;opacity:0;animation:rise 1s 1.05s forwards}
+.hero-trust svg{color:var(--gold);flex-shrink:0}
 @keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* ---------- SUBURBAN SHOWCASE (fleet) ---------- */
+.suburban{display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:center}
+.suburban-media{position:relative;border-radius:8px;overflow:hidden;min-height:430px;border:1px solid var(--line)}
+.suburban-photo{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.2s var(--ease),opacity 1.1s var(--ease)}
+.suburban-media:hover .suburban-photo{transform:scale(1.04)}
+.suburban-media::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,11,.55));pointer-events:none}
+.suburban-badge{position:absolute;left:18px;bottom:18px;z-index:2;background:rgba(10,10,11,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line);color:var(--bone);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px;border-radius:3px}
+.suburban-copy h3{font-size:clamp(26px,3.4vw,38px);font-weight:400;line-height:1.1;letter-spacing:-.01em;margin-bottom:18px}
+.suburban-copy p{font-size:16px;color:var(--mute);max-width:480px;margin-bottom:26px}
+.amen{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:13px 22px;margin-bottom:30px}
+.amen li{display:flex;align-items:center;gap:11px;font-size:14px;color:var(--bone)}
+.amen li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.suburban-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px;padding-top:42px;border-top:1px solid var(--line)}
+.suburban-stats>div{text-align:center}
+.suburban-stats .n{display:block;font-family:var(--serif);font-weight:300;font-size:clamp(30px,4vw,46px);color:var(--gold);line-height:1}
+.suburban-stats .l{display:block;font-size:13px;color:var(--mute);margin-top:9px}
+
+/* ---------- CONVERSION: floating call + sticky CTA ---------- */
+.call-fab{position:fixed;right:22px;bottom:22px;z-index:90;width:56px;height:56px;border-radius:50%;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px -8px rgba(201,168,106,.55);transition:transform .25s var(--ease),background .25s}
+.call-fab:hover{transform:translateY(-3px) scale(1.05);background:var(--gold-soft)}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:95;display:none;gap:10px;padding:12px 16px;padding-bottom:calc(12px + env(safe-area-inset-bottom));background:rgba(10,10,11,.93);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);transform:translateY(120%);transition:transform .4s var(--ease)}
+.sticky-cta.show{transform:none}
+.sticky-cta a,.sticky-cta button{font-family:var(--sans);font-weight:600;font-size:14px;letter-spacing:.04em;border-radius:3px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px}
+.sc-call{flex:0 0 auto;padding:14px 18px;border:1px solid var(--line);color:var(--bone);background:none}
+.sc-book{flex:1;padding:14px;background:var(--gold);color:var(--ink);border:none}
+@media(max-width:880px){.call-fab{display:none}.sticky-cta{display:flex}}
 
 /* booking card */
 .booking{background:rgba(247,246,243,.04);border:1px solid var(--line);border-radius:6px;padding:10px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;animation:rise 1s 1s forwards}
@@ -198,7 +233,7 @@ section{position:relative}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
   .reveal{opacity:1!important;transform:none!important;transition:none}
-  .hero-photo,.hero h1 .l,.hero-eyebrow,.hero p.sub,.hero-cta,.booking,.scroll-hint,.bokeh{animation:none!important;opacity:1!important;transform:none!important}
+  .hero-photo,.hero h1 .l,.hero-eyebrow,.hero p.sub,.hero-locations,.hero-cta,.hero-trust,.booking,.scroll-hint,.bokeh{animation:none!important;opacity:1!important;transform:none!important}
 }
 
 /* lazy background fade-in */
@@ -332,6 +367,8 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
   .trust-grid{grid-template-columns:1fr 1fr}
   .trust-item:nth-child(3){border-left:none}
   .svc-grid,.fleet-grid,.routes-grid{grid-template-columns:1fr}
+  .suburban{grid-template-columns:1fr;gap:30px}
+  .suburban-media{min-height:300px}
   .exp-grid{grid-template-columns:1fr;gap:0}
   .exp-media{min-height:360px;margin-bottom:40px}
   .exp-copy{padding:0}
@@ -351,7 +388,8 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
   .trust-item{border-left:none;border-top:1px solid var(--line)}
   .trust-item:first-child{border-top:none}
   .svc{padding:30px 26px}
-  .amenities{grid-template-columns:1fr}
+  .amenities,.amen{grid-template-columns:1fr}
+  .suburban-stats{grid-template-columns:1fr;gap:26px}
   .foot-grid{grid-template-columns:1fr 1fr}
   .foot-brand{grid-column:1/-1}
   .foot-bottom{flex-direction:column;align-items:flex-start;gap:14px}
@@ -418,11 +456,13 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
       <div class="hero-copy">
         <div class="hero-eyebrow"><span class="ln"></span><span class="eyebrow">Los Angeles · Orange County</span></div>
         <h1><span class="l">Arrive <span class="em">relaxed.</span></span><span class="l">Always on time.</span></h1>
-        <p class="sub">Luxury airport transfers and private chauffeur service across LAX and Orange County — with fixed, transparent pricing.</p>
+        <p class="sub">Luxury airport transfers and private chauffeur service across Los Angeles and Orange County — with fixed, transparent pricing.</p>
+        <p class="hero-locations">LAX • SNA • Beverly Hills • Anaheim • Newport Beach • Private Airports</p>
         <div class="hero-cta">
-          <button type="button" class="btn btn-gold" onclick="goMoovs()">Reserve your ride <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+          <button type="button" class="btn btn-gold" onclick="goMoovs()">Reserve Your Chauffeur <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
           <a href="#fleet" class="btn btn-ghost">Explore the fleet</a>
         </div>
+        <p class="hero-trust"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 11l2 2 4-4"></path></svg> Trusted by executives, families &amp; VIP travelers across Southern California.</p>
       </div>
 
       <!-- BOOKING -->
@@ -438,7 +478,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
           <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><input id="fld-date" name="date" aria-label="Date" placeholder="Date" onfocus="(this.type='date')" onblur="(!this.value&&(this.type='text'))"></div>
           <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><input id="fld-time" name="time" aria-label="Time" placeholder="Time" onfocus="(this.type='time')" onblur="(!this.value&&(this.type='text'))"></div>
         </div>
-        <button type="submit" class="btn btn-gold bk-submit">See prices &amp; book <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+        <button type="submit" class="btn btn-gold bk-submit">Get Your Fixed Quote <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
         <div class="bk-note"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Secure booking <b>powered by Moovs</b> · Fixed price, no surge</div>
       </form>
     </div>
@@ -449,10 +489,10 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
 <!-- ================= TRUST ================= -->
 <section class="trust">
   <div class="wrap"><div class="trust-grid">
-    <div class="trust-item"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline><path d="M16 18l2 2 4-4"></path></svg><div><div class="tt">On-time guarantee</div><div class="ts">Or your wait is on us</div></div></div>
-    <div class="trust-item"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V14.5L13 9.5V3.5C13 2.67 12.33 2 11.5 2C10.67 2 10 2.67 10 3.5V9.5L2 14.5V16L10 13.5V19L7.5 21V22L11.5 21L15.5 22V21L13 19V13.5L21 16Z"></path></svg><div><div class="tt">Flight tracking</div><div class="ts">We adjust to delays</div></div></div>
-    <div class="trust-item"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 11l2 2 4-4"></path></svg><div><div class="tt">Vetted chauffeurs</div><div class="ts">Licensed &amp; insured</div></div></div>
-    <div class="trust-item"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1z"></path><path d="M14 8H8M16 12H8M13 16H8"></path></svg><div><div class="tt">Fixed pricing</div><div class="ts">Quoted upfront</div></div></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 11l2 2 4-4"></path></svg><div><div class="tt">Licensed &amp; Insured</div><div class="ts">Fully covered fleet</div></div></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><div><div class="tt">Professional Chauffeurs</div><div class="ts">Trained &amp; vetted</div></div></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V14.5L13 9.5V3.5C13 2.67 12.33 2 11.5 2C10.67 2 10 2.67 10 3.5V9.5L2 14.5V16L10 13.5V19L7.5 21V22L11.5 21L15.5 22V21L13 19V13.5L21 16Z"></path></svg><div><div class="tt">Flight Monitoring</div><div class="ts">Included on airport rides</div></div></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><div><div class="tt">24/7 Availability</div><div class="ts">Day or night, on time</div></div></div>
   </div></div>
 </section>
 
@@ -511,25 +551,33 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
 <section class="fleet sec-pad" id="fleet">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">The fleet</span>
-      <h2>Travel in quiet comfort.</h2>
+      <span class="eyebrow">Our fleet</span>
+      <h2>One vehicle.<br>One standard.</h2>
     </div>
-    <div class="fleet-grid">
-      <div class="car reveal" data-book="airport">
-        <div class="car-img lazy-bg" data-webp="images/fleet_sedan.webp" data-jpg="images/fleet_sedan.jpg" style="background-position:center bottom"></div>
-        <div class="car-body"><h3>Business Class</h3><div class="cap">Sedan · up to 3</div>
-          <ul><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>3 passengers</li><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>2 large bags</li><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line><line x1="4.93" y1="19.07" x2="19.07" y2="4.93"></line></svg>Climate &amp; water</li></ul></div>
+    <div class="suburban">
+      <div class="suburban-media reveal">
+        <!-- PLACEHOLDER image — swap with a dedicated black Chevrolet Suburban 2026 studio shot -->
+        <div class="suburban-photo lazy-bg" data-webp="images/hero_suburban.webp" data-jpg="images/hero_suburban.jpg"></div>
+        <span class="suburban-badge">Chevrolet Suburban 2026</span>
       </div>
-      <div class="car reveal" data-book="airport">
-        <div class="car-img lazy-bg" data-webp="images/fleet_suv.webp" data-jpg="images/fleet_suv.jpg"></div>
-        <div class="car-body"><h3>Luxury SUV</h3><div class="cap">SUV · up to 5</div>
-          <ul><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>5 passengers</li><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>5 large bags</li><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3M3 16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2M5 11h14M3 11v8M21 11v8"></path></svg>Premium leather</li></ul></div>
+      <div class="suburban-copy reveal">
+        <h3 class="serif">The Chevrolet Suburban — every ride.</h3>
+        <p>Our entire fleet is a single, deliberate choice: the full-size Chevrolet Suburban. One vehicle, one standard — so every journey feels exactly as composed as the last, whether it's an airport arrival, a board meeting or a family pickup.</p>
+        <ul class="amen">
+          <li>Up to 6 passengers</li>
+          <li>6+ large bags</li>
+          <li>Hand-finished leather</li>
+          <li>Onboard Wi-Fi</li>
+          <li>Climate &amp; chilled water</li>
+          <li>Meet &amp; greet included</li>
+        </ul>
+        <a href="fleet.html" class="btn btn-ghost">Inside the Suburban experience <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
       </div>
-      <div class="car reveal" data-book="airport">
-        <div class="car-img lazy-bg" data-webp="images/fleet_van.webp" data-jpg="images/fleet_van.jpg"></div>
-        <div class="car-body"><h3>Executive Van</h3><div class="cap">Van · up to 7</div>
-          <ul><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>7 passengers</li><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>7 large bags</li><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>Onboard Wi-Fi</li></ul></div>
-      </div>
+    </div>
+    <div class="suburban-stats reveal">
+      <div><span class="n">20+</span><span class="l">Suburbans in service</span></div>
+      <div><span class="n">100%</span><span class="l">Licensed, vetted chauffeurs</span></div>
+      <div><span class="n">LA · OC</span><span class="l">Across Southern California</span></div>
     </div>
   </div>
 </section>
@@ -538,16 +586,16 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
 <section class="sec-pad" id="routes">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Popular routes</span>
+      <span class="eyebrow">Popular luxury routes</span>
       <h2>Fixed fares you<br>can count on.</h2>
     </div>
     <div class="routes-grid">
-      <div class="route reveal" data-book="airport"><div><div class="rt">LAX → Orange County</div><div class="rp">~45 min · sedan</div></div><div class="ra">$129</div></div>
-      <div class="route reveal" data-book="airport"><div><div class="rt">LAX → Downtown LA</div><div class="rp">~30 min · sedan</div></div><div class="ra">$95</div></div>
-      <div class="route reveal" data-book="city"><div><div class="rt">LAX → Santa Barbara</div><div class="rp">~2 hr · SUV</div></div><div class="ra">$340</div></div>
-      <div class="route reveal" data-book="airport"><div><div class="rt">SNA → Disneyland</div><div class="rp">~25 min · sedan</div></div><div class="ra">$89</div></div>
-      <div class="route reveal" data-book="city"><div><div class="rt">LA → San Diego</div><div class="rp">~2.5 hr · SUV</div></div><div class="ra">$390</div></div>
-      <div class="route reveal" data-book="city"><div><div class="rt">LA → Palm Springs</div><div class="rp">~2 hr · SUV</div></div><div class="ra">$360</div></div>
+      <a class="route reveal" href="lax-to-beverly-hills.html"><div><div class="rt">LAX → Beverly Hills</div><div class="rp">~30 min · Suburban</div></div><div class="ra">$95</div></a>
+      <a class="route reveal" href="lax-to-newport-beach.html"><div><div class="rt">LAX → Newport Beach</div><div class="rp">~50 min · Suburban</div></div><div class="ra">$135</div></a>
+      <a class="route reveal" href="lax-to-anaheim.html"><div><div class="rt">LAX → Anaheim</div><div class="rp">~40 min · Suburban</div></div><div class="ra">$119</div></a>
+      <a class="route reveal" href="lax-to-disneyland.html"><div><div class="rt">LAX → Disneyland</div><div class="rp">~40 min · Suburban</div></div><div class="ra">$125</div></a>
+      <a class="route reveal" href="popular-routes.html"><div><div class="rt">LAX → Santa Monica</div><div class="rp">~25 min · Suburban</div></div><div class="ra">$89</div></a>
+      <a class="route reveal" href="popular-routes.html"><div><div class="rt">LAX → Malibu</div><div class="rp">~50 min · Suburban</div></div><div class="ra">$150</div></a>
     </div>
     <p style="font-size:12px;color:var(--mute-2);margin-top:22px">Indicative fares for illustration. Final quote shown at booking via Moovs.</p>
   </div>
@@ -599,7 +647,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
       <details class="faq reveal"><summary>What happens if my flight is delayed?<span class="ico" aria-hidden="true"></span></summary><div class="ans">We track your flight in real time and adjust the pickup automatically. For delays, your chauffeur will be there when you land — at no extra charge. Complimentary wait time is included on airport pickups.</div></details>
       <details class="faq reveal"><summary>Which airports and areas do you serve?<span class="ico" aria-hidden="true"></span></summary><div class="ans">We cover LAX, John Wayne (SNA) and private terminals, plus door-to-door service across Los Angeles and Orange County. We also handle long-distance rides to San Diego, Santa Barbara and Palm Springs.</div></details>
       <details class="faq reveal"><summary>How do I pay, and is it secure?<span class="ico" aria-hidden="true"></span></summary><div class="ans">Booking and payment are handled securely through our booking partner, Moovs. All major credit and debit cards are accepted, and your price is locked in at the time of booking.</div></details>
-      <details class="faq reveal"><summary>Can I request a child seat or extra luggage space?<span class="ico" aria-hidden="true"></span></summary><div class="ans">Yes. Add a note when you book, or contact us, and we'll arrange child seats and recommend the right vehicle class for your luggage — from the Business Class sedan to the 7-seat Executive Van.</div></details>
+      <details class="faq reveal"><summary>Can I request a child seat or extra luggage space?<span class="ico" aria-hidden="true"></span></summary><div class="ans">Yes. Add a note when you book, or contact us, and we'll arrange child seats — our spacious Chevrolet Suburban seats up to 6 guests with room for luggage.</div></details>
       <details class="faq reveal"><summary>What is your cancellation policy?<span class="ico" aria-hidden="true"></span></summary><div class="ans">Plans change — we get it. Cancellations made well in advance are free. For specific timing on your reservation, see your booking confirmation or reach us at info@rideyeah.com.</div></details>
     </div>
   </div>
@@ -613,7 +661,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
     { "@type": "Question", "name": "What happens if my flight is delayed?", "acceptedAnswer": { "@type": "Answer", "text": "We track your flight in real time and adjust the pickup automatically. For delays, your chauffeur will be there when you land at no extra charge. Complimentary wait time is included on airport pickups." } },
     { "@type": "Question", "name": "Which airports and areas do you serve?", "acceptedAnswer": { "@type": "Answer", "text": "We cover LAX, John Wayne (SNA) and private terminals, plus door-to-door service across Los Angeles and Orange County, and long-distance rides to San Diego, Santa Barbara and Palm Springs." } },
     { "@type": "Question", "name": "How do I pay, and is it secure?", "acceptedAnswer": { "@type": "Answer", "text": "Booking and payment are handled securely through our booking partner, Moovs. All major credit and debit cards are accepted, and your price is locked in at the time of booking." } },
-    { "@type": "Question", "name": "Can I request a child seat or extra luggage space?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Add a note when you book, or contact us, and we'll arrange child seats and recommend the right vehicle class for your luggage, from the Business Class sedan to the 7-seat Executive Van." } },
+    { "@type": "Question", "name": "Can I request a child seat or extra luggage space?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Add a note when you book, or contact us, and we'll arrange child seats. Our spacious Chevrolet Suburban seats up to 6 guests with room for luggage." } },
     { "@type": "Question", "name": "What is your cancellation policy?", "acceptedAnswer": { "@type": "Answer", "text": "Cancellations made well in advance are free. For specific timing on your reservation, see your booking confirmation or reach us at info@rideyeah.com." } }
   ]
 }
@@ -749,7 +797,21 @@ if (!reduced){
   }
 }
 
-/* ============ Year ============ */
+/* ============ Conversion: floating call + sticky CTA ============ */
+(function(){
+  const PHONE='+18052851570';
+  const phoneSvg='<svg viewBox="0 0 24 24" width="WW" height="WW" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>';
+  const fab=document.createElement('a');
+  fab.className='call-fab'; fab.href='tel:'+PHONE; fab.setAttribute('aria-label','Call RideYeah');
+  fab.innerHTML=phoneSvg.replace(/WW/g,'22');
+  document.body.appendChild(fab);
+  const bar=document.createElement('div'); bar.className='sticky-cta'; bar.id='stickyCta';
+  bar.innerHTML='<a class="sc-call" href="tel:'+PHONE+'" aria-label="Call RideYeah">'+phoneSvg.replace(/WW/g,'16')+' Call</a><button type="button" class="sc-book">Get Your Fixed Quote</button>';
+  document.body.appendChild(bar);
+  bar.querySelector('.sc-book').addEventListener('click',()=>goMoovs());
+  const onScrollCta=()=>bar.classList.toggle('show', scrollY>600);
+  addEventListener('scroll',onScrollCta,{passive:true}); onScrollCta();
+})();
 </script>
 
 </body>

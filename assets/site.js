@@ -63,3 +63,49 @@
     });
   }
 })();
+
+/* ===== Booking (Moovs) + conversion UI for subpages ===== */
+(function () {
+  var MOOVS_SLUG = "rideyeah"; // ← replace with the real Moovs slug when ready
+  if (!window.goMoovs) {
+    window.goMoovs = function (presetTab) {
+      var params = new URLSearchParams();
+      if (presetTab) params.set("type", presetTab);
+      var qs = params.toString();
+      window.open(
+        "https://customer.moovs.app/" + encodeURIComponent(MOOVS_SLUG) + (qs ? "?" + qs : ""),
+        "_blank",
+        "noopener"
+      );
+    };
+  }
+
+  var PHONE = "+18052851570";
+  var phoneSvg =
+    '<svg viewBox="0 0 24 24" width="WW" height="WW" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>';
+
+  var fab = document.createElement("a");
+  fab.className = "call-fab";
+  fab.href = "tel:" + PHONE;
+  fab.setAttribute("aria-label", "Call RideYeah");
+  fab.innerHTML = phoneSvg.replace(/WW/g, "22");
+  document.body.appendChild(fab);
+
+  var bar = document.createElement("div");
+  bar.className = "sticky-cta";
+  bar.id = "stickyCta";
+  bar.innerHTML =
+    '<a class="sc-call" href="tel:' + PHONE + '" aria-label="Call RideYeah">' +
+    phoneSvg.replace(/WW/g, "16") +
+    " Call</a><button type=\"button\" class=\"sc-book\">Get Your Fixed Quote</button>";
+  document.body.appendChild(bar);
+  bar.querySelector(".sc-book").addEventListener("click", function () {
+    if (window.goMoovs) window.goMoovs();
+  });
+
+  var onScroll = function () {
+    bar.classList.toggle("show", window.scrollY > 500);
+  };
+  addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();

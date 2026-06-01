@@ -36,6 +36,10 @@ for (const page of [
   "black-car-service.html",
   "hourly-chauffeur.html",
   "popular-routes.html",
+  "lax-to-beverly-hills.html",
+  "lax-to-disneyland.html",
+  "lax-to-newport-beach.html",
+  "lax-to-anaheim.html",
 ]) {
   if (existsSync(page)) copyFileSync(page, join(DIST, page));
 }
