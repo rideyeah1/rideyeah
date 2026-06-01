@@ -28,7 +28,15 @@ mkdirSync(join(DIST, "assets"), { recursive: true });
 copyFileSync("rideyeah-home.html", join(DIST, "index.html"));
 
 // Standalone pages (copied as-is)
-for (const page of ["about.html", "fleet.html", "careers.html"]) {
+for (const page of [
+  "about.html",
+  "fleet.html",
+  "careers.html",
+  "airport-transfers.html",
+  "black-car-service.html",
+  "hourly-chauffeur.html",
+  "popular-routes.html",
+]) {
   if (existsSync(page)) copyFileSync(page, join(DIST, page));
 }
 
