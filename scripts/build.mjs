@@ -44,6 +44,17 @@ for (const page of [
   if (existsSync(page)) copyFileSync(page, join(DIST, page));
 }
 
+// Spanish pages (es/)
+if (existsSync("es")) {
+  mkdirSync(join(DIST, "es"), { recursive: true });
+  for (const file of readdirSync("es")) {
+    const src = join("es", file);
+    if (!statSync(src).isDirectory() && file.endsWith(".html")) {
+      copyFileSync(src, join(DIST, "es", file));
+    }
+  }
+}
+
 // Shared assets (CSS/JS for subpages)
 if (existsSync("assets")) {
   for (const file of readdirSync("assets")) {
