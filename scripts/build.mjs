@@ -27,7 +27,7 @@ mkdirSync(join(DIST, "images"), { recursive: true });
 copyFileSync("rideyeah-home.html", join(DIST, "index.html"));
 
 // Root static assets (copy when present)
-for (const file of ["favicon.svg", "apple-touch-icon.png", "robots.txt", "sitemap.xml"]) {
+for (const file of ["404.html", "favicon.svg", "apple-touch-icon.png", "robots.txt", "sitemap.xml"]) {
   if (existsSync(file)) copyFileSync(file, join(DIST, file));
 }
 
