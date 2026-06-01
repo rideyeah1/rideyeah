@@ -1,0 +1,18 @@
+{
+  "name": "rideyeah-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RideYeah — Luxury ground transportation, Los Angeles & Orange County. Static marketing site.",
+  "type": "module",
+  "scripts": {
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "format": "prettier --write \"**/*.{html,css,js,mjs,json}\"",
+    "format:check": "prettier --check \"**/*.{html,css,js,mjs,json}\"",
+    "dev": "npx wrangler pages dev .",
+    "deploy": "npx wrangler pages deploy . --project-name=rideyeah"
+  },
+  "devDependencies": {
+    "prettier": "^3.4.2",
+    "sharp": "^0.34.2"
+  }
+}

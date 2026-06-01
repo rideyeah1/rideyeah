@@ -1,0 +1,5 @@
+node_modules/
+images/
+dist/
+.wrangler/
+package-lock.json
