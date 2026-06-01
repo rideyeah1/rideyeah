@@ -41,3 +41,6 @@ $RECYCLE.BIN/
 .agents/
 .claude/
 skills-lock.json
+
+# Lighthouse reports
+lh*.json
