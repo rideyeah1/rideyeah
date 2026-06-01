@@ -6,10 +6,11 @@
   "type": "module",
   "scripts": {
     "optimize:images": "node scripts/optimize-images.mjs",
+    "build": "node scripts/build.mjs",
     "format": "prettier --write \"**/*.{html,css,js,mjs,json}\"",
     "format:check": "prettier --check \"**/*.{html,css,js,mjs,json}\"",
-    "dev": "npx wrangler pages dev .",
-    "deploy": "npx wrangler pages deploy . --project-name=rideyeah"
+    "dev": "npm run build && npx wrangler pages dev dist",
+    "deploy": "npm run build && npx wrangler pages deploy dist --project-name=rideyeah"
   },
   "devDependencies": {
     "prettier": "^3.4.2",

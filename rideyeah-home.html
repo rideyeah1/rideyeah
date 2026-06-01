@@ -2,67 +2,146 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>RideYeah · Luxury Ground Transportation — LAX & Orange County</title>
 <meta name="description" content="Luxury airport transfers and private chauffeur service across Los Angeles and Orange County. Fixed transparent pricing. Arrive relaxed, always on time.">
+<meta name="theme-color" content="#0A0A0B">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="RideYeah">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://rideyeah.com/">
+
+<!-- ===== Open Graph / social ===== -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RideYeah">
+<meta property="og:title" content="RideYeah · Luxury Ground Transportation — LAX & Orange County">
+<meta property="og:description" content="Luxury airport transfers and private chauffeur service across Los Angeles & Orange County. Fixed, transparent pricing. Arrive relaxed, always on time.">
+<meta property="og:url" content="https://rideyeah.com/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://rideyeah.com/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RideYeah — luxury black SUV at dusk in Los Angeles">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RideYeah · Luxury Ground Transportation">
+<meta name="twitter:description" content="Luxury airport transfers & private chauffeur service across LA and Orange County. Fixed pricing. Always on time.">
+<meta name="twitter:image" content="https://rideyeah.com/images/og-image.jpg">
+
+<!-- ===== Icons ===== -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- ===== Fonts ===== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/3.7.0/tabler-icons.min.css">
+
+<!-- ===== Performance: preload LCP hero ===== -->
+<link rel="preload" as="image" href="images/hero_suburban.webp" type="image/webp" fetchpriority="high">
+
+<!-- ===== Structured data (SEO) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LimousineService",
+  "name": "RideYeah",
+  "description": "Luxury airport transfers and private chauffeur service across Los Angeles and Orange County.",
+  "url": "https://rideyeah.com/",
+  "image": "https://rideyeah.com/images/og-image.jpg",
+  "email": "hello@rideyeah.com",
+  "priceRange": "$$$",
+  "areaServed": [
+    { "@type": "City", "name": "Los Angeles" },
+    { "@type": "AdministrativeArea", "name": "Orange County" }
+  ],
+  "address": { "@type": "PostalAddress", "addressLocality": "Los Angeles", "addressRegion": "CA", "addressCountry": "US" },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "00:00", "closes": "23:59"
+  }
+}
+</script>
+
 <style>
 :root{
   --ink:#0A0A0B; --ink-2:#121214; --ink-3:#1A1A1D;
   --bone:#F7F6F3; --mute:#A9A7A0; --mute-2:#6E6E70;
   --gold:#C9A86A; --gold-soft:#D9C193; --line:rgba(247,246,243,.10);
   --serif:'Fraunces',Georgia,serif; --sans:'Manrope',system-ui,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --wrap:1200px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--bone);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--ink);color:var(--bone);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 ::selection{background:var(--gold);color:var(--ink)}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
-.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
 .serif{font-family:var(--serif)}
 .eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:500}
 
+/* skip link (a11y) */
+.skip{position:absolute;left:-999px;top:8px;z-index:200;background:var(--gold);color:var(--ink);padding:10px 18px;border-radius:3px;font-size:13px;font-weight:600}
+.skip:focus{left:14px}
+
 /* ---------- NAV ---------- */
 header.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
-header.nav.scrolled{background:rgba(10,10,11,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header.nav.scrolled{background:rgba(10,10,11,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:78px}
 .brand{display:flex;align-items:center;gap:11px;font-size:17px;letter-spacing:.34em;font-weight:500}
 .brand svg.brand-logo{width:34px;height:34px}
 .nav-links{display:flex;align-items:center;gap:34px;font-size:13px;letter-spacing:.05em;color:var(--mute)}
 .nav-links a{transition:color .25s;position:relative}
 .nav-links a:not(.btn):hover{color:var(--bone)}
-.nav-links a:not(.btn)::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:width .3s}
+.nav-links a:not(.btn)::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:width .3s var(--ease)}
 .nav-links a:not(.btn):hover::after{width:100%}
-.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:13px;letter-spacing:.08em;font-weight:600;cursor:pointer;border:none;transition:transform .25s,background .25s,color .25s}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:13px;letter-spacing:.08em;font-weight:600;cursor:pointer;border:none;position:relative;overflow:hidden;transition:transform .3s var(--ease),background .25s,color .25s,box-shadow .35s}
+.btn>*{position:relative;z-index:1}
+/* premium sheen sweep on gold buttons */
 .btn-gold{background:var(--gold);color:var(--ink);padding:13px 26px;border-radius:2px}
-.btn-gold:hover{background:var(--gold-soft);transform:translateY(-2px)}
+.btn-gold::before{content:'';position:absolute;inset:0;z-index:0;background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.55) 50%,transparent 80%);transform:translateX(-120%);transition:transform .7s var(--ease)}
+.btn-gold:hover{background:var(--gold-soft);transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(201,168,106,.55)}
+.btn-gold:hover::before{transform:translateX(120%)}
+.btn-gold:active{transform:translateY(0)}
 .btn-ghost{border:1px solid var(--line);color:var(--bone);padding:12px 24px;border-radius:2px}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
-.nav-toggle{display:none;font-size:26px;background:none;border:none;color:var(--bone);cursor:pointer}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.nav-toggle{display:none;background:none;border:none;color:var(--bone);cursor:pointer;width:44px;height:44px;align-items:center;justify-content:center}
+
+/* mobile drawer */
+.mobile-menu{position:fixed;inset:0;z-index:99;background:rgba(8,8,9,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .4s var(--ease),transform .4s var(--ease),visibility .4s}
+.mobile-menu.open{opacity:1;visibility:visible;transform:none}
+.mobile-menu a{font-family:var(--serif);font-size:30px;color:var(--bone);padding:12px 0;opacity:0;transform:translateY(14px);transition:color .25s}
+.mobile-menu.open a{opacity:1;transform:none;transition:opacity .5s var(--ease),transform .5s var(--ease),color .25s}
+.mobile-menu.open a:nth-child(1){transition-delay:.08s}
+.mobile-menu.open a:nth-child(2){transition-delay:.14s}
+.mobile-menu.open a:nth-child(3){transition-delay:.2s}
+.mobile-menu.open a:nth-child(4){transition-delay:.26s}
+.mobile-menu.open a:nth-child(5){transition-delay:.34s}
+.mobile-menu a:hover{color:var(--gold)}
+.mobile-menu .btn-gold{font-family:var(--sans);font-size:14px;margin-top:14px;padding:15px 34px}
+.mm-close{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--bone);cursor:pointer;width:44px;height:44px}
 
 /* ---------- HERO ---------- */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding-top:78px}
 .hero-bg{position:absolute;inset:0;z-index:0}
-.hero-photo{position:absolute;inset:0;background-image:url("images/hero_suburban.png");background-size:cover;background-position:center;filter:brightness(.5) contrast(1.05) saturate(.9)}
+.hero-photo{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.5) contrast(1.05) saturate(.9);transform:scale(1.06);animation:heroZoom 14s var(--ease) forwards;
+  background-image:url("images/hero_suburban.jpg");
+  background-image:image-set(url("images/hero_suburban.webp") type("image/webp"),url("images/hero_suburban.jpg") type("image/jpeg"))}
+@keyframes heroZoom{to{transform:scale(1)}}
 .hero-tint{position:absolute;inset:0;background:
   linear-gradient(90deg,rgba(10,10,11,.94) 0%,rgba(10,10,11,.72) 38%,rgba(10,10,11,.45) 70%,rgba(10,10,11,.6) 100%),
   linear-gradient(180deg,rgba(10,10,11,.55) 0%,transparent 30%,transparent 60%,rgba(10,10,11,.85) 100%),
   radial-gradient(110% 80% at 82% 0%,rgba(201,168,106,.16),transparent 55%)}
-.hero-bg .sky{position:absolute;inset:0;background:
-  radial-gradient(120% 80% at 80% -10%, rgba(201,168,106,.18), transparent 55%),
-  radial-gradient(90% 70% at 15% 110%, rgba(60,80,120,.22), transparent 60%),
-  linear-gradient(180deg,#0c0c10 0%,#0a0a0b 45%,#070708 100%)}
-/* city light bokeh */
-.bokeh{position:absolute;border-radius:50%;filter:blur(2px);opacity:.0;animation:bokeh-in 2s forwards}
-@keyframes bokeh-in{to{opacity:1}}
 .grain{position:absolute;inset:0;opacity:.045;mix-blend-mode:overlay;pointer-events:none;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .hero-glow{position:absolute;left:50%;bottom:-30%;width:80%;height:60%;transform:translateX(-50%);
   background:radial-gradient(ellipse at center,rgba(201,168,106,.15),transparent 70%);pointer-events:none}
+.bokeh{position:absolute;border-radius:50%;filter:blur(2px);opacity:0;animation:bokeh-in 2s forwards}
+@keyframes bokeh-in{to{opacity:1}}
 .hero-content{position:relative;z-index:2;width:100%}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
 .hero-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:26px;opacity:0;animation:rise .9s .2s forwards}
@@ -73,23 +152,23 @@ header.nav.scrolled{background:rgba(10,10,11,.78);backdrop-filter:blur(14px);bor
 .hero h1 .l:nth-child(1){animation-delay:.35s}
 .hero h1 .l:nth-child(2){animation-delay:.5s}
 .hero p.sub{font-size:18px;color:var(--mute);max-width:460px;margin-bottom:38px;opacity:0;animation:rise 1s .7s forwards}
-.hero-cta{display:flex;gap:14px;opacity:0;animation:rise 1s .85s forwards}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:rise 1s .85s forwards}
 @keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 
 /* booking card */
-.booking{background:rgba(247,246,243,.04);border:1px solid var(--line);border-radius:6px;padding:10px;backdrop-filter:blur(10px);opacity:0;animation:rise 1s 1s forwards}
+.booking{background:rgba(247,246,243,.04);border:1px solid var(--line);border-radius:6px;padding:10px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;animation:rise 1s 1s forwards}
 .bk-tabs{display:flex;gap:4px;margin-bottom:10px}
-.bk-tab{flex:1;text-align:center;font-size:12px;letter-spacing:.04em;padding:11px 0;border-radius:3px;color:var(--mute);cursor:pointer;transition:.25s;font-weight:500}
+.bk-tab{flex:1;text-align:center;font-size:12px;letter-spacing:.04em;padding:11px 0;border-radius:3px;color:var(--mute);cursor:pointer;transition:.25s;font-weight:500;border:none;background:none;font-family:var(--sans)}
 .bk-tab.on{background:var(--bone);color:var(--ink)}
-.bk-field{display:flex;align-items:center;gap:11px;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:3px;padding:13px 14px;margin-bottom:7px;transition:border-color .25s}
-.bk-field:focus-within{border-color:var(--gold)}
-.bk-field i{color:var(--gold);font-size:18px}
+.bk-field{display:flex;align-items:center;gap:11px;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:3px;padding:13px 14px;margin-bottom:7px;transition:border-color .25s,box-shadow .25s}
+.bk-field:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,106,.12)}
+.bk-field svg{color:var(--gold);flex-shrink:0}
 .bk-field input{background:none;border:none;outline:none;color:var(--bone);font-family:var(--sans);font-size:14px;width:100%}
 .bk-field input::placeholder{color:var(--mute-2)}
 .bk-row{display:flex;gap:7px}
 .bk-row .bk-field{flex:1;margin-bottom:0}
 .bk-submit{width:100%;justify-content:center;margin-top:9px;padding:15px;font-size:14px}
-.bk-note{text-align:center;font-size:11px;color:var(--mute-2);letter-spacing:.06em;margin-top:11px}
+.bk-note{text-align:center;font-size:11px;color:var(--mute-2);letter-spacing:.06em;margin-top:11px;display:flex;align-items:center;justify-content:center;gap:5px}
 .bk-note b{color:var(--mute);font-weight:500}
 
 .scroll-hint{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:10px;letter-spacing:.3em;color:var(--mute-2);opacity:0;animation:rise 1s 1.4s forwards}
@@ -99,9 +178,10 @@ header.nav.scrolled{background:rgba(10,10,11,.78);backdrop-filter:blur(14px);bor
 /* ---------- TRUST STRIP ---------- */
 .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink-2)}
 .trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-.trust-item{display:flex;align-items:center;gap:14px;padding:30px 24px;border-left:1px solid var(--line)}
+.trust-item{display:flex;align-items:center;gap:14px;padding:30px 24px;border-left:1px solid var(--line);transition:background .4s}
 .trust-item:first-child{border-left:none}
-.trust-item i{font-size:28px;color:var(--gold)}
+.trust-item:hover{background:var(--ink-3)}
+.trust-item svg{color:var(--gold);flex-shrink:0}
 .trust-item .tt{font-size:14px;font-weight:600}
 .trust-item .ts{font-size:12px;color:var(--mute);margin-top:2px}
 
@@ -110,40 +190,60 @@ section{position:relative}
 .sec-pad{padding:120px 0}
 .sec-head{margin-bottom:60px}
 .sec-head h2{font-family:var(--serif);font-weight:300;font-size:clamp(32px,4.4vw,52px);line-height:1.06;letter-spacing:-.02em;margin-top:16px}
-.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1!important;transform:none!important;transition:none}
+  .hero-photo,.hero h1 .l,.hero-eyebrow,.hero p.sub,.hero-cta,.booking,.scroll-hint,.bokeh{animation:none!important;opacity:1!important;transform:none!important}
+}
+
+/* lazy background fade-in */
+.lazy-bg{opacity:0;transition:opacity 1.1s var(--ease)}
+.lazy-bg.bg-loaded{opacity:1}
 
 /* ---------- SERVICES ---------- */
 .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.svc{position:relative;border:1px solid var(--line);border-radius:6px;padding:38px 34px;overflow:hidden;background:var(--ink-2);transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .5s}
+.svc{position:relative;border:1px solid var(--line);border-radius:6px;padding:38px 34px;overflow:hidden;background:var(--ink-2);transition:transform .5s var(--ease),border-color .5s,box-shadow .5s;cursor:pointer}
 .svc::before{content:'';position:absolute;inset:0;background:radial-gradient(80% 120% at 100% 0%,rgba(201,168,106,.10),transparent 60%);opacity:0;transition:opacity .5s}
-.svc:hover{transform:translateY(-6px);border-color:rgba(201,168,106,.4)}
+.svc:hover{transform:translateY(-6px);border-color:rgba(201,168,106,.4);box-shadow:0 24px 50px -28px rgba(0,0,0,.8)}
 .svc:hover::before{opacity:1}
-.svc .ic{width:58px;height:58px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:50%;margin-bottom:24px;font-size:26px;color:var(--gold);transition:.5s}
-.svc:hover .ic{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.svc .ic{width:58px;height:58px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:50%;margin-bottom:24px;color:var(--gold);transition:.5s var(--ease)}
+.svc:hover .ic{background:var(--gold);color:var(--ink);border-color:var(--gold);transform:rotate(-6deg) scale(1.05)}
 .svc h3{font-family:var(--serif);font-weight:400;font-size:25px;margin-bottom:10px}
 .svc p{font-size:14px;color:var(--mute);max-width:330px}
 .svc .go{margin-top:22px;display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600}
-.svc .go i{transition:transform .3s}
-.svc:hover .go i{transform:translateX(5px)}
+.svc .go svg{transition:transform .3s var(--ease)}
+.svc:hover .go svg{transform:translateX(5px)}
 
 /* ---------- EDITORIAL BAND ---------- */
 .band{position:relative;min-height:560px;display:flex;align-items:center;overflow:hidden}
-.band-photo{position:absolute;inset:0;background-image:url("images/band_highway.png");background-size:cover;background-position:center;background-attachment:fixed;filter:brightness(.55) saturate(.85)}
-.band-tint{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,11,.92),rgba(10,10,11,.55) 55%,rgba(10,10,11,.3));}
+.band-photo{position:absolute;inset:0;background-size:cover;background-position:center;background-attachment:fixed;filter:brightness(.55) saturate(.85)}
+.band-tint{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,11,.92),rgba(10,10,11,.55) 55%,rgba(10,10,11,.3))}
 .band-inner{position:relative;z-index:2}
 .band-copy{max-width:560px}
 .band-copy h2{font-family:var(--serif);font-weight:300;font-size:clamp(34px,5vw,62px);line-height:1.04;letter-spacing:-.02em;margin:16px 0 22px}
 .band-copy p{font-size:17px;color:var(--mute);max-width:440px}
 
+/* ---------- EXPERIENCE / CABIN ---------- */
+.exp{background:var(--ink);overflow:hidden}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
+.exp-media{position:relative;min-height:520px;border-radius:6px;overflow:hidden}
+.exp-photo{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.2s var(--ease)}
+.exp-media:hover .exp-photo{transform:scale(1.05)}
+.exp-media::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 40%,rgba(10,10,11,.35));pointer-events:none}
+.exp-copy{padding:0 0 0 64px;align-self:center}
+.exp-copy h2{font-family:var(--serif);font-weight:300;font-size:clamp(30px,3.8vw,46px);line-height:1.08;letter-spacing:-.02em;margin:16px 0 20px}
+.exp-copy p{font-size:16px;color:var(--mute);max-width:430px;margin-bottom:28px}
+.amenities{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:14px 20px}
+.amenities li{display:flex;align-items:center;gap:11px;font-size:14px;color:var(--bone)}
+.amenities li svg{color:var(--gold);flex-shrink:0}
+
 /* ---------- FLEET ---------- */
 .fleet{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.car{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--ink);transition:transform .5s cubic-bezier(.16,1,.3,1)}
-.car:hover{transform:translateY(-6px)}
-.car-img{height:200px;position:relative;background-size:cover;background-position:center;
-  background-color:#0c0c0e}
+.car{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--ink);transition:transform .5s var(--ease),border-color .5s,box-shadow .5s;cursor:pointer}
+.car:hover{transform:translateY(-6px);border-color:rgba(201,168,106,.35);box-shadow:0 28px 56px -30px rgba(0,0,0,.85)}
+.car-img{height:200px;position:relative;background-size:cover;background-position:center;background-color:#0c0c0e;overflow:hidden;transition:opacity 1.1s var(--ease)}
 .car-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,10,11,.5));transition:.5s}
 .car:hover .car-img{filter:brightness(1.08)}
 .car-body{padding:24px}
@@ -151,12 +251,12 @@ section{position:relative}
 .car .cap{font-size:12px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin:4px 0 14px}
 .car ul{list-style:none;font-size:13px;color:var(--mute)}
 .car li{display:flex;align-items:center;gap:9px;padding:5px 0}
-.car li i{color:var(--gold);font-size:15px}
+.car li svg{color:var(--gold);flex-shrink:0}
 
 /* ---------- ROUTES ---------- */
 .routes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.route{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:4px;padding:22px 24px;background:var(--ink-2);transition:.4s;cursor:pointer}
-.route:hover{border-color:var(--gold);background:var(--ink-3)}
+.route{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:4px;padding:22px 24px;background:var(--ink-2);transition:.4s var(--ease);cursor:pointer}
+.route:hover{border-color:var(--gold);background:var(--ink-3);transform:translateX(4px)}
 .route .rt{font-size:15px;font-weight:500}
 .route .rp{font-size:12px;color:var(--mute);margin-top:3px}
 .route .ra{font-family:var(--serif);font-size:20px;color:var(--gold)}
@@ -177,51 +277,100 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
 .foot-col h4{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone);margin-bottom:18px;font-weight:600}
 .foot-col a{display:block;font-size:13px;color:var(--mute);padding:6px 0;transition:color .25s}
 .foot-col a:hover{color:var(--gold)}
-.foot-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:28px;border-top:1px solid var(--line);font-size:12px;color:var(--mute-2)}
+.foot-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:28px;border-top:1px solid var(--line);font-size:12px;color:var(--mute-2);gap:16px;flex-wrap:wrap}
 .socials{display:flex;gap:10px}
-.socials a{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:50%;font-size:17px;transition:.3s}
-.socials a:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.socials a{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:50%;transition:.3s var(--ease)}
+.socials a:hover{background:var(--gold);color:var(--ink);border-color:var(--gold);transform:translateY(-3px)}
 
 /* ---------- RESPONSIVE ---------- */
+/* ultra-wide */
+@media(min-width:1700px){
+  :root{--wrap:1340px}
+  .hero h1{font-size:clamp(44px,6vw,92px)}
+}
+/* laptops / small desktops */
+@media(max-width:1100px){
+  .exp-copy{padding-left:44px}
+}
+/* tablets & foldables */
 @media(max-width:880px){
+  .hero{padding-top:90px}
   .hero-grid{grid-template-columns:1fr;gap:38px}
   .booking{max-width:460px}
   .nav-links{display:none}
-  .nav-toggle{display:block}
+  .nav-toggle{display:flex}
   .trust-grid{grid-template-columns:1fr 1fr}
   .trust-item:nth-child(3){border-left:none}
   .svc-grid,.fleet-grid,.routes-grid{grid-template-columns:1fr}
+  .exp-grid{grid-template-columns:1fr;gap:0}
+  .exp-media{min-height:360px;margin-bottom:40px}
+  .exp-copy{padding:0}
+  .band-photo{background-attachment:scroll}
   .foot-grid{grid-template-columns:1fr 1fr;gap:30px}
   .sec-pad{padding:80px 0}
   .cta-box{padding:54px 28px}
 }
+/* phones */
+@media(max-width:600px){
+  .wrap{padding:0 20px}
+  .sec-pad{padding:64px 0}
+  .sec-head{margin-bottom:40px}
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero-cta .btn{justify-content:center}
+  .trust-grid{grid-template-columns:1fr}
+  .trust-item{border-left:none;border-top:1px solid var(--line)}
+  .trust-item:first-child{border-top:none}
+  .svc{padding:30px 26px}
+  .amenities{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .foot-brand{grid-column:1/-1}
+  .foot-bottom{flex-direction:column;align-items:flex-start;gap:14px}
+}
+/* small phones */
+@media(max-width:380px){
+  .brand{font-size:15px;letter-spacing:.24em}
+  .bk-row{flex-direction:column;gap:7px}
+  .bk-row .bk-field{margin-bottom:0}
+  .foot-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
+<a href="#services" class="skip">Skip to content</a>
 
 <!-- ================= NAV ================= -->
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a href="#" class="brand">
-      <svg class="brand-logo" viewBox="0 0 100 100" fill="none" aria-label="RideYeah">
+    <a href="#book" class="brand" aria-label="RideYeah — home">
+      <svg class="brand-logo" viewBox="0 0 100 100" fill="none" aria-hidden="true">
         <rect x="8" y="8" width="84" height="84" rx="22" stroke="var(--bone)" stroke-width="4"/>
         <rect x="18" y="18" width="64" height="64" rx="14" fill="var(--bone)"/>
         <path d="M 37 68 V 50 H 50" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M 37 32 L 63 68" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M 37 32 H 52 C 61 32 64 38 64 45 C 64 52 58 50 50 50" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <span style="display:flex;align-items:center;text-transform:none;letter-spacing:0.18em;"><svg class="brand-r-svg" viewBox="0 0 24 24" fill="none" style="height:16px;width:16px;margin-right:2px;stroke-width:2.5;"><path d="M 6 22 V 12 H 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 6 2 L 18 22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 6 2 H 12 C 17 2 19 5 19 8 C 19 11 16 12 12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>ideYeah</span>
+      <span style="display:flex;align-items:center;text-transform:none;letter-spacing:0.18em;"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="height:16px;width:16px;margin-right:2px;stroke-width:2.5;"><path d="M 6 22 V 12 H 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 6 2 L 18 22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 6 2 H 12 C 17 2 19 5 19 8 C 19 11 16 12 12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>ideYeah</span>
     </a>
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Primary">
       <a href="#services">Services</a>
       <a href="#fleet">Fleet</a>
       <a href="#routes">Routes</a>
       <a href="#contact">Contact</a>
-      <a href="#book" class="btn btn-gold">Book now <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-left:4px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+      <a href="#book" class="btn btn-gold">Book now <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
     </nav>
-    <button class="nav-toggle" aria-label="Menu"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg></button>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg></button>
   </div>
 </header>
+
+<!-- mobile drawer -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu">
+  <button class="mm-close" id="mmClose" aria-label="Close menu"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+  <a href="#services">Services</a>
+  <a href="#fleet">Fleet</a>
+  <a href="#routes">Routes</a>
+  <a href="#contact">Contact</a>
+  <a href="#book" class="btn btn-gold">Book your ride</a>
+</div>
 
 <!-- ================= HERO ================= -->
 <section class="hero" id="book">
@@ -239,27 +388,27 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
         <h1><span class="l">Arrive <span class="em">relaxed.</span></span><span class="l">Always on time.</span></h1>
         <p class="sub">Luxury airport transfers and private chauffeur service across LAX and Orange County — with fixed, transparent pricing.</p>
         <div class="hero-cta">
-          <a href="#book" class="btn btn-gold">Reserve your ride <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-left:4px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+          <button type="button" class="btn btn-gold" onclick="goMoovs()">Reserve your ride <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
           <a href="#fleet" class="btn btn-ghost">Explore the fleet</a>
         </div>
       </div>
 
       <!-- BOOKING -->
-      <div class="booking">
-        <div class="bk-tabs">
-          <div class="bk-tab on" data-tab="airport">Airport</div>
-          <div class="bk-tab" data-tab="hourly">By the hour</div>
-          <div class="bk-tab" data-tab="city">City to city</div>
+      <form class="booking" id="bookingForm" aria-label="Booking">
+        <div class="bk-tabs" role="tablist">
+          <button type="button" class="bk-tab on" data-tab="airport" role="tab" aria-selected="true">Airport</button>
+          <button type="button" class="bk-tab" data-tab="hourly" role="tab" aria-selected="false">By the hour</button>
+          <button type="button" class="bk-tab" data-tab="city" role="tab" aria-selected="false">City to city</button>
         </div>
-        <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><input placeholder="Pickup location · LAX, hotel, address"></div>
-        <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg><input placeholder="Drop-off destination"></div>
+        <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><input id="fld-pickup" name="pickup" aria-label="Pickup location" placeholder="Pickup location · LAX, hotel, address"></div>
+        <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg><input id="fld-dropoff" name="dropoff" aria-label="Drop-off destination" placeholder="Drop-off destination"></div>
         <div class="bk-row">
-          <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><input placeholder="Date" onfocus="(this.type='date')" onblur="(!this.value&&(this.type='text'))"></div>
-          <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><input placeholder="Time" onfocus="(this.type='time')" onblur="(!this.value&&(this.type='text'))"></div>
+          <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><input id="fld-date" name="date" aria-label="Date" placeholder="Date" onfocus="(this.type='date')" onblur="(!this.value&&(this.type='text'))"></div>
+          <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><input id="fld-time" name="time" aria-label="Time" placeholder="Time" onfocus="(this.type='time')" onblur="(!this.value&&(this.type='text'))"></div>
         </div>
-        <button class="btn btn-gold bk-submit" onclick="goMoovs()">See prices &amp; book <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-left:4px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
-        <div class="bk-note"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:4px"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Secure booking <b>powered by Moovs</b> · Fixed price, no surge</div>
-      </div>
+        <button type="submit" class="btn btn-gold bk-submit">See prices &amp; book <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+        <div class="bk-note"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Secure booking <b>powered by Moovs</b> · Fixed price, no surge</div>
+      </form>
     </div>
   </div>
   <div class="scroll-hint"><span>SCROLL</span><span class="dot"></span></div>
@@ -268,10 +417,10 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
 <!-- ================= TRUST ================= -->
 <section class="trust">
   <div class="wrap"><div class="trust-grid">
-    <div class="trust-item"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline><path d="M16 18l2 2 4-4"></path></svg><div><div class="tt">On-time guarantee</div><div class="ts">Or your wait is on us</div></div></div>
-    <div class="trust-item"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V14.5L13 9.5V3.5C13 2.67 12.33 2 11.5 2C10.67 2 10 2.67 10 3.5V9.5L2 14.5V16L10 13.5V19L7.5 21V22L11.5 21L15.5 22V21L13 19V13.5L21 16Z"></path></svg><div><div class="tt">Flight tracking</div><div class="ts">We adjust to delays</div></div></div>
-    <div class="trust-item"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 11l2 2 4-4"></path></svg><div><div class="tt">Vetted chauffeurs</div><div class="ts">Licensed &amp; insured</div></div></div>
-    <div class="trust-item"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1z"></path><path d="M14 8H8M16 12H8M13 16H8"></path></svg><div><div class="tt">Fixed pricing</div><div class="ts">Quoted upfront</div></div></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline><path d="M16 18l2 2 4-4"></path></svg><div><div class="tt">On-time guarantee</div><div class="ts">Or your wait is on us</div></div></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V14.5L13 9.5V3.5C13 2.67 12.33 2 11.5 2C10.67 2 10 2.67 10 3.5V9.5L2 14.5V16L10 13.5V19L7.5 21V22L11.5 21L15.5 22V21L13 19V13.5L21 16Z"></path></svg><div><div class="tt">Flight tracking</div><div class="ts">We adjust to delays</div></div></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 11l2 2 4-4"></path></svg><div><div class="tt">Vetted chauffeurs</div><div class="ts">Licensed &amp; insured</div></div></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1z"></path><path d="M14 8H8M16 12H8M13 16H8"></path></svg><div><div class="tt">Fixed pricing</div><div class="ts">Quoted upfront</div></div></div>
   </div></div>
 </section>
 
@@ -283,23 +432,45 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
       <h2>Every journey,<br>handled with care.</h2>
     </div>
     <div class="svc-grid">
-      <div class="svc reveal"><div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V14.5L13 9.5V3.5C13 2.67 12.33 2 11.5 2C10.67 2 10 2.67 10 3.5V9.5L2 14.5V16L10 13.5V19L7.5 21V22L11.5 21L15.5 22V21L13 19V13.5L21 16Z"></path></svg></div><h3>Airport transfers</h3><p>Seamless pickups and drop-offs at LAX, John Wayne (SNA) and private terminals. We track your flight and meet you at the curb or in arrivals.</p><span class="go">Book a transfer <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-left:4px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div>
-      <div class="svc reveal"><div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><h3>By the hour</h3><p>A dedicated chauffeur at your disposal — for meetings, events, shopping or a night out. Pay only for the time you reserve.</p><span class="go">Reserve hourly <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-left:4px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div>
-      <div class="svc reveal"><div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="16"></line><line x1="15" y1="22" x2="15" y2="16"></line><line x1="9" y1="16" x2="15" y2="16"></line><path d="M8 6H9M15 6H16M8 10H9M15 10H16M8 14H9M15 14H16"></path></svg></div><h3>Corporate travel</h3><p>Priority booking, consolidated billing and dedicated account management for teams and executives who move often.</p><span class="go">Open an account <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-left:4px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div>
-      <div class="svc reveal"><div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21L10 3H14L18 21"></path><path d="M12 3V21" stroke-dasharray="3 3"></path></svg></div><h3>City to city</h3><p>Comfortable long-distance rides between Los Angeles, San Diego, Santa Barbara and Palm Springs — door to door.</p><span class="go">Plan a trip <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-left:4px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div>
+      <div class="svc reveal" data-book="airport"><div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V14.5L13 9.5V3.5C13 2.67 12.33 2 11.5 2C10.67 2 10 2.67 10 3.5V9.5L2 14.5V16L10 13.5V19L7.5 21V22L11.5 21L15.5 22V21L13 19V13.5L21 16Z"></path></svg></div><h3>Airport transfers</h3><p>Seamless pickups and drop-offs at LAX, John Wayne (SNA) and private terminals. We track your flight and meet you at the curb or in arrivals.</p><span class="go">Book a transfer <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div>
+      <div class="svc reveal" data-book="hourly"><div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><h3>By the hour</h3><p>A dedicated chauffeur at your disposal — for meetings, events, shopping or a night out. Pay only for the time you reserve.</p><span class="go">Reserve hourly <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div>
+      <div class="svc reveal" data-book="hourly"><div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="16"></line><line x1="15" y1="22" x2="15" y2="16"></line><line x1="9" y1="16" x2="15" y2="16"></line><path d="M8 6H9M15 6H16M8 10H9M15 10H16M8 14H9M15 14H16"></path></svg></div><h3>Corporate travel</h3><p>Priority booking, consolidated billing and dedicated account management for teams and executives who move often.</p><span class="go">Open an account <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div>
+      <div class="svc reveal" data-book="city"><div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21L10 3H14L18 21"></path><path d="M12 3V21" stroke-dasharray="3 3"></path></svg></div><h3>City to city</h3><p>Comfortable long-distance rides between Los Angeles, San Diego, Santa Barbara and Palm Springs — door to door.</p><span class="go">Plan a trip <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></div>
     </div>
   </div>
 </section>
 
 <!-- ================= EDITORIAL BAND ================= -->
 <section class="band" id="band">
-  <div class="band-photo"></div>
+  <div class="band-photo lazy-bg" data-webp="images/band_highway.webp" data-jpg="images/band_highway.jpg"></div>
   <div class="band-tint"></div>
   <div class="wrap band-inner">
     <div class="band-copy reveal">
       <span class="eyebrow">The RideYeah difference</span>
       <h2 class="serif">It's not a ride.<br>It's how you<br><span style="color:var(--gold);font-style:italic">arrive.</span></h2>
       <p>Every detail is considered — the silence of the cabin, the chilled water waiting, a chauffeur who knows the fastest way and the quietest route. You simply step in and let the city move around you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE / CABIN ================= -->
+<section class="exp sec-pad" id="experience">
+  <div class="wrap">
+    <div class="exp-grid">
+      <div class="exp-media reveal">
+        <div class="exp-photo lazy-bg" data-webp="images/interior_leather.webp" data-jpg="images/interior_leather.jpg"></div>
+      </div>
+      <div class="exp-copy reveal">
+        <span class="eyebrow">Inside the cabin</span>
+        <h2>A quiet world,<br>tailored to you.</h2>
+        <p>Hand-stitched leather, climate dialed to your preference and a calm that begins the moment the door closes. Every car is detailed before it reaches you.</p>
+        <ul class="amenities">
+          <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>Onboard Wi-Fi</li>
+          <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>Complimentary water</li>
+          <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><rect x="9" y="2" width="6" height="11" rx="3"></rect></svg>Phone chargers</li>
+          <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-5 0V4.5A2.5 2.5 0 0 1 9.5 2z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5"></path></svg>Climate control</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -312,20 +483,20 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
       <h2>Travel in quiet comfort.</h2>
     </div>
     <div class="fleet-grid">
-      <div class="car reveal">
-        <div class="car-img" style="background-image:url('images/fleet_sedan.png'); background-position: center bottom;"></div>
+      <div class="car reveal" data-book="airport">
+        <div class="car-img lazy-bg" data-webp="images/fleet_sedan.webp" data-jpg="images/fleet_sedan.jpg" style="background-position:center bottom"></div>
         <div class="car-body"><h3>Business Class</h3><div class="cap">Sedan · up to 3</div>
-          <ul><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:8px"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>3 passengers</li><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:8px"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>2 large bags</li><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:8px"><line x1="12" y1="2" x2="12" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line><line x1="4.93" y1="19.07" x2="19.07" y2="4.93"></line></svg>Climate &amp; water</li></ul></div>
+          <ul><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>3 passengers</li><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>2 large bags</li><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line><line x1="4.93" y1="19.07" x2="19.07" y2="4.93"></line></svg>Climate &amp; water</li></ul></div>
       </div>
-      <div class="car reveal">
-        <div class="car-img" style="background-image:url('images/fleet_suv.png')"></div>
+      <div class="car reveal" data-book="airport">
+        <div class="car-img lazy-bg" data-webp="images/fleet_suv.webp" data-jpg="images/fleet_suv.jpg"></div>
         <div class="car-body"><h3>Luxury SUV</h3><div class="cap">SUV · up to 5</div>
-          <ul><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:8px"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>5 passengers</li><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:8px"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>5 large bags</li><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:8px"><path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3M3 16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2M5 11h14M3 11v8M21 11v8"></path></svg>Premium leather</li></ul></div>
+          <ul><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>5 passengers</li><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>5 large bags</li><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3M3 16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2M5 11h14M3 11v8M21 11v8"></path></svg>Premium leather</li></ul></div>
       </div>
-      <div class="car reveal">
-        <div class="car-img" style="background-image:url('images/fleet_van.png')"></div>
+      <div class="car reveal" data-book="airport">
+        <div class="car-img lazy-bg" data-webp="images/fleet_van.webp" data-jpg="images/fleet_van.jpg"></div>
         <div class="car-body"><h3>Executive Van</h3><div class="cap">Van · up to 7</div>
-          <ul><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:8px"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>7 passengers</li><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:8px"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>7 large bags</li><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:8px"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>Onboard Wi-Fi</li></ul></div>
+          <ul><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>7 passengers</li><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>7 large bags</li><li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>Onboard Wi-Fi</li></ul></div>
       </div>
     </div>
   </div>
@@ -339,12 +510,12 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
       <h2>Fixed fares you<br>can count on.</h2>
     </div>
     <div class="routes-grid">
-      <div class="route reveal"><div><div class="rt">LAX → Orange County</div><div class="rp">~45 min · sedan</div></div><div class="ra">$129</div></div>
-      <div class="route reveal"><div><div class="rt">LAX → Downtown LA</div><div class="rp">~30 min · sedan</div></div><div class="ra">$95</div></div>
-      <div class="route reveal"><div><div class="rt">LAX → Santa Barbara</div><div class="rp">~2 hr · SUV</div></div><div class="ra">$340</div></div>
-      <div class="route reveal"><div><div class="rt">SNA → Disneyland</div><div class="rp">~25 min · sedan</div></div><div class="ra">$89</div></div>
-      <div class="route reveal"><div><div class="rt">LA → San Diego</div><div class="rp">~2.5 hr · SUV</div></div><div class="ra">$390</div></div>
-      <div class="route reveal"><div><div class="rt">LA → Palm Springs</div><div class="rp">~2 hr · SUV</div></div><div class="ra">$360</div></div>
+      <div class="route reveal" data-book="airport"><div><div class="rt">LAX → Orange County</div><div class="rp">~45 min · sedan</div></div><div class="ra">$129</div></div>
+      <div class="route reveal" data-book="airport"><div><div class="rt">LAX → Downtown LA</div><div class="rp">~30 min · sedan</div></div><div class="ra">$95</div></div>
+      <div class="route reveal" data-book="city"><div><div class="rt">LAX → Santa Barbara</div><div class="rp">~2 hr · SUV</div></div><div class="ra">$340</div></div>
+      <div class="route reveal" data-book="airport"><div><div class="rt">SNA → Disneyland</div><div class="rp">~25 min · sedan</div></div><div class="ra">$89</div></div>
+      <div class="route reveal" data-book="city"><div><div class="rt">LA → San Diego</div><div class="rp">~2.5 hr · SUV</div></div><div class="ra">$390</div></div>
+      <div class="route reveal" data-book="city"><div><div class="rt">LA → Palm Springs</div><div class="rp">~2 hr · SUV</div></div><div class="ra">$360</div></div>
     </div>
     <p style="font-size:12px;color:var(--mute-2);margin-top:22px">Indicative fares for illustration. Final quote shown at booking via Moovs.</p>
   </div>
@@ -357,7 +528,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
       <span class="eyebrow">Ready when you are</span>
       <h2>Your car is one<br>tap away.</h2>
       <p>Book in under a minute. Fixed price, professional chauffeur, on time — every time.</p>
-      <a href="#book" class="btn btn-gold" style="padding:16px 38px;font-size:15px">Reserve your ride <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-left:4px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+      <button type="button" class="btn btn-gold" style="padding:16px 38px;font-size:15px" onclick="goMoovs()">Reserve your ride <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
     </div>
   </div>
 </section>
@@ -367,62 +538,122 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-                <div class="brand"><svg class="brand-logo" viewBox="0 0 100 100" fill="none" width="34" height="34" aria-label="RideYeah"><rect x="8" y="8" width="84" height="84" rx="22" stroke="var(--bone)" stroke-width="4"/><rect x="18" y="18" width="64" height="64" rx="14" fill="var(--bone)"/><path d="M 37 68 V 50 H 50" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 37 32 L 63 68" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 37 32 H 52 C 61 32 64 38 64 45 C 64 52 58 50 50 50" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="display:flex;align-items:center;text-transform:none;letter-spacing:0.18em;font-size:15px;"><svg class="brand-r-svg" viewBox="0 0 24 24" fill="none" style="height:14px;width:14px;margin-right:2px;stroke-width:2.5;"><path d="M 6 22 V 12 H 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 6 2 L 18 22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 6 2 H 12 C 17 2 19 5 19 8 C 19 11 16 12 12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>ideYeah</span></div>
+        <div class="brand"><svg class="brand-logo" viewBox="0 0 100 100" fill="none" width="34" height="34" aria-hidden="true"><rect x="8" y="8" width="84" height="84" rx="22" stroke="var(--bone)" stroke-width="4"/><rect x="18" y="18" width="64" height="64" rx="14" fill="var(--bone)"/><path d="M 37 68 V 50 H 50" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 37 32 L 63 68" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 37 32 H 52 C 61 32 64 38 64 45 C 64 52 58 50 50 50" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="display:flex;align-items:center;text-transform:none;letter-spacing:0.18em;font-size:15px;"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="height:14px;width:14px;margin-right:2px;stroke-width:2.5;"><path d="M 6 22 V 12 H 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 6 2 L 18 22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 6 2 H 12 C 17 2 19 5 19 8 C 19 11 16 12 12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>ideYeah</span></div>
         <p>Luxury ground transportation across Los Angeles &amp; Orange County. Arrive relaxed, always on time.</p>
       </div>
-        <p>Luxury ground transportation across Los Angeles &amp; Orange County. Arrive relaxed, always on time.</p>
-      </div>
-      <div class="foot-col"><h4>Services</h4><a href="#">Airport transfers</a><a href="#">By the hour</a><a href="#">Corporate travel</a><a href="#">City to city</a></div>
-      <div class="foot-col"><h4>Company</h4><a href="#">About us</a><a href="#">Our fleet</a><a href="#">Careers</a><a href="#">Contact</a></div>
+      <div class="foot-col"><h4>Services</h4><a href="#services">Airport transfers</a><a href="#services">By the hour</a><a href="#services">Corporate travel</a><a href="#services">City to city</a></div>
+      <div class="foot-col"><h4>Company</h4><a href="#band">About us</a><a href="#fleet">Our fleet</a><a href="#contact">Careers</a><a href="#contact">Contact</a></div>
       <div class="foot-col"><h4>Contact</h4><a href="tel:+10000000000">+1 (000) 000-0000</a><a href="mailto:hello@rideyeah.com">hello@rideyeah.com</a><a href="#">Los Angeles, CA</a></div>
     </div>
     <div class="foot-bottom">
       <span>© 2026 RideYeah. All rights reserved.</span>
       <div class="socials">
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg></a>
-        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
       </div>
     </div>
   </div>
 </footer>
 
 <script>
-/* nav scroll state */
-const nav=document.getElementById('nav');
-addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+/* ============ Config ============ */
+const MOOVS_SLUG = 'rideyeah'; // ← replace with your real Moovs customer-portal slug
 
-/* booking tabs */
-document.querySelectorAll('.bk-tab').forEach(t=>t.onclick=()=>{
-  document.querySelectorAll('.bk-tab').forEach(x=>x.classList.remove('on'));
-  t.classList.add('on');
+/* ============ Nav scroll state ============ */
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+/* ============ Mobile menu ============ */
+const toggle = document.getElementById('navToggle');
+const menu = document.getElementById('mobileMenu');
+const mmClose = document.getElementById('mmClose');
+function openMenu(){ menu.classList.add('open'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+function closeMenu(){ menu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+toggle.addEventListener('click', openMenu);
+mmClose.addEventListener('click', closeMenu);
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu(); });
+
+/* ============ Booking tabs ============ */
+let activeTab = 'airport';
+document.querySelectorAll('.bk-tab').forEach(t => t.addEventListener('click', () => {
+  document.querySelectorAll('.bk-tab').forEach(x => { x.classList.remove('on'); x.setAttribute('aria-selected','false'); });
+  t.classList.add('on'); t.setAttribute('aria-selected','true');
+  activeTab = t.dataset.tab;
+}));
+
+/* ============ Moovs booking flow ============ */
+/* Opens the Moovs customer portal, forwarding any details the guest typed.
+   Moovs handles live quoting + payment on its secure page. */
+function goMoovs(presetTab){
+  if (presetTab) activeTab = presetTab;
+  const f = document.getElementById('bookingForm');
+  const params = new URLSearchParams();
+  if (activeTab) params.set('type', activeTab);
+  if (f){
+    const get = id => (document.getElementById(id)?.value || '').trim();
+    const pickup = get('fld-pickup'), dropoff = get('fld-dropoff'), date = get('fld-date'), time = get('fld-time');
+    if (pickup)  params.set('pickup', pickup);
+    if (dropoff) params.set('dropoff', dropoff);
+    if (date)    params.set('date', date);
+    if (time)    params.set('time', time);
+  }
+  const qs = params.toString();
+  const url = 'https://customer.moovs.app/' + encodeURIComponent(MOOVS_SLUG) + (qs ? ('?' + qs) : '');
+  window.open(url, '_blank', 'noopener');
+}
+/* Submit handler on the hero form */
+const bookingForm = document.getElementById('bookingForm');
+if (bookingForm) bookingForm.addEventListener('submit', e => { e.preventDefault(); goMoovs(); });
+
+/* Any element with [data-book] opens booking with that ride type */
+document.querySelectorAll('[data-book]').forEach(el => {
+  el.addEventListener('click', () => goMoovs(el.dataset.book));
 });
 
-/* Moovs hook — replace slug when account is ready */
-function goMoovs(){
-  const slug='rideyeah';
-  window.open('https://customer.moovs.app/'+slug,'_blank');
+/* ============ Scroll reveal ============ */
+const io = new IntersectionObserver((entries) => entries.forEach(e => {
+  if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+}), { threshold: .15, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = (i % 4 * 90) + 'ms'; io.observe(el); });
+/* safety: never leave content hidden */
+setTimeout(() => document.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in')), 3500);
+
+/* ============ Lazy background images (WebP + JPG fallback) ============ */
+function setBg(el){
+  const w = el.dataset.webp, j = el.dataset.jpg;
+  if (!j) return;
+  el.style.backgroundImage = 'url("' + j + '")';                                    // universal fallback
+  el.style.backgroundImage = 'image-set(url("' + w + '") type("image/webp"), url("' + j + '") type("image/jpeg"))'; // modern (ignored if unsupported)
+  el.classList.add('bg-loaded');
+}
+const bgIO = new IntersectionObserver((entries) => entries.forEach(e => {
+  if (e.isIntersecting){ setBg(e.target); bgIO.unobserve(e.target); }
+}), { rootMargin: '300px' });
+document.querySelectorAll('.lazy-bg').forEach(el => bgIO.observe(el));
+
+/* ============ Hero city-light bokeh ============ */
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!reduced){
+  const layer = document.getElementById('bokeh-layer');
+  const golds = ['rgba(201,168,106,', 'rgba(217,193,147,', 'rgba(120,140,180,'];
+  for (let i = 0; i < 26; i++){
+    const b = document.createElement('span'); b.className = 'bokeh';
+    const s = Math.random() * 26 + 6;
+    b.style.width = b.style.height = s + 'px';
+    b.style.left = Math.random() * 100 + '%';
+    b.style.top = (40 + Math.random() * 60) + '%';
+    const c = golds[Math.floor(Math.random() * golds.length)];
+    b.style.background = c + (Math.random() * .5 + .2) + ')';
+    b.style.animationDelay = (Math.random() * 1.5) + 's';
+    layer.appendChild(b);
+  }
 }
 
-/* scroll reveal */
-const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.15});
-document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*90)+'ms';io.observe(el);});
-setTimeout(()=>document.querySelectorAll('.reveal:not(.in)').forEach(el=>el.classList.add('in')),3500);
-
-/* generate city-light bokeh in hero */
-const layer=document.getElementById('bokeh-layer');
-const golds=['rgba(201,168,106,','rgba(217,193,147,','rgba(120,140,180,'];
-for(let i=0;i<26;i++){
-  const b=document.createElement('span');b.className='bokeh';
-  const s=Math.random()*26+6;
-  b.style.width=b.style.height=s+'px';
-  b.style.left=Math.random()*100+'%';
-  b.style.top=(40+Math.random()*60)+'%';
-  const c=golds[Math.floor(Math.random()*golds.length)];
-  b.style.background=c+(Math.random()*.5+.2)+')';
-  b.style.animationDelay=(Math.random()*1.5)+'s';
-  layer.appendChild(b);
-}
+/* ============ Year ============ */
 </script>
 
 </body>
