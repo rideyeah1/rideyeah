@@ -238,6 +238,10 @@ rep('href="about.html"', 'href="/es/nosotros.html"');
 rep('href="careers.html"', 'href="/es/empleo.html"');
 rep('href="hourly-chauffeur.html"', 'href="/es/chofer-por-horas.html"');
 rep('href="popular-routes.html"', 'href="/es/rutas-populares.html"');
+rep('href="lax-to-beverly-hills.html"', 'href="/es/lax-a-beverly-hills.html"');
+rep('href="lax-to-disneyland.html"', 'href="/es/lax-a-disneyland.html"');
+rep('href="lax-to-newport-beach.html"', 'href="/es/lax-a-newport-beach.html"');
+rep('href="lax-to-anaheim.html"', 'href="/es/lax-a-anaheim.html"');
 /* remaining .html links -> root-absolute (EN pages until ES versions exist) */
 h = h.replace(/href="([a-z0-9-]+\.html)"/g, 'href="/$1"');
 

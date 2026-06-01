@@ -37,21 +37,33 @@
   </url>
   <url>
     <loc>https://rideyeah.com/lax-to-beverly-hills.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rideyeah.com/lax-to-beverly-hills.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rideyeah.com/es/lax-a-beverly-hills"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rideyeah.com/lax-to-beverly-hills.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rideyeah.com/lax-to-disneyland.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rideyeah.com/lax-to-disneyland.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rideyeah.com/es/lax-a-disneyland"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rideyeah.com/lax-to-disneyland.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rideyeah.com/lax-to-newport-beach.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rideyeah.com/lax-to-newport-beach.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rideyeah.com/es/lax-a-newport-beach"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rideyeah.com/lax-to-newport-beach.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rideyeah.com/lax-to-anaheim.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rideyeah.com/lax-to-anaheim.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rideyeah.com/es/lax-a-anaheim"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rideyeah.com/lax-to-anaheim.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -136,5 +148,37 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rideyeah.com/careers.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rideyeah.com/es/lax-a-beverly-hills</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rideyeah.com/es/lax-a-beverly-hills"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rideyeah.com/lax-to-beverly-hills.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rideyeah.com/lax-to-beverly-hills.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rideyeah.com/es/lax-a-disneyland</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rideyeah.com/es/lax-a-disneyland"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rideyeah.com/lax-to-disneyland.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rideyeah.com/lax-to-disneyland.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rideyeah.com/es/lax-a-newport-beach</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rideyeah.com/es/lax-a-newport-beach"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rideyeah.com/lax-to-newport-beach.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rideyeah.com/lax-to-newport-beach.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rideyeah.com/es/lax-a-anaheim</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://rideyeah.com/es/lax-a-anaheim"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rideyeah.com/lax-to-anaheim.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rideyeah.com/lax-to-anaheim.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
