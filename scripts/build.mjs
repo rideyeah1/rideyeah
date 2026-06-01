@@ -13,6 +13,8 @@ import {
   mkdirSync,
   copyFileSync,
   readdirSync,
+  readFileSync,
+  writeFileSync,
   existsSync,
   statSync,
 } from "node:fs";
@@ -82,4 +84,38 @@ for (const file of readdirSync("images")) {
   imgCount++;
 }
 
-console.log(`✓ Built dist/  ·  index.html + ${imgCount} images + icons/SEO files`);
+// --- Clean URLs ---------------------------------------------------------
+// Cloudflare Pages serves extension-less URLs (and 308-redirects *.html → it).
+// Strip `.html` from internal links + SEO tags in the BUILT output so the live
+// site, its canonicals, hreflang and sitemap all use the same clean URLs Google
+// indexes — no redirect hops, no "Page with redirect" noise in Search Console.
+// Sources keep `.html` (simpler to author); this pass only rewrites dist/.
+const cleanHtml = (s) => {
+  s = s.split('href="index.html#').join('href="/#');
+  s = s.split('href="index.html"').join('href="/"');
+  s = s.split("es/index.html").join("es/"); // home language pill + auto-detect
+  s = s.replace(/href="([^"#]*?)\.html(#[^"]*)?"/g, 'href="$1$2"');
+  s = s.replace(/content="(https:\/\/rideyeah\.com\/[a-z0-9-]+)\.html"/g, 'content="$1"');
+  s = s.replace(/"url": "(https:\/\/rideyeah\.com\/[a-z0-9-]+)\.html"/g, '"url": "$1"');
+  return s;
+};
+const cleanDir = (dir) => {
+  for (const file of readdirSync(dir)) {
+    const p = join(dir, file);
+    if (statSync(p).isDirectory() || !file.endsWith(".html")) continue;
+    writeFileSync(p, cleanHtml(readFileSync(p, "utf8")), "utf8");
+  }
+};
+cleanDir(DIST);
+if (existsSync(join(DIST, "es"))) cleanDir(join(DIST, "es"));
+
+const smPath = join(DIST, "sitemap.xml");
+if (existsSync(smPath)) {
+  writeFileSync(
+    smPath,
+    readFileSync(smPath, "utf8").replace(/(https:\/\/rideyeah\.com\/[a-z0-9-]+)\.html/g, "$1"),
+    "utf8",
+  );
+}
+
+console.log(`✓ Built dist/  ·  index.html + ${imgCount} images + icons/SEO files + clean URLs`);
