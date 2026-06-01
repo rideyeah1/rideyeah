@@ -230,7 +230,11 @@ h = h.replace(/data-jpg="images\//g, 'data-jpg="/images/');
 h = h.replace(/href="images\//g, 'href="/images/');
 h = h.replace(/href="favicon\.svg"/g, 'href="/favicon.svg"');
 h = h.replace(/href="apple-touch-icon\.png"/g, 'href="/apple-touch-icon.png"');
-/* cross-page .html links -> root-absolute (EN pages until ES versions exist) */
+/* cross-page links -> ES slugs where they exist, else root-absolute EN */
+rep('href="airport-transfers.html"', 'href="/es/traslados-aeropuerto-lax.html"');
+rep('href="black-car-service.html"', 'href="/es/servicio-black-car.html"');
+rep('href="fleet.html"', 'href="/es/flota.html"');
+/* remaining .html links -> root-absolute (EN pages until ES versions exist) */
 h = h.replace(/href="([a-z0-9-]+\.html)"/g, 'href="/$1"');
 
 mkdirSync("es", { recursive: true });

@@ -18,6 +18,10 @@ import {
 } from "node:fs";
 import { join } from "node:path";
 
+// Regenerate Spanish pages from their EN sources so /es/ is always in sync
+await import("./generate-es.mjs");
+await import("./generate-es-pages.mjs");
+
 const DIST = "dist";
 
 rmSync(DIST, { recursive: true, force: true });

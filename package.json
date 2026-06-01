@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "optimize:images": "node scripts/optimize-images.mjs",
+    "i18n": "node scripts/generate-es.mjs && node scripts/generate-es-pages.mjs",
     "build": "node scripts/build.mjs",
     "format": "prettier --write \"**/*.{html,css,js,mjs,json}\"",
     "format:check": "prettier --check \"**/*.{html,css,js,mjs,json}\"",
