@@ -386,8 +386,9 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
 @media(max-width:880px){
   .bk-modal-panel{width:100%;height:100%;max-height:none;border-radius:0}
   .hero{padding-top:90px}
-  .hero-grid{grid-template-columns:1fr;gap:38px}
-  .booking{max-width:460px}
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .booking{order:-1;max-width:520px}  /* stacked: booking form first, hero copy below */
+  .hero-copy{order:0}
   .nav-links{display:none}
   .nav-toggle{display:flex}
   .trust-grid{grid-template-columns:1fr 1fr}
