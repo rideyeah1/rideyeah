@@ -56,12 +56,18 @@ rep(">Explore the fleet</a>", ">Ver la flota</a>");
 rep(" Trusted by executives, families &amp; VIP travelers across Southern California.",
     " La eligen ejecutivos, familias y viajeros VIP en todo el sur de California.");
 
-/* ---------- booking (Reserve card) ---------- */
-rep(">Book your Suburban</h2>", ">Reserva tu Suburban</h2>");
-rep("Reserve in under a minute on our secure portal.", "Reserva en menos de un minuto en nuestro portal seguro.");
-rep(" Fixed, all-in pricing — no surge</li>", " Precio fijo, todo incluido — sin recargos</li>");
-rep(" Flight tracking included</li>", " Seguimiento de vuelo incluido</li>");
-rep(" 24/7 chauffeurs · LA &amp; OC</li>", " Choferes 24/7 · LA y OC</li>");
+/* ---------- booking form ---------- */
+rep('data-trip="ONE_WAY" role="tab" aria-selected="true">One way</button>', 'data-trip="ONE_WAY" role="tab" aria-selected="true">Solo ida</button>');
+rep('data-trip="ROUND_TRIP" role="tab" aria-selected="false">Round trip</button>', 'data-trip="ROUND_TRIP" role="tab" aria-selected="false">Ida y vuelta</button>');
+rep('data-trip="HOURLY" role="tab" aria-selected="false">Hourly</button>', 'data-trip="HOURLY" role="tab" aria-selected="false">Por horas</button>');
+rep('aria-label="Pickup location" placeholder="Pickup location · LAX, hotel, address"', 'aria-label="Lugar de recogida" placeholder="Lugar de recogida · LAX, hotel, dirección"');
+rep('aria-label="Drop-off destination" placeholder="Drop-off destination"', 'aria-label="Destino" placeholder="Destino"');
+rep('aria-label="Duration"><option value="" disabled selected>Duration</option>', 'aria-label="Duración"><option value="" disabled selected>Duración</option>');
+rep(" hours</option>", " horas</option>");
+rep('aria-label="Date" placeholder="Date"', 'aria-label="Fecha" placeholder="Fecha"');
+rep('aria-label="Time" placeholder="Time"', 'aria-label="Hora" placeholder="Hora"');
+rep('aria-label="Return date and time" placeholder="Return date & time"', 'aria-label="Fecha y hora de regreso" placeholder="Fecha y hora de regreso"');
+rep('aria-label="Passengers" placeholder="Passengers"', 'aria-label="Pasajeros" placeholder="Pasajeros"');
 rep(" Secure booking ", " Reserva segura ");
 rep("powered by Moovs", "con tecnología Moovs");
 

@@ -203,14 +203,22 @@ header.nav.scrolled{background:rgba(10,10,11,.78);backdrop-filter:blur(14px);-we
 
 /* booking card */
 .booking{background:rgba(247,246,243,.04);border:1px solid var(--line);border-radius:6px;padding:10px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;animation:rise 1s 1s forwards}
-.reserve-card{padding:30px 26px;text-align:center}
-.rc-title{font-family:var(--serif);font-size:clamp(22px,2.4vw,28px);font-weight:500;color:var(--bone);line-height:1.15;margin:0}
-.rc-sub{font-size:13.5px;color:var(--mute);margin:9px 0 20px}
-.rc-list{list-style:none;margin:0 0 22px;padding:0;display:flex;flex-direction:column;gap:13px;text-align:left}
-.rc-item{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--bone)}
-.rc-item svg{color:var(--gold);flex-shrink:0}
-.rc-cta{width:100%;justify-content:center;padding:16px;font-size:14px}
-.bk-note{text-align:center;font-size:11px;color:var(--mute-2);letter-spacing:.06em;margin-top:14px;display:flex;align-items:center;justify-content:center;gap:5px}
+.bk-tabs{display:flex;gap:4px;margin-bottom:10px}
+.bk-tab{flex:1;text-align:center;font-size:12px;letter-spacing:.04em;padding:11px 0;border-radius:3px;color:var(--mute);cursor:pointer;transition:.25s;font-weight:500;border:none;background:none;font-family:var(--sans)}
+.bk-tab.on{background:var(--bone);color:var(--ink)}
+.bk-field{display:flex;align-items:center;gap:11px;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:3px;padding:13px 14px;margin-bottom:7px;transition:border-color .25s,box-shadow .25s}
+.bk-field:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,106,.12)}
+.bk-field svg{color:var(--gold);flex-shrink:0}
+.bk-field input,.bk-field select{background:none;border:none;outline:none;color:var(--bone);font-family:var(--sans);font-size:14px;width:100%;-webkit-appearance:none;appearance:none}
+.bk-field input::placeholder{color:var(--mute-2)}
+.bk-field select{cursor:pointer}
+.bk-field select:invalid{color:var(--mute-2)}
+.bk-field select option{background:var(--ink-2);color:var(--bone)}
+.bk-field input[type=number]{-moz-appearance:textfield}
+.bk-row{display:flex;gap:7px}
+.bk-row .bk-field{flex:1;margin-bottom:0}
+.bk-submit{width:100%;justify-content:center;margin-top:9px;padding:15px;font-size:14px}
+.bk-note{text-align:center;font-size:11px;color:var(--mute-2);letter-spacing:.06em;margin-top:11px;display:flex;align-items:center;justify-content:center;gap:5px}
 .bk-note b{color:var(--mute);font-weight:500}
 .bk-modal{position:fixed;inset:0;z-index:150;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s var(--ease),visibility .3s var(--ease)}
 .bk-modal.open{opacity:1;visibility:visible}
@@ -485,17 +493,24 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
       </div>
 
       <!-- BOOKING -->
-      <div class="booking reserve-card" aria-label="Reserve">
-        <h2 class="rc-title">Reserva tu Suburban</h2>
-        <p class="rc-sub">Reserva en menos de un minuto en nuestro portal seguro.</p>
-        <ul class="rc-list">
-          <li class="rc-item"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> Precio fijo, todo incluido — sin recargos</li>
-          <li class="rc-item"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg> Seguimiento de vuelo incluido</li>
-          <li class="rc-item"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Choferes 24/7 · LA y OC</li>
-        </ul>
-        <button type="button" class="btn btn-gold rc-cta" onclick="goMoovs()">Reserva tu chofer <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+      <form class="booking" id="bookingForm" aria-label="Book your ride">
+        <div class="bk-tabs" role="tablist">
+          <button type="button" class="bk-tab on" data-trip="ONE_WAY" role="tab" aria-selected="true">Solo ida</button>
+          <button type="button" class="bk-tab" data-trip="ROUND_TRIP" role="tab" aria-selected="false">Ida y vuelta</button>
+          <button type="button" class="bk-tab" data-trip="HOURLY" role="tab" aria-selected="false">Por horas</button>
+        </div>
+        <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><input id="fld-pickup" name="pickup" autocomplete="off" aria-label="Lugar de recogida" placeholder="Lugar de recogida · LAX, hotel, dirección"></div>
+        <div class="bk-field" id="row-dropoff"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg><input id="fld-dropoff" name="dropoff" autocomplete="off" aria-label="Destino" placeholder="Destino"></div>
+        <div class="bk-field" id="row-duration" hidden><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><select id="fld-duration" aria-label="Duración"><option value="" disabled selected>Duración</option><option value="120">2 horas</option><option value="180">3 horas</option><option value="240">4 horas</option><option value="300">5 horas</option><option value="360">6 horas</option><option value="480">8 horas</option></select></div>
+        <div class="bk-row">
+          <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><input id="fld-date" name="date" aria-label="Fecha" placeholder="Fecha" onfocus="(this.type='date')" onblur="(!this.value&&(this.type='text'))"></div>
+          <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><input id="fld-time" name="time" aria-label="Hora" placeholder="Hora" onfocus="(this.type='time')" onblur="(!this.value&&(this.type='text'))"></div>
+        </div>
+        <div class="bk-field" id="row-return" hidden><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg><input id="fld-return" name="return" aria-label="Fecha y hora de regreso" placeholder="Fecha y hora de regreso" onfocus="(this.type='datetime-local')" onblur="(!this.value&&(this.type='text'))"></div>
+        <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><input id="fld-pax" name="passengers" type="number" min="1" max="14" inputmode="numeric" aria-label="Pasajeros" placeholder="Pasajeros"></div>
+        <button type="submit" class="btn btn-gold bk-submit">Reserva tu chofer <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
         <div class="bk-note"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Reserva segura <b>con tecnología Moovs</b></div>
-      </div>
+      </form>
     </div>
   </div>
   <div class="scroll-hint"><span>SCROLL</span><span class="dot"></span></div>
@@ -716,8 +731,9 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
 
 <script>
 /* ============ Config ============ */
-const MOOVS_IFRAME = 'https://customer.moovs.app/ry-quiroz-luxury-llc/iframe'; // embedded booking form (modal)
-const MOOVS_URL = 'https://customer.moovs.app/ry-quiroz-luxury-llc/new/info';   // full-page fallback (new tab)
+/* Moovs request flow. We prefill it with the hero form via the official
+   Booking Widget `?trip=<JSON>` param (stops/dateTime/totalGroupSize/…). */
+const MOOVS_REQUEST = 'https://customer.moovs.app/ry-quiroz-luxury-llc/request/new';
 
 /* ============ Nav scroll state ============ */
 const nav = document.getElementById('nav');
@@ -737,14 +753,14 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu(); });
 
 /* ============ Moovs booking flow (on-site modal) ============ */
-/* goMoovs() opens the Moovs /iframe booking form in a branded modal so guests
-   book without leaving the site. A "new tab" link to /new/info is the fallback. */
+/* goMoovs(url) opens the Moovs request flow in a branded modal so guests book
+   without leaving the site. The hero form passes a prefilled `?trip=` URL. */
 (function(){
   const es = (document.documentElement.lang || '').toLowerCase().slice(0,2) === 'es';
   const T = es
     ? { title:'Reserva tu viaje', tab:'Abrir en pestaña nueva', close:'Cerrar' }
     : { title:'Book your ride', tab:'Open in new tab', close:'Close' };
-  let modal, frame, lastFocus;
+  let modal, frame, newTab, lastFocus, lastUrl = '';
 
   function build(){
     modal = document.createElement('div');
@@ -757,7 +773,7 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
       '<div class="bk-modal-panel">' +
         '<div class="bk-modal-head">' +
           '<span class="bk-modal-title">' + T.title + '</span>' +
-          '<a class="bk-modal-new" href="' + MOOVS_URL + '" target="_blank" rel="noopener">' + T.tab +
+          '<a class="bk-modal-new" target="_blank" rel="noopener">' + T.tab +
             ' <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>' +
           '<button type="button" class="bk-modal-close" aria-label="' + T.close + '">' +
             '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>' +
@@ -765,6 +781,7 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
         '<div class="bk-modal-body"><iframe title="' + T.title + '" loading="lazy"></iframe></div>' +
       '</div>';
     frame = modal.querySelector('iframe');
+    newTab = modal.querySelector('.bk-modal-new');
     modal.querySelector('.bk-modal-close').addEventListener('click', close);
     modal.querySelector('.bk-modal-backdrop').addEventListener('click', close);
     document.body.appendChild(modal);
@@ -777,14 +794,70 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
   }
   addEventListener('keydown', e => { if (e.key === 'Escape' && modal && modal.classList.contains('open')) close(); });
 
-  window.goMoovs = function(){
+  window.goMoovs = function(url){
+    const target = url || MOOVS_REQUEST;
     lastFocus = document.activeElement;
     if (!modal) build();
-    if (!frame.src) frame.src = MOOVS_IFRAME; // lazy: load Moovs only on first open
+    if (target !== lastUrl){ frame.src = target; lastUrl = target; } // (re)load only when the trip changes
+    newTab.href = target;
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
     modal.querySelector('.bk-modal-close').focus();
   };
+})();
+
+/* ============ Hero booking form → Moovs prefill ============ */
+/* Builds the Moovs Booking-Widget `?trip=<JSON>` URL from the hero form so the
+   request flow opens pre-filled with the guest's pickup/drop-off/date/pax. */
+(function(){
+  const form = document.getElementById('bookingForm');
+  if (!form) return;
+  let tripCat = 'ONE_WAY';
+  const tabs = form.querySelectorAll('.bk-tab');
+  const rowDrop = document.getElementById('row-dropoff');
+  const rowDur  = document.getElementById('row-duration');
+  const rowRet  = document.getElementById('row-return');
+
+  function applyTab(){
+    const hourly = tripCat === 'HOURLY', round = tripCat === 'ROUND_TRIP';
+    rowDrop.hidden = hourly;
+    rowDur.hidden  = !hourly;
+    rowRet.hidden  = !round;
+  }
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => { x.classList.remove('on'); x.setAttribute('aria-selected','false'); });
+    t.classList.add('on'); t.setAttribute('aria-selected','true');
+    tripCat = t.dataset.trip; applyTab();
+  }));
+
+  const val = id => (document.getElementById(id)?.value || '').trim();
+  const iso = (d, t) => { // local date + time -> ISO; falls back to date-only
+    if (!d) return undefined;
+    const dt = new Date(d + 'T' + (t || '12:00'));
+    return isNaN(dt) ? undefined : dt.toISOString();
+  };
+
+  function buildUrl(){
+    const pickup = val('fld-pickup'), dropoff = val('fld-dropoff');
+    const trip = { tripCategory: tripCat };
+    const stops = [];
+    if (pickup) stops.push({ description: pickup });
+    if (tripCat !== 'HOURLY' && dropoff) stops.push({ description: dropoff });
+    trip.stops = stops;
+    const dt = iso(val('fld-date'), val('fld-time'));
+    if (dt) trip.dateTime = dt;
+    const pax = parseInt(val('fld-pax'), 10);
+    if (pax > 0) trip.totalGroupSize = pax;
+    if (tripCat === 'HOURLY' && val('fld-duration')) trip.totalDuration = Number(val('fld-duration'));
+    if (tripCat === 'ROUND_TRIP' && val('fld-return')){
+      const r = new Date(val('fld-return'));
+      if (!isNaN(r)) trip.returnDateTime = r.toISOString();
+    }
+    // Only prefill when there's at least a pickup; else open the plain form.
+    return stops.length ? (MOOVS_REQUEST + '?trip=' + encodeURIComponent(JSON.stringify(trip))) : MOOVS_REQUEST;
+  }
+
+  form.addEventListener('submit', e => { e.preventDefault(); goMoovs(buildUrl()); });
 })();
 
 /* Every booking CTA points at a "#book" anchor (#book, /#book, /es/#book,

@@ -66,17 +66,16 @@
 
 /* ===== Booking (Moovs) + conversion UI for subpages ===== */
 (function () {
-  // Real Moovs customer portal. The /iframe form embeds on-site (in a modal);
-  // /new/info is the full-page fallback opened in a new tab.
-  var MOOVS_IFRAME = "https://customer.moovs.app/ry-quiroz-luxury-llc/iframe";
-  var MOOVS_URL = "https://customer.moovs.app/ry-quiroz-luxury-llc/new/info";
+  // Moovs request flow embedded on-site (modal). The home hero form passes a
+  // prefilled `?trip=<JSON>` URL; subpage CTAs open the plain form.
+  var MOOVS_REQUEST = "https://customer.moovs.app/ry-quiroz-luxury-llc/request/new";
 
   if (!window.goMoovs) {
     var es = (document.documentElement.lang || "").toLowerCase().slice(0, 2) === "es";
     var T = es
       ? { title: "Reserva tu viaje", tab: "Abrir en pestaña nueva", close: "Cerrar" }
       : { title: "Book your ride", tab: "Open in new tab", close: "Close" };
-    var modal, frame, lastFocus;
+    var modal, frame, newTab, lastFocus, lastUrl = "";
 
     function build() {
       modal = document.createElement("div");
@@ -89,7 +88,7 @@
         '<div class="bk-modal-panel">' +
           '<div class="bk-modal-head">' +
             '<span class="bk-modal-title">' + T.title + "</span>" +
-            '<a class="bk-modal-new" href="' + MOOVS_URL + '" target="_blank" rel="noopener">' + T.tab +
+            '<a class="bk-modal-new" target="_blank" rel="noopener">' + T.tab +
               ' <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>' +
             '<button type="button" class="bk-modal-close" aria-label="' + T.close + '">' +
               '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>' +
@@ -97,6 +96,7 @@
           '<div class="bk-modal-body"><iframe title="' + T.title + '" loading="lazy"></iframe></div>' +
         "</div>";
       frame = modal.querySelector("iframe");
+      newTab = modal.querySelector(".bk-modal-new");
       modal.querySelector(".bk-modal-close").addEventListener("click", close);
       modal.querySelector(".bk-modal-backdrop").addEventListener("click", close);
       document.body.appendChild(modal);
@@ -113,10 +113,12 @@
       if (e.key === "Escape" && modal && modal.classList.contains("open")) close();
     });
 
-    window.goMoovs = function () {
+    window.goMoovs = function (url) {
+      var target = url || MOOVS_REQUEST;
       lastFocus = document.activeElement;
       if (!modal) build();
-      if (!frame.src) frame.src = MOOVS_IFRAME; // lazy: load Moovs only on first open
+      if (target !== lastUrl) { frame.src = target; lastUrl = target; }
+      newTab.href = target;
       modal.classList.add("open");
       document.body.style.overflow = "hidden";
       modal.querySelector(".bk-modal-close").focus();
