@@ -212,6 +212,19 @@ header.nav.scrolled{background:rgba(10,10,11,.78);backdrop-filter:blur(14px);-we
 .rc-cta{width:100%;justify-content:center;padding:16px;font-size:14px}
 .bk-note{text-align:center;font-size:11px;color:var(--mute-2);letter-spacing:.06em;margin-top:14px;display:flex;align-items:center;justify-content:center;gap:5px}
 .bk-note b{color:var(--mute);font-weight:500}
+.bk-modal{position:fixed;inset:0;z-index:150;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s var(--ease),visibility .3s var(--ease)}
+.bk-modal.open{opacity:1;visibility:visible}
+.bk-modal-backdrop{position:absolute;inset:0;background:rgba(6,6,9,.80);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.bk-modal-panel{position:relative;z-index:1;display:flex;flex-direction:column;width:min(480px,calc(100% - 32px));height:min(720px,90vh);background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.6);transform:translateY(14px);transition:transform .3s var(--ease)}
+.bk-modal.open .bk-modal-panel{transform:none}
+.bk-modal-head{display:flex;align-items:center;gap:14px;padding:13px 14px 13px 18px;background:var(--ink);border-bottom:1px solid var(--line)}
+.bk-modal-title{font-family:var(--serif);font-size:16px;font-weight:500;color:var(--bone);margin-right:auto}
+.bk-modal-new{display:inline-flex;align-items:center;gap:5px;font-size:12px;letter-spacing:.02em;color:var(--gold);white-space:nowrap}
+.bk-modal-new:hover{color:var(--gold-soft)}
+.bk-modal-close{display:flex;align-items:center;justify-content:center;padding:4px;background:none;border:none;color:var(--bone);cursor:pointer;border-radius:4px;transition:color .2s}
+.bk-modal-close:hover{color:var(--gold)}
+.bk-modal-body{flex:1;min-height:0;background:#fff}
+.bk-modal-body iframe{display:block;width:100%;height:100%;border:0}
 
 .scroll-hint{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:10px;letter-spacing:.3em;color:var(--mute-2);opacity:0;animation:rise 1s 1.4s forwards}
 .scroll-hint .dot{width:1px;height:40px;background:linear-gradient(var(--gold),transparent);animation:drop 1.8s infinite}
@@ -237,6 +250,7 @@ section{position:relative}
 @media(prefers-reduced-motion:reduce){
   .reveal{opacity:1!important;transform:none!important;transition:none}
   .hero-photo,.hero h1 .l,.hero-eyebrow,.hero p.sub,.hero-locations,.hero-cta,.hero-trust,.booking,.scroll-hint,.bokeh{animation:none!important;opacity:1!important;transform:none!important}
+  .bk-modal,.bk-modal-panel{transition:none}
 }
 
 /* lazy background fade-in */
@@ -362,6 +376,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
 }
 /* tablets & foldables */
 @media(max-width:880px){
+  .bk-modal-panel{width:100%;height:100%;max-height:none;border-radius:0}
   .hero{padding-top:90px}
   .hero-grid{grid-template-columns:1fr;gap:38px}
   .booking{max-width:460px}
@@ -702,7 +717,8 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
 
 <script>
 /* ============ Config ============ */
-const MOOVS_URL = 'https://customer.moovs.app/ry-quiroz-luxury-llc/new/info'; // real Moovs portal
+const MOOVS_IFRAME = 'https://customer.moovs.app/ry-quiroz-luxury-llc/iframe'; // embedded booking form (modal)
+const MOOVS_URL = 'https://customer.moovs.app/ry-quiroz-luxury-llc/new/info';   // full-page fallback (new tab)
 
 /* ============ Nav scroll state ============ */
 const nav = document.getElementById('nav');
@@ -721,13 +737,59 @@ mmClose.addEventListener('click', closeMenu);
 menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu(); });
 
-/* ============ Moovs booking flow ============ */
-/* Opens the Moovs customer portal. Moovs runs its own trip-details + live
-   quoting + payment flow on its secure page. */
-function goMoovs(){ window.open(MOOVS_URL, '_blank', 'noopener'); }
+/* ============ Moovs booking flow (on-site modal) ============ */
+/* goMoovs() opens the Moovs /iframe booking form in a branded modal so guests
+   book without leaving the site. A "new tab" link to /new/info is the fallback. */
+(function(){
+  const es = (document.documentElement.lang || '').toLowerCase().slice(0,2) === 'es';
+  const T = es
+    ? { title:'Reserva tu viaje', tab:'Abrir en pestaña nueva', close:'Cerrar' }
+    : { title:'Book your ride', tab:'Open in new tab', close:'Close' };
+  let modal, frame, lastFocus;
+
+  function build(){
+    modal = document.createElement('div');
+    modal.className = 'bk-modal';
+    modal.setAttribute('role','dialog');
+    modal.setAttribute('aria-modal','true');
+    modal.setAttribute('aria-label', T.title);
+    modal.innerHTML =
+      '<div class="bk-modal-backdrop"></div>' +
+      '<div class="bk-modal-panel">' +
+        '<div class="bk-modal-head">' +
+          '<span class="bk-modal-title">' + T.title + '</span>' +
+          '<a class="bk-modal-new" href="' + MOOVS_URL + '" target="_blank" rel="noopener">' + T.tab +
+            ' <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>' +
+          '<button type="button" class="bk-modal-close" aria-label="' + T.close + '">' +
+            '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>' +
+        '</div>' +
+        '<div class="bk-modal-body"><iframe title="' + T.title + '" loading="lazy"></iframe></div>' +
+      '</div>';
+    frame = modal.querySelector('iframe');
+    modal.querySelector('.bk-modal-close').addEventListener('click', close);
+    modal.querySelector('.bk-modal-backdrop').addEventListener('click', close);
+    document.body.appendChild(modal);
+  }
+  function close(){
+    if (!modal) return;
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  addEventListener('keydown', e => { if (e.key === 'Escape' && modal && modal.classList.contains('open')) close(); });
+
+  window.goMoovs = function(){
+    lastFocus = document.activeElement;
+    if (!modal) build();
+    if (!frame.src) frame.src = MOOVS_IFRAME; // lazy: load Moovs only on first open
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    modal.querySelector('.bk-modal-close').focus();
+  };
+})();
 
 /* Every booking CTA points at a "#book" anchor (#book, /#book, /es/#book,
-   index.html#book). Intercept those clicks and open the portal directly. */
+   index.html#book). Intercept those clicks and open the booking modal. */
 document.addEventListener('click', e => {
   const a = e.target.closest && e.target.closest('a[href$="#book"]');
   if (a){ e.preventDefault(); goMoovs(); }
