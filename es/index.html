@@ -206,7 +206,15 @@ header.nav.scrolled{background:rgba(10,10,11,.78);backdrop-filter:blur(14px);-we
 .bk-tabs{display:flex;gap:4px;margin-bottom:10px}
 .bk-tab{flex:1;text-align:center;font-size:12px;letter-spacing:.04em;padding:11px 0;border-radius:3px;color:var(--mute);cursor:pointer;transition:.25s;font-weight:500;border:none;background:none;font-family:var(--sans)}
 .bk-tab.on{background:var(--bone);color:var(--ink)}
-.bk-field{display:flex;align-items:center;gap:11px;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:3px;padding:13px 14px;margin-bottom:7px;transition:border-color .25s,box-shadow .25s}
+.bk-field{position:relative;display:flex;align-items:center;gap:11px;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:3px;padding:13px 14px;margin-bottom:7px;transition:border-color .25s,box-shadow .25s}
+.ac-list{position:absolute;left:-1px;right:-1px;top:calc(100% + 5px);z-index:60;list-style:none;margin:0;padding:6px;background:var(--ink-2);border:1px solid var(--line);border-radius:5px;box-shadow:0 18px 40px -12px rgba(0,0,0,.7);max-height:288px;overflow:auto}
+.ac-list[hidden]{display:none}
+.ac-item{display:flex;align-items:center;gap:10px;padding:10px 11px;border-radius:4px;cursor:pointer;color:var(--bone)}
+.ac-item>svg{color:var(--gold);flex-shrink:0}
+.ac-item:hover,.ac-item.on{background:rgba(201,168,106,.13)}
+.ac-txt{display:flex;flex-direction:column;min-width:0}
+.ac-main{font-size:13.5px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ac-sub{font-size:11.5px;color:var(--mute-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bk-field:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,106,.12)}
 .bk-field svg{color:var(--gold);flex-shrink:0}
 .bk-field input,.bk-field select{background:none;border:none;outline:none;color:var(--bone);font-family:var(--sans);font-size:14px;width:100%;-webkit-appearance:none;appearance:none}
@@ -735,6 +743,10 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
 /* Moovs request flow. We prefill it with the hero form via the official
    Booking Widget `?trip=<JSON>` param (stops/dateTime/totalGroupSize/…). */
 const MOOVS_REQUEST = 'https://customer.moovs.app/ry-quiroz-luxury-llc/request/new';
+/* Google Maps Platform key (HTTP-referrer–restricted to rideyeah.com / pages.dev /
+   localhost, so it is safe in client code). Leave '' to disable autocomplete — the
+   address fields then stay as plain text inputs and the form still works. */
+const GMAPS_KEY = '';
 
 /* ============ Nav scroll state ============ */
 const nav = document.getElementById('nav');
@@ -832,10 +844,29 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
   }));
 
   const val = id => (document.getElementById(id)?.value || '').trim();
-  const iso = (d, t) => { // local date + time -> ISO; falls back to date-only
+  /* Interpret the chosen wall-clock time as America/Los_Angeles (pickup city),
+     not the visitor's zone, then emit the matching ISO instant for Moovs. */
+  const TZ = 'America/Los_Angeles';
+  function tzOffsetMs(utcMs){
+    const p = {};
+    new Intl.DateTimeFormat('en-US',{timeZone:TZ,hour12:false,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit'})
+      .formatToParts(new Date(utcMs)).forEach(x => p[x.type] = x.value);
+    return Date.UTC(+p.year, +p.month - 1, +p.day, +p.hour, +p.minute, +p.second) - utcMs;
+  }
+  function pacificISO(Y,M,D,h,mi){
+    if (!Y || !M || !D) return undefined;
+    const guess = Date.UTC(Y, M - 1, D, h || 0, mi || 0);
+    return new Date(guess - tzOffsetMs(guess)).toISOString();
+  }
+  const iso = (d, t) => { // date "YYYY-MM-DD" + time "HH:MM" (Pacific) -> ISO
     if (!d) return undefined;
-    const dt = new Date(d + 'T' + (t || '12:00'));
-    return isNaN(dt) ? undefined : dt.toISOString();
+    const [Y,M,D] = d.split('-').map(Number);
+    const [h,mi] = (t || '12:00').split(':').map(Number);
+    return pacificISO(Y,M,D,h,mi);
+  };
+  const isoLocal = s => { // datetime-local "YYYY-MM-DDTHH:MM" (Pacific) -> ISO
+    const m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(s || '');
+    return m ? pacificISO(+m[1], +m[2], +m[3], +m[4], +m[5]) : undefined;
   };
 
   function buildUrl(){
@@ -850,15 +881,106 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
     const pax = parseInt(val('fld-pax'), 10);
     if (pax > 0) trip.totalGroupSize = pax;
     if (tripCat === 'HOURLY' && val('fld-duration')) trip.totalDuration = Number(val('fld-duration'));
-    if (tripCat === 'ROUND_TRIP' && val('fld-return')){
-      const r = new Date(val('fld-return'));
-      if (!isNaN(r)) trip.returnDateTime = r.toISOString();
+    if (tripCat === 'ROUND_TRIP'){
+      const r = isoLocal(val('fld-return'));
+      if (r) trip.returnDateTime = r;
     }
     // Only prefill when there's at least a pickup; else open the plain form.
     return stops.length ? (MOOVS_REQUEST + '?trip=' + encodeURIComponent(JSON.stringify(trip))) : MOOVS_REQUEST;
   }
 
   form.addEventListener('submit', e => { e.preventDefault(); goMoovs(buildUrl()); });
+})();
+
+/* ============ Google Places autocomplete (additive; degrades to plain text) ============ */
+/* Enhances the pickup/drop-off inputs with a custom dark dropdown of real Google
+   places. If GMAPS_KEY is empty or the API fails to load, the inputs stay as plain
+   text fields and the form still submits the typed text to Moovs. */
+(function(){
+  if (!GMAPS_KEY) return;
+  const fields = ['fld-pickup','fld-dropoff'].map(id => document.getElementById(id)).filter(Boolean);
+  if (!fields.length) return;
+  const LANG = (document.documentElement.lang || 'en').toLowerCase().slice(0,2) === 'es' ? 'es' : 'en';
+  const LA = { lat: 34.0522, lng: -118.2437 };
+  const PIN = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>';
+
+  // Official Google Maps JS API bootstrap loader (loads the library on first import).
+  (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await(a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({key:GMAPS_KEY, v:"weekly", language:LANG, region:"US"});
+
+  let Suggestion, SessionToken, token;
+  (async () => {
+    try {
+      const lib = await google.maps.importLibrary('places');
+      Suggestion = lib.AutocompleteSuggestion; SessionToken = lib.AutocompleteSessionToken;
+      token = new SessionToken();
+      fields.forEach(attach);
+    } catch (e) { /* leave inputs as plain text */ }
+  })();
+
+  function attach(input){
+    const wrap = input.closest('.bk-field');
+    const list = document.createElement('ul');
+    list.className = 'ac-list'; list.setAttribute('role','listbox'); list.hidden = true;
+    wrap.appendChild(list);
+    input.setAttribute('role','combobox');
+    input.setAttribute('aria-autocomplete','list');
+    input.setAttribute('aria-expanded','false');
+    input.autocomplete = 'off';
+    let preds = [], active = -1, timer;
+
+    const clear = () => { list.innerHTML=''; list.hidden=true; preds=[]; active=-1; input.setAttribute('aria-expanded','false'); input.removeAttribute('aria-activedescendant'); };
+    function render(list2){
+      preds = list2; active = -1; list.innerHTML='';
+      list2.forEach((p,i) => {
+        const li = document.createElement('li');
+        li.className='ac-item'; li.id = 'ac-'+input.id+'-'+i; li.setAttribute('role','option');
+        li.innerHTML = PIN + '<span class="ac-txt"><span class="ac-main"></span><span class="ac-sub"></span></span>';
+        li.querySelector('.ac-main').textContent = (p.mainText && p.mainText.text) || (p.text && p.text.text) || '';
+        li.querySelector('.ac-sub').textContent  = (p.secondaryText && p.secondaryText.text) || '';
+        li.addEventListener('mousedown', ev => { ev.preventDefault(); choose(i); });
+        list.appendChild(li);
+      });
+      list.hidden = !list2.length;
+      input.setAttribute('aria-expanded', list2.length ? 'true' : 'false');
+    }
+    async function search(q){
+      try {
+        const { suggestions } = await Suggestion.fetchAutocompleteSuggestions({ input:q, sessionToken:token, region:'us', language:LANG, origin:LA });
+        render((suggestions||[]).map(s => s.placePrediction).filter(Boolean).slice(0,5));
+      } catch (e) { clear(); }
+    }
+    async function choose(i){
+      const pred = preds[i]; if (!pred) return;
+      try {
+        const place = pred.toPlace();
+        await place.fetchFields({ fields:['formattedAddress'] });
+        input.value = place.formattedAddress || (pred.text && pred.text.text) || input.value;
+      } catch (e) { input.value = (pred.text && pred.text.text) || input.value; }
+      token = new SessionToken(); // a session = typing + one selection
+      clear();
+    }
+    function setActive(n){
+      const li = list.children;
+      if (active>=0 && li[active]) li[active].classList.remove('on');
+      active = n;
+      if (active>=0 && li[active]){ li[active].classList.add('on'); input.setAttribute('aria-activedescendant', li[active].id); li[active].scrollIntoView({block:'nearest'}); }
+      else input.removeAttribute('aria-activedescendant');
+    }
+    input.addEventListener('input', () => {
+      const q = input.value.trim();
+      clearTimeout(timer);
+      if (q.length < 3) { clear(); return; }
+      timer = setTimeout(() => search(q), 250);
+    });
+    input.addEventListener('keydown', e => {
+      if (list.hidden) return;
+      if (e.key === 'ArrowDown'){ e.preventDefault(); setActive(Math.min(active+1, preds.length-1)); }
+      else if (e.key === 'ArrowUp'){ e.preventDefault(); setActive(Math.max(active-1, 0)); }
+      else if (e.key === 'Enter' && active >= 0){ e.preventDefault(); choose(active); }
+      else if (e.key === 'Escape'){ clear(); }
+    });
+    input.addEventListener('blur', () => setTimeout(clear, 150));
+  }
 })();
 
 /* Every booking CTA points at a "#book" anchor (#book, /#book, /es/#book,
