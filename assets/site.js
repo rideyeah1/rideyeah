@@ -146,16 +146,20 @@
   fab.innerHTML = phoneSvg.replace(/WW/g, "22");
   document.body.appendChild(fab);
 
+  var msgSvg =
+    '<svg viewBox="0 0 24 24" width="WW" height="WW" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"></path></svg>';
+
   var bar = document.createElement("div");
   bar.className = "sticky-cta";
   bar.id = "stickyCta";
   bar.innerHTML =
-    '<a class="sc-call" href="tel:' + PHONE + '" aria-label="Call RideYeah">' +
-    phoneSvg.replace(/WW/g, "16") +
-    " Call</a><button type=\"button\" class=\"sc-book\">Get Your Fixed Quote</button>";
+    '<a class="sc-call" href="sms:' + PHONE + '" aria-label="Text RideYeah">' +
+    msgSvg.replace(/WW/g, "16") +
+    " Message</a><button type=\"button\" class=\"sc-book\">Get Your Fixed Quote</button>";
   document.body.appendChild(bar);
+  // On subpages the hero booking form lives on the home — send the guest there.
   bar.querySelector(".sc-book").addEventListener("click", function () {
-    if (window.goMoovs) window.goMoovs();
+    window.location.href = "/#book";
   });
 
   var onScroll = function () {

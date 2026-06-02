@@ -203,7 +203,8 @@ rep(">Popular routes</a>", ">Rutas populares</a>");
 rep(">About us</a>", ">Nosotros</a>");
 rep(">Our fleet</a>", ">Nuestra flota</a>");
 rep("All rights reserved.", "Todos los derechos reservados.");
-rep(" Call</a>", " Llamar</a>");
+rep(" Message</a>", " Mensaje</a>");
+rep('class="sc-book">Get Your Fixed Quote</button>', 'class="sc-book">Obtén tu tarifa fija</button>');
 
 /* ---------- aria labels (polish) ---------- */
 rep('aria-label="Open menu"', 'aria-label="Abrir menú"');
