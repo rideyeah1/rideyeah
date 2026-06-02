@@ -66,19 +66,24 @@
 
 /* ===== Booking (Moovs) + conversion UI for subpages ===== */
 (function () {
-  var MOOVS_SLUG = "rideyeah"; // ← replace with the real Moovs slug when ready
+  // Real Moovs customer portal (booking flow entry point).
+  var MOOVS_URL = "https://customer.moovs.app/ry-quiroz-luxury-llc/new/info";
   if (!window.goMoovs) {
-    window.goMoovs = function (presetTab) {
-      var params = new URLSearchParams();
-      if (presetTab) params.set("type", presetTab);
-      var qs = params.toString();
-      window.open(
-        "https://customer.moovs.app/" + encodeURIComponent(MOOVS_SLUG) + (qs ? "?" + qs : ""),
-        "_blank",
-        "noopener"
-      );
+    // presetTab kept for backward-compat with any [data-book] callers; ignored.
+    window.goMoovs = function () {
+      window.open(MOOVS_URL, "_blank", "noopener");
     };
   }
+
+  // Every booking CTA links to a "#book" anchor (#book, /#book, /es/#book,
+  // index.html#book). Intercept those clicks and open the Moovs portal directly.
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href$="#book"]');
+    if (a) {
+      e.preventDefault();
+      window.goMoovs();
+    }
+  });
 
   var PHONE = "+18052851570";
   var phoneSvg =

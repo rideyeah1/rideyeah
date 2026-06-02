@@ -56,18 +56,14 @@ rep(">Explore the fleet</a>", ">Ver la flota</a>");
 rep(" Trusted by executives, families &amp; VIP travelers across Southern California.",
     " La eligen ejecutivos, familias y viajeros VIP en todo el sur de California.");
 
-/* ---------- booking ---------- */
-rep('aria-selected="true">Airport</button>', 'aria-selected="true">Aeropuerto</button>');
-rep('aria-selected="false">By the hour</button>', 'aria-selected="false">Por horas</button>');
-rep('aria-selected="false">City to city</button>', 'aria-selected="false">Entre ciudades</button>');
-rep('placeholder="Pickup location · LAX, hotel, address"', 'placeholder="Lugar de recogida · LAX, hotel, dirección"');
-rep('placeholder="Drop-off destination"', 'placeholder="Destino"');
-rep('aria-label="Date" placeholder="Date"', 'aria-label="Fecha" placeholder="Fecha"');
-rep('aria-label="Time" placeholder="Time"', 'aria-label="Hora" placeholder="Hora"');
-rep("Get Your Fixed Quote", "Obtén tu tarifa fija");
+/* ---------- booking (Reserve card) ---------- */
+rep(">Book your Suburban</h2>", ">Reserva tu Suburban</h2>");
+rep("Reserve in under a minute on our secure portal.", "Reserva en menos de un minuto en nuestro portal seguro.");
+rep(" Fixed, all-in pricing — no surge</li>", " Precio fijo, todo incluido — sin recargos</li>");
+rep(" Flight tracking included</li>", " Seguimiento de vuelo incluido</li>");
+rep(" 24/7 chauffeurs · LA &amp; OC</li>", " Choferes 24/7 · LA y OC</li>");
 rep(" Secure booking ", " Reserva segura ");
 rep("powered by Moovs", "con tecnología Moovs");
-rep(" · Fixed price, no surge", " · Precio fijo, sin recargos");
 
 /* ---------- trust badges ---------- */
 rep('<div class="tt">Licensed &amp; Insured</div><div class="ts">Fully covered fleet</div>',

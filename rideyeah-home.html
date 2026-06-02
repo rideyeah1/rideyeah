@@ -203,18 +203,14 @@ header.nav.scrolled{background:rgba(10,10,11,.78);backdrop-filter:blur(14px);-we
 
 /* booking card */
 .booking{background:rgba(247,246,243,.04);border:1px solid var(--line);border-radius:6px;padding:10px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;animation:rise 1s 1s forwards}
-.bk-tabs{display:flex;gap:4px;margin-bottom:10px}
-.bk-tab{flex:1;text-align:center;font-size:12px;letter-spacing:.04em;padding:11px 0;border-radius:3px;color:var(--mute);cursor:pointer;transition:.25s;font-weight:500;border:none;background:none;font-family:var(--sans)}
-.bk-tab.on{background:var(--bone);color:var(--ink)}
-.bk-field{display:flex;align-items:center;gap:11px;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:3px;padding:13px 14px;margin-bottom:7px;transition:border-color .25s,box-shadow .25s}
-.bk-field:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,106,.12)}
-.bk-field svg{color:var(--gold);flex-shrink:0}
-.bk-field input{background:none;border:none;outline:none;color:var(--bone);font-family:var(--sans);font-size:14px;width:100%}
-.bk-field input::placeholder{color:var(--mute-2)}
-.bk-row{display:flex;gap:7px}
-.bk-row .bk-field{flex:1;margin-bottom:0}
-.bk-submit{width:100%;justify-content:center;margin-top:9px;padding:15px;font-size:14px}
-.bk-note{text-align:center;font-size:11px;color:var(--mute-2);letter-spacing:.06em;margin-top:11px;display:flex;align-items:center;justify-content:center;gap:5px}
+.reserve-card{padding:30px 26px;text-align:center}
+.rc-title{font-family:var(--serif);font-size:clamp(22px,2.4vw,28px);font-weight:500;color:var(--bone);line-height:1.15;margin:0}
+.rc-sub{font-size:13.5px;color:var(--mute);margin:9px 0 20px}
+.rc-list{list-style:none;margin:0 0 22px;padding:0;display:flex;flex-direction:column;gap:13px;text-align:left}
+.rc-item{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--bone)}
+.rc-item svg{color:var(--gold);flex-shrink:0}
+.rc-cta{width:100%;justify-content:center;padding:16px;font-size:14px}
+.bk-note{text-align:center;font-size:11px;color:var(--mute-2);letter-spacing:.06em;margin-top:14px;display:flex;align-items:center;justify-content:center;gap:5px}
 .bk-note b{color:var(--mute);font-weight:500}
 
 .scroll-hint{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:10px;letter-spacing:.3em;color:var(--mute-2);opacity:0;animation:rise 1s 1.4s forwards}
@@ -475,21 +471,17 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
       </div>
 
       <!-- BOOKING -->
-      <form class="booking" id="bookingForm" aria-label="Booking">
-        <div class="bk-tabs" role="tablist">
-          <button type="button" class="bk-tab on" data-tab="airport" role="tab" aria-selected="true">Airport</button>
-          <button type="button" class="bk-tab" data-tab="hourly" role="tab" aria-selected="false">By the hour</button>
-          <button type="button" class="bk-tab" data-tab="city" role="tab" aria-selected="false">City to city</button>
-        </div>
-        <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><input id="fld-pickup" name="pickup" aria-label="Pickup location" placeholder="Pickup location · LAX, hotel, address"></div>
-        <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg><input id="fld-dropoff" name="dropoff" aria-label="Drop-off destination" placeholder="Drop-off destination"></div>
-        <div class="bk-row">
-          <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><input id="fld-date" name="date" aria-label="Date" placeholder="Date" onfocus="(this.type='date')" onblur="(!this.value&&(this.type='text'))"></div>
-          <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><input id="fld-time" name="time" aria-label="Time" placeholder="Time" onfocus="(this.type='time')" onblur="(!this.value&&(this.type='text'))"></div>
-        </div>
-        <button type="submit" class="btn btn-gold bk-submit">Get Your Fixed Quote <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
-        <div class="bk-note"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Secure booking <b>powered by Moovs</b> · Fixed price, no surge</div>
-      </form>
+      <div class="booking reserve-card" aria-label="Reserve">
+        <h2 class="rc-title">Book your Suburban</h2>
+        <p class="rc-sub">Reserve in under a minute on our secure portal.</p>
+        <ul class="rc-list">
+          <li class="rc-item"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> Fixed, all-in pricing — no surge</li>
+          <li class="rc-item"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg> Flight tracking included</li>
+          <li class="rc-item"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 24/7 chauffeurs · LA &amp; OC</li>
+        </ul>
+        <button type="button" class="btn btn-gold rc-cta" onclick="goMoovs()">Reserve Your Chauffeur <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+        <div class="bk-note"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Secure booking <b>powered by Moovs</b></div>
+      </div>
     </div>
   </div>
   <div class="scroll-hint"><span>SCROLL</span><span class="dot"></span></div>
@@ -710,7 +702,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
 
 <script>
 /* ============ Config ============ */
-const MOOVS_SLUG = 'rideyeah'; // ← replace with your real Moovs customer-portal slug
+const MOOVS_URL = 'https://customer.moovs.app/ry-quiroz-luxury-llc/new/info'; // real Moovs portal
 
 /* ============ Nav scroll state ============ */
 const nav = document.getElementById('nav');
@@ -729,41 +721,21 @@ mmClose.addEventListener('click', closeMenu);
 menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu(); });
 
-/* ============ Booking tabs ============ */
-let activeTab = 'airport';
-document.querySelectorAll('.bk-tab').forEach(t => t.addEventListener('click', () => {
-  document.querySelectorAll('.bk-tab').forEach(x => { x.classList.remove('on'); x.setAttribute('aria-selected','false'); });
-  t.classList.add('on'); t.setAttribute('aria-selected','true');
-  activeTab = t.dataset.tab;
-}));
-
 /* ============ Moovs booking flow ============ */
-/* Opens the Moovs customer portal, forwarding any details the guest typed.
-   Moovs handles live quoting + payment on its secure page. */
-function goMoovs(presetTab){
-  if (presetTab) activeTab = presetTab;
-  const f = document.getElementById('bookingForm');
-  const params = new URLSearchParams();
-  if (activeTab) params.set('type', activeTab);
-  if (f){
-    const get = id => (document.getElementById(id)?.value || '').trim();
-    const pickup = get('fld-pickup'), dropoff = get('fld-dropoff'), date = get('fld-date'), time = get('fld-time');
-    if (pickup)  params.set('pickup', pickup);
-    if (dropoff) params.set('dropoff', dropoff);
-    if (date)    params.set('date', date);
-    if (time)    params.set('time', time);
-  }
-  const qs = params.toString();
-  const url = 'https://customer.moovs.app/' + encodeURIComponent(MOOVS_SLUG) + (qs ? ('?' + qs) : '');
-  window.open(url, '_blank', 'noopener');
-}
-/* Submit handler on the hero form */
-const bookingForm = document.getElementById('bookingForm');
-if (bookingForm) bookingForm.addEventListener('submit', e => { e.preventDefault(); goMoovs(); });
+/* Opens the Moovs customer portal. Moovs runs its own trip-details + live
+   quoting + payment flow on its secure page. */
+function goMoovs(){ window.open(MOOVS_URL, '_blank', 'noopener'); }
 
-/* Any element with [data-book] opens booking with that ride type */
+/* Every booking CTA points at a "#book" anchor (#book, /#book, /es/#book,
+   index.html#book). Intercept those clicks and open the portal directly. */
+document.addEventListener('click', e => {
+  const a = e.target.closest && e.target.closest('a[href$="#book"]');
+  if (a){ e.preventDefault(); goMoovs(); }
+});
+
+/* Any element with [data-book] also opens booking */
 document.querySelectorAll('[data-book]').forEach(el => {
-  el.addEventListener('click', () => goMoovs(el.dataset.book));
+  el.addEventListener('click', () => goMoovs());
 });
 
 /* ============ Scroll reveal ============ */
