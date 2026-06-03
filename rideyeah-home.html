@@ -1008,7 +1008,7 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
       const airline = val('fld-airline'), flight = val('fld-flight'), parts = [];
       if (airline) parts.push('Airline: ' + airline);
       if (flight)  parts.push('Flight: ' + flight);
-      if (parts.length) trip.tripNote = 'Airport transfer — ' + parts.join(', ') + '. Please track the flight.';
+      if (parts.length) trip.note = 'Airport transfer — ' + parts.join(', ') + '. Please track the flight.';
     }
     // Only prefill when there's at least a pickup; else open the plain form.
     return stops.length ? (MOOVS_REQUEST + '?trip=' + encodeURIComponent(JSON.stringify(trip))) : MOOVS_REQUEST;
