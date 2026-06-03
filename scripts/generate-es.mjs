@@ -66,7 +66,8 @@ rep('aria-label="Duration"><option value="" disabled selected>Duration</option>'
 rep(" hours</option>", " horas</option>");
 rep('aria-label="Date" placeholder="Date"', 'aria-label="Fecha" placeholder="Fecha"');
 rep('aria-label="Time" placeholder="Time"', 'aria-label="Hora" placeholder="Hora"');
-rep('aria-label="Return date and time" placeholder="Return date & time"', 'aria-label="Fecha y hora de regreso" placeholder="Fecha y hora de regreso"');
+rep('aria-label="Return date" placeholder="Return date"', 'aria-label="Fecha de regreso" placeholder="Fecha de regreso"');
+rep('aria-label="Return time" placeholder="Return time"', 'aria-label="Hora de regreso" placeholder="Hora de regreso"');
 rep('aria-label="Airline" placeholder="Airline (e.g. American)"', 'aria-label="Aerolínea" placeholder="Aerolínea (ej. American)"');
 rep('aria-label="Flight number" placeholder="Flight no. (e.g. AA327)"', 'aria-label="Número de vuelo" placeholder="N° de vuelo (ej. AA327)"');
 rep('aria-label="Passengers" placeholder="Passengers"', 'aria-label="Pasajeros" placeholder="Pasajeros"');

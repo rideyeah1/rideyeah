@@ -216,6 +216,19 @@ header.nav.scrolled{background:rgba(10,10,11,.78);backdrop-filter:blur(14px);-we
 .ac-txt{display:flex;flex-direction:column;min-width:0}
 .ac-main{font-size:13.5px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ac-sub{font-size:11.5px;color:var(--mute-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tp-list{max-height:240px}
+.dp{position:absolute;left:0;top:calc(100% + 5px);z-index:70;min-width:266px;max-width:calc(100vw - 40px);padding:12px;background:var(--ink-2);border:1px solid var(--line);border-radius:6px;box-shadow:0 18px 40px -12px rgba(0,0,0,.7)}
+.dp-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.dp-title{font-family:var(--serif);font-size:14px;color:var(--bone);text-transform:capitalize}
+.dp-nav{background:none;border:none;color:var(--gold);font-size:20px;line-height:1;cursor:pointer;padding:2px 9px;border-radius:4px}
+.dp-nav:hover{background:rgba(201,168,106,.13)}
+.dp-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.dp-dow span{text-align:center;font-size:10px;letter-spacing:.03em;color:var(--mute-2);padding:3px 0;text-transform:uppercase}
+.dp-days span{aspect-ratio:1}
+.dp-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border:none;background:none;color:var(--bone);font-family:var(--sans);font-size:13px;border-radius:4px;cursor:pointer;transition:background .15s,color .15s}
+.dp-day:hover{background:rgba(201,168,106,.13)}
+.dp-day.on{background:var(--gold);color:var(--ink);font-weight:600}
+.dp-day[disabled]{color:var(--mute-2);opacity:.4;cursor:default}
 .bk-field:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,106,.12)}
 .bk-field svg{color:var(--gold);flex-shrink:0}
 .bk-field input,.bk-field select{background:none;border:none;outline:none;color:var(--bone);font-family:var(--sans);font-size:14px;width:100%;-webkit-appearance:none;appearance:none}
@@ -516,14 +529,17 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
         <div class="bk-field" id="row-dropoff"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg><input id="fld-dropoff" name="dropoff" autocomplete="off" aria-label="Destino" placeholder="Destino"></div>
         <div class="bk-field" id="row-duration" hidden><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><select id="fld-duration" aria-label="Duración"><option value="" disabled selected>Duración</option><option value="120">2 horas</option><option value="180">3 horas</option><option value="240">4 horas</option><option value="300">5 horas</option><option value="360">6 horas</option><option value="480">8 horas</option></select></div>
         <div class="bk-row">
-          <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><input id="fld-date" name="date" aria-label="Fecha" placeholder="Fecha" onfocus="(this.type='date')" onblur="(!this.value&&(this.type='text'))"></div>
-          <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><input id="fld-time" name="time" aria-label="Hora" placeholder="Hora" onfocus="(this.type='time')" onblur="(!this.value&&(this.type='text'))"></div>
+          <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><input id="fld-date" name="date" readonly inputmode="none" aria-label="Fecha" placeholder="Fecha"></div>
+          <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><input id="fld-time" name="time" readonly inputmode="none" aria-label="Hora" placeholder="Hora"></div>
         </div>
         <div class="bk-row" id="row-flightinfo" hidden>
           <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg><input id="fld-airline" name="airline" autocomplete="off" aria-label="Aerolínea" placeholder="Aerolínea (ej. American)"></div>
           <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg><input id="fld-flight" name="flight" autocomplete="off" aria-label="Número de vuelo" placeholder="N° de vuelo (ej. AA327)"></div>
         </div>
-        <div class="bk-field" id="row-return" hidden><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg><input id="fld-return" name="return" aria-label="Fecha y hora de regreso" placeholder="Fecha y hora de regreso" onfocus="(this.type='datetime-local')" onblur="(!this.value&&(this.type='text'))"></div>
+        <div class="bk-row" id="row-return" hidden>
+          <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg><input id="fld-return-date" name="return-date" readonly inputmode="none" aria-label="Fecha de regreso" placeholder="Fecha de regreso"></div>
+          <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><input id="fld-return-time" name="return-time" readonly inputmode="none" aria-label="Hora de regreso" placeholder="Hora de regreso"></div>
+        </div>
         <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><input id="fld-pax" name="passengers" type="number" min="1" max="14" value="1" inputmode="numeric" aria-label="Pasajeros" placeholder="Pasajeros"></div>
         <button type="submit" class="btn btn-gold bk-submit">Reserva tu chofer <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
         <div class="bk-note"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Reserva segura <b>con tecnología Moovs</b></div>
@@ -858,11 +874,11 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
   });
 
   const val = id => (document.getElementById(id)?.value || '').trim();
+  const mval = id => (document.getElementById(id)?.dataset.iso || '').trim(); // machine value from the custom pickers
   /* Moovs renders the dateTime LITERALLY (it shows the hour written in the ISO),
      so we pass the guest's wall-clock time as-is — no timezone conversion. The
      pickup city is always Pacific, which is exactly what the guest is choosing. */
   const iso = (d, t) => d ? (d + 'T' + (t || '12:00') + ':00.000Z') : undefined;
-  const isoLocal = s => { const m = /^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2})/.exec(s || ''); return m ? (m[1] + ':00.000Z') : undefined; };
 
   /* Airport detection: Google place types captured on selection (input._placeTypes),
      with a text fallback for airport names / IATA codes when not selected. */
@@ -895,13 +911,13 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
       stops.push(s);
     }
     trip.stops = stops;
-    const dt = iso(val('fld-date'), val('fld-time'));
+    const dt = iso(mval('fld-date'), mval('fld-time'));
     if (dt) trip.dateTime = dt;
     const pax = parseInt(val('fld-pax'), 10);
     trip.totalGroupSize = pax > 0 ? pax : 1; // never empty — empty pax blocks Moovs on step 1
     if (tripCat === 'HOURLY' && val('fld-duration')) trip.totalDuration = Number(val('fld-duration'));
     if (tripCat === 'ROUND_TRIP'){
-      const r = isoLocal(val('fld-return'));
+      const r = iso(mval('fld-return-date'), mval('fld-return-time'));
       if (r) trip.returnDateTime = r;
     }
     // Airport trips: set the order type + forward airline/flight to the driver via the note.
@@ -917,6 +933,94 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
   }
 
   form.addEventListener('submit', e => { e.preventDefault(); goMoovs(buildUrl()); });
+})();
+
+/* ============ Custom dark date & time pickers (replace the native ones) ============ */
+(function(){
+  if (!document.getElementById('bookingForm')) return;
+  const LANG = (document.documentElement.lang || 'en').toLowerCase().slice(0,2) === 'es' ? 'es-ES' : 'en-US';
+  const dFmt  = new Intl.DateTimeFormat(LANG, { weekday:'short', month:'short', day:'numeric', year:'numeric' });
+  const tFmt  = new Intl.DateTimeFormat(LANG, { hour:'numeric', minute:'2-digit' });
+  const monFmt= new Intl.DateTimeFormat(LANG, { month:'long', year:'numeric' });
+  const dowFmt= new Intl.DateTimeFormat(LANG, { weekday:'narrow' });
+  const pad = n => String(n).padStart(2,'0');
+
+  let openPop = null;
+  function closePop(){ if (openPop){ openPop.remove(); openPop = null; document.removeEventListener('click', outside, true); } }
+  function outside(e){ if (openPop && !openPop.contains(e.target) && e.target !== openPop._anchor) closePop(); }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closePop(); });
+  function popoverFor(input, cls){
+    closePop();
+    const pop = document.createElement('div');
+    pop.className = cls; pop._anchor = input;
+    input.closest('.bk-field').appendChild(pop);
+    openPop = pop;
+    setTimeout(() => document.addEventListener('click', outside, true), 0);
+    return pop;
+  }
+
+  function attachDate(input){
+    let view;
+    const todayMid = () => { const t = new Date(); t.setHours(0,0,0,0); return t; };
+    function render(pop){
+      const today = todayMid(), y = view.getFullYear(), m = view.getMonth();
+      const startDow = new Date(y, m, 1).getDay(), days = new Date(y, m+1, 0).getDate();
+      let h = '<div class="dp-head"><button type="button" class="dp-nav" data-d="-1" aria-label="Previous month">&#8249;</button>'
+        + '<span class="dp-title">' + monFmt.format(new Date(y, m, 1)) + '</span>'
+        + '<button type="button" class="dp-nav" data-d="1" aria-label="Next month">&#8250;</button></div><div class="dp-grid dp-dow">';
+      for (let i=0;i<7;i++) h += '<span>' + dowFmt.format(new Date(2023,0,1+i)) + '</span>'; // Jan 1 2023 = Sunday
+      h += '</div><div class="dp-grid dp-days">';
+      for (let i=0;i<startDow;i++) h += '<span></span>';
+      for (let d=1; d<=days; d++){
+        const isoD = y + '-' + pad(m+1) + '-' + pad(d);
+        const dis = new Date(y,m,d) < today, sel = input.dataset.iso === isoD;
+        h += '<button type="button" class="dp-day' + (sel?' on':'') + '" data-iso="' + isoD + '"' + (dis?' disabled':'') + '>' + d + '</button>';
+      }
+      pop.innerHTML = h + '</div>';
+      pop.querySelectorAll('.dp-nav').forEach(b => b.addEventListener('click', ev => { ev.stopPropagation(); view = new Date(y, m + Number(b.dataset.d), 1); render(pop); }));
+      pop.querySelectorAll('.dp-day:not([disabled])').forEach(b => b.addEventListener('click', ev => {
+        ev.stopPropagation();
+        input.dataset.iso = b.dataset.iso;
+        const [Y,M,D] = b.dataset.iso.split('-').map(Number);
+        input.value = dFmt.format(new Date(Y, M-1, D));
+        closePop(); input.dispatchEvent(new Event('input',{bubbles:true}));
+      }));
+    }
+    function open(){
+      const base = input.dataset.iso ? (() => { const [Y,M] = input.dataset.iso.split('-').map(Number); return new Date(Y, M-1, 1); })() : todayMid();
+      view = new Date(base.getFullYear(), base.getMonth(), 1);
+      render(popoverFor(input, 'dp'));
+    }
+    input.addEventListener('click', open);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+  }
+
+  function attachTime(input){
+    function open(){
+      const pop = popoverFor(input, 'ac-list tp-list');
+      let h = '';
+      for (let hr=0; hr<24; hr++) for (let mi=0; mi<60; mi+=15){
+        const isoT = pad(hr) + ':' + pad(mi);
+        h += '<button type="button" class="ac-item tp-item' + (input.dataset.iso===isoT?' on':'') + '" data-iso="' + isoT + '">'
+          + '<span class="ac-txt"><span class="ac-main">' + tFmt.format(new Date(2000,0,1,hr,mi)) + '</span></span></button>';
+      }
+      pop.innerHTML = h;
+      pop.querySelectorAll('.tp-item').forEach(b => b.addEventListener('click', ev => {
+        ev.stopPropagation();
+        input.dataset.iso = b.dataset.iso;
+        const [H,Mi] = b.dataset.iso.split(':').map(Number);
+        input.value = tFmt.format(new Date(2000,0,1,H,Mi));
+        closePop(); input.dispatchEvent(new Event('input',{bubbles:true}));
+      }));
+      const sel = pop.querySelector('.tp-item.on') || pop.querySelectorAll('.tp-item')[36]; // ~9:00 AM default
+      if (sel) sel.scrollIntoView({ block:'center' });
+    }
+    input.addEventListener('click', open);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+  }
+
+  ['fld-date','fld-return-date'].forEach(id => { const el = document.getElementById(id); if (el) attachDate(el); });
+  ['fld-time','fld-return-time'].forEach(id => { const el = document.getElementById(id); if (el) attachTime(el); });
 })();
 
 /* ============ Google Places autocomplete (additive; degrades to plain text) ============ */
