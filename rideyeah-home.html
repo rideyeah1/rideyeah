@@ -234,7 +234,12 @@ header.nav.scrolled{background:rgba(10,10,11,.78);backdrop-filter:blur(14px);-we
 .dp-day[disabled]{color:var(--mute-2);opacity:.4;cursor:default}
 .bk-field.bk-invalid{border-color:#c8553d}
 .bk-field.bk-invalid:focus-within{border-color:#c8553d;box-shadow:0 0 0 3px rgba(200,85,61,.18)}
-.bk-err{font-size:11.5px;color:#e08a72;letter-spacing:.01em;margin:-3px 2px 7px;display:flex;align-items:center;gap:5px}
+.bk-note2{font-size:11.5px;letter-spacing:.01em;margin:-3px 2px 7px;display:flex;align-items:center;gap:5px}
+.bk-note2.bk-err{color:#e08a72}
+.bk-note2.bk-info{color:var(--mute)}
+.bk-note2.bk-ok{color:#86c98a}
+.bk-note2 .bk-spin{width:11px;height:11px;border:1.5px solid currentColor;border-right-color:transparent;border-radius:50%;animation:bkspin .7s linear infinite}
+@keyframes bkspin{to{transform:rotate(360deg)}}
 .bk-field:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,106,.12)}
 .bk-field svg{color:var(--gold);flex-shrink:0}
 .bk-field input,.bk-field select{background:none;border:none;outline:none;color:var(--bone);font-family:var(--sans);font-size:14px;width:100%;-webkit-appearance:none;appearance:none}
@@ -905,35 +910,73 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
   form.addEventListener('ry:place', updateAirportFields);
 
   /* ---- Flight number validation (before it reaches Moovs) ----
-     IATA flight designator: a 2-char airline code (letter first, e.g. AA, B6, DL)
-     followed by a 1–4 digit number. We normalize ("aa 327" → "AA327") and block
-     submit on a malformed value so the driver never gets a garbage flight to track. */
+     1) Format check (client): IATA designator = 2-char airline code (letter first,
+        e.g. AA, B6, DL) + 1–4 digit number. Normalizes "aa 327" → "AA327" and
+        blocks submit on a malformed value so the driver never gets garbage.
+     2) Live check (serverless /api/flight): confirms the flight exists on the date
+        and prefills the airline. It's an ENHANCEMENT — never blocks the booking
+        (far-out dates may not be in the provider's data yet), and silently falls
+        back to format-only if the API key isn't configured or the call fails. */
   const isES = (document.documentElement.lang || 'en').toLowerCase().slice(0,2) === 'es';
   const FLIGHT_RE = /^[A-Z][A-Z0-9]\d{1,4}$/;
-  const flightEl = document.getElementById('fld-flight');
+  const flightEl  = document.getElementById('fld-flight');
+  const airlineEl = document.getElementById('fld-airline');
   const flightField = flightEl && flightEl.closest('.bk-field');
-  let flightHint = null;
+  const FT = isES ? {
+    bad:'Número de vuelo no válido — usa el formato AA327 (aerolínea + número).',
+    checking:'Verificando vuelo…',
+    notfound:'No pudimos confirmar ese vuelo en la fecha (puede ser muy anticipado).'
+  } : {
+    bad:'Invalid flight number — use the format AA327 (airline + number).',
+    checking:'Checking flight…',
+    notfound:'Couldn’t confirm this flight on that date (it may be too far out).'
+  };
+  let flightNote = null, verifySeq = 0;
   function normFlight(){ if (flightEl) flightEl.value = flightEl.value.trim().toUpperCase().replace(/\s+/g,''); }
   function flightOK(){ const v = (flightEl?.value || '').trim().toUpperCase().replace(/\s+/g,''); return !v || FLIGHT_RE.test(v); }
-  function markFlight(bad){
+  function setNote(kind, html){
     if (!flightField) return;
-    flightField.classList.toggle('bk-invalid', bad);
-    flightEl.setAttribute('aria-invalid', bad ? 'true' : 'false');
-    if (bad){
-      if (!flightHint){
-        flightHint = document.createElement('div');
-        flightHint.className = 'bk-err';
-        flightHint.textContent = isES
-          ? 'Número de vuelo no válido — usa el formato AA327 (aerolínea + número).'
-          : 'Invalid flight number — use the format AA327 (airline + number).';
-        rowFlight.insertAdjacentElement('afterend', flightHint);
-      }
-    } else if (flightHint){ flightHint.remove(); flightHint = null; }
+    flightField.classList.toggle('bk-invalid', kind === 'err');
+    flightEl.setAttribute('aria-invalid', kind === 'err' ? 'true' : 'false');
+    if (!kind){ if (flightNote){ flightNote.remove(); flightNote = null; } return; }
+    if (!flightNote){ flightNote = document.createElement('div'); rowFlight.insertAdjacentElement('afterend', flightNote); }
+    flightNote.className = 'bk-note2 bk-' + kind;
+    flightNote.innerHTML = html;
+  }
+  async function verifyFlight(){
+    if (!flightEl) return;
+    normFlight();
+    const v = flightEl.value.trim();
+    if (!v){ setNote('', ''); return; }
+    if (!flightOK()){ setNote('err', FT.bad); return; }
+    const date = mval('fld-date'); // 'YYYY-MM-DD' or ''
+    const seq = ++verifySeq;
+    setNote('info', '<span class="bk-spin"></span>' + FT.checking);
+    let r;
+    try {
+      const resp = await fetch('/api/flight?flight=' + encodeURIComponent(v) + (date ? '&date=' + date : ''), { headers:{ accept:'application/json' } });
+      if (!resp.ok || !/json/.test(resp.headers.get('content-type') || '')) throw 0;
+      r = await resp.json();
+    } catch(_) { if (seq === verifySeq) setNote('', ''); return; } // no function / offline → format-only
+    if (seq !== verifySeq) return; // a newer check superseded this one
+    if (!r || r.configured === false){ setNote('', ''); return; } // key not set → format-only
+    if (r.valid){
+      const route = [r.departure, r.arrival].filter(Boolean).join(' → ');
+      setNote('ok', '✓ ' + (r.airline || v) + (route ? ' · ' + route : ''));
+      if (airlineEl && !airlineEl.value.trim() && r.airline) airlineEl.value = r.airline;
+    } else if (r.reason === 'not_found'){
+      setNote('info', FT.notfound); // soft, non-blocking
+    } else {
+      setNote('', ''); // upstream/format error from server → silent fallback
+    }
   }
   if (flightEl){
-    flightEl.addEventListener('input', () => markFlight(false));
-    flightEl.addEventListener('blur', () => { normFlight(); markFlight(flightEl.value && !flightOK()); });
+    flightEl.addEventListener('input', () => setNote('', ''));
+    flightEl.addEventListener('blur', verifyFlight);
   }
+  // Re-verify when the pickup date changes (flight existence depends on the date).
+  const dateEl = document.getElementById('fld-date');
+  if (dateEl) dateEl.addEventListener('input', () => { if (flightEl && flightEl.value.trim() && rowFlight && !rowFlight.hidden) verifyFlight(); });
 
   function buildUrl(){
     const pickup = val('fld-pickup'), dropoff = val('fld-dropoff');
@@ -976,7 +1019,7 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
     // On airport trips, refuse a malformed flight number before opening Moovs.
     if (isAirportTrip() && flightEl && flightEl.value.trim()){
       normFlight();
-      if (!flightOK()){ markFlight(true); flightEl.focus(); return; }
+      if (!flightOK()){ setNote('err', FT.bad); flightEl.focus(); return; }
     }
     goMoovs(buildUrl());
   });

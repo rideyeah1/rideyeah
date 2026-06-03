@@ -74,6 +74,20 @@ for (const file of ["404.html", "favicon.svg", "apple-touch-icon.png", "robots.t
   if (existsSync(file)) copyFileSync(file, join(DIST, file));
 }
 
+// Cloudflare Pages Functions (serverless) — must ship inside the deployed dir.
+// Copies functions/** → dist/functions/** so `/api/*` routes are built on deploy.
+if (existsSync("functions")) {
+  const copyDir = (from, to) => {
+    mkdirSync(to, { recursive: true });
+    for (const entry of readdirSync(from)) {
+      const s = join(from, entry), d = join(to, entry);
+      if (statSync(s).isDirectory()) copyDir(s, d);
+      else copyFileSync(s, d);
+    }
+  };
+  copyDir("functions", join(DIST, "functions"));
+}
+
 // Optimized images only (skip the source/ masters folder)
 let imgCount = 0;
 for (const file of readdirSync("images")) {
