@@ -255,7 +255,7 @@ header.nav.scrolled{background:rgba(10,10,11,.78);backdrop-filter:blur(14px);-we
 .bk-modal{position:fixed;inset:0;z-index:150;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s var(--ease),visibility .3s var(--ease)}
 .bk-modal.open{opacity:1;visibility:visible}
 .bk-modal-backdrop{position:absolute;inset:0;background:rgba(6,6,9,.80);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.bk-modal-panel{position:relative;z-index:1;display:flex;flex-direction:column;width:min(480px,calc(100% - 32px));height:min(720px,90vh);background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.6);transform:translateY(14px);transition:transform .3s var(--ease)}
+.bk-modal-panel{position:relative;z-index:1;display:flex;flex-direction:column;width:min(1040px,calc(100% - 40px));height:min(880px,92vh);background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.6);transform:translateY(14px);transition:transform .3s var(--ease)}
 .bk-modal.open .bk-modal-panel{transform:none}
 .bk-modal-head{display:flex;align-items:center;gap:14px;padding:13px 14px 13px 18px;background:var(--ink);border-bottom:1px solid var(--line)}
 .bk-modal-title{font-family:var(--serif);font-size:16px;font-weight:500;color:var(--bone);margin-right:auto}
@@ -1044,13 +1044,19 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
       const r = iso(mval('fld-return-date'), mval('fld-return-time'));
       if (r) trip.returnDateTime = r;
     }
-    // Airport trips: set the order type + forward airline/flight to the driver via the note.
+    // Order Type is a REQUIRED field in this Moovs widget — if it's left empty the
+    // guest hits "Please select an order type" and can't finish. So we ALWAYS prefill
+    // it. The widget matches the value (case-insensitively) against the operator's
+    // configured order types: "Airport" and "Corporate" are the two we map to
+    // (verified live). Airport trips also forward airline/flight to the driver via note.
     if (isAirportTrip()){
       trip.orderType = 'airport';
       const airline = val('fld-airline'), flight = val('fld-flight'), parts = [];
       if (airline) parts.push('Airline: ' + airline);
       if (flight)  parts.push('Flight: ' + flight);
       if (parts.length) trip.note = 'Airport transfer — ' + parts.join(', ') + '. Please track the flight.';
+    } else {
+      trip.orderType = 'corporate'; // neutral default for non-airport rides (only generic option configured)
     }
     // Only prefill when there's at least a pickup; else open the plain form.
     return stops.length ? (MOOVS_REQUEST + '?trip=' + encodeURIComponent(JSON.stringify(trip))) : MOOVS_REQUEST;
