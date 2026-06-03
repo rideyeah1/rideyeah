@@ -744,29 +744,7 @@ footer {
   transform: translateY(-3px);
 }
 
-/* ---------- CONVERSION: floating call + sticky CTA ---------- */
-.call-fab {
-  position: fixed;
-  right: 22px;
-  bottom: 92px;
-  z-index: 89;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--gold);
-  color: var(--ink);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 12px 30px -8px rgba(201, 168, 106, 0.55);
-  transition:
-    transform 0.25s var(--ease),
-    background 0.25s;
-}
-.call-fab:hover {
-  transform: translateY(-3px) scale(1.05);
-  background: var(--gold-soft);
-}
+/* ---------- CONVERSION: sticky CTA (mobile) ---------- */
 .sticky-cta {
   position: fixed;
   left: 0;
@@ -815,9 +793,6 @@ footer {
   border: none;
 }
 @media (max-width: 880px) {
-  .call-fab {
-    display: none;
-  }
   .sticky-cta {
     display: flex;
   }
