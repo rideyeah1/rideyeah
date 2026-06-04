@@ -51,7 +51,7 @@ rep("Luxury airport transfers and private chauffeur service across Los Angeles a
     "Traslados al aeropuerto de lujo y servicio de chofer privado en Los Ángeles y Orange County — con tarifas fijas y transparentes.");
 rep("LAX • SNA • Beverly Hills • Anaheim • Newport Beach • Private Airports",
     "LAX • SNA • Beverly Hills • Anaheim • Newport Beach • Aeropuertos privados");
-rep(">Reserve Your Chauffeur <svg", ">Reserva tu chofer <svg");
+rep(">Book Your Luxury Ride <svg", ">Reserva tu viaje de lujo <svg");
 rep(">Explore the fleet</a>", ">Ver la flota</a>");
 rep(" Trusted by executives, families &amp; VIP travelers across Southern California.",
     " La eligen ejecutivos, familias y viajeros VIP en todo el sur de California.");
