@@ -326,7 +326,24 @@ section{position:relative}
 .exp-media{position:relative;min-height:520px;border-radius:6px;overflow:hidden}
 .exp-photo{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.2s var(--ease)}
 .exp-media:hover .exp-photo{transform:scale(1.05)}
-.exp-media::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 40%,rgba(10,10,11,.35));pointer-events:none}
+.exp-media::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(120deg,transparent 45%,rgba(10,10,11,.32));pointer-events:none}
+/* Cabin carousel (exterior + interior) */
+.cab-carousel{position:absolute;inset:0;overflow:hidden;background:#0c0c0e}
+.cab-track{display:flex;height:100%;transition:transform .6s var(--ease)}
+.cab-slide{position:relative;flex:0 0 100%;height:100%}
+.cab-slide picture{display:block;width:100%;height:100%}
+.cab-slide img{display:block;width:100%;height:100%;object-fit:cover}
+.cab-cap{position:absolute;left:18px;bottom:18px;z-index:2;background:rgba(10,10,11,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line);color:var(--bone);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px;border-radius:3px}
+.cab-arr{position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:50%;background:rgba(10,10,11,.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--bone);cursor:pointer;transition:background .25s,border-color .25s,color .25s}
+.cab-arr:hover{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.cab-arr:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.cab-prev{left:14px}
+.cab-next{right:14px}
+.cab-dots{position:absolute;left:0;right:0;bottom:16px;z-index:4;display:flex;gap:8px;justify-content:center}
+.cab-dot{width:8px;height:8px;border-radius:50%;border:none;background:rgba(255,255,255,.42);cursor:pointer;padding:0;transition:background .25s,transform .25s}
+.cab-dot[aria-selected="true"]{background:var(--gold);transform:scale(1.25)}
+.cab-empty{display:none}
+@media(prefers-reduced-motion:reduce){.cab-track{transition:none}}
 .exp-copy{padding:0 0 0 64px;align-self:center}
 .exp-copy h2{font-family:var(--serif);font-weight:300;font-size:clamp(30px,3.8vw,46px);line-height:1.08;letter-spacing:-.02em;margin:16px 0 20px}
 .exp-copy p{font-size:16px;color:var(--mute);max-width:430px;margin-bottom:28px}
@@ -651,7 +668,34 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
   <div class="wrap">
     <div class="exp-grid">
       <div class="exp-media reveal">
-        <div class="exp-photo lazy-bg" data-webp="/images/interior_leather.webp" data-jpg="/images/interior_leather.jpg"></div>
+        <div class="cab-carousel" role="region" aria-roledescription="carousel" aria-label="Cabina de SUV de lujo — galería interior">
+          <div class="cab-track">
+            <div class="cab-slide" role="group" aria-roledescription="slide">
+              <picture>
+                <source srcset="images/escalade-luxury-suv-second-row-seats.webp" type="image/webp">
+                <img src="images/escalade-luxury-suv-second-row-seats.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Amplios asientos de piel de segunda fila en una SUV de alta gama — cabina de pasajeros RideYeah">
+              </picture>
+              <span class="cab-cap">Espacio para respirar</span>
+            </div>
+            <div class="cab-slide" role="group" aria-roledescription="slide">
+              <picture>
+                <source srcset="images/escalade-luxury-suv-front-seats.webp" type="image/webp">
+                <img src="images/escalade-luxury-suv-front-seats.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Asientos delanteros de piel negra premium con pespunte — interior de SUV de lujo">
+              </picture>
+              <span class="cab-cap">Tapizada en piel</span>
+            </div>
+            <div class="cab-slide" role="group" aria-roledescription="slide">
+              <picture>
+                <source srcset="images/escalade-luxury-suv-dashboard.webp" type="image/webp">
+                <img src="images/escalade-luxury-suv-dashboard.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Cockpit de SUV de lujo con pantallas digitales curvas y vetas de madera — RideYeah">
+              </picture>
+              <span class="cab-cap">Un cockpit de calma</span>
+            </div>
+          </div>
+          <button type="button" class="cab-arr cab-prev" aria-label="Previous"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <button type="button" class="cab-arr cab-next" aria-label="Next"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+          <div class="cab-dots" role="tablist" aria-label="Elige una imagen"></div>
+        </div>
       </div>
       <div class="exp-copy reveal">
         <span class="eyebrow">Dentro de la cabina</span>
@@ -673,29 +717,55 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Nuestra flota</span>
-      <h2>Un solo vehículo.<br>Un solo estándar.</h2>
+      <h2>Una flota de<br>SUV de lujo.</h2>
     </div>
     <div class="suburban">
       <div class="suburban-media reveal">
-        <div class="suburban-photo lazy-bg" data-webp="/images/fleet_suburban.webp" data-jpg="/images/fleet_suburban.jpg"></div>
-        <span class="suburban-badge">Chevrolet Suburban 2026</span>
+        <div class="cab-carousel" role="region" aria-roledescription="carousel" aria-label="Flota de SUV de lujo — galería exterior">
+          <div class="cab-track">
+            <div class="cab-slide" role="group" aria-roledescription="slide">
+              <picture>
+                <source srcset="images/escalade-luxury-suv-exterior-front.webp" type="image/webp">
+                <img src="images/escalade-luxury-suv-exterior-front.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Cadillac Escalade negra de lujo, vista frontal — flota con chofer de RideYeah en Los Ángeles">
+              </picture>
+              <span class="cab-cap">SUV de lujo de tamaño completo</span>
+            </div>
+            <div class="cab-slide" role="group" aria-roledescription="slide">
+              <picture>
+                <source srcset="images/escalade-luxury-suv-exterior-rear.webp" type="image/webp">
+                <img src="images/escalade-luxury-suv-exterior-rear.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Cadillac Escalade negra, vista trasera — traslados de lujo al aeropuerto en Los Ángeles y Orange County">
+              </picture>
+              <span class="cab-cap">Presencia en cada llegada</span>
+            </div>
+            <div class="cab-slide" role="group" aria-roledescription="slide">
+              <picture>
+                <source srcset="images/fleet_suburban.webp" type="image/webp">
+                <img src="images/fleet_suburban.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Chevrolet Suburban negra de lujo — flota con chofer de RideYeah en el sur de California">
+              </picture>
+              <span class="cab-cap">Espacio para todo el grupo</span>
+            </div>
+          </div>
+          <button type="button" class="cab-arr cab-prev" aria-label="Previous"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <button type="button" class="cab-arr cab-next" aria-label="Next"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+          <div class="cab-dots" role="tablist" aria-label="Elige una imagen"></div>
+        </div>
       </div>
       <div class="suburban-copy reveal">
-        <h3 class="serif">La Chevrolet Suburban — en cada viaje.</h3>
-        <p>Toda nuestra flota es una elección deliberada: la Chevrolet Suburban de tamaño completo. Un solo vehículo, un solo estándar — para que cada trayecto se sienta tan impecable como el anterior, ya sea una llegada al aeropuerto, una reunión de negocios o la recogida de la familia.</p>
+        <h3 class="serif">Lujo black-car, en cada SUV.</h3>
+        <p>RideYeah es un servicio de chofer de lujo con una flota de SUV premium de tamaño completo — desde la Cadillac Escalade hasta la Chevrolet Suburban — cada una impecablemente mantenida y detallada. Ya sea un traslado al aeropuerto, una reunión de negocios o la recogida de la familia, viajas con un chofer profesional en un amplio confort de primera clase.</p>
         <ul class="amen">
-          <li>Hasta 6 pasajeros</li>
+          <li>Hasta 7 pasajeros</li>
           <li>6+ maletas grandes</li>
           <li>Piel de acabado fino</li>
           <li>Wi-Fi a bordo</li>
           <li>Clima y agua fría</li>
           <li>Recibimiento incluido</li>
         </ul>
-        <a href="/es/flota.html" class="btn btn-ghost">Descubre la experiencia Suburban <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+        <a href="/es/flota.html" class="btn btn-ghost">Conoce nuestra flota de lujo <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
       </div>
     </div>
     <div class="suburban-stats reveal">
-      <div><span class="n">20+</span><span class="l">Suburban en servicio</span></div>
+      <div><span class="n">20+</span><span class="l">SUV de lujo en servicio</span></div>
       <div><span class="n">100%</span><span class="l">Choferes con licencia</span></div>
       <div><span class="n">LA · OC</span><span class="l">En el sur de California</span></div>
     </div>
@@ -1315,6 +1385,90 @@ document.addEventListener('click', e => {
 document.querySelectorAll('[data-book]').forEach(el => {
   el.addEventListener('click', () => goMoovs());
 });
+
+/* ============ Carousels (cabin interior + fleet exterior) ============ */
+(function(){
+  const isES = (document.documentElement.lang || 'en').toLowerCase().slice(0,2) === 'es';
+  const T = isES
+    ? { prev:'Imagen anterior', next:'Imagen siguiente', go:'Ir a la imagen', sl:'Imagen' }
+    : { prev:'Previous image', next:'Next image', go:'Go to slide', sl:'Slide' };
+  document.querySelectorAll('.cab-carousel').forEach(initCarousel);
+
+  function initCarousel(root){
+  const track = root.querySelector('.cab-track');
+  let slides = [...root.querySelectorAll('.cab-slide')];
+  if (!slides.length) return;
+  const prev = root.querySelector('.cab-prev'), next = root.querySelector('.cab-next');
+  const dotsWrap = root.querySelector('.cab-dots');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let i = 0, timer = null, dots = [];
+
+  prev.setAttribute('aria-label', T.prev);
+  next.setAttribute('aria-label', T.next);
+
+  // Drop any slide whose image fails to load (e.g. a missing file) so the
+  // carousel never shows a broken frame.
+  slides.forEach(s => {
+    const img = s.querySelector('img');
+    if (img) img.addEventListener('error', () => { s.remove(); rebuild(); });
+  });
+
+  function buildDots(){
+    dotsWrap.innerHTML = '';
+    dots = slides.map((_, n) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'cab-dot'; b.setAttribute('role','tab');
+      b.setAttribute('aria-label', T.go + ' ' + (n+1));
+      b.addEventListener('click', () => { go(n); restart(); });
+      dotsWrap.appendChild(b);
+      return b;
+    });
+  }
+  function update(){
+    track.style.transform = 'translateX(' + (-i*100) + '%)';
+    slides.forEach((s,n) => {
+      s.setAttribute('aria-hidden', n === i ? 'false' : 'true');
+      s.setAttribute('aria-label', T.sl + ' ' + (n+1) + ' / ' + slides.length);
+    });
+    dots.forEach((d,n) => d.setAttribute('aria-selected', n === i ? 'true' : 'false'));
+  }
+  function go(n){ i = (n + slides.length) % slides.length; update(); }
+  function start(){ if (!reduce && slides.length > 1 && !timer) timer = setInterval(() => go(i+1), 5500); }
+  function stop(){ if (timer){ clearInterval(timer); timer = null; } }
+  function restart(){ stop(); start(); }
+  function rebuild(){
+    slides = [...root.querySelectorAll('.cab-slide')];
+    if (!slides.length){ stop(); root.classList.add('cab-empty'); return; }
+    if (i >= slides.length) i = slides.length - 1;
+    const solo = slides.length < 2;
+    prev.style.display = next.style.display = dotsWrap.style.display = solo ? 'none' : '';
+    if (solo) stop();
+    buildDots(); update();
+  }
+
+  prev.addEventListener('click', () => { go(i-1); restart(); });
+  next.addEventListener('click', () => { go(i+1); restart(); });
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  root.addEventListener('focusin', stop);
+  root.addEventListener('focusout', start);
+  root.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft'){ go(i-1); restart(); }
+    else if (e.key === 'ArrowRight'){ go(i+1); restart(); }
+  });
+  let x0 = null;
+  track.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; stop(); }, { passive:true });
+  track.addEventListener('touchend', e => {
+    if (x0 == null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) go(dx < 0 ? i+1 : i-1);
+    x0 = null; start();
+  }, { passive:true });
+
+  rebuild();
+  start();
+  }
+})();
 
 /* ============ Scroll reveal ============ */
 const io = new IntersectionObserver((entries) => entries.forEach(e => {

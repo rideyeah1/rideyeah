@@ -27,6 +27,12 @@ const WIDTHS = {
   fleet_suburban: 1600,
   chauffeur: 1500,
   airport_pickup: 1600,
+  // Cabin carousel (exterior + interior) — rendered ~half-width, retina-ready
+  "escalade-luxury-suv-exterior-front": 1280,
+  "escalade-luxury-suv-exterior-rear": 1280,
+  "escalade-luxury-suv-second-row-seats": 1280,
+  "escalade-luxury-suv-front-seats": 1280,
+  "escalade-luxury-suv-dashboard": 1280,
 };
 const DEFAULT_WIDTH = 1280;
 

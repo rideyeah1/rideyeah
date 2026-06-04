@@ -121,19 +121,43 @@ rep(">Complimentary water</li>", ">Agua de cortesía</li>");
 rep(">Phone chargers</li>", ">Cargadores</li>");
 rep(">Climate control</li>", ">Clima controlado</li>");
 
-/* ---------- fleet showcase ---------- */
+/* ---------- cabin carousel (interior only — region, alt text, captions) ---------- */
+rep('aria-label="Luxury SUV cabin — interior gallery"', 'aria-label="Cabina de SUV de lujo — galería interior"');
+rep('aria-label="Choose a slide"', 'aria-label="Elige una imagen"');
+rep("Spacious second-row leather seats in a high-end SUV — RideYeah passenger cabin",
+    "Amplios asientos de piel de segunda fila en una SUV de alta gama — cabina de pasajeros RideYeah");
+rep("Premium black leather front seats with contrast stitching — luxury SUV interior",
+    "Asientos delanteros de piel negra premium con pespunte — interior de SUV de lujo");
+rep("Luxury SUV cockpit with curved digital displays and wood trim — RideYeah",
+    "Cockpit de SUV de lujo con pantallas digitales curvas y vetas de madera — RideYeah");
+rep(">Room to exhale<", ">Espacio para respirar<");
+rep(">Crafted in leather<", ">Tapizada en piel<");
+rep(">A cockpit of calm<", ">Un cockpit de calma<");
+
+/* ---------- fleet showcase (luxury SUV fleet + exterior carousel) ---------- */
 rep(">Our fleet</span>", ">Nuestra flota</span>");
-rep("One vehicle.<br>One standard.", "Un solo vehículo.<br>Un solo estándar.");
-rep("The Chevrolet Suburban — every ride.", "La Chevrolet Suburban — en cada viaje.");
-rep("Our entire fleet is a single, deliberate choice: the full-size Chevrolet Suburban. One vehicle, one standard — so every journey feels exactly as composed as the last, whether it's an airport arrival, a board meeting or a family pickup.",
-    "Toda nuestra flota es una elección deliberada: la Chevrolet Suburban de tamaño completo. Un solo vehículo, un solo estándar — para que cada trayecto se sienta tan impecable como el anterior, ya sea una llegada al aeropuerto, una reunión de negocios o la recogida de la familia.");
-rep("<li>Up to 6 passengers</li>", "<li>Hasta 6 pasajeros</li>");
+rep("A fleet of<br>luxury SUVs.", "Una flota de<br>SUV de lujo.");
+rep("Black-car luxury, in every SUV.", "Lujo black-car, en cada SUV.");
+rep("RideYeah is a luxury chauffeur service with a fleet of premium full-size SUVs — from the Cadillac Escalade to the Chevrolet Suburban — each impeccably maintained and detailed. Whether it's an airport transfer, a board meeting or a family pickup, you ride with a professional chauffeur in spacious, first-class comfort.",
+    "RideYeah es un servicio de chofer de lujo con una flota de SUV premium de tamaño completo — desde la Cadillac Escalade hasta la Chevrolet Suburban — cada una impecablemente mantenida y detallada. Ya sea un traslado al aeropuerto, una reunión de negocios o la recogida de la familia, viajas con un chofer profesional en un amplio confort de primera clase.");
+// fleet carousel — region, exterior alts, captions
+rep('aria-label="Luxury SUV fleet — exterior gallery"', 'aria-label="Flota de SUV de lujo — galería exterior"');
+rep("Black Cadillac Escalade luxury SUV, front view — RideYeah chauffeured fleet in Los Angeles",
+    "Cadillac Escalade negra de lujo, vista frontal — flota con chofer de RideYeah en Los Ángeles");
+rep("Black Cadillac Escalade rear view — luxury airport transfers across Los Angeles and Orange County",
+    "Cadillac Escalade negra, vista trasera — traslados de lujo al aeropuerto en Los Ángeles y Orange County");
+rep("Black Chevrolet Suburban luxury SUV — RideYeah chauffeured fleet across Southern California",
+    "Chevrolet Suburban negra de lujo — flota con chofer de RideYeah en el sur de California");
+rep(">Full-size luxury SUV<", ">SUV de lujo de tamaño completo<");
+rep(">Presence on every arrival<", ">Presencia en cada llegada<");
+rep(">Room for the whole party<", ">Espacio para todo el grupo<");
+rep("<li>Up to 7 passengers</li>", "<li>Hasta 7 pasajeros</li>");
 rep("<li>6+ large bags</li>", "<li>6+ maletas grandes</li>");
 rep("<li>Hand-finished leather</li>", "<li>Piel de acabado fino</li>");
 rep("<li>Climate &amp; chilled water</li>", "<li>Clima y agua fría</li>");
 rep("<li>Meet &amp; greet included</li>", "<li>Recibimiento incluido</li>");
-rep(">Inside the Suburban experience <svg", ">Descubre la experiencia Suburban <svg");
-rep('<span class="l">Suburbans in service</span>', '<span class="l">Suburban en servicio</span>');
+rep(">Meet our luxury fleet <svg", ">Conoce nuestra flota de lujo <svg");
+rep('<span class="l">Luxury SUVs in service</span>', '<span class="l">SUV de lujo en servicio</span>');
 rep('<span class="l">Licensed, vetted chauffeurs</span>', '<span class="l">Choferes con licencia</span>');
 rep('<span class="l">Across Southern California</span>', '<span class="l">En el sur de California</span>');
 
