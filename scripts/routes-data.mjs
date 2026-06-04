@@ -5,17 +5,54 @@
  * scripts/gen-routes.mjs (writes the EN + ES HTML) and used to keep the home
  * routes grid, the /popular-routes hub and the sitemap in sync.
  *
- * Prices are fixed one-way estimates (USD) and may change without notice.
+ * Ordered low → high price. Prices are fixed one-way estimates (USD) and may
+ * change without notice.
  */
 export const ROUTES = [
   {
-    slug: "santa-barbara", city: "Santa Barbara", price: 400,
-    min: 110, miles: "~95 mi", driveShort: "about 1 hour 50 minutes",
-    driveLong: "Roughly 1 hour 50 minutes in typical traffic (about 95 miles)",
-    driveLongEs: "Alrededor de 1 hora 50 minutos con tráfico normal (unas 95 millas)",
-    landmarks: "Montecito, the harbor, downtown hotels and the wine country",
-    landmarksEs: "Montecito, el puerto, los hoteles del centro y la zona vinícola",
-    hero: "band_highway", media: "escalade-luxury-suv-exterior-front",
+    slug: "downtown-la", city: "Downtown LA", price: 150,
+    min: 25, miles: "~18 mi", driveShort: "about 25 minutes",
+    driveLong: "Roughly 25 minutes in typical traffic (about 18 miles)",
+    driveLongEs: "Alrededor de 25 minutos con tráfico normal (unas 18 millas)",
+    landmarks: "the Financial District, LA Live, the Arts District and Grand Avenue hotels",
+    landmarksEs: "el Distrito Financiero, LA Live, el Arts District y los hoteles de Grand Avenue",
+    hero: "airport_pickup", media: "escalade-luxury-suv-exterior-rear",
+  },
+  {
+    slug: "long-beach", city: "Long Beach", price: 200,
+    min: 30, miles: "~22 mi", driveShort: "about 30 minutes",
+    driveLong: "Roughly 30 minutes in typical traffic (about 22 miles)",
+    driveLongEs: "Alrededor de 30 minutos con tráfico normal (unas 22 millas)",
+    landmarks: "the Queen Mary, the Convention Center, the port and the marina",
+    landmarksEs: "el Queen Mary, el Convention Center, el puerto y la marina",
+    hero: "hero_suburban", media: "fleet_suburban",
+  },
+  {
+    slug: "pasadena", city: "Pasadena", price: 200,
+    min: 40, miles: "~28 mi", driveShort: "about 40 minutes",
+    driveLong: "Roughly 40 minutes in typical traffic (about 28 miles)",
+    driveLongEs: "Alrededor de 40 minutos con tráfico normal (unas 28 millas)",
+    landmarks: "Old Town, the Rose Bowl and the Langham Huntington",
+    landmarksEs: "Old Town, el Rose Bowl y el Langham Huntington",
+    hero: "chauffeur", media: "escalade-luxury-suv-exterior-front",
+  },
+  {
+    slug: "calabasas", city: "Calabasas", price: 200,
+    min: 40, miles: "~30 mi", driveShort: "about 40 minutes",
+    driveLong: "Roughly 40 minutes in typical traffic (about 30 miles)",
+    driveLongEs: "Alrededor de 40 minutos con tráfico normal (unas 30 millas)",
+    landmarks: "The Commons, Calabasas hotels and gated communities",
+    landmarksEs: "The Commons, los hoteles de Calabasas y las comunidades privadas",
+    hero: "airport_pickup", media: "escalade-luxury-suv-second-row-seats",
+  },
+  {
+    slug: "anaheim", city: "Anaheim", price: 250,
+    min: 40, miles: "~35 mi", driveShort: "about 40 minutes",
+    driveLong: "Roughly 40 minutes in typical traffic (about 35 miles)",
+    driveLongEs: "Alrededor de 40 minutos con tráfico normal (unas 35 millas)",
+    landmarks: "the Disneyland Resort, the Convention Center and Honda Center",
+    landmarksEs: "el Disneyland Resort, el Convention Center y el Honda Center",
+    hero: "band_highway", media: "escalade-luxury-suv-dashboard",
   },
   {
     slug: "simi-valley", city: "Simi Valley", price: 250,
@@ -45,40 +82,13 @@ export const ROUTES = [
     hero: "airport_pickup", media: "escalade-luxury-suv-front-seats",
   },
   {
-    slug: "anaheim", city: "Anaheim", price: 250,
-    min: 40, miles: "~35 mi", driveShort: "about 40 minutes",
-    driveLong: "Roughly 40 minutes in typical traffic (about 35 miles)",
-    driveLongEs: "Alrededor de 40 minutos con tráfico normal (unas 35 millas)",
-    landmarks: "the Disneyland Resort, the Convention Center and Honda Center",
-    landmarksEs: "el Disneyland Resort, el Convention Center y el Honda Center",
-    hero: "band_highway", media: "escalade-luxury-suv-dashboard",
-  },
-  {
-    slug: "long-beach", city: "Long Beach", price: 200,
-    min: 30, miles: "~22 mi", driveShort: "about 30 minutes",
-    driveLong: "Roughly 30 minutes in typical traffic (about 22 miles)",
-    driveLongEs: "Alrededor de 30 minutos con tráfico normal (unas 22 millas)",
-    landmarks: "the Queen Mary, the Convention Center, the port and the marina",
-    landmarksEs: "el Queen Mary, el Convention Center, el puerto y la marina",
-    hero: "hero_suburban", media: "fleet_suburban",
-  },
-  {
-    slug: "pasadena", city: "Pasadena", price: 200,
-    min: 40, miles: "~28 mi", driveShort: "about 40 minutes",
-    driveLong: "Roughly 40 minutes in typical traffic (about 28 miles)",
-    driveLongEs: "Alrededor de 40 minutos con tráfico normal (unas 28 millas)",
-    landmarks: "Old Town, the Rose Bowl and the Langham Huntington",
-    landmarksEs: "Old Town, el Rose Bowl y el Langham Huntington",
-    hero: "chauffeur", media: "escalade-luxury-suv-exterior-front",
-  },
-  {
-    slug: "calabasas", city: "Calabasas", price: 200,
-    min: 40, miles: "~30 mi", driveShort: "about 40 minutes",
-    driveLong: "Roughly 40 minutes in typical traffic (about 30 miles)",
-    driveLongEs: "Alrededor de 40 minutos con tráfico normal (unas 30 millas)",
-    landmarks: "The Commons, Calabasas hotels and gated communities",
-    landmarksEs: "The Commons, los hoteles de Calabasas y las comunidades privadas",
-    hero: "airport_pickup", media: "escalade-luxury-suv-second-row-seats",
+    slug: "santa-barbara", city: "Santa Barbara", price: 400,
+    min: 110, miles: "~95 mi", driveShort: "about 1 hour 50 minutes",
+    driveLong: "Roughly 1 hour 50 minutes in typical traffic (about 95 miles)",
+    driveLongEs: "Alrededor de 1 hora 50 minutos con tráfico normal (unas 95 millas)",
+    landmarks: "Montecito, the harbor, downtown hotels and the wine country",
+    landmarksEs: "Montecito, el puerto, los hoteles del centro y la zona vinícola",
+    hero: "band_highway", media: "escalade-luxury-suv-exterior-front",
   },
 ];
 

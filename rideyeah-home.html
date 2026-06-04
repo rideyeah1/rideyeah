@@ -435,6 +435,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
 @media(max-width:880px){
   .bk-modal-panel{width:100%;height:100%;max-height:none;border-radius:0}
   .hero{padding-top:90px}
+  .scroll-hint{display:none}  /* stacked mobile hero: the cue overlaps content — hide it */
   /* mobile-specific hero: a more human, premium image (chauffeur door pickup) */
   .hero-photo{background-image:url("images/chauffeur.jpg");background-image:image-set(url("images/chauffeur.webp") type("image/webp"),url("images/chauffeur.jpg") type("image/jpeg"));background-position:center;filter:brightness(.58) contrast(1.05) saturate(.95)}
   .hero-tint{background:linear-gradient(180deg,rgba(10,10,11,.78) 0%,rgba(10,10,11,.5) 30%,rgba(10,10,11,.55) 58%,rgba(10,10,11,.94) 100%)}
@@ -780,14 +781,15 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
       <h2>Fixed fares you<br>can count on.</h2>
     </div>
     <div class="routes-grid">
-      <a class="route reveal" href="lax-to-santa-barbara.html"><div><div class="rt">LAX ⇄ Santa Barbara</div><div class="rp">~110 min · Luxury Black SUV</div></div><div class="ra">$400</div></a>
-      <a class="route reveal" href="lax-to-camarillo.html"><div><div class="rt">LAX ⇄ Camarillo</div><div class="rp">~65 min · Luxury Black SUV</div></div><div class="ra">$300</div></a>
+      <a class="route reveal" href="lax-to-downtown-la.html"><div><div class="rt">LAX ⇄ Downtown LA</div><div class="rp">~25 min · Luxury Black SUV</div></div><div class="ra">$150</div></a>
+      <a class="route reveal" href="lax-to-long-beach.html"><div><div class="rt">LAX ⇄ Long Beach</div><div class="rp">~30 min · Luxury Black SUV</div></div><div class="ra">$200</div></a>
+      <a class="route reveal" href="lax-to-pasadena.html"><div><div class="rt">LAX ⇄ Pasadena</div><div class="rp">~40 min · Luxury Black SUV</div></div><div class="ra">$200</div></a>
+      <a class="route reveal" href="lax-to-calabasas.html"><div><div class="rt">LAX ⇄ Calabasas</div><div class="rp">~40 min · Luxury Black SUV</div></div><div class="ra">$200</div></a>
+      <a class="route reveal" href="lax-to-anaheim.html"><div><div class="rt">LAX ⇄ Anaheim</div><div class="rp">~40 min · Luxury Black SUV</div></div><div class="ra">$250</div></a>
       <a class="route reveal" href="lax-to-simi-valley.html"><div><div class="rt">LAX ⇄ Simi Valley</div><div class="rp">~55 min · Luxury Black SUV</div></div><div class="ra">$250</div></a>
       <a class="route reveal" href="lax-to-thousand-oaks.html"><div><div class="rt">LAX ⇄ Thousand Oaks</div><div class="rp">~55 min · Luxury Black SUV</div></div><div class="ra">$250</div></a>
-      <a class="route reveal" href="lax-to-anaheim.html"><div><div class="rt">LAX ⇄ Anaheim</div><div class="rp">~40 min · Luxury Black SUV</div></div><div class="ra">$250</div></a>
-      <a class="route reveal" href="lax-to-pasadena.html"><div><div class="rt">LAX ⇄ Pasadena</div><div class="rp">~40 min · Luxury Black SUV</div></div><div class="ra">$200</div></a>
-      <a class="route reveal" href="lax-to-long-beach.html"><div><div class="rt">LAX ⇄ Long Beach</div><div class="rp">~30 min · Luxury Black SUV</div></div><div class="ra">$200</div></a>
-      <a class="route reveal" href="lax-to-calabasas.html"><div><div class="rt">LAX ⇄ Calabasas</div><div class="rp">~40 min · Luxury Black SUV</div></div><div class="ra">$200</div></a>
+      <a class="route reveal" href="lax-to-camarillo.html"><div><div class="rt">LAX ⇄ Camarillo</div><div class="rp">~65 min · Luxury Black SUV</div></div><div class="ra">$300</div></a>
+      <a class="route reveal" href="lax-to-santa-barbara.html"><div><div class="rt">LAX ⇄ Santa Barbara</div><div class="rp">~110 min · Luxury Black SUV</div></div><div class="ra">$400</div></a>
     </div>
     <p style="font-size:12px;color:var(--mute-2);margin-top:22px">Fares shown are estimates and may change without notice. For an exact price and availability, enter your trip in the search above for an instant quote.</p>
   </div>
