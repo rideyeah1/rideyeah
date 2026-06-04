@@ -122,33 +122,33 @@ rep(">Phone chargers</li>", ">Cargadores</li>");
 rep(">Climate control</li>", ">Clima controlado</li>");
 
 /* ---------- cabin carousel (interior only — region, alt text, captions) ---------- */
-rep('aria-label="Luxury SUV cabin — interior gallery"', 'aria-label="Cabina de SUV de lujo — galería interior"');
+rep('aria-label="Luxury Black SUV cabin — interior gallery"', 'aria-label="Cabina de SUV negras de lujo — galería interior"');
 rep('aria-label="Choose a slide"', 'aria-label="Elige una imagen"');
 rep("Spacious second-row leather seats in a high-end SUV — RideYeah passenger cabin",
     "Amplios asientos de piel de segunda fila en una SUV de alta gama — cabina de pasajeros RideYeah");
-rep("Premium black leather front seats with contrast stitching — luxury SUV interior",
-    "Asientos delanteros de piel negra premium con pespunte — interior de SUV de lujo");
-rep("Luxury SUV cockpit with curved digital displays and wood trim — RideYeah",
-    "Cockpit de SUV de lujo con pantallas digitales curvas y vetas de madera — RideYeah");
+rep("Premium black leather front seats with contrast stitching — luxury black SUV interior",
+    "Asientos delanteros de piel negra premium con pespunte — interior de SUV negras de lujo");
+rep("Luxury Black SUV cockpit with curved digital displays and wood trim — RideYeah",
+    "Cockpit de SUV negras de lujo con pantallas digitales curvas y vetas de madera — RideYeah");
 rep(">Room to exhale<", ">Espacio para respirar<");
 rep(">Crafted in leather<", ">Tapizada en piel<");
 rep(">A cockpit of calm<", ">Un cockpit de calma<");
 
 /* ---------- fleet showcase (luxury SUV fleet + exterior carousel) ---------- */
 rep(">Our fleet</span>", ">Nuestra flota</span>");
-rep("A fleet of<br>luxury SUVs.", "Una flota de<br>SUV de lujo.");
+rep("A fleet of<br>luxury black SUVs.", "Una flota de<br>SUV negras de lujo.");
 rep("Black-car luxury, in every SUV.", "Lujo black-car, en cada SUV.");
-rep("RideYeah is a luxury chauffeur service with a fleet of premium full-size luxury SUVs, each impeccably maintained and detailed. Whether it's an airport transfer, a board meeting or a family pickup, you ride with a professional chauffeur in spacious, first-class comfort.",
-    "RideYeah es un servicio de chofer de lujo con una flota de SUV de lujo premium de tamaño completo, cada una impecablemente mantenida y detallada. Ya sea un traslado al aeropuerto, una reunión de negocios o la recogida de la familia, viajas con un chofer profesional en un amplio confort de primera clase.");
+rep("RideYeah is a luxury chauffeur service with a fleet of premium full-size luxury black SUVs, each impeccably maintained and detailed. Whether it's an airport transfer, a board meeting or a family pickup, you ride with a professional chauffeur in spacious, first-class comfort.",
+    "RideYeah es un servicio de chofer de lujo con una flota de SUV negras de lujo premium de tamaño completo, cada una impecablemente mantenida y detallada. Ya sea un traslado al aeropuerto, una reunión de negocios o la recogida de la familia, viajas con un chofer profesional en un amplio confort de primera clase.");
 // fleet carousel — region, exterior alts, captions
-rep('aria-label="Luxury SUV fleet — exterior gallery"', 'aria-label="Flota de SUV de lujo — galería exterior"');
-rep("Black Cadillac Escalade luxury SUV, front view — RideYeah chauffeured fleet in Los Angeles",
+rep('aria-label="Luxury Black SUV fleet — exterior gallery"', 'aria-label="Flota de SUV negras de lujo — galería exterior"');
+rep("Black Cadillac Escalade luxury black SUV, front view — RideYeah chauffeured fleet in Los Angeles",
     "Cadillac Escalade negra de lujo, vista frontal — flota con chofer de RideYeah en Los Ángeles");
 rep("Black Cadillac Escalade rear view — luxury airport transfers across Los Angeles and Orange County",
     "Cadillac Escalade negra, vista trasera — traslados de lujo al aeropuerto en Los Ángeles y Orange County");
 rep("Black full-size luxury SUV — RideYeah chauffeured fleet across Southern California",
-    "SUV de lujo negra — flota con chofer de RideYeah en el sur de California");
-rep(">Full-size luxury SUV<", ">SUV de lujo de tamaño completo<");
+    "SUV negra de lujo — flota con chofer de RideYeah en el sur de California");
+rep(">Full-size luxury black SUV<", ">SUV negra de lujo de tamaño completo<");
 rep(">Presence on every arrival<", ">Presencia en cada llegada<");
 rep(">Room for the whole party<", ">Espacio para todo el grupo<");
 rep("<li>Up to 7 passengers</li>", "<li>Hasta 7 pasajeros</li>");
@@ -157,7 +157,7 @@ rep("<li>Hand-finished leather</li>", "<li>Piel de acabado fino</li>");
 rep("<li>Climate &amp; chilled water</li>", "<li>Clima y agua fría</li>");
 rep("<li>Meet &amp; greet included</li>", "<li>Recibimiento incluido</li>");
 rep(">Meet our luxury fleet <svg", ">Conoce nuestra flota de lujo <svg");
-rep('<span class="l">Luxury SUVs in service</span>', '<span class="l">SUV de lujo en servicio</span>');
+rep('<span class="l">Luxury Black SUVs in service</span>', '<span class="l">SUV negras de lujo en servicio</span>');
 rep('<span class="l">Licensed, vetted chauffeurs</span>', '<span class="l">Choferes con licencia</span>');
 rep('<span class="l">Across Southern California</span>', '<span class="l">En el sur de California</span>');
 
@@ -166,7 +166,7 @@ rep(">Popular luxury routes</span>", ">Rutas de lujo populares</span>");
 rep("Fixed fares you<br>can count on.", "Tarifas fijas en las<br>que puedes confiar.");
 rep("Indicative fares for illustration. Final quote shown at booking via Moovs.",
     "Tarifas indicativas. La tarifa final se muestra al reservar con Moovs.");
-rep("· Luxury SUV</div>", "· SUV de lujo</div>"); // route cards vehicle label
+rep("· Luxury Black SUV</div>", "· SUV negra de lujo</div>"); // route cards vehicle label
 
 /* ---------- testimonials ---------- */
 rep(">What guests say</span>", ">Lo que dicen los clientes</span>");
@@ -199,10 +199,10 @@ rep("How do I pay, and is it secure?", "¿Cómo pago y es seguro?");
 rep("Booking and payment are handled securely through our booking partner, Moovs. All major credit and debit cards are accepted, and your price is locked in at the time of booking.",
     "La reserva y el pago se gestionan de forma segura con nuestro socio de reservas, Moovs. Se aceptan las principales tarjetas de crédito y débito, y tu precio queda fijado al momento de reservar.");
 rep("Can I request a child seat or extra luggage space?", "¿Puedo pedir silla para niños o espacio extra de equipaje?");
-rep("Yes. Add a note when you book, or contact us, and we'll arrange child seats — our spacious luxury SUVs seat up to 7 guests with room for luggage.",
-    "Sí. Añade una nota al reservar, o contáctanos, y disponemos sillas para niños — nuestras espaciosas SUV de lujo acomodan hasta 7 pasajeros con espacio para equipaje.");
-rep("Yes. Add a note when you book, or contact us, and we'll arrange child seats. Our spacious luxury SUV seats up to 6 guests with room for luggage.",
-    "Sí. Añade una nota al reservar, o contáctanos, y disponemos sillas para niños. Nuestras espaciosas SUV de lujo acomodan hasta 7 pasajeros con espacio para equipaje.");
+rep("Yes. Add a note when you book, or contact us, and we'll arrange child seats — our spacious luxury black SUVs seat up to 7 guests with room for luggage.",
+    "Sí. Añade una nota al reservar, o contáctanos, y disponemos sillas para niños — nuestras espaciosas SUV negras de lujo acomodan hasta 7 pasajeros con espacio para equipaje.");
+rep("Yes. Add a note when you book, or contact us, and we'll arrange child seats. Our spacious luxury black SUV seats up to 6 guests with room for luggage.",
+    "Sí. Añade una nota al reservar, o contáctanos, y disponemos sillas para niños. Nuestras espaciosas SUV negras de lujo acomodan hasta 7 pasajeros con espacio para equipaje.");
 rep("What is your cancellation policy?", "¿Cuál es la política de cancelación?");
 rep("Plans change — we get it. Cancellations made well in advance are free. For specific timing on your reservation, see your booking confirmation or reach us at info@rideyeah.com.",
     "Los planes cambian — lo entendemos. Las cancelaciones con suficiente antelación son gratuitas. Para los tiempos específicos de tu reserva, consulta tu confirmación o escríbenos a info@rideyeah.com.");

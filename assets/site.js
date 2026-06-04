@@ -241,7 +241,7 @@
           PHONE_H +
           ".",
         airport:
-          "Cubrimos LAX, John Wayne (SNA), Burbank (BUR) y Long Beach (LGB), más terminales privadas. Tu chofer te recibe con un cartel con tu nombre, monitoreamos tu vuelo en tiempo real y la espera es de cortesía en recogidas de aeropuerto. Viajas en una SUV de lujo de tamaño completo (hasta 7 pasajeros + equipaje).",
+          "Cubrimos LAX, John Wayne (SNA), Burbank (BUR) y Long Beach (LGB), más terminales privadas. Tu chofer te recibe con un cartel con tu nombre, monitoreamos tu vuelo en tiempo real y la espera es de cortesía en recogidas de aeropuerto. Viajas en una SUV negra de lujo de tamaño completo (hasta 7 pasajeros + equipaje).",
         faq: "• Precios: fijos y todo incluido (peajes + propina), sin tarifa dinámica.\n• Vuelo demorado: lo monitoreamos y ajustamos la recogida sin costo extra.\n• Pago: seguro vía Moovs; aceptamos tarjetas; precio bloqueado al reservar.\n• Sillas de niño / equipaje extra: agrégalo como nota al reservar o contáctanos.\n• Cancelación: gratis con suficiente anticipación; detalles en tu confirmación o en info@rideyeah.com.",
       }
     : {
@@ -250,7 +250,7 @@
           PHONE_H +
           ".",
         airport:
-          "We cover LAX, John Wayne (SNA), Burbank (BUR) and Long Beach (LGB), plus private terminals. Your chauffeur meets you with a name sign, we track your flight in real time, and wait time is complimentary on airport pickups. You ride in a full-size luxury SUV (up to 7 passengers + luggage).",
+          "We cover LAX, John Wayne (SNA), Burbank (BUR) and Long Beach (LGB), plus private terminals. Your chauffeur meets you with a name sign, we track your flight in real time, and wait time is complimentary on airport pickups. You ride in a full-size luxury black SUV (up to 7 passengers + luggage).",
         faq: "• Pricing: fixed, all-in (tolls + gratuity), no surge.\n• Delayed flight: we track it and adjust pickup at no extra charge.\n• Payment: secure via Moovs; major cards; price locked at booking.\n• Child seats / extra luggage: add a note when booking or contact us.\n• Cancellation: free with enough notice; details in your confirmation or at info@rideyeah.com.",
       };
 
