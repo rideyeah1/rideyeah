@@ -138,16 +138,16 @@ rep(">A cockpit of calm<", ">Un cockpit de calma<");
 rep(">Our fleet</span>", ">Nuestra flota</span>");
 rep("A fleet of<br>luxury SUVs.", "Una flota de<br>SUV de lujo.");
 rep("Black-car luxury, in every SUV.", "Lujo black-car, en cada SUV.");
-rep("RideYeah is a luxury chauffeur service with a fleet of premium full-size SUVs — from the Cadillac Escalade to the Chevrolet Suburban — each impeccably maintained and detailed. Whether it's an airport transfer, a board meeting or a family pickup, you ride with a professional chauffeur in spacious, first-class comfort.",
-    "RideYeah es un servicio de chofer de lujo con una flota de SUV premium de tamaño completo — desde la Cadillac Escalade hasta la Chevrolet Suburban — cada una impecablemente mantenida y detallada. Ya sea un traslado al aeropuerto, una reunión de negocios o la recogida de la familia, viajas con un chofer profesional en un amplio confort de primera clase.");
+rep("RideYeah is a luxury chauffeur service with a fleet of premium full-size luxury SUVs, each impeccably maintained and detailed. Whether it's an airport transfer, a board meeting or a family pickup, you ride with a professional chauffeur in spacious, first-class comfort.",
+    "RideYeah es un servicio de chofer de lujo con una flota de SUV de lujo premium de tamaño completo, cada una impecablemente mantenida y detallada. Ya sea un traslado al aeropuerto, una reunión de negocios o la recogida de la familia, viajas con un chofer profesional en un amplio confort de primera clase.");
 // fleet carousel — region, exterior alts, captions
 rep('aria-label="Luxury SUV fleet — exterior gallery"', 'aria-label="Flota de SUV de lujo — galería exterior"');
 rep("Black Cadillac Escalade luxury SUV, front view — RideYeah chauffeured fleet in Los Angeles",
     "Cadillac Escalade negra de lujo, vista frontal — flota con chofer de RideYeah en Los Ángeles");
 rep("Black Cadillac Escalade rear view — luxury airport transfers across Los Angeles and Orange County",
     "Cadillac Escalade negra, vista trasera — traslados de lujo al aeropuerto en Los Ángeles y Orange County");
-rep("Black Chevrolet Suburban luxury SUV — RideYeah chauffeured fleet across Southern California",
-    "Chevrolet Suburban negra de lujo — flota con chofer de RideYeah en el sur de California");
+rep("Black full-size luxury SUV — RideYeah chauffeured fleet across Southern California",
+    "SUV de lujo negra — flota con chofer de RideYeah en el sur de California");
 rep(">Full-size luxury SUV<", ">SUV de lujo de tamaño completo<");
 rep(">Presence on every arrival<", ">Presencia en cada llegada<");
 rep(">Room for the whole party<", ">Espacio para todo el grupo<");
@@ -166,6 +166,7 @@ rep(">Popular luxury routes</span>", ">Rutas de lujo populares</span>");
 rep("Fixed fares you<br>can count on.", "Tarifas fijas en las<br>que puedes confiar.");
 rep("Indicative fares for illustration. Final quote shown at booking via Moovs.",
     "Tarifas indicativas. La tarifa final se muestra al reservar con Moovs.");
+rep("· Luxury SUV</div>", "· SUV de lujo</div>"); // route cards vehicle label
 
 /* ---------- testimonials ---------- */
 rep(">What guests say</span>", ">Lo que dicen los clientes</span>");
@@ -198,10 +199,10 @@ rep("How do I pay, and is it secure?", "¿Cómo pago y es seguro?");
 rep("Booking and payment are handled securely through our booking partner, Moovs. All major credit and debit cards are accepted, and your price is locked in at the time of booking.",
     "La reserva y el pago se gestionan de forma segura con nuestro socio de reservas, Moovs. Se aceptan las principales tarjetas de crédito y débito, y tu precio queda fijado al momento de reservar.");
 rep("Can I request a child seat or extra luggage space?", "¿Puedo pedir silla para niños o espacio extra de equipaje?");
-rep("Yes. Add a note when you book, or contact us, and we'll arrange child seats — our spacious Chevrolet Suburban seats up to 6 guests with room for luggage.",
-    "Sí. Añade una nota al reservar, o contáctanos, y disponemos sillas para niños — nuestra espaciosa Chevrolet Suburban acomoda hasta 6 pasajeros con espacio para equipaje.");
-rep("Yes. Add a note when you book, or contact us, and we'll arrange child seats. Our spacious Chevrolet Suburban seats up to 6 guests with room for luggage.",
-    "Sí. Añade una nota al reservar, o contáctanos, y disponemos sillas para niños. Nuestra espaciosa Chevrolet Suburban acomoda hasta 6 pasajeros con espacio para equipaje.");
+rep("Yes. Add a note when you book, or contact us, and we'll arrange child seats — our spacious luxury SUVs seat up to 7 guests with room for luggage.",
+    "Sí. Añade una nota al reservar, o contáctanos, y disponemos sillas para niños — nuestras espaciosas SUV de lujo acomodan hasta 7 pasajeros con espacio para equipaje.");
+rep("Yes. Add a note when you book, or contact us, and we'll arrange child seats. Our spacious luxury SUV seats up to 6 guests with room for luggage.",
+    "Sí. Añade una nota al reservar, o contáctanos, y disponemos sillas para niños. Nuestras espaciosas SUV de lujo acomodan hasta 7 pasajeros con espacio para equipaje.");
 rep("What is your cancellation policy?", "¿Cuál es la política de cancelación?");
 rep("Plans change — we get it. Cancellations made well in advance are free. For specific timing on your reservation, see your booking confirmation or reach us at info@rideyeah.com.",
     "Los planes cambian — lo entendemos. Las cancelaciones con suficiente antelación son gratuitas. Para los tiempos específicos de tu reserva, consulta tu confirmación o escríbenos a info@rideyeah.com.");
