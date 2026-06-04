@@ -164,8 +164,8 @@ rep('<span class="l">Across Southern California</span>', '<span class="l">En el 
 /* ---------- routes ---------- */
 rep(">Popular luxury routes</span>", ">Rutas de lujo populares</span>");
 rep("Fixed fares you<br>can count on.", "Tarifas fijas en las<br>que puedes confiar.");
-rep("Indicative fares for illustration. Final quote shown at booking via Moovs.",
-    "Tarifas indicativas. La tarifa final se muestra al reservar con Moovs.");
+rep("Fares shown are estimates and may change without notice. For an exact price and availability, enter your trip in the search above for an instant quote.",
+    "Las tarifas mostradas son estimadas y pueden cambiar sin previo aviso. Para un precio exacto y disponibilidad, ingresa tu viaje en el buscador y obtén una cotización al instante.");
 rep("· Luxury Black SUV</div>", "· SUV negra de lujo</div>"); // route cards vehicle label
 
 /* ---------- testimonials ---------- */
@@ -269,10 +269,9 @@ rep('href="about.html"', 'href="/es/nosotros.html"');
 rep('href="careers.html"', 'href="/es/empleo.html"');
 rep('href="hourly-chauffeur.html"', 'href="/es/chofer-por-horas.html"');
 rep('href="popular-routes.html"', 'href="/es/rutas-populares.html"');
-rep('href="lax-to-beverly-hills.html"', 'href="/es/lax-a-beverly-hills.html"');
-rep('href="lax-to-disneyland.html"', 'href="/es/lax-a-disneyland.html"');
-rep('href="lax-to-newport-beach.html"', 'href="/es/lax-a-newport-beach.html"');
-rep('href="lax-to-anaheim.html"', 'href="/es/lax-a-anaheim.html"');
+for (const s of ["santa-barbara","simi-valley","thousand-oaks","camarillo","anaheim","long-beach","pasadena","calabasas"]) {
+  rep('href="lax-to-' + s + '.html"', 'href="/es/lax-a-' + s + '.html"');
+}
 /* remaining .html links -> root-absolute (EN pages until ES versions exist) */
 h = h.replace(/href="([a-z0-9-]+\.html)"/g, 'href="/$1"');
 

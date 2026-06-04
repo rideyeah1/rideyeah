@@ -20,7 +20,9 @@ import {
 } from "node:fs";
 import { join } from "node:path";
 
-// Regenerate Spanish pages from their EN sources so /es/ is always in sync
+// Regenerate the LAX ⇄ City route pages (EN + ES) from routes-data, then the
+// other Spanish pages from their EN sources so /es/ is always in sync.
+await import("./gen-routes.mjs");
 await import("./generate-es.mjs");
 await import("./generate-es-pages.mjs");
 
@@ -42,10 +44,14 @@ for (const page of [
   "black-car-service.html",
   "hourly-chauffeur.html",
   "popular-routes.html",
-  "lax-to-beverly-hills.html",
-  "lax-to-disneyland.html",
-  "lax-to-newport-beach.html",
+  "lax-to-santa-barbara.html",
+  "lax-to-simi-valley.html",
+  "lax-to-thousand-oaks.html",
+  "lax-to-camarillo.html",
   "lax-to-anaheim.html",
+  "lax-to-long-beach.html",
+  "lax-to-pasadena.html",
+  "lax-to-calabasas.html",
 ]) {
   if (existsSync(page)) copyFileSync(page, join(DIST, page));
 }
