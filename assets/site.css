@@ -225,10 +225,15 @@ header.nav.scrolled {
   align-items: center;
   justify-content: center;
 }
+/* menu open: the X replaces the burger, so it must never intercept its tap */
+body.nav-open .nav-toggle {
+  opacity: 0;
+  pointer-events: none;
+}
 .mobile-menu {
   position: fixed;
   inset: 0;
-  z-index: 99;
+  z-index: 101;
   background: rgba(8, 8, 9, 0.96);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);

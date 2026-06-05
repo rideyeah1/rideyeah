@@ -17,11 +17,13 @@
   if (toggle && menu) {
     var open = function () {
       menu.classList.add("open");
+      document.body.classList.add("nav-open");
       toggle.setAttribute("aria-expanded", "true");
       document.body.style.overflow = "hidden";
     };
     var close = function () {
       menu.classList.remove("open");
+      document.body.classList.remove("nav-open");
       toggle.setAttribute("aria-expanded", "false");
       document.body.style.overflow = "";
     };
@@ -29,6 +31,10 @@
     if (mmClose) mmClose.addEventListener("click", close);
     menu.querySelectorAll("a").forEach(function (a) {
       a.addEventListener("click", close);
+    });
+    // tapping the backdrop (anywhere that isn't a link/button) also closes
+    menu.addEventListener("click", function (e) {
+      if (e.target === menu) close();
     });
     addEventListener("keydown", function (e) {
       if (e.key === "Escape" && menu.classList.contains("open")) close();

@@ -124,9 +124,10 @@ header.nav.scrolled{background:rgba(10,10,11,.78);backdrop-filter:blur(14px);-we
 .btn-ghost{border:1px solid var(--line);color:var(--bone);padding:12px 24px;border-radius:2px}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
 .nav-toggle{display:none;background:none;border:none;color:var(--bone);cursor:pointer;width:44px;height:44px;align-items:center;justify-content:center}
+body.nav-open .nav-toggle{opacity:0;pointer-events:none}  /* menu open: the X replaces the burger, never intercept its tap */
 
 /* mobile drawer */
-.mobile-menu{position:fixed;inset:0;z-index:99;background:rgba(8,8,9,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .4s var(--ease),transform .4s var(--ease),visibility .4s}
+.mobile-menu{position:fixed;inset:0;z-index:101;background:rgba(8,8,9,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .4s var(--ease),transform .4s var(--ease),visibility .4s}
 .mobile-menu.open{opacity:1;visibility:visible;transform:none}
 .mobile-menu a{font-family:var(--serif);font-size:30px;color:var(--bone);padding:12px 0;opacity:0;transform:translateY(14px);transition:color .25s}
 .mobile-menu.open a{opacity:1;transform:none;transition:opacity .5s var(--ease),transform .5s var(--ease),color .25s}
@@ -537,7 +538,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
 <!-- ================= NAV ================= -->
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a href="#book" class="brand" aria-label="RideYeah — home">
+    <a href="/" class="brand" aria-label="RideYeah — home">
       <svg class="brand-logo" viewBox="0 0 100 100" fill="none" aria-hidden="true">
         <rect x="8" y="8" width="84" height="84" rx="22" stroke="var(--bone)" stroke-width="4"/>
         <rect x="18" y="18" width="64" height="64" rx="14" fill="var(--bone)"/>
@@ -913,11 +914,13 @@ onScroll();
 const toggle = document.getElementById('navToggle');
 const menu = document.getElementById('mobileMenu');
 const mmClose = document.getElementById('mmClose');
-function openMenu(){ menu.classList.add('open'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
-function closeMenu(){ menu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+function openMenu(){ menu.classList.add('open'); document.body.classList.add('nav-open'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+function closeMenu(){ menu.classList.remove('open'); document.body.classList.remove('nav-open'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
 toggle.addEventListener('click', openMenu);
 mmClose.addEventListener('click', closeMenu);
 menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+/* tapping the backdrop (anywhere that isn't a link/button) also closes */
+menu.addEventListener('click', e => { if (e.target === menu) closeMenu(); });
 addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu(); });
 
 /* ============ Moovs booking flow (on-site modal) ============ */

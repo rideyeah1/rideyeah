@@ -248,6 +248,10 @@ rep('property="og:url" content="https://rideyeah.com/"', 'property="og:url" cont
 rep("(function(){try{var s=localStorage.getItem('ry_lang');if(s==='es'){location.replace('es/index.html');}else if(!s&&(navigator.language||'').toLowerCase().slice(0,2)==='es'){location.replace('es/index.html');}}catch(e){}})();",
     "(function(){try{var s=localStorage.getItem('ry_lang');if(s==='en'){location.replace('/');}}catch(e){}})();");
 
+/* brand logo: ES home points to /es/ (not the EN root) */
+rep('<a href="/" class="brand" aria-label="RideYeah — home">',
+    '<a href="/es/" class="brand" aria-label="RideYeah — inicio">');
+
 /* language switcher: flip ES pill -> EN pill */
 rep('<a href="es/index.html" class="lang-pill" onclick="try{localStorage.setItem(\'ry_lang\',\'es\')}catch(e){}" aria-label="Ver en español">ES</a>',
     '<a href="/" class="lang-pill" onclick="try{localStorage.setItem(\'ry_lang\',\'en\')}catch(e){}" aria-label="View in English">EN</a>');
