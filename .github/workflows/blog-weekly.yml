@@ -1,0 +1,66 @@
+name: Weekly blog draft
+
+# Drafts the next queued blog topic and opens a Pull Request for review.
+# Nothing publishes automatically — merging the PR is what goes live (the merge
+# pushes to main, which triggers the existing Deploy workflow).
+#
+# Requires repo secret ANTHROPIC_API_KEY (added by the owner). Without it the
+# agent is a graceful no-op, so the schedule never fails.
+
+on:
+  schedule:
+    - cron: "0 14 * * 1" # Mondays 14:00 UTC (~6–7am LA)
+  workflow_dispatch: {} # allow manual runs from the Actions tab
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: blog-weekly
+  cancel-in-progress: false
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+
+      - name: Draft next queued article
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/blog-agent/run.mjs
+
+      - name: Validate the draft builds
+        run: npm run build
+
+      - name: Open a Pull Request if a new draft was written
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if git diff --quiet -- content/blog-generated.json; then
+            echo "No new draft this run (no key, queue empty, or already drafted)."
+            exit 0
+          fi
+          slug=$(node -e "const a=require('./content/blog-generated.json');console.log(a[a.length-1].slug)")
+          branch="blog/${slug}-$(date +%Y%m%d)"
+          git config user.name "RideYeah Blog Agent"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add content/blog-generated.json
+          git commit -m "Blog draft: ${slug}"
+          git push origin "$branch"
+          gh pr create \
+            --base main --head "$branch" \
+            --title "Weekly blog draft: ${slug}" \
+            --body "Auto-drafted by the weekly blog agent from the QUEUE in \`scripts/blog-data.mjs\`.
+
+          **Review before merging** — read the article, tweak copy in \`content/blog-generated.json\` if needed, then merge. Merging pushes to \`main\`, which deploys the live site.
+
+          Preview locally: \`npm run build\` then open \`dist/blog/${slug}.html\`."

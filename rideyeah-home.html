@@ -48,24 +48,52 @@
 {
   "@context": "https://schema.org",
   "@type": "LimousineService",
+  "@id": "https://rideyeah.com/#business",
   "name": "RideYeah",
-  "description": "Luxury airport transfers and private chauffeur service across Los Angeles and Orange County.",
+  "description": "Luxury airport transfers and private chauffeur service across Los Angeles and Orange County, in chauffeured luxury black SUVs with fixed, all-in pricing.",
+  "slogan": "Arrive relaxed. Always on time.",
   "url": "https://rideyeah.com/",
   "sameAs": ["https://www.instagram.com/rideyeah/", "https://www.tiktok.com/@rideyeah"],
   "image": "https://rideyeah.com/images/og-image.jpg",
+  "logo": "https://rideyeah.com/apple-touch-icon.png",
   "email": "info@rideyeah.com",
-  "knowsAbout": ["Airport transfers", "LAX car service", "Black car service", "Chauffeur service", "Limousine service", "Hourly chauffeur hire", "Corporate travel", "City to city rides"],
   "telephone": "+1-805-285-1570",
   "priceRange": "$$$",
+  "currenciesAccepted": "USD",
+  "paymentAccepted": "Credit Card",
+  "knowsAbout": ["Airport transfers", "LAX car service", "Black car service", "Chauffeur service", "Limousine service", "Hourly chauffeur hire", "Corporate travel", "City to city rides"],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-805-285-1570",
+    "contactType": "customer service",
+    "areaServed": "US",
+    "availableLanguage": ["English", "Spanish"]
+  },
   "areaServed": [
     { "@type": "City", "name": "Los Angeles" },
     { "@type": "City", "name": "Beverly Hills" },
     { "@type": "City", "name": "Santa Monica" },
-    { "@type": "City", "name": "Newport Beach" },
+    { "@type": "City", "name": "Pasadena" },
+    { "@type": "City", "name": "Calabasas" },
+    { "@type": "City", "name": "Thousand Oaks" },
+    { "@type": "City", "name": "Long Beach" },
     { "@type": "City", "name": "Anaheim" },
+    { "@type": "City", "name": "Newport Beach" },
+    { "@type": "City", "name": "Santa Barbara" },
     { "@type": "AdministrativeArea", "name": "Orange County" }
   ],
+  "geo": { "@type": "GeoCoordinates", "latitude": 34.0522, "longitude": -118.2437 },
   "address": { "@type": "PostalAddress", "addressLocality": "Los Angeles", "addressRegion": "CA", "addressCountry": "US" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "RideYeah services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "LAX airport transfers", "url": "https://rideyeah.com/airport-transfers" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Black car service", "url": "https://rideyeah.com/black-car-service" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hourly chauffeur", "url": "https://rideyeah.com/hourly-chauffeur" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fixed-fare routes", "url": "https://rideyeah.com/popular-routes" } }
+    ]
+  },
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
