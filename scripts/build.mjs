@@ -24,6 +24,7 @@ import { ROUTES } from "./routes-data.mjs";
 // Regenerate the LAX ⇄ City route pages (EN + ES) from routes-data, then the
 // other Spanish pages from their EN sources so /es/ is always in sync.
 await import("./gen-routes.mjs");
+await import("./gen-blog.mjs");
 await import("./gen-sitemap.mjs");
 await import("./generate-es.mjs");
 await import("./generate-es-pages.mjs");
@@ -59,6 +60,15 @@ if (existsSync("es")) {
     if (!statSync(src).isDirectory() && file.endsWith(".html")) {
       copyFileSync(src, join(DIST, "es", file));
     }
+  }
+}
+
+// Blog (blog/*.html + feed.xml)
+if (existsSync("blog")) {
+  mkdirSync(join(DIST, "blog"), { recursive: true });
+  for (const file of readdirSync("blog")) {
+    const src = join("blog", file);
+    if (!statSync(src).isDirectory()) copyFileSync(src, join(DIST, "blog", file));
   }
 }
 
@@ -123,6 +133,7 @@ const cleanDir = (dir) => {
 };
 cleanDir(DIST);
 if (existsSync(join(DIST, "es"))) cleanDir(join(DIST, "es"));
+if (existsSync(join(DIST, "blog"))) cleanDir(join(DIST, "blog"));
 
 const smPath = join(DIST, "sitemap.xml");
 if (existsSync(smPath)) {

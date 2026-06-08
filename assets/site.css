@@ -1298,3 +1298,164 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===================== BLOG ===================== */
+/* Article hero is a touch shorter than route heroes */
+.art-hero,
+.art-hub-hero {
+  min-height: 46vh;
+}
+.art-meta {
+  margin-top: 16px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--mute);
+  text-transform: uppercase;
+}
+
+/* Article prose: a centred reading column */
+.art-body {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--bone-2, #d9d7d0);
+}
+.art-body > * + * {
+  margin-top: 22px;
+}
+.art-body h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(24px, 3vw, 32px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--bone);
+  margin-top: 44px;
+}
+.art-body h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(20px, 2.4vw, 24px);
+  color: var(--bone);
+  margin-top: 32px;
+}
+.art-body p {
+  color: var(--mute);
+}
+.art-body strong {
+  color: var(--bone);
+  font-weight: 600;
+}
+.art-body a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 168, 106, 0.35);
+  transition: border-color 0.2s;
+}
+.art-body a:hover {
+  border-color: var(--gold);
+}
+.art-body ul,
+.art-body ol {
+  padding-left: 4px;
+  list-style: none;
+}
+.art-body ul li,
+.art-body ol li {
+  position: relative;
+  padding-left: 26px;
+  color: var(--mute);
+  margin-top: 12px;
+}
+.art-body ul li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 11px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.art-body ol {
+  counter-reset: art;
+}
+.art-body ol li {
+  counter-increment: art;
+}
+.art-body ol li::before {
+  content: counter(art);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 600;
+}
+.art-body blockquote {
+  border-left: 2px solid var(--gold);
+  padding: 6px 0 6px 24px;
+  margin: 32px 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(19px, 2.4vw, 23px);
+  line-height: 1.4;
+  color: var(--bone);
+}
+.art-body .art-cta {
+  margin: 34px 0;
+}
+
+/* Blog hub cards (image + body) */
+.art-grid {
+  gap: 26px;
+}
+.art-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  text-decoration: none;
+}
+.art-card-img {
+  aspect-ratio: 16 / 10;
+  background-size: cover;
+  background-position: center;
+  transition: transform 1s var(--ease, ease);
+}
+.art-card:hover .art-card-img {
+  transform: scale(1.05);
+}
+.art-card-body {
+  padding: 22px 22px 26px;
+}
+.art-card-cat {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+.art-card-body h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 1.2;
+  color: var(--bone);
+  margin: 10px 0;
+}
+.art-card-body p {
+  font-size: 14px;
+  color: var(--mute);
+  line-height: 1.55;
+}
+.art-card-meta {
+  display: block;
+  margin-top: 16px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--mute-2, #8a887f);
+}
