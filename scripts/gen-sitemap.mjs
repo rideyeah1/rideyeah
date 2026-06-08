@@ -9,6 +9,7 @@
 import { writeFileSync } from "node:fs";
 import { ROUTES } from "./routes-data.mjs";
 import { POSTS } from "./blog-data.mjs";
+import { CITIES } from "./cities-data.mjs";
 
 const B = "https://rideyeah.com";
 const triAlt = (en, es) =>
@@ -37,6 +38,9 @@ p.push(u(`${B}/es/rutas-populares`, esAlt(`${B}/es/rutas-populares`, `${B}/popul
 p.push(u(`${B}/es/nosotros`, esAlt(`${B}/es/nosotros`, `${B}/about.html`), "monthly", "0.6"));
 p.push(u(`${B}/es/empleo`, esAlt(`${B}/es/empleo`, `${B}/careers.html`), "monthly", "0.5"));
 for (const r of ROUTES) p.push(u(`${B}/es/lax-a-${r.slug}`, esAlt(`${B}/es/lax-a-${r.slug}`, `${B}/lax-to-${r.slug}.html`), "monthly", "0.7"));
+// City service-area pages (EN-only, clean URLs)
+p.push(u(`${B}/service-areas`, "", "monthly", "0.8"));
+for (const c of CITIES) p.push(u(`${B}/${c.slug}`, "", "monthly", "0.8"));
 // Blog (EN-only, clean URLs)
 p.push(u(`${B}/blog/`, "", "weekly", "0.7"));
 for (const post of POSTS) p.push(u(`${B}/blog/${post.slug}`, "", "monthly", "0.6"));
