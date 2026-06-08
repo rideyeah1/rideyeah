@@ -35,8 +35,9 @@ Until the secret exists, the workflow runs but is a **graceful no-op** (it never
 fails or spams you).
 
 **Cost:** roughly a few US cents per article (one Claude API call, ~4k tokens).
-Optional: set a `BLOG_AGENT_MODEL` repo variable to pin a specific model
-(default `claude-3-5-sonnet-latest`).
+**Model:** auto-detected at runtime — the agent asks the API which models your
+key can use and picks the newest Sonnet (then Haiku). To pin a specific model,
+set a `BLOG_AGENT_MODEL` repo variable (e.g. `claude-sonnet-4-5`).
 
 ## Manage the topic queue
 

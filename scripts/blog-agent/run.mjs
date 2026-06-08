@@ -22,8 +22,24 @@ import { ROUTES, DISCLAIMER_EN } from "../routes-data.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const GEN_PATH = join(HERE, "..", "..", "content", "blog-generated.json");
-const MODEL = process.env.BLOG_AGENT_MODEL || "claude-3-5-sonnet-latest";
 const KEY = process.env.ANTHROPIC_API_KEY;
+const ANTHROPIC_VERSION = "2023-06-01";
+
+// Resolve the model at runtime: use BLOG_AGENT_MODEL if set, otherwise ask the
+// API which models this key can use and pick the newest Sonnet (then Haiku).
+// This avoids hard-coding a model id that may be renamed or retired.
+async function resolveModel() {
+  if (process.env.BLOG_AGENT_MODEL) return process.env.BLOG_AGENT_MODEL;
+  const res = await fetch("https://api.anthropic.com/v1/models?limit=100", {
+    headers: { "x-api-key": KEY, "anthropic-version": ANTHROPIC_VERSION },
+  });
+  if (!res.ok) throw new Error(`Anthropic models API ${res.status}: ${(await res.text()).slice(0, 300)}`);
+  const { data } = await res.json();
+  const ids = (data || []).map((m) => m.id); // newest first
+  const pick = ids.find((id) => /sonnet/i.test(id)) || ids.find((id) => /haiku/i.test(id)) || ids[0];
+  if (!pick) throw new Error("No models available for this API key");
+  return pick;
+}
 
 const ok = (msg) => {
   console.log(msg);
@@ -95,16 +111,16 @@ ${routeFacts || "- (no specific route; link to /popular-routes.html for pricing)
 Return ONLY the JSON object.`;
 
 // 3) call the Claude API
-async function draft() {
+async function draft(model) {
   const res = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: {
       "content-type": "application/json",
       "x-api-key": KEY,
-      "anthropic-version": "2023-06-01",
+      "anthropic-version": ANTHROPIC_VERSION,
     },
     body: JSON.stringify({
-      model: MODEL,
+      model,
       max_tokens: 4000,
       temperature: 0.6,
       system,
@@ -145,7 +161,9 @@ const wordCount = (body) =>
     .split(/\s+/).length;
 
 try {
-  const d = await draft();
+  const model = await resolveModel();
+  console.log(`• Using model: ${model}`);
+  const d = await draft(model);
   const errs = validate(d);
   if (errs.length) throw new Error("Validation failed: " + errs.join("; "));
 
