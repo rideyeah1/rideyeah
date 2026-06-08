@@ -263,6 +263,8 @@ h = h.replace(/url\("images\//g, 'url("/images/');
 h = h.replace(/url\('images\//g, "url('/images/");
 h = h.replace(/data-webp="images\//g, 'data-webp="/images/');
 h = h.replace(/data-jpg="images\//g, 'data-jpg="/images/');
+h = h.replace(/src="images\//g, 'src="/images/');
+h = h.replace(/srcset="images\//g, 'srcset="/images/');
 h = h.replace(/href="images\//g, 'href="/images/');
 h = h.replace(/href="favicon\.svg"/g, 'href="/favicon.svg"');
 h = h.replace(/href="apple-touch-icon\.png"/g, 'href="/apple-touch-icon.png"');
