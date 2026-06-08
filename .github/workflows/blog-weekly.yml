@@ -55,12 +55,15 @@ jobs:
           git checkout -b "$branch"
           git add content/blog-generated.json
           git commit -m "Blog draft: ${slug}"
-          git push origin "$branch"
-          gh pr create \
-            --base main --head "$branch" \
-            --title "Weekly blog draft: ${slug}" \
-            --body "Auto-drafted by the weekly blog agent from the QUEUE in \`scripts/blog-data.mjs\`.
+          git push --force-with-lease origin "$branch"
+          body="Auto-drafted by the weekly blog agent from the QUEUE in \`scripts/blog-data.mjs\`.
 
           **Review before merging** — read the article, tweak copy in \`content/blog-generated.json\` if needed, then merge. Merging pushes to \`main\`, which deploys the live site.
 
           Preview locally: \`npm run build\` then open \`dist/blog/${slug}.html\`."
+          if gh pr create --base main --head "$branch" --title "Weekly blog draft: ${slug}" --body "$body"; then
+            echo "✓ Pull request opened."
+          else
+            echo "::warning::Could not auto-open the PR. Enable it once at Settings → Actions → General → 'Allow GitHub Actions to create and approve pull requests'. The branch is pushed — open the PR here:"
+            echo "https://github.com/${GITHUB_REPOSITORY}/compare/main...${branch}?expand=1"
+          fi
