@@ -1347,13 +1347,13 @@ footer {
   color: var(--bone);
   font-weight: 600;
 }
-.art-body a {
+.art-body a:not(.btn) {
   color: var(--gold);
   text-decoration: none;
   border-bottom: 1px solid rgba(201, 168, 106, 0.35);
   transition: border-color 0.2s;
 }
-.art-body a:hover {
+.art-body a:not(.btn):hover {
   border-color: var(--gold);
 }
 .art-body ul,
