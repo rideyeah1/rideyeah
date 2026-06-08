@@ -19,6 +19,7 @@ import {
   statSync,
 } from "node:fs";
 import { join } from "node:path";
+import { createHash } from "node:crypto";
 import { ROUTES } from "./routes-data.mjs";
 
 // Regenerate the LAX ⇄ City route pages (EN + ES) from routes-data, then the
@@ -134,6 +135,31 @@ const cleanDir = (dir) => {
 cleanDir(DIST);
 if (existsSync(join(DIST, "es"))) cleanDir(join(DIST, "es"));
 if (existsSync(join(DIST, "blog"))) cleanDir(join(DIST, "blog"));
+
+// --- Cache-busting -------------------------------------------------------
+// Version assets/site.css + assets/site.js by content hash so a CSS/JS change
+// is never served stale from a browser or CDN cache. Rewrites every reference
+// (e.g. `assets/site.css"` → `assets/site.css?v=ab12cd34"`) across built HTML.
+const hashOf = (p) => createHash("sha1").update(readFileSync(p)).digest("hex").slice(0, 8);
+const cssPath = join(DIST, "assets", "site.css");
+const jsPath = join(DIST, "assets", "site.js");
+const cssV = existsSync(cssPath) ? hashOf(cssPath) : "";
+const jsV = existsSync(jsPath) ? hashOf(jsPath) : "";
+const bust = (s) => {
+  if (cssV) s = s.split('assets/site.css"').join(`assets/site.css?v=${cssV}"`);
+  if (jsV) s = s.split('assets/site.js"').join(`assets/site.js?v=${jsV}"`);
+  return s;
+};
+const bustDir = (dir) => {
+  for (const file of readdirSync(dir)) {
+    const p = join(dir, file);
+    if (statSync(p).isDirectory() || !file.endsWith(".html")) continue;
+    writeFileSync(p, bust(readFileSync(p, "utf8")), "utf8");
+  }
+};
+bustDir(DIST);
+if (existsSync(join(DIST, "es"))) bustDir(join(DIST, "es"));
+if (existsSync(join(DIST, "blog"))) bustDir(join(DIST, "blog"));
 
 const smPath = join(DIST, "sitemap.xml");
 if (existsSync(smPath)) {
