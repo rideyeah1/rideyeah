@@ -309,6 +309,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://rideyeah.com/malibu-chauffeur-service</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rideyeah.com/west-hollywood-chauffeur-service</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rideyeah.com/long-beach-chauffeur-service</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://rideyeah.com/blog/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

@@ -105,4 +105,52 @@ export const CITIES = [
       "an LAX transfer, an executive meeting at a corporate campus, a family pickup or a night out",
     airports: "LAX, Burbank (BUR) and Camarillo for regional flights",
   },
+  {
+    slug: "malibu-chauffeur-service",
+    city: "Malibu",
+    area: "Los Angeles",
+    keyword: "malibu car service",
+    hero: "escalade-luxury-suv-exterior-rear",
+    laxRoute: null,
+    laxMin: 50,
+    intro:
+      "Twenty-one miles of coastline, gated beachfront estates and a single highway in and out — Malibu rewards a driver who knows the PCH. RideYeah provides chauffeured luxury black SUV service across Malibu, from airport transfers to dinners on the coast and discreet estate pickups.",
+    neighborhoods: ["Point Dume", "Malibu Colony", "Carbon Beach", "Zuma &amp; Broad Beach", "the Malibu Country Mart area"],
+    landmarks: "the Pacific Coast Highway, Nobu Malibu, Soho House Little Beach House, the Malibu Pier and the Getty Villa",
+    useCase:
+      "an LAX transfer down the coast, a beachfront wedding, a Nobu dinner or a discreet estate pickup",
+    airports: "LAX, Burbank (BUR) and Van Nuys private terminals",
+  },
+  {
+    slug: "west-hollywood-chauffeur-service",
+    city: "West Hollywood",
+    area: "Los Angeles",
+    keyword: "west hollywood car service",
+    hero: "chauffeur",
+    laxRoute: null,
+    laxMin: 35,
+    intro:
+      "From the Sunset Strip to the Design District, West Hollywood runs late and expects to be moved in style. RideYeah provides chauffeured luxury black SUV service across WeHo — airport transfers, nights out on the Strip, hourly hire and smooth, discreet point-to-point rides.",
+    neighborhoods: ["the Sunset Strip", "Santa Monica Boulevard", "Melrose &amp; the Design District", "Norma Triangle", "West Hollywood West"],
+    landmarks: "the Sunset Strip, Chateau Marmont, the Comedy Store, the Pacific Design Center and The Abbey",
+    useCase:
+      "a night out on the Strip, an awards event, an airport transfer or a hotel pickup",
+    airports: "LAX, Burbank (BUR) and Van Nuys private terminals",
+  },
+  {
+    slug: "long-beach-chauffeur-service",
+    city: "Long Beach",
+    area: "Los Angeles",
+    keyword: "long beach car service",
+    hero: "hero_suburban",
+    laxRoute: "long-beach",
+    laxMin: 30,
+    intro:
+      "Between the waterfront, the convention district and the neighborhoods around Naples and Belmont Shore, Long Beach keeps its own pace. RideYeah provides chauffeured luxury black SUV service across Long Beach — airport transfers to LAX and Long Beach (LGB), hourly hire and door-to-door rides.",
+    neighborhoods: ["Belmont Shore", "Naples Island", "Downtown &amp; Pine Avenue", "Bixby Knolls", "the East Village Arts District"],
+    landmarks: "the Queen Mary, the Convention Center, the port, the marina and the Aquarium of the Pacific",
+    useCase:
+      "an LAX or Long Beach airport transfer, a convention pickup, a waterfront dinner or a cruise-terminal drop-off",
+    airports: "Long Beach (LGB) nearby, plus LAX and John Wayne (SNA)",
+  },
 ];
