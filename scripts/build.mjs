@@ -49,8 +49,10 @@ for (const page of [
   "airport-transfers.html",
   "black-car-service.html",
   "hourly-chauffeur.html",
+  "corporate-transportation.html",
   "popular-routes.html",
   "service-areas.html",
+  "faq.html",
   ...ROUTES.map((r) => `lax-to-${r.slug}.html`),
   ...CITIES.map((c) => `${c.slug}.html`),
 ]) {

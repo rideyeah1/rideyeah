@@ -67,8 +67,10 @@ function page(r, lang) {
   <button class="mm-close" id="mmClose" aria-label="Close menu">${CLOSE}</button>
   <a href="airport-transfers.html">Airport transfers</a>
   <a href="black-car-service.html">Black car service</a>
+  <a href="corporate-transportation.html">Corporate travel</a>
   <a href="popular-routes.html">Popular routes</a>
   <a href="fleet.html">Fleet</a>
+  <a href="faq.html">FAQ</a>
   <a href="es/lax-a-${r.slug}.html" class="lang-pill" onclick="try{localStorage.setItem('ry_lang','es')}catch(e){}">ES · Español</a>
   <a href="index.html#book" class="btn btn-gold">Book your ride</a>
 </div>`;
@@ -101,8 +103,8 @@ function page(r, lang) {
         <div class="brand">${FLOGO}</div>
         <p>Luxury ground transportation across Los Angeles &amp; Orange County. Arrive relaxed, always on time.</p>
       </div>
-      <div class="foot-col"><h3>Services</h3><a href="airport-transfers.html">Airport transfers</a><a href="hourly-chauffeur.html">By the hour</a><a href="black-car-service.html">Black car service</a><a href="popular-routes.html">Popular routes</a></div>
-      <div class="foot-col"><h3>Company</h3><a href="about.html">About us</a><a href="fleet.html">Our fleet</a><a href="careers.html">Careers</a><a href="index.html#contact">Contact</a></div>
+      <div class="foot-col"><h3>Services</h3><a href="airport-transfers.html">Airport transfers</a><a href="hourly-chauffeur.html">By the hour</a><a href="black-car-service.html">Black car service</a><a href="corporate-transportation.html">Corporate travel</a><a href="popular-routes.html">Popular routes</a></div>
+      <div class="foot-col"><h3>Company</h3><a href="about.html">About us</a><a href="fleet.html">Our fleet</a><a href="careers.html">Careers</a><a href="faq.html">FAQ</a><a href="index.html#contact">Contact</a></div>
       <div class="foot-col"><h3>Contact</h3><a href="tel:+18052851570">+1 (805) 285-1570</a><a href="mailto:info@rideyeah.com">info@rideyeah.com</a><a href="https://maps.google.com/?q=Los+Angeles,+CA" target="_blank" rel="noopener">Los Angeles, CA</a><div class="socials" style="margin-top:16px">
         <a href="https://www.instagram.com/rideyeah/" target="_blank" rel="noopener me" aria-label="RideYeah on Instagram">${IG}</a>
         <a href="https://www.tiktok.com/@rideyeah" target="_blank" rel="noopener me" aria-label="RideYeah on TikTok">${TT}</a>
@@ -186,7 +188,7 @@ function page(r, lang) {
   const serviceLd = ld({
     "@context": "https://schema.org", "@type": "Service",
     serviceType: t.svcType, name: t.svcName, description: t.svcDesc,
-    provider: { "@type": "LimousineService", name: "RideYeah", url: "https://rideyeah.com/", telephone: "+1-805-285-1570" },
+    provider: { "@type": "LimousineService", "@id": "https://rideyeah.com/#business" },
     areaServed: { "@type": "City", name: r.city },
     url: es ? esUrl : enUrl,
   });
@@ -330,8 +332,8 @@ function footerHtml(es) {
       </div></div>`
     : `<p>Luxury ground transportation across Los Angeles &amp; Orange County. Arrive relaxed, always on time.</p>
       </div>
-      <div class="foot-col"><h3>Services</h3><a href="airport-transfers.html">Airport transfers</a><a href="hourly-chauffeur.html">By the hour</a><a href="black-car-service.html">Black car service</a><a href="popular-routes.html">Popular routes</a></div>
-      <div class="foot-col"><h3>Company</h3><a href="about.html">About us</a><a href="fleet.html">Our fleet</a><a href="careers.html">Careers</a><a href="index.html#contact">Contact</a></div>
+      <div class="foot-col"><h3>Services</h3><a href="airport-transfers.html">Airport transfers</a><a href="hourly-chauffeur.html">By the hour</a><a href="black-car-service.html">Black car service</a><a href="corporate-transportation.html">Corporate travel</a><a href="popular-routes.html">Popular routes</a></div>
+      <div class="foot-col"><h3>Company</h3><a href="about.html">About us</a><a href="fleet.html">Our fleet</a><a href="careers.html">Careers</a><a href="faq.html">FAQ</a><a href="index.html#contact">Contact</a></div>
       <div class="foot-col"><h3>Contact</h3><a href="tel:+18052851570">+1 (805) 285-1570</a><a href="mailto:info@rideyeah.com">info@rideyeah.com</a><a href="https://maps.google.com/?q=Los+Angeles,+CA" target="_blank" rel="noopener">Los Angeles, CA</a><div class="socials" style="margin-top:16px">
         <a href="https://www.instagram.com/rideyeah/" target="_blank" rel="noopener me" aria-label="RideYeah on Instagram">${IG}</a>
         <a href="https://www.tiktok.com/@rideyeah" target="_blank" rel="noopener me" aria-label="RideYeah on TikTok">${TT}</a>
@@ -447,7 +449,7 @@ function hub(lang) {
   const svcLd = JSON.stringify({
     "@context": "https://schema.org", "@type": "Service",
     serviceType: "Point-to-point car service", name: t.svcName, description: t.svcDesc,
-    provider: { "@type": "LimousineService", name: "RideYeah", url: "https://rideyeah.com/", telephone: "+1-805-285-1570" },
+    provider: { "@type": "LimousineService", "@id": "https://rideyeah.com/#business" },
     areaServed: { "@type": "State", name: "California" },
     url: es ? esUrl : enUrl,
   }, null, 2);

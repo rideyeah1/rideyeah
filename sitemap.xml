@@ -274,6 +274,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://rideyeah.com/corporate-transportation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://rideyeah.com/service-areas</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -322,6 +327,11 @@
     <loc>https://rideyeah.com/long-beach-chauffeur-service</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rideyeah.com/faq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://rideyeah.com/blog/</loc>

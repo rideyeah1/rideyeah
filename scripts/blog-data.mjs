@@ -372,7 +372,7 @@ const AUTHORED = [
       "What companies should look for in an LA corporate transportation partner — coverage, vehicle standard, duty of care and billing that doesn't create work.",
     body: [
       {
-        p: "When a company moves executives, clients or whole teams around Los Angeles, ad-hoc rideshare stops scaling fast. <strong>Corporate transportation services</strong> give a business one reliable provider, one vehicle standard and one clean invoice — for everything from a single executive airport run to a multi-vehicle event. Here's what good corporate transportation looks like in LA, and how to set it up.",
+        p: "When a company moves executives, clients or whole teams around Los Angeles, ad-hoc rideshare stops scaling fast. <strong>Corporate transportation services</strong> give a business one reliable provider, one vehicle standard and one clean invoice — for everything from a single executive airport run to a multi-vehicle event. Here's what good corporate transportation looks like in LA, how our <a href=\"/corporate-transportation.html\">corporate &amp; executive transportation</a> service works, and how to set it up.",
       },
       { h2: "What corporate transportation covers" },
       {
