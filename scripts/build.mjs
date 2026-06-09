@@ -23,6 +23,10 @@ import { createHash } from "node:crypto";
 import { ROUTES } from "./routes-data.mjs";
 import { CITIES } from "./cities-data.mjs";
 
+// Guard: fail fast if any displayed fare drifted from the single source of truth
+// (scripts/fares-data.mjs) before we build anything.
+await import("./check-fares.mjs");
+
 // Regenerate the LAX ⇄ City route pages (EN + ES) from routes-data, then the
 // other Spanish pages from their EN sources so /es/ is always in sync.
 await import("./gen-routes.mjs");
