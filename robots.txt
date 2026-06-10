@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+# API endpoints are JSON functions (chat, flight lookup), not pages — keep them
+# out of the crawl so they don't show up as 404/"not indexed" noise in Search Console.
+Disallow: /api/
 
 Sitemap: https://rideyeah.com/sitemap.xml
