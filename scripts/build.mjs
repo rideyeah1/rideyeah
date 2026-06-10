@@ -133,6 +133,18 @@ const cleanHtml = (s) => {
   s = s.replace(/href="([^"#]*?)\.html(#[^"]*)?"/g, 'href="$1$2"');
   s = s.replace(/content="(https:\/\/rideyeah\.com\/[a-z0-9-]+)\.html"/g, 'content="$1"');
   s = s.replace(/"url": "(https:\/\/rideyeah\.com\/[a-z0-9-]+)\.html"/g, '"url": "$1"');
+  // Make the render-blocking Google Fonts stylesheet load asynchronously — the
+  // biggest mobile FCP/LCP win. Swap it to a print-media link that flips to "all"
+  // on load (non-blocking), with a <noscript> fallback. The URL already carries
+  // &display=swap so text paints immediately in the fallback then swaps in.
+  s = s.replace(/<link\b[^>]*fonts\.googleapis\.com\/css2[^>]*rel="stylesheet"[^>]*>/, (tag) => {
+    const href = (tag.match(/href="([^"]+)"/) || [])[1];
+    if (!href) return tag;
+    return (
+      `<link rel="stylesheet" media="print" onload="this.media='all'" href="${href}">` +
+      `<noscript><link rel="stylesheet" href="${href}"></noscript>`
+    );
+  });
   return s;
 };
 const cleanDir = (dir) => {

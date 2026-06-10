@@ -1322,15 +1322,26 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
   // Official Google Maps JS API bootstrap loader (loads the library on first import).
   (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await(a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({key:GMAPS_KEY, v:"weekly", language:LANG, region:"US"});
 
-  let Suggestion, SessionToken, token;
-  (async () => {
-    try {
-      const lib = await google.maps.importLibrary('places');
-      Suggestion = lib.AutocompleteSuggestion; SessionToken = lib.AutocompleteSessionToken;
-      token = new SessionToken();
-      fields.forEach(attach);
-    } catch (e) { /* leave inputs as plain text */ }
-  })();
+  let Suggestion, SessionToken, token, placesPromise;
+  // Defer the Google Maps Places library (~300KB JS) until the user actually
+  // interacts with an address field — keeps it off the initial mobile load so it
+  // doesn't slow first paint. Loaded once, on first focus of any pickup/dropoff.
+  function loadPlaces(){
+    if (placesPromise) return placesPromise;
+    placesPromise = (async () => {
+      try {
+        const lib = await google.maps.importLibrary('places');
+        Suggestion = lib.AutocompleteSuggestion; SessionToken = lib.AutocompleteSessionToken;
+        token = new SessionToken();
+        fields.forEach(attach);
+      } catch (e) { /* leave inputs as plain text */ }
+    })();
+    return placesPromise;
+  }
+  fields.forEach(input => {
+    input.addEventListener('focus', loadPlaces, { once: true });
+    input.addEventListener('pointerdown', loadPlaces, { once: true });
+  });
 
   function attach(input){
     const wrap = input.closest('.bk-field');
