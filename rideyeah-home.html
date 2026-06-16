@@ -566,6 +566,16 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
 }
 @media(prefers-reduced-motion:reduce){.chat-fab,.chat-panel,.chat-typing span{transition:none;animation:none}}
 </style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','449193533104630');
+fbq('track','PageView');
+/* Lead on call/text intent (booking Lead fires inside goMoovs below) */
+document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('a[href^="tel:"],a[href^="sms:"]');if(t&&window.fbq)fbq('track','Lead',{content_name:'call'});});
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=449193533104630&ev=PageView&noscript=1" alt=""/></noscript>
+<!-- End Meta Pixel -->
 </head>
 <body>
 <a href="#services" class="skip">Skip to content</a>
@@ -986,6 +996,7 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
   addEventListener('keydown', e => { if (e.key === 'Escape' && modal && modal.classList.contains('open')) close(); });
 
   window.goMoovs = function(url){
+    if (window.fbq) fbq('track','Lead',{content_name:'booking'});
     const target = url || MOOVS_REQUEST;
     lastFocus = document.activeElement;
     if (!modal) build();

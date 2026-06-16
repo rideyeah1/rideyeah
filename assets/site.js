@@ -1,5 +1,16 @@
 /* RideYeah · shared subpage behavior (nav, mobile menu, scroll reveal) */
 (function () {
+  // Meta Pixel — mirrors the chat-widget injection pattern; guarded against double-init.
+  if (!window.ryPixel) {
+    window.ryPixel = 1;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '449193533104630');
+    fbq('track', 'PageView');
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest && e.target.closest('a[href^="tel:"],a[href^="sms:"]');
+      if (t && window.fbq) fbq('track', 'Lead', { content_name: 'call' });
+    });
+  }
   // nav scroll state
   var nav = document.getElementById("nav");
   if (nav) {
@@ -131,6 +142,7 @@
     });
 
     window.goMoovs = function (url) {
+      if (window.fbq) fbq('track', 'Lead', { content_name: 'booking' });
       var target = url || MOOVS_REQUEST;
       lastFocus = document.activeElement;
       if (!modal) build();
