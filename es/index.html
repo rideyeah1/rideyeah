@@ -55,7 +55,7 @@
   "description": "Luxury airport transfers and private chauffeur service across Los Angeles and Orange County, in chauffeured luxury black SUVs with fixed, all-in pricing.",
   "slogan": "Arrive relaxed. Always on time.",
   "url": "https://rideyeah.com/",
-  "sameAs": ["https://www.instagram.com/rideyeah/", "https://www.tiktok.com/@rideyeah"],
+  "sameAs": ["https://www.facebook.com/RideYeah.LA", "https://www.instagram.com/rideyeah/", "https://www.tiktok.com/@rideyeah"],
   "image": "https://rideyeah.com/images/og-image.jpg",
   "logo": "https://rideyeah.com/apple-touch-icon.png",
   "email": "info@rideyeah.com",
@@ -566,6 +566,16 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
 }
 @media(prefers-reduced-motion:reduce){.chat-fab,.chat-panel,.chat-typing span{transition:none;animation:none}}
 </style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','449193533104630');
+fbq('track','PageView');
+/* Lead on call/text intent (booking Lead fires inside goMoovs below) */
+document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('a[href^="tel:"],a[href^="sms:"]');if(t&&window.fbq)fbq('track','Lead',{content_name:'call'});});
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=449193533104630&ev=PageView&noscript=1" alt=""/></noscript>
+<!-- End Meta Pixel -->
 </head>
 <body>
 <a href="#services" class="skip">Saltar al contenido</a>
@@ -905,6 +915,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
       <div class="foot-col"><h3>Servicios</h3><a href="/es/traslados-aeropuerto-lax.html">Traslados al aeropuerto</a><a href="/es/chofer-por-horas.html">Por horas</a><a href="/es/servicio-black-car.html">Servicio black car</a><a href="/corporate-transportation.html">Corporate travel</a><a href="/es/rutas-populares.html">Rutas populares</a><a href="/service-areas.html">Service areas</a></div>
       <div class="foot-col"><h3>Empresa</h3><a href="/es/nosotros.html">Nosotros</a><a href="/es/flota.html">Nuestra flota</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/es/empleo.html">Empleo</a><a href="#contact">Contacto</a></div>
       <div class="foot-col"><h3>Contacto</h3><a href="tel:+18052851570">+1 (805) 285-1570</a><a href="mailto:info@rideyeah.com">info@rideyeah.com</a><a href="https://maps.google.com/?q=Los+Angeles,+CA" target="_blank" rel="noopener">Los Angeles, CA</a><div class="socials" style="margin-top:16px">
+        <a href="https://www.facebook.com/RideYeah.LA" target="_blank" rel="noopener me" aria-label="RideYeah on Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
         <a href="https://www.instagram.com/rideyeah/" target="_blank" rel="noopener me" aria-label="RideYeah on Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
         <a href="https://www.tiktok.com/@rideyeah" target="_blank" rel="noopener me" aria-label="RideYeah on TikTok"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg></a>      </div></div>
     </div>
@@ -986,6 +997,7 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
   addEventListener('keydown', e => { if (e.key === 'Escape' && modal && modal.classList.contains('open')) close(); });
 
   window.goMoovs = function(url){
+    if (window.fbq) fbq('track','Lead',{content_name:'booking'});
     const target = url || MOOVS_REQUEST;
     lastFocus = document.activeElement;
     if (!modal) build();
@@ -1322,15 +1334,26 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
   // Official Google Maps JS API bootstrap loader (loads the library on first import).
   (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await(a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({key:GMAPS_KEY, v:"weekly", language:LANG, region:"US"});
 
-  let Suggestion, SessionToken, token;
-  (async () => {
-    try {
-      const lib = await google.maps.importLibrary('places');
-      Suggestion = lib.AutocompleteSuggestion; SessionToken = lib.AutocompleteSessionToken;
-      token = new SessionToken();
-      fields.forEach(attach);
-    } catch (e) { /* leave inputs as plain text */ }
-  })();
+  let Suggestion, SessionToken, token, placesPromise;
+  // Defer the Google Maps Places library (~300KB JS) until the user actually
+  // interacts with an address field — keeps it off the initial mobile load so it
+  // doesn't slow first paint. Loaded once, on first focus of any pickup/dropoff.
+  function loadPlaces(){
+    if (placesPromise) return placesPromise;
+    placesPromise = (async () => {
+      try {
+        const lib = await google.maps.importLibrary('places');
+        Suggestion = lib.AutocompleteSuggestion; SessionToken = lib.AutocompleteSessionToken;
+        token = new SessionToken();
+        fields.forEach(attach);
+      } catch (e) { /* leave inputs as plain text */ }
+    })();
+    return placesPromise;
+  }
+  fields.forEach(input => {
+    input.addEventListener('focus', loadPlaces, { once: true });
+    input.addEventListener('pointerdown', loadPlaces, { once: true });
+  });
 
   function attach(input){
     const wrap = input.closest('.bk-field');

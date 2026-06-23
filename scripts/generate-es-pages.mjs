@@ -60,6 +60,7 @@ const SHARED = [
   ["All rights reserved.", "Todos los derechos reservados."],
   ['aria-label="RideYeah on Instagram"', 'aria-label="RideYeah en Instagram"'],
   ['aria-label="RideYeah on TikTok"', 'aria-label="RideYeah en TikTok"'],
+  ['aria-label="RideYeah on Facebook"', 'aria-label="RideYeah en Facebook"'],
   /* route-card vehicle label */
   ["· Luxury Black SUV</div>", "· SUV negra de lujo</div>"],
 ];
