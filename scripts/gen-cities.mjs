@@ -39,7 +39,7 @@ const menu = `<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal=
   <a href="corporate-transportation.html">Corporate travel</a>
   <a href="service-areas.html">Service areas</a>
   <a href="popular-routes.html">Popular routes</a>
-  <a href="faq.html">FAQ</a>
+  <a href="/travel/">Travel guides</a><a href="faq.html">FAQ</a>
   <a href="blog/">Blog</a>
   <a href="index.html#book" class="btn btn-gold">Book your ride</a>
 </div>`;
@@ -51,7 +51,7 @@ const footer = `<footer>
         <p>Luxury ground transportation across Los Angeles &amp; Orange County. Arrive relaxed, always on time.</p>
       </div>
       <div class="foot-col"><h3>Services</h3><a href="airport-transfers.html">Airport transfers</a><a href="hourly-chauffeur.html">By the hour</a><a href="black-car-service.html">Black car service</a><a href="corporate-transportation.html">Corporate travel</a><a href="service-areas.html">Service areas</a></div>
-      <div class="foot-col"><h3>Company</h3><a href="about.html">About us</a><a href="fleet.html">Our fleet</a><a href="blog/">Blog</a><a href="faq.html">FAQ</a><a href="index.html#contact">Contact</a></div>
+      <div class="foot-col"><h3>Company</h3><a href="about.html">About us</a><a href="fleet.html">Our fleet</a><a href="blog/">Blog</a><a href="/travel/">Travel guides</a><a href="faq.html">FAQ</a><a href="index.html#contact">Contact</a></div>
       <div class="foot-col"><h3>Contact</h3><a href="tel:+18052851570">+1 (805) 285-1570</a><a href="mailto:info@rideyeah.com">info@rideyeah.com</a><a href="https://maps.google.com/?q=Los+Angeles,+CA" target="_blank" rel="noopener">Los Angeles, CA</a><div class="socials" style="margin-top:16px">
         <a href="https://www.facebook.com/RideYeah.LA" target="_blank" rel="noopener me" aria-label="RideYeah on Facebook">${FB}</a>
         <a href="https://www.instagram.com/rideyeah/" target="_blank" rel="noopener me" aria-label="RideYeah on Instagram">${IG}</a>

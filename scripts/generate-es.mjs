@@ -36,6 +36,7 @@ rep('"knowsAbout": ["Airport transfers", "LAX car service", "Black car service",
 
 /* ---------- nav / mobile ---------- */
 rep(">Skip to content</a>", ">Saltar al contenido</a>");
+rep(">Travel guides</a>", ">Guías de viaje</a>");
 rep(">Services</a>", ">Servicios</a>");
 rep(">Fleet</a>", ">Flota</a>");
 rep(">About</a>", ">Nosotros</a>");

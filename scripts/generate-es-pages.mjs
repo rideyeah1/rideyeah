@@ -47,6 +47,7 @@ const SHARED = [
   /* breadcrumb */
   [">Home</a>", ">Inicio</a>"],
   /* footer */
+  [">Travel guides</a>", ">Guías de viaje</a>"],
   ["Luxury ground transportation across Los Angeles &amp; Orange County. Arrive relaxed, always on time.",
    "Transporte terrestre de lujo en Los Ángeles y Orange County. Llega relajado, siempre puntual."],
   ["<h3>Services</h3>", "<h3>Servicios</h3>"],
