@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+
+Host: https://rideyeah.com/travel
+Sitemap: https://rideyeah.com/travel/sitemap.xml

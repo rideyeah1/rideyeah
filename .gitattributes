@@ -1,0 +1,4 @@
+# The Travel Hub static export (rideyeah.com/travel) is build output copied
+# verbatim into dist/travel/. Never convert line endings on it, so the committed
+# bytes match exactly what the Next.js build produced (and what gets served).
+travel-static/** -text

@@ -192,4 +192,28 @@ if (existsSync(smPath)) {
   );
 }
 
-console.log(`✓ Built dist/  ·  index.html + ${imgCount} images + icons/SEO files + clean URLs`);
+// --- Travel Hub (rideyeah.com/travel) -----------------------------------
+// Drop the pre-built static export into dist/travel/ verbatim. travel-static/ is
+// the committed output of the separate Next.js Travel Hub project, refreshed with
+// `node scripts/sync-travel-hub.mjs`. Its HTML already carries final, clean
+// /travel-prefixed links and its own content-hashed _next assets, so it must NOT
+// go through the clean-URL or cache-bust passes above — it's copied last and
+// untouched. One Cloudflare deploy then serves both the main site and /travel.
+let travelCount = 0;
+if (existsSync("travel-static")) {
+  const copyTravel = (from, to) => {
+    mkdirSync(to, { recursive: true });
+    for (const entry of readdirSync(from)) {
+      if (entry === "README.txt") continue; // internal marker, don't publish
+      const s = join(from, entry), d = join(to, entry);
+      if (statSync(s).isDirectory()) copyTravel(s, d);
+      else { copyFileSync(s, d); travelCount++; }
+    }
+  };
+  copyTravel("travel-static", join(DIST, "travel"));
+}
+
+const travelNote = travelCount ? `  ·  /travel (${travelCount} files)` : "";
+console.log(
+  `✓ Built dist/  ·  index.html + ${imgCount} images + icons/SEO files + clean URLs${travelNote}`,
+);
