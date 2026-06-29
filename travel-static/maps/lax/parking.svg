@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 560" role="img" aria-label="Schematic of LAX central parking structures P1 to P7 and which terminals each one serves">
+  <style>
+    .bg{fill:#f7f6f3}
+    .title{fill:#0a0a0b;font:700 24px Georgia,'Times New Roman',serif}
+    .sub{fill:#6b6a66;font:400 13px system-ui,sans-serif}
+    .pcard{fill:#fff;stroke:#cfccc3;stroke-width:1.5}
+    .pnum{fill:#0a0a0b}
+    .pnumtxt{fill:#c9a86a;font:700 16px system-ui,sans-serif;text-anchor:middle}
+    .pserves{fill:#2a2a2d;font:600 13px system-ui,sans-serif;text-anchor:middle}
+    .plabel{fill:#8a887f;font:400 11px system-ui,sans-serif;text-anchor:middle}
+    .econ{fill:#0a0a0b}
+    .econtxt{fill:#fff;font:700 15px system-ui,sans-serif;text-anchor:middle}
+    .econsub{fill:#c9a86a;font:600 11px system-ui,sans-serif;text-anchor:middle}
+    .note{fill:#9b988f;font:400 11px system-ui,sans-serif}
+    .legtxt{fill:#57564f;font:600 12px system-ui,sans-serif}
+  </style>
+
+  <rect class="bg" x="0" y="0" width="880" height="560"/>
+
+  <text class="title" x="40" y="48">LAX Parking — Structures by Terminal</text>
+  <text class="sub" x="40" y="72">Central structures P1–P7 sit inside the horseshoe, each next to specific terminals.</text>
+
+  <!-- Parking cards grid -->
+  <g>
+    <!-- row 1 -->
+    <g transform="translate(60,110)">
+      <rect class="pcard" width="160" height="92" rx="10"/>
+      <circle class="pnum" cx="30" cy="30" r="16"/><text class="pnumtxt" x="30" y="35">P1</text>
+      <text class="pserves" x="100" y="32">Terminal 1</text>
+      <text class="plabel" x="85" y="68">Closest to Southwest</text>
+    </g>
+    <g transform="translate(245,110)">
+      <rect class="pcard" width="160" height="92" rx="10"/>
+      <circle class="pnum" cx="30" cy="30" r="16"/><text class="pnumtxt" x="30" y="35">P2</text>
+      <text class="pserves" x="100" y="32">Terminals 2–3</text>
+      <text class="plabel" x="85" y="68">Delta</text>
+    </g>
+    <g transform="translate(430,110)">
+      <rect class="pcard" width="160" height="92" rx="10"/>
+      <circle class="pnum" cx="30" cy="30" r="16"/><text class="pnumtxt" x="30" y="35">P3</text>
+      <text class="pserves" x="100" y="32">Terminal 3 / TBIT</text>
+      <text class="plabel" x="85" y="68">International</text>
+    </g>
+    <g transform="translate(615,110)">
+      <rect class="pcard" width="160" height="92" rx="10"/>
+      <circle class="pnum" cx="30" cy="30" r="16"/><text class="pnumtxt" x="30" y="35">P4</text>
+      <text class="pserves" x="100" y="32">Terminal 4</text>
+      <text class="plabel" x="85" y="68">American</text>
+    </g>
+    <!-- row 2 -->
+    <g transform="translate(60,222)">
+      <rect class="pcard" width="160" height="92" rx="10"/>
+      <circle class="pnum" cx="30" cy="30" r="16"/><text class="pnumtxt" x="30" y="35">P5</text>
+      <text class="pserves" x="100" y="32">Terminal 5</text>
+      <text class="plabel" x="85" y="68">American</text>
+    </g>
+    <g transform="translate(245,222)">
+      <rect class="pcard" width="160" height="92" rx="10"/>
+      <circle class="pnum" cx="30" cy="30" r="16"/><text class="pnumtxt" x="30" y="35">P6</text>
+      <text class="pserves" x="100" y="32">Terminals 6–7</text>
+      <text class="plabel" x="85" y="68">Alaska / United</text>
+    </g>
+    <g transform="translate(430,222)">
+      <rect class="pcard" width="160" height="92" rx="10"/>
+      <circle class="pnum" cx="30" cy="30" r="16"/><text class="pnumtxt" x="30" y="35">P7</text>
+      <text class="pserves" x="100" y="32">Terminals 7–8</text>
+      <text class="plabel" x="85" y="68">United</text>
+    </g>
+    <!-- Economy lot -->
+    <g transform="translate(615,222)">
+      <rect class="econ" width="160" height="92" rx="10"/>
+      <text class="econtxt" x="80" y="40">Economy Lot E</text>
+      <text class="econsub" x="80" y="64">Lowest rates · free shuttle</text>
+    </g>
+  </g>
+
+  <!-- Legend / tip -->
+  <g transform="translate(60,360)">
+    <rect x="0" y="0" width="715" height="120" rx="12" fill="#ece9e2"/>
+    <text class="legtxt" x="24" y="36">Tips</text>
+    <text class="sub" x="24" y="62">• Park in the structure that matches your terminal to minimize walking.</text>
+    <text class="sub" x="24" y="86">• The Economy Lot is cheapest for longer trips; a free shuttle loops to the terminals.</text>
+    <text class="sub" x="24" y="110">• Skip parking entirely — a booked RideYeah ride drops you at the curb and meets you at LAX-it on return.</text>
+  </g>
+
+  <text class="note" x="40" y="528">Original schematic for orientation — not to scale. Check flylax.com for live rates and availability.</text>
+</svg>

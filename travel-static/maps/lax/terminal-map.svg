@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 620" role="img" aria-label="Schematic terminal map of LAX Central Terminal Area showing the horseshoe of nine terminals, central parking, and the LAX-it rideshare lot">
+  <style>
+    .bg{fill:#f7f6f3}
+    .term{fill:#0a0a0b}
+    .termtxt{fill:#fff;font:700 17px system-ui,Segoe UI,Roboto,sans-serif;text-anchor:middle}
+    .termsub{fill:#c9a86a;font:600 10px system-ui,sans-serif;text-anchor:middle;letter-spacing:.5px}
+    .title{fill:#0a0a0b;font:700 24px Georgia,'Times New Roman',serif}
+    .sub{fill:#6b6a66;font:400 13px system-ui,sans-serif}
+    .road{fill:none;stroke:#d9d6cf;stroke-width:16}
+    .roadtxt{fill:#9b988f;font:600 11px system-ui,sans-serif;letter-spacing:1px}
+    .park{fill:#ece9e2;stroke:#cfccc3;stroke-width:1.5}
+    .parktxt{fill:#57564f;font:600 13px system-ui,sans-serif;text-anchor:middle}
+    .laxit{fill:#c9a86a}
+    .laxittxt{fill:#0a0a0b;font:700 14px system-ui,sans-serif;text-anchor:middle}
+    .laxitsub{fill:#0a0a0b;font:600 10px system-ui,sans-serif;text-anchor:middle;opacity:.75}
+    .note{fill:#9b988f;font:400 11px system-ui,sans-serif}
+    .arrow{fill:#0a0a0b}
+    .arrowtxt{fill:#57564f;font:600 11px system-ui,sans-serif}
+    .compass{fill:#9b988f;font:600 11px system-ui,sans-serif;text-anchor:middle}
+  </style>
+
+  <rect class="bg" x="0" y="0" width="880" height="620"/>
+
+  <!-- Heading -->
+  <text class="title" x="40" y="48">LAX — Central Terminal Area</text>
+  <text class="sub" x="40" y="72">The horseshoe layout, with all nine terminals, parking, and rideshare pickup.</text>
+
+  <!-- Compass -->
+  <text class="compass" x="812" y="58">N</text>
+  <line x1="812" y1="62" x2="812" y2="92" stroke="#9b988f" stroke-width="2"/>
+  <polygon class="arrow" points="812,58 808,68 816,68"/>
+
+  <!-- World Way (the loop road) -->
+  <path class="road" d="M250 150 H700 a40 40 0 0 1 40 40 V430 a40 40 0 0 1 -40 40 H250 a40 40 0 0 1 -40 -40 V190 a40 40 0 0 1 40 -40 Z"/>
+  <text class="roadtxt" x="370" y="120">WORLD WAY (UPPER &amp; LOWER LEVELS)</text>
+
+  <!-- Parking (center of the horseshoe) -->
+  <rect class="park" x="330" y="250" width="280" height="120" rx="8"/>
+  <text class="parktxt" x="470" y="300">Central Parking</text>
+  <text class="parktxt" x="470" y="322" style="font-weight:400;fill:#8a887f">Structures P1 – P7</text>
+
+  <!-- North row: Terminals 4–8 (west → east) -->
+  <g>
+    <rect class="term" x="232" y="92" width="86" height="56" rx="8"/>
+    <text class="termtxt" x="275" y="118">T4</text><text class="termsub" x="275" y="135">AMERICAN</text>
+    <rect class="term" x="330" y="92" width="86" height="56" rx="8"/>
+    <text class="termtxt" x="373" y="118">T5</text><text class="termsub" x="373" y="135">AMERICAN</text>
+    <rect class="term" x="428" y="92" width="86" height="56" rx="8"/>
+    <text class="termtxt" x="471" y="118">T6</text><text class="termsub" x="471" y="135">ALASKA</text>
+    <rect class="term" x="526" y="92" width="86" height="56" rx="8"/>
+    <text class="termtxt" x="569" y="118">T7</text><text class="termsub" x="569" y="135">UNITED</text>
+    <rect class="term" x="624" y="92" width="86" height="56" rx="8"/>
+    <text class="termtxt" x="667" y="118">T8</text><text class="termsub" x="667" y="135">UNITED</text>
+  </g>
+
+  <!-- West end: Tom Bradley International Terminal -->
+  <rect class="term" x="150" y="170" width="64" height="280" rx="8"/>
+  <text class="termtxt" x="182" y="300" transform="rotate(-90 182 300)">TOM BRADLEY (TBIT)</text>
+  <text class="termsub" x="182" y="330" transform="rotate(-90 182 330)">INTERNATIONAL</text>
+
+  <!-- South row: Terminals 3, 2, 1 (west → east) -->
+  <g>
+    <rect class="term" x="232" y="472" width="86" height="56" rx="8"/>
+    <text class="termtxt" x="275" y="498">T3</text><text class="termsub" x="275" y="515">DELTA</text>
+    <rect class="term" x="362" y="472" width="86" height="56" rx="8"/>
+    <text class="termtxt" x="405" y="498">T2</text><text class="termsub" x="405" y="515">DELTA</text>
+    <rect class="term" x="492" y="472" width="86" height="56" rx="8"/>
+    <text class="termtxt" x="535" y="498">T1</text><text class="termsub" x="535" y="515">SOUTHWEST</text>
+  </g>
+
+  <!-- LAX-it rideshare lot (east of T1) -->
+  <rect class="laxit" x="630" y="472" width="170" height="68" rx="8"/>
+  <text class="laxittxt" x="715" y="500">LAX-it</text>
+  <text class="laxitsub" x="715" y="518">Rideshare &amp; app pickup</text>
+  <text class="laxitsub" x="715" y="531">East of Terminal 1</text>
+
+  <!-- Entrance arrow (east side) -->
+  <line x1="740" y1="300" x2="820" y2="300" stroke="#0a0a0b" stroke-width="3"/>
+  <polygon class="arrow" points="740,300 752,293 752,307"/>
+  <text class="arrowtxt" x="758" y="288">Entrance</text>
+  <text class="arrowtxt" x="758" y="322">Sepulveda Blvd / I-405</text>
+
+  <!-- Note -->
+  <text class="note" x="40" y="600">Original schematic for orientation — not to scale. Terminal assignments can change; confirm on your boarding pass.</text>
+</svg>

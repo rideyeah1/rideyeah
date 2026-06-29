@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 560" role="img" aria-label="Schematic of how to reach the LAX-it rideshare pickup lot from the terminals">
+  <style>
+    .bg{fill:#f7f6f3}
+    .title{fill:#0a0a0b;font:700 24px Georgia,'Times New Roman',serif}
+    .sub{fill:#6b6a66;font:400 13px system-ui,sans-serif}
+    .term{fill:#0a0a0b}
+    .termtxt{fill:#fff;font:700 14px system-ui,sans-serif;text-anchor:middle}
+    .stop{fill:#fff;stroke:#0a0a0b;stroke-width:2}
+    .stoptxt{fill:#57564f;font:600 10px system-ui,sans-serif;text-anchor:middle}
+    .shuttle{fill:none;stroke:#c9a86a;stroke-width:5;stroke-dasharray:2 8;stroke-linecap:round}
+    .laxit{fill:#c9a86a}
+    .laxittxt{fill:#0a0a0b;font:700 22px Georgia,serif;text-anchor:middle}
+    .laxitsub{fill:#0a0a0b;font:600 12px system-ui,sans-serif;text-anchor:middle;opacity:.8}
+    .steptxt{fill:#2a2a2d;font:400 13px system-ui,sans-serif}
+    .stepnum{fill:#0a0a0b}
+    .stepnumtxt{fill:#c9a86a;font:700 13px system-ui,sans-serif;text-anchor:middle}
+    .note{fill:#9b988f;font:400 11px system-ui,sans-serif}
+    .legtxt{fill:#57564f;font:600 11px system-ui,sans-serif}
+  </style>
+
+  <rect class="bg" x="0" y="0" width="880" height="560"/>
+
+  <text class="title" x="40" y="48">Reaching LAX-it — Rideshare &amp; App Pickup</text>
+  <text class="sub" x="40" y="72">All app-based and rideshare pickups happen at the LAX-it lot, east of Terminal 1.</text>
+
+  <!-- Terminal strip with arrivals-level shuttle stops -->
+  <g>
+    <rect class="term" x="60" y="150" width="80" height="48" rx="8"/><text class="termtxt" x="100" y="180">TBIT</text>
+    <rect class="term" x="150" y="150" width="64" height="48" rx="8"/><text class="termtxt" x="182" y="180">T3</text>
+    <rect class="term" x="224" y="150" width="64" height="48" rx="8"/><text class="termtxt" x="256" y="180">T2</text>
+    <rect class="term" x="298" y="150" width="64" height="48" rx="8"/><text class="termtxt" x="330" y="180">T1</text>
+    <rect class="term" x="60" y="150" width="0" height="0"/>
+  </g>
+  <text class="sub" x="60" y="138" style="font-weight:600;fill:#57564f">Terminals — lower (arrivals) level</text>
+
+  <!-- Shuttle stops under each terminal -->
+  <g>
+    <circle class="stop" cx="100" cy="232" r="9"/>
+    <circle class="stop" cx="182" cy="232" r="9"/>
+    <circle class="stop" cx="256" cy="232" r="9"/>
+    <circle class="stop" cx="330" cy="232" r="9"/>
+    <text class="stoptxt" x="100" y="256">stop</text>
+    <text class="stoptxt" x="182" y="256">stop</text>
+    <text class="stoptxt" x="256" y="256">stop</text>
+    <text class="stoptxt" x="330" y="256">stop</text>
+  </g>
+
+  <!-- Shuttle / walk route to LAX-it -->
+  <path class="shuttle" d="M100 232 H330 Q470 232 470 300 V360"/>
+  <path class="shuttle" d="M330 232 H600"/>
+  <text class="legtxt" x="360" y="224">free LAX-it shuttle (or walk)</text>
+
+  <!-- LAX-it lot -->
+  <rect class="laxit" x="560" y="300" width="260" height="150" rx="12"/>
+  <text class="laxittxt" x="690" y="360">LAX-it</text>
+  <text class="laxitsub" x="690" y="386">Rideshare pickup lot</text>
+  <text class="laxitsub" x="690" y="406">East of Terminal 1</text>
+  <text class="laxitsub" x="690" y="426">Your RideYeah driver meets you here</text>
+
+  <!-- Steps -->
+  <g transform="translate(60,330)">
+    <circle class="stepnum" cx="12" cy="0" r="12"/><text class="stepnumtxt" x="12" y="4">1</text>
+    <text class="steptxt" x="32" y="4">Exit to the lower (arrivals) level.</text>
+    <circle class="stepnum" cx="12" cy="34" r="12"/><text class="stepnumtxt" x="12" y="38">2</text>
+    <text class="steptxt" x="32" y="38">Follow the green “LAX-it” signs.</text>
+    <circle class="stepnum" cx="12" cy="68" r="12"/><text class="stepnumtxt" x="12" y="72">3</text>
+    <text class="steptxt" x="32" y="72">Walk (5–15 min) or take the free shuttle.</text>
+    <circle class="stepnum" cx="12" cy="102" r="12"/><text class="stepnumtxt" x="12" y="106">4</text>
+    <text class="steptxt" x="32" y="106">Meet your driver in the lot.</text>
+  </g>
+
+  <text class="note" x="40" y="540">Original schematic for orientation — not to scale. Always follow current on-site LAX-it signage.</text>
+</svg>
