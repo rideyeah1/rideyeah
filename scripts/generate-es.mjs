@@ -240,6 +240,23 @@ rep('class="sc-book">Get Your Fixed Quote</button>', 'class="sc-book">Obtén tu 
 rep('aria-label="Open menu"', 'aria-label="Abrir menú"');
 rep('aria-label="Close menu"', 'aria-label="Cerrar menú"');
 
+/* ---------- Travel Hub section ---------- */
+rep('<span class="eyebrow">Free travel resource</span>', '<span class="eyebrow">Recurso de viaje gratis</span>');
+rep('Planning a trip?<br>Explore the Travel&nbsp;Hub.', '¿Planeas un viaje?<br>Explora el Travel&nbsp;Hub.');
+rep(
+  'Our free Travel Hub has practical guides to Southern California airports, hotels, attractions and convention centers — terminals, rideshare pickup zones, maps and insider tips. Plan the trip, then let us handle the ride.',
+  'Nuestro Travel Hub gratuito tiene guías prácticas de aeropuertos, hoteles, atracciones y centros de convenciones del sur de California — terminales, zonas de recogida, mapas y consejos de viajeros. Planea el viaje y nosotros nos encargamos del traslado.',
+);
+rep('<div class="rt">Airport guides</div>', '<div class="rt">Guías de aeropuertos</div>');
+rep('<div class="rp">Terminals, rideshare pickup &amp; maps</div>', '<div class="rp">Terminales, zonas de recogida y mapas</div>');
+rep('<div class="rt">Travel guides</div>', '<div class="rt">Guías de viaje</div>');
+rep('<div class="rp">Where to stay near LAX, Disneyland &amp; more</div>', '<div class="rp">Dónde alojarte cerca de LAX, Disneyland y más</div>');
+rep('<div class="rt">Attractions</div>', '<div class="rt">Atracciones</div>');
+rep('<div class="rp">Disneyland, Universal, Santa Monica Pier &amp; more</div>', '<div class="rp">Disneyland, Universal, Santa Monica Pier y más</div>');
+rep('<div class="rt">Convention centers</div>', '<div class="rt">Centros de convenciones</div>');
+rep('<div class="rp">Directions &amp; dependable transport for big venues</div>', '<div class="rp">Cómo llegar y transporte confiable a grandes recintos</div>');
+rep('>Explore the Travel Hub <svg', '>Explora el Travel Hub <svg');
+
 /* ============ ES-specific transforms ============ */
 /* canonical + og:url -> /es/ */
 rep('rel="canonical" href="https://rideyeah.com/"', 'rel="canonical" href="https://rideyeah.com/es/"');
