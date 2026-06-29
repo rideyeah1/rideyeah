@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" role="img" aria-label="Hollywood Burbank Airport: which airlines use Terminal A and Terminal B.">
+  <style>
+    .bg{fill:#f7f6f3}.term{fill:#0a0a0b}
+    .tname{fill:#fff;font:700 18px system-ui,sans-serif}
+    .air{fill:#efeae2;font:400 14px system-ui,sans-serif}
+    .title{fill:#0a0a0b;font:700 23px Georgia,'Times New Roman',serif}
+    .sub{fill:#6b6a66;font:400 13px system-ui,sans-serif}
+    .note{fill:#9b988f;font:400 11px system-ui,sans-serif}
+  </style>
+  <rect class="bg" width="760" height="400"/>
+  <text class="title" x="40" y="48">Hollywood Burbank (BUR) — airlines by terminal</text>
+  <text class="sub" x="40" y="74">One compact terminal building with two concourses, A and B.</text>
+
+  <rect class="term" x="40" y="104" width="330" height="240" rx="10"/>
+  <text class="tname" x="64" y="142">Terminal A</text>
+  <line x1="64" y1="156" x2="346" y2="156" stroke="#3a3a3d"/>
+  <text class="air" x="64" y="192">Southwest Airlines</text>
+  <text class="air" x="64" y="222">Alaska Airlines</text>
+  <text class="air" x="64" y="252">American Airlines</text>
+
+  <rect class="term" x="390" y="104" width="330" height="240" rx="10"/>
+  <text class="tname" x="414" y="142">Terminal B</text>
+  <line x1="414" y1="156" x2="696" y2="156" stroke="#3a3a3d"/>
+  <text class="air" x="414" y="192">Delta Air Lines</text>
+  <text class="air" x="414" y="222">United Airlines</text>
+  <text class="air" x="414" y="252">JetBlue</text>
+  <text class="air" x="414" y="282">Avelo Airlines</text>
+
+  <text class="note" x="40" y="378">Schematic for orientation — not to scale. Assignments change; confirm on your boarding pass or hollywoodburbankairport.com.</text>
+</svg>

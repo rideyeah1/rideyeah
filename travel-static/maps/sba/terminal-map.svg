@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" role="img" aria-label="Santa Barbara Airport: airlines at the single main terminal.">
+  <style>
+    .bg{fill:#f7f6f3}.term{fill:#0a0a0b}
+    .tname{fill:#fff;font:700 18px system-ui,sans-serif}
+    .air{fill:#efeae2;font:400 15px system-ui,sans-serif}
+    .title{fill:#0a0a0b;font:700 23px Georgia,'Times New Roman',serif}
+    .sub{fill:#6b6a66;font:400 13px system-ui,sans-serif}
+    .note{fill:#9b988f;font:400 11px system-ui,sans-serif}
+  </style>
+  <rect class="bg" width="760" height="320"/>
+  <text class="title" x="40" y="48">Santa Barbara (SBA) — airlines</text>
+  <text class="sub" x="40" y="74">One Spanish-style main terminal — every airline checks in here.</text>
+
+  <rect class="term" x="40" y="104" width="680" height="170" rx="10"/>
+  <text class="tname" x="64" y="142">Main Terminal</text>
+  <line x1="64" y1="156" x2="696" y2="156" stroke="#3a3a3d"/>
+  <text class="air" x="64" y="196">Alaska Airlines</text>
+  <text class="air" x="400" y="196">United Airlines</text>
+  <text class="air" x="64" y="232">American Airlines</text>
+  <text class="air" x="400" y="232">Southwest Airlines</text>
+
+  <text class="note" x="40" y="302">Schematic for orientation — not to scale. Assignments change; confirm on your boarding pass or flysba.santabarbaraca.gov.</text>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" role="img" aria-label="John Wayne Airport: which airlines use Terminals A, B and C.">
+  <style>
+    .bg{fill:#f7f6f3}.term{fill:#0a0a0b}
+    .tname{fill:#fff;font:700 18px system-ui,sans-serif}
+    .air{fill:#efeae2;font:400 14px system-ui,sans-serif}
+    .title{fill:#0a0a0b;font:700 23px Georgia,'Times New Roman',serif}
+    .sub{fill:#6b6a66;font:400 13px system-ui,sans-serif}
+    .note{fill:#9b988f;font:400 11px system-ui,sans-serif}
+  </style>
+  <rect class="bg" width="1000" height="400"/>
+  <text class="title" x="40" y="48">John Wayne (SNA) — airlines by terminal</text>
+  <text class="sub" x="40" y="74">Terminals A, B and C, all in one building (Thomas F. Riley Terminal).</text>
+
+  <rect class="term" x="40" y="104" width="290" height="240" rx="10"/>
+  <text class="tname" x="64" y="142">Terminal A</text>
+  <line x1="64" y1="156" x2="306" y2="156" stroke="#3a3a3d"/>
+  <text class="air" x="64" y="192">Alaska Airlines</text>
+  <text class="air" x="64" y="222">American Airlines</text>
+
+  <rect class="term" x="355" y="104" width="290" height="240" rx="10"/>
+  <text class="tname" x="379" y="142">Terminal B</text>
+  <line x1="379" y1="156" x2="621" y2="156" stroke="#3a3a3d"/>
+  <text class="air" x="379" y="192">Southwest Airlines</text>
+  <text class="air" x="379" y="222">Delta Air Lines</text>
+
+  <rect class="term" x="670" y="104" width="290" height="240" rx="10"/>
+  <text class="tname" x="694" y="142">Terminal C</text>
+  <line x1="694" y1="156" x2="936" y2="156" stroke="#3a3a3d"/>
+  <text class="air" x="694" y="192">United Airlines</text>
+  <text class="air" x="694" y="222">Frontier Airlines</text>
+
+  <text class="note" x="40" y="378">Schematic for orientation — not to scale. Assignments change; confirm on your boarding pass or ocair.com.</text>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-label="Van Nuys Airport: general and business aviation only — no scheduled commercial airlines.">
+  <style>
+    .bg{fill:#f7f6f3}.term{fill:#0a0a0b}
+    .tname{fill:#fff;font:700 18px system-ui,sans-serif}
+    .body{fill:#efeae2;font:400 14px system-ui,sans-serif}
+    .gold{fill:#c9a86a;font:600 13px system-ui,sans-serif}
+    .title{fill:#0a0a0b;font:700 23px Georgia,'Times New Roman',serif}
+    .sub{fill:#6b6a66;font:400 13px system-ui,sans-serif}
+    .note{fill:#9b988f;font:400 11px system-ui,sans-serif}
+  </style>
+  <rect class="bg" width="760" height="300"/>
+  <text class="title" x="40" y="48">Van Nuys (VNY) — general &amp; business aviation</text>
+  <text class="sub" x="40" y="74">A private-aviation airport — there are no scheduled commercial airline terminals.</text>
+
+  <rect class="term" x="40" y="104" width="680" height="150" rx="10"/>
+  <text class="tname" x="64" y="142">Private &amp; charter aviation</text>
+  <line x1="64" y1="156" x2="696" y2="156" stroke="#3a3a3d"/>
+  <text class="body" x="64" y="186">Private jets and charters operate through FBOs (fixed-base operators)</text>
+  <text class="body" x="64" y="210">such as Signature, Clay Lacy, and Castle &amp; Cooke — not airline gates.</text>
+  <text class="gold" x="64" y="238">Arriving by private jet? RideYeah meets you planeside at your FBO.</text>
+
+  <text class="note" x="40" y="282">Schematic for orientation — not to scale. For FBO locations and access, see iflyvny.com.</text>
+</svg>

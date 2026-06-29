@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" role="img" aria-label="Parking illustration: a parking structure sign">
+  <rect width="400" height="220" fill="#efeae2"/>
+  <g fill="none" stroke="#0a0a0b" stroke-width="3" stroke-linejoin="round">
+    <!-- structure levels -->
+    <rect x="232" y="58" width="110" height="104" rx="6" fill="#fff"/>
+    <line x1="232" y1="92" x2="342" y2="92"/>
+    <line x1="232" y1="126" x2="342" y2="126"/>
+    <rect x="248" y="100" width="20" height="18" fill="#0a0a0b" stroke="none"/>
+    <rect x="280" y="100" width="20" height="18" fill="#0a0a0b" stroke="none"/>
+    <rect x="248" y="134" width="20" height="18" fill="#0a0a0b" stroke="none"/>
+    <rect x="306" y="134" width="20" height="18" fill="#c9a86a" stroke="none"/>
+  </g>
+  <!-- big P sign -->
+  <rect x="58" y="58" width="104" height="104" rx="14" fill="#0a0a0b"/>
+  <text x="110" y="138" font-family="system-ui,sans-serif" font-size="80" font-weight="800" fill="#c9a86a" text-anchor="middle">P</text>
+</svg>

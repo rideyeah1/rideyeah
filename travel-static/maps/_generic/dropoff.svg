@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" role="img" aria-label="Departure drop-off illustration: a car at the upper-level curb">
+  <rect width="400" height="220" fill="#efeae2"/>
+  <g fill="none" stroke="#0a0a0b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <!-- terminal building -->
+    <rect x="60" y="48" width="280" height="56" rx="6" fill="#fff"/>
+    <line x1="60" y1="78" x2="340" y2="78"/>
+    <text x="200" y="72" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#0a0a0b" stroke="none" text-anchor="middle">DEPARTURES</text>
+    <!-- curb -->
+    <line x1="30" y1="150" x2="370" y2="150" stroke="#cfccc3"/>
+    <line x1="30" y1="150" x2="370" y2="150" stroke-dasharray="2 16" stroke="#0a0a0b" stroke-width="3"/>
+    <!-- car -->
+    <path d="M150 150 v-20 a8 8 0 0 1 8 -8 h60 l18 16 h16 a8 8 0 0 1 8 8 v12" fill="#0a0a0b"/>
+    <circle cx="172" cy="150" r="11" fill="#efeae2"/>
+    <circle cx="244" cy="150" r="11" fill="#efeae2"/>
+  </g>
+  <!-- gold up-arrow (to departures) -->
+  <g stroke="#c9a86a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <line x1="300" y1="138" x2="300" y2="116"/>
+    <polyline points="292,124 300,116 308,124"/>
+  </g>
+</svg>

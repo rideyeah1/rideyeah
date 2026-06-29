@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" role="img" aria-label="Ontario International Airport: which airlines use Terminal 2 and Terminal 4.">
+  <style>
+    .bg{fill:#f7f6f3}.term{fill:#0a0a0b}
+    .tname{fill:#fff;font:700 18px system-ui,sans-serif}
+    .air{fill:#efeae2;font:400 14px system-ui,sans-serif}
+    .title{fill:#0a0a0b;font:700 23px Georgia,'Times New Roman',serif}
+    .sub{fill:#6b6a66;font:400 13px system-ui,sans-serif}
+    .note{fill:#9b988f;font:400 11px system-ui,sans-serif}
+  </style>
+  <rect class="bg" width="760" height="400"/>
+  <text class="title" x="40" y="48">Ontario (ONT) — airlines by terminal</text>
+  <text class="sub" x="40" y="74">Two side-by-side terminals: Terminal 2 and Terminal 4.</text>
+
+  <rect class="term" x="40" y="104" width="330" height="250" rx="10"/>
+  <text class="tname" x="64" y="142">Terminal 2</text>
+  <line x1="64" y1="156" x2="346" y2="156" stroke="#3a3a3d"/>
+  <text class="air" x="64" y="192">Southwest Airlines</text>
+  <text class="air" x="64" y="222">Delta Air Lines</text>
+  <text class="air" x="64" y="252">Alaska Airlines</text>
+
+  <rect class="term" x="390" y="104" width="330" height="250" rx="10"/>
+  <text class="tname" x="414" y="142">Terminal 4</text>
+  <line x1="414" y1="156" x2="696" y2="156" stroke="#3a3a3d"/>
+  <text class="air" x="414" y="192">American Airlines</text>
+  <text class="air" x="414" y="222">United Airlines</text>
+  <text class="air" x="414" y="252">Frontier Airlines</text>
+  <text class="air" x="414" y="282">JetBlue</text>
+
+  <text class="note" x="40" y="384">Schematic for orientation — not to scale. Assignments change; confirm on your boarding pass or flyontario.com.</text>
+</svg>

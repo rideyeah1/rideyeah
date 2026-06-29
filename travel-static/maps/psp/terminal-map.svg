@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img" aria-label="Palm Springs International Airport: airlines at the single open-air passenger terminal.">
+  <style>
+    .bg{fill:#f7f6f3}.term{fill:#0a0a0b}
+    .tname{fill:#fff;font:700 18px system-ui,sans-serif}
+    .air{fill:#efeae2;font:400 15px system-ui,sans-serif}
+    .air2{fill:#c9a86a;font:400 13px system-ui,sans-serif}
+    .title{fill:#0a0a0b;font:700 23px Georgia,'Times New Roman',serif}
+    .sub{fill:#6b6a66;font:400 13px system-ui,sans-serif}
+    .note{fill:#9b988f;font:400 11px system-ui,sans-serif}
+  </style>
+  <rect class="bg" width="760" height="420"/>
+  <text class="title" x="40" y="48">Palm Springs (PSP) — airlines</text>
+  <text class="sub" x="40" y="74">One open-air passenger terminal with two concourses — all airlines check in here.</text>
+
+  <rect class="term" x="40" y="104" width="680" height="270" rx="10"/>
+  <text class="tname" x="64" y="142">Passenger Terminal</text>
+  <line x1="64" y1="156" x2="696" y2="156" stroke="#3a3a3d"/>
+  <text class="air" x="64" y="194">Alaska Airlines</text>
+  <text class="air" x="400" y="194">JetBlue</text>
+  <text class="air" x="64" y="226">American Airlines</text>
+  <text class="air" x="400" y="226">Allegiant Air</text>
+  <text class="air" x="64" y="258">Delta Air Lines</text>
+  <text class="air" x="400" y="258">Sun Country Airlines</text>
+  <text class="air" x="64" y="290">United Airlines</text>
+  <text class="air2" x="400" y="290">Air Canada, WestJet, Flair</text>
+  <text class="air" x="64" y="322">Southwest Airlines</text>
+  <text class="air2" x="400" y="322">(Canadian / seasonal)</text>
+
+  <text class="note" x="40" y="402">Schematic for orientation — not to scale. Assignments change; confirm on your boarding pass or flypsp.com.</text>
+</svg>

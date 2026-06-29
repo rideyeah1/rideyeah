@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 800" role="img" aria-label="Schematic terminal map of LAX showing which airlines use each of the nine terminals plus the Tom Bradley International Terminal and the LAX-it rideshare lot. Terminal 5 is closed for reconstruction.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 800" role="img" aria-label="Schematic terminal map of LAX showing which airlines use each of the nine terminals plus the Tom Bradley International Terminal and the LAX-it rideshare lot. You enter from the top (Sepulveda Blvd) at Terminal 1; Terminal 5 is closed for reconstruction.">
   <style>
     .bg{fill:#f7f6f3}
     .term{fill:#0a0a0b}
@@ -32,102 +32,102 @@
 
   <!-- Heading -->
   <text class="title" x="40" y="50">LAX — which airline is in each terminal</text>
-  <text class="sub" x="40" y="76">The Central Terminal Area horseshoe. Terminal 5 is closed for reconstruction — its airlines have moved.</text>
+  <text class="sub" x="40" y="76">You enter from the top at Terminal 1. The horseshoe runs T1–T3 across the top, T4–T8 along the bottom. Terminal 5 is closed.</text>
 
   <!-- Compass -->
   <text class="compass" x="1008" y="52">N</text>
-  <line x1="1008" y1="56" x2="1008" y2="84" stroke="#9b988f" stroke-width="2"/>
+  <line x1="1008" y1="84" x2="1008" y2="56" stroke="#9b988f" stroke-width="2"/>
   <polygon class="arrow" points="1008,52 1004,62 1012,62"/>
 
-  <!-- World Way loop road (open on the east for the entrance) -->
-  <path class="road" d="M1000 250 H220 a22 22 0 0 0 -22 22 V512 a22 22 0 0 0 22 22 H910"/>
-  <text class="roadtxt" x="470" y="246">WORLD WAY — UPPER (DEPARTURES) &amp; LOWER (ARRIVALS)</text>
+  <!-- Entrance (from the top — Sepulveda Blvd / I-405), pointing down toward T1 -->
+  <line x1="660" y1="96" x2="660" y2="124" stroke="#0a0a0b" stroke-width="3"/>
+  <polygon class="arrow" points="660,124 653,112 667,112"/>
+  <text class="arrowtxt" x="648" y="104">Entrance —</text>
+  <text class="arrowtxt" x="648" y="120">Sepulveda Blvd / I-405</text>
+
+  <!-- World Way loop road (open at the TOP for the entrance) -->
+  <path class="road" d="M200 256 V520 a22 22 0 0 0 22 22 H868 a22 22 0 0 0 22 -22 V256"/>
+  <text class="roadtxt" x="430" y="566">WORLD WAY — UPPER (DEPARTURES) &amp; LOWER (ARRIVALS)</text>
 
   <!-- Central parking -->
-  <rect class="park" x="320" y="300" width="380" height="170" rx="10"/>
-  <text class="parktxt" x="510" y="380">Central Parking</text>
-  <text class="parksub" x="510" y="402">Structures P1 – P7</text>
+  <rect class="park" x="320" y="320" width="380" height="160" rx="10"/>
+  <text class="parktxt" x="510" y="396">Central Parking</text>
+  <text class="parksub" x="510" y="418">Structures P1 – P7</text>
 
-  <!-- ===== North row: T4, T5(closed), T6, T7, T8 (west -> east) ===== -->
-  <!-- T4 -->
-  <rect class="term" x="210" y="108" width="150" height="124" rx="9"/>
-  <text class="tnum" x="226" y="136">T4</text>
-  <text class="air" x="226" y="162">American</text>
-  <text class="air" x="226" y="180">American Eagle</text>
-
-  <!-- T5 closed -->
-  <rect class="termclosed" x="370" y="108" width="150" height="124" rx="9"/>
-  <text class="tnumclosed" x="386" y="136">T5</text>
-  <text class="closedtxt" x="386" y="164">CLOSED</text>
-  <text class="closedsub" x="386" y="182">Under</text>
-  <text class="closedsub" x="386" y="197">reconstruction</text>
-
-  <!-- T6 -->
-  <rect class="term" x="530" y="108" width="150" height="124" rx="9"/>
-  <text class="tnum" x="546" y="136">T6</text>
-  <text class="air" x="546" y="162">Alaska</text>
-  <text class="air" x="546" y="180">Hawaiian</text>
-  <text class="air" x="546" y="198">Air Canada</text>
-
-  <!-- T7 -->
-  <rect class="term" x="690" y="108" width="150" height="124" rx="9"/>
-  <text class="tnum" x="706" y="136">T7</text>
-  <text class="air" x="706" y="162">United</text>
-
-  <!-- T8 -->
-  <rect class="term" x="850" y="108" width="150" height="124" rx="9"/>
-  <text class="tnum" x="866" y="136">T8</text>
-  <text class="air" x="866" y="162">United</text>
-
-  <!-- ===== West end: Tom Bradley International Terminal ===== -->
-  <rect class="term" x="40" y="250" width="158" height="284" rx="9"/>
-  <text class="tbittxt" x="56" y="284">TBIT</text>
-  <text class="tbitsub" x="56" y="302">Tom Bradley Intl</text>
-  <line x1="56" y1="314" x2="182" y2="314" stroke="#3a3a3d" stroke-width="1"/>
-  <text class="tbitsub" x="56" y="334">45+ international:</text>
-  <text class="tbitair" x="56" y="354">Air France · KLM</text>
-  <text class="tbitair" x="56" y="372">British Airways</text>
-  <text class="tbitair" x="56" y="390">Emirates · Qatar</text>
-  <text class="tbitair" x="56" y="408">Qantas · Japan Air</text>
-  <text class="tbitair" x="56" y="426">Korean · Singapore</text>
-  <text class="tbitair" x="56" y="444">Lufthansa · ANA</text>
-  <text class="tbitair" x="56" y="462">Cathay · Turkish</text>
-  <text class="tbitair" x="56" y="486" fill="#c9a86a">…and many more</text>
-
-  <!-- ===== South row: T3, T2, T1 (west -> east) ===== -->
+  <!-- ===== TOP row: T3, T2, T1 (entrance side) + LAX-it ===== -->
   <!-- T3 -->
-  <rect class="term" x="210" y="540" width="150" height="130" rx="9"/>
-  <text class="tnum" x="226" y="568">T3</text>
-  <text class="air" x="226" y="594">Delta</text>
-  <text class="air" x="226" y="612">Aeroméxico</text>
-  <text class="air" x="226" y="630">Virgin Atlantic</text>
+  <rect class="term" x="210" y="128" width="150" height="124" rx="9"/>
+  <text class="tnum" x="226" y="156">T3</text>
+  <text class="air" x="226" y="182">Delta</text>
+  <text class="air" x="226" y="200">Aeroméxico</text>
+  <text class="air" x="226" y="218">Virgin Atlantic</text>
 
   <!-- T2 -->
-  <rect class="term" x="370" y="540" width="150" height="130" rx="9"/>
-  <text class="tnum" x="386" y="568">T2</text>
-  <text class="air" x="386" y="594">Delta</text>
-  <text class="air" x="386" y="612">Spirit</text>
-  <text class="air" x="386" y="630">WestJet · Norse</text>
+  <rect class="term" x="370" y="128" width="150" height="124" rx="9"/>
+  <text class="tnum" x="386" y="156">T2</text>
+  <text class="air" x="386" y="182">Delta</text>
+  <text class="air" x="386" y="200">Spirit</text>
+  <text class="air" x="386" y="218">WestJet · Norse</text>
 
   <!-- T1 -->
-  <rect class="term" x="530" y="540" width="150" height="130" rx="9"/>
-  <text class="tnum" x="546" y="568">T1</text>
-  <text class="air" x="546" y="594">JetBlue</text>
-  <text class="air" x="546" y="612">Southwest</text>
-  <text class="air2" x="546" y="630">Frontier, Allegiant</text>
-  <text class="air2" x="546" y="646">(check-in)</text>
+  <rect class="term" x="530" y="128" width="150" height="124" rx="9"/>
+  <text class="tnum" x="546" y="156">T1</text>
+  <text class="air" x="546" y="182">JetBlue</text>
+  <text class="air" x="546" y="200">Southwest</text>
+  <text class="air2" x="546" y="218">Frontier, Allegiant</text>
+  <text class="air2" x="546" y="234">(check-in)</text>
 
   <!-- LAX-it rideshare lot (east of T1) -->
-  <rect class="laxit" x="690" y="540" width="220" height="100" rx="9"/>
-  <text class="laxittxt" x="800" y="578">LAX-it</text>
-  <text class="laxitsub" x="800" y="600">Rideshare &amp; app pickup</text>
-  <text class="laxitsub" x="800" y="616">East of Terminal 1</text>
+  <rect class="laxit" x="700" y="128" width="200" height="124" rx="9"/>
+  <text class="laxittxt" x="800" y="174">LAX-it</text>
+  <text class="laxitsub" x="800" y="196">Rideshare &amp; app pickup</text>
+  <text class="laxitsub" x="800" y="212">East of Terminal 1</text>
 
-  <!-- Entrance arrow (east / open side of the loop) -->
-  <line x1="1004" y1="392" x2="924" y2="392" stroke="#0a0a0b" stroke-width="3"/>
-  <polygon class="arrow" points="924,392 936,385 936,399"/>
-  <text class="arrowtxt" x="1004" y="378">Entrance</text>
-  <text class="arrowtxt" x="1004" y="420">Sepulveda Blvd / I-405</text>
+  <!-- ===== West end: Tom Bradley International Terminal ===== -->
+  <rect class="term" x="40" y="270" width="158" height="280" rx="9"/>
+  <text class="tbittxt" x="56" y="304">TBIT</text>
+  <text class="tbitsub" x="56" y="322">Tom Bradley Intl</text>
+  <line x1="56" y1="334" x2="182" y2="334" stroke="#3a3a3d" stroke-width="1"/>
+  <text class="tbitsub" x="56" y="354">45+ international:</text>
+  <text class="tbitair" x="56" y="374">Air France · KLM</text>
+  <text class="tbitair" x="56" y="392">British Airways</text>
+  <text class="tbitair" x="56" y="410">Emirates · Qatar</text>
+  <text class="tbitair" x="56" y="428">Qantas · Japan Air</text>
+  <text class="tbitair" x="56" y="446">Korean · Singapore</text>
+  <text class="tbitair" x="56" y="464">Lufthansa · ANA</text>
+  <text class="tbitair" x="56" y="482">Cathay · Turkish</text>
+  <text class="tbitair" x="56" y="506" fill="#c9a86a">…and many more</text>
+
+  <!-- ===== BOTTOM row: T4, T5(closed), T6, T7, T8 ===== -->
+  <!-- T4 -->
+  <rect class="term" x="210" y="566" width="150" height="124" rx="9"/>
+  <text class="tnum" x="226" y="594">T4</text>
+  <text class="air" x="226" y="620">American</text>
+  <text class="air" x="226" y="638">American Eagle</text>
+
+  <!-- T5 closed -->
+  <rect class="termclosed" x="370" y="566" width="150" height="124" rx="9"/>
+  <text class="tnumclosed" x="386" y="594">T5</text>
+  <text class="closedtxt" x="386" y="622">CLOSED</text>
+  <text class="closedsub" x="386" y="640">Under</text>
+  <text class="closedsub" x="386" y="655">reconstruction</text>
+
+  <!-- T6 -->
+  <rect class="term" x="530" y="566" width="150" height="124" rx="9"/>
+  <text class="tnum" x="546" y="594">T6</text>
+  <text class="air" x="546" y="620">Alaska</text>
+  <text class="air" x="546" y="638">Hawaiian</text>
+  <text class="air" x="546" y="656">Air Canada</text>
+
+  <!-- T7 -->
+  <rect class="term" x="690" y="566" width="150" height="124" rx="9"/>
+  <text class="tnum" x="706" y="594">T7</text>
+  <text class="air" x="706" y="620">United</text>
+
+  <!-- T8 -->
+  <rect class="term" x="850" y="566" width="150" height="124" rx="9"/>
+  <text class="tnum" x="866" y="594">T8</text>
+  <text class="air" x="866" y="620">United</text>
 
   <!-- Note -->
   <text class="note" x="40" y="770">Original schematic for orientation — not to scale. Terminal assignments change; always confirm on your airline’s boarding pass or flylax.com.</text>

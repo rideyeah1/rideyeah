@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" role="img" aria-label="Airport map illustration: a terminal and a plane">
+  <rect width="400" height="220" fill="#efeae2"/>
+  <g fill="none" stroke="#0a0a0b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <!-- terminal -->
+    <path d="M70 160 v-46 a8 8 0 0 1 8 -8 h150 a8 8 0 0 1 8 8 v46" fill="#0a0a0b"/>
+    <line x1="56" y1="160" x2="250" y2="160"/>
+    <rect x="92" y="120" width="20" height="26" fill="#efeae2" stroke="none"/>
+    <rect x="124" y="120" width="20" height="26" fill="#efeae2" stroke="none"/>
+    <rect x="156" y="120" width="20" height="26" fill="#efeae2" stroke="none"/>
+    <rect x="188" y="120" width="20" height="26" fill="#c9a86a" stroke="none"/>
+  </g>
+  <!-- gold plane -->
+  <g stroke="#c9a86a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M276 96 l54 14 l-10 -30 l10 4 l22 34 l28 8 a7 7 0 0 1 0 13 l-104 6 l-26 22 l-12 -4 l10 -26 l-22 2 l-10 12 l-9 -3 z" fill="#c9a86a"/>
+  </g>
+</svg>

@@ -1,5 +1,5 @@
-:HL["/travel/_next/static/chunks/13xdlqqtme1~p.css","style"]
+:HL["/travel/_next/static/chunks/06midkqu~i~cl.css","style"]
 :HL["/travel/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/travel/_next/static/media/3c7c6164b2587822-s.p.0duriy8536ewt.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/travel/_next/static/media/a343f882a40d2cc9-s.p.0kho-wj7-y-w1.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"airports","param":null,"prefetchHints":0,"slots":{"children":{"name":"airport","param":{"type":"d","key":"lax","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"status","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}}}},"staleTime":300,"buildId":"v5u1I8hFMWCkEnwygVOe0"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"airports","param":null,"prefetchHints":0,"slots":{"children":{"name":"airport","param":{"type":"d","key":"lax","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"status","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}}}},"staleTime":300,"buildId":"pEm9rBHPAYh8fBEafOjId"}
