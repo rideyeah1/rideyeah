@@ -1,0 +1,155 @@
+[
+  {
+    "order": 1,
+    "route": "LAX <> Downtown LA",
+    "slug": "downtown-la",
+    "fare": 150,
+    "scheduled_local": "2026-06-23 09:00",
+    "timezone": "America/Los_Angeles",
+    "platforms": [
+      "instagram",
+      "facebook_page"
+    ],
+    "feed_image": "feed/01_LAX-downtown-la_feed.png",
+    "story_image": "story/01_LAX-downtown-la_story.png",
+    "caption_file": "captions/01_LAX-downtown-la.txt",
+    "link": "https://rideyeah.com/lax-to-downtown-la",
+    "status": "pending"
+  },
+  {
+    "order": 2,
+    "route": "LAX <> Long Beach",
+    "slug": "long-beach",
+    "fare": 200,
+    "scheduled_local": "2026-06-25 09:00",
+    "timezone": "America/Los_Angeles",
+    "platforms": [
+      "instagram",
+      "facebook_page"
+    ],
+    "feed_image": "feed/02_LAX-long-beach_feed.png",
+    "story_image": "story/02_LAX-long-beach_story.png",
+    "caption_file": "captions/02_LAX-long-beach.txt",
+    "link": "https://rideyeah.com/lax-to-long-beach",
+    "status": "pending"
+  },
+  {
+    "order": 3,
+    "route": "LAX <> Pasadena",
+    "slug": "pasadena",
+    "fare": 200,
+    "scheduled_local": "2026-06-30 09:00",
+    "timezone": "America/Los_Angeles",
+    "platforms": [
+      "instagram",
+      "facebook_page"
+    ],
+    "feed_image": "feed/03_LAX-pasadena_feed.png",
+    "story_image": "story/03_LAX-pasadena_story.png",
+    "caption_file": "captions/03_LAX-pasadena.txt",
+    "link": "https://rideyeah.com/lax-to-pasadena",
+    "status": "pending"
+  },
+  {
+    "order": 4,
+    "route": "LAX <> Calabasas",
+    "slug": "calabasas",
+    "fare": 200,
+    "scheduled_local": "2026-07-02 09:00",
+    "timezone": "America/Los_Angeles",
+    "platforms": [
+      "instagram",
+      "facebook_page"
+    ],
+    "feed_image": "feed/04_LAX-calabasas_feed.png",
+    "story_image": "story/04_LAX-calabasas_story.png",
+    "caption_file": "captions/04_LAX-calabasas.txt",
+    "link": "https://rideyeah.com/lax-to-calabasas",
+    "status": "pending"
+  },
+  {
+    "order": 5,
+    "route": "LAX <> Anaheim",
+    "slug": "anaheim",
+    "fare": 250,
+    "scheduled_local": "2026-07-07 09:00",
+    "timezone": "America/Los_Angeles",
+    "platforms": [
+      "instagram",
+      "facebook_page"
+    ],
+    "feed_image": "feed/05_LAX-anaheim_feed.png",
+    "story_image": "story/05_LAX-anaheim_story.png",
+    "caption_file": "captions/05_LAX-anaheim.txt",
+    "link": "https://rideyeah.com/lax-to-anaheim",
+    "status": "pending"
+  },
+  {
+    "order": 6,
+    "route": "LAX <> Simi Valley",
+    "slug": "simi-valley",
+    "fare": 250,
+    "scheduled_local": "2026-07-09 09:00",
+    "timezone": "America/Los_Angeles",
+    "platforms": [
+      "instagram",
+      "facebook_page"
+    ],
+    "feed_image": "feed/06_LAX-simi-valley_feed.png",
+    "story_image": "story/06_LAX-simi-valley_story.png",
+    "caption_file": "captions/06_LAX-simi-valley.txt",
+    "link": "https://rideyeah.com/lax-to-simi-valley",
+    "status": "pending"
+  },
+  {
+    "order": 7,
+    "route": "LAX <> Thousand Oaks",
+    "slug": "thousand-oaks",
+    "fare": 250,
+    "scheduled_local": "2026-07-14 09:00",
+    "timezone": "America/Los_Angeles",
+    "platforms": [
+      "instagram",
+      "facebook_page"
+    ],
+    "feed_image": "feed/07_LAX-thousand-oaks_feed.png",
+    "story_image": "story/07_LAX-thousand-oaks_story.png",
+    "caption_file": "captions/07_LAX-thousand-oaks.txt",
+    "link": "https://rideyeah.com/lax-to-thousand-oaks",
+    "status": "pending"
+  },
+  {
+    "order": 8,
+    "route": "LAX <> Camarillo",
+    "slug": "camarillo",
+    "fare": 300,
+    "scheduled_local": "2026-07-16 09:00",
+    "timezone": "America/Los_Angeles",
+    "platforms": [
+      "instagram",
+      "facebook_page"
+    ],
+    "feed_image": "feed/08_LAX-camarillo_feed.png",
+    "story_image": "story/08_LAX-camarillo_story.png",
+    "caption_file": "captions/08_LAX-camarillo.txt",
+    "link": "https://rideyeah.com/lax-to-camarillo",
+    "status": "pending"
+  },
+  {
+    "order": 9,
+    "route": "LAX <> Santa Barbara",
+    "slug": "santa-barbara",
+    "fare": 400,
+    "scheduled_local": "2026-07-21 09:00",
+    "timezone": "America/Los_Angeles",
+    "platforms": [
+      "instagram",
+      "facebook_page"
+    ],
+    "feed_image": "feed/09_LAX-santa-barbara_feed.png",
+    "story_image": "story/09_LAX-santa-barbara_story.png",
+    "caption_file": "captions/09_LAX-santa-barbara.txt",
+    "link": "https://rideyeah.com/lax-to-santa-barbara",
+    "status": "pending"
+  }
+]

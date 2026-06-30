@@ -1,0 +1,10 @@
+date_local,time_local,timezone,route,platforms,image_feed,image_story,link,caption_file
+2026-06-23,09:00,America/Los_Angeles,LAX <> Downtown LA,"Instagram;FacebookPage",feed/01_LAX-downtown-la_feed.png,story/01_LAX-downtown-la_story.png,https://rideyeah.com/lax-to-downtown-la,captions/01_LAX-downtown-la.txt
+2026-06-25,09:00,America/Los_Angeles,LAX <> Long Beach,"Instagram;FacebookPage",feed/02_LAX-long-beach_feed.png,story/02_LAX-long-beach_story.png,https://rideyeah.com/lax-to-long-beach,captions/02_LAX-long-beach.txt
+2026-06-30,09:00,America/Los_Angeles,LAX <> Pasadena,"Instagram;FacebookPage",feed/03_LAX-pasadena_feed.png,story/03_LAX-pasadena_story.png,https://rideyeah.com/lax-to-pasadena,captions/03_LAX-pasadena.txt
+2026-07-02,09:00,America/Los_Angeles,LAX <> Calabasas,"Instagram;FacebookPage",feed/04_LAX-calabasas_feed.png,story/04_LAX-calabasas_story.png,https://rideyeah.com/lax-to-calabasas,captions/04_LAX-calabasas.txt
+2026-07-07,09:00,America/Los_Angeles,LAX <> Anaheim,"Instagram;FacebookPage",feed/05_LAX-anaheim_feed.png,story/05_LAX-anaheim_story.png,https://rideyeah.com/lax-to-anaheim,captions/05_LAX-anaheim.txt
+2026-07-09,09:00,America/Los_Angeles,LAX <> Simi Valley,"Instagram;FacebookPage",feed/06_LAX-simi-valley_feed.png,story/06_LAX-simi-valley_story.png,https://rideyeah.com/lax-to-simi-valley,captions/06_LAX-simi-valley.txt
+2026-07-14,09:00,America/Los_Angeles,LAX <> Thousand Oaks,"Instagram;FacebookPage",feed/07_LAX-thousand-oaks_feed.png,story/07_LAX-thousand-oaks_story.png,https://rideyeah.com/lax-to-thousand-oaks,captions/07_LAX-thousand-oaks.txt
+2026-07-16,09:00,America/Los_Angeles,LAX <> Camarillo,"Instagram;FacebookPage",feed/08_LAX-camarillo_feed.png,story/08_LAX-camarillo_story.png,https://rideyeah.com/lax-to-camarillo,captions/08_LAX-camarillo.txt
+2026-07-21,09:00,America/Los_Angeles,LAX <> Santa Barbara,"Instagram;FacebookPage",feed/09_LAX-santa-barbara_feed.png,story/09_LAX-santa-barbara_story.png,https://rideyeah.com/lax-to-santa-barbara,captions/09_LAX-santa-barbara.txt
