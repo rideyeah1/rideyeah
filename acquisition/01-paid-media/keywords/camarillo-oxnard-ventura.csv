@@ -1,0 +1,24 @@
+keyword,match_type,ad_group,priority,notes
+camarillo to lax,exact,C1 · Camarillo to LAX,1,Precio fijo publicado: $300
+camarillo to lax car service,phrase,C1 · Camarillo to LAX,1,
+camarillo to lax transportation,phrase,C1 · Camarillo to LAX,1,
+lax to camarillo car service,phrase,C1 · Camarillo to LAX,1,La página ya existe
+car service camarillo,phrase,C2 · Camarillo car service,1,
+camarillo airport transportation,phrase,C2 · Camarillo car service,1,
+luxury car service camarillo,phrase,C2 · Camarillo car service,2,
+chauffeur service camarillo,phrase,C2 · Camarillo car service,2,
+oxnard to lax,exact,C3 · Oxnard to LAX,1,PENDIENTE fijar precio antes de encender
+oxnard to lax car service,phrase,C3 · Oxnard to LAX,1,
+oxnard airport transportation,phrase,C3 · Oxnard to LAX,1,
+car service oxnard,phrase,C3 · Oxnard to LAX,2,
+port hueneme to lax,phrase,C3 · Oxnard to LAX,3,Volumen bajo — base naval cercana, puede traer demanda militar/contratista
+ventura to lax,exact,D1 · Ventura to LAX,1,PENDIENTE fijar precio antes de encender
+ventura to lax car service,phrase,D1 · Ventura to LAX,1,
+ventura to lax transportation,phrase,D1 · Ventura to LAX,1,
+ventura airport transportation,phrase,D1 · Ventura to LAX,1,
+car service ventura ca,phrase,D1 · Ventura to LAX,2,"Incluir ""ca"" — sin eso compite con Ventura Blvd en LA"
+ventura county airport transportation,phrase,D2 · Ventura County genérico,1,Cubre búsquedas de condado sin ciudad específica
+ventura county car service,phrase,D2 · Ventura County genérico,1,
+ventura county to lax,phrase,D2 · Ventura County genérico,1,
+luxury transportation ventura county,phrase,D2 · Ventura County genérico,2,
+ojai to lax,phrase,D1 · Ventura to LAX,3,Ticket alto, volumen bajo — turismo de resort

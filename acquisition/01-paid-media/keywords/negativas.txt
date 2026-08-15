@@ -1,0 +1,134 @@
+# Palabras clave negativas — RIDEYEAH
+#
+# Cargar a NIVEL DE CUENTA antes de encender la primera campaña. Esta lista es
+# lo que evita quemar una parte grande del presupuesto en clics que nunca iban
+# a reservar. En un negocio de transporte, la fuga más cara no es el CPC alto:
+# es pagarle a alguien que busca empleo, un taxi barato o rentar un carro.
+#
+# Formato: una por línea, todas en broad negative salvo donde se indique.
+# Revisar el reporte de search terms cada semana y agregar lo nuevo el mismo día.
+
+# ---------- Empleo (la fuga #1 en este vertical) ----------
+job
+jobs
+hiring
+career
+careers
+employment
+salary
+pay
+driver job
+chauffeur job
+cdl
+apply
+application
+resume
+how to become
+how much do drivers make
+
+# ---------- Precio bajo / intención equivocada ----------
+cheap
+cheapest
+free
+budget
+low cost
+discount code
+coupon
+promo code
+affordable
+
+# ---------- Rideshare y taxi (no es el producto) ----------
+uber
+lyft
+taxi
+cab
+rideshare
+carpool
+public transit
+bus
+metro
+amtrak
+flixbus
+shared ride
+shared shuttle
+
+# ---------- Renta de autos (intención distinta) ----------
+rental
+rent a car
+car rental
+hertz
+enterprise
+avis
+turo
+lease
+leasing
+buy
+for sale
+used
+
+# ---------- Estacionamiento (compite con el viaje, no lo compra) ----------
+parking
+park and fly
+long term parking
+airport parking
+
+# ---------- Vehículos que no están en flota ----------
+party bus
+stretch limo
+hummer limo
+motorcoach
+charter bus
+school bus
+ambulance
+tow
+towing
+moving truck
+wheelchair van
+medical transport
+non emergency medical
+
+# ---------- Investigación / no compra ----------
+how to start
+start a limo business
+business plan
+license
+licensing
+tcp license
+insurance quote
+franchise
+software
+dispatch software
+template
+salary survey
+reddit
+wikipedia
+youtube
+free quote tool
+
+# ---------- Fuera de área ----------
+new york
+nyc
+miami
+chicago
+las vegas
+san francisco
+san diego
+phoenix
+dallas
+houston
+seattle
+denver
+atlanta
+boston
+orlando
+mexico
+canada
+london
+dubai
+
+# ---------- Notas de vigilancia (NO negativizar todavía) ----------
+# Estos términos convierten a veces. Vigilar 30 días antes de decidir:
+#   "shuttle"      → suele buscar compartido, pero a veces es intención genérica
+#   "limo"         → volumen alto, intención mezclada de eventos
+#   "town car"     → término viejo, sigue usándose en corporativo
+#   "black car"    → término correcto de industria, mantener siempre

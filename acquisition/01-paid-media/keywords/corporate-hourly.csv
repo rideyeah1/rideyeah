@@ -1,0 +1,23 @@
+keyword,match_type,ad_group,priority,notes
+corporate transportation ventura county,phrase,E1 · Corporate VC,1,
+corporate car service ventura county,phrase,E1 · Corporate VC,1,
+executive transportation ventura county,phrase,E1 · Corporate VC,1,
+corporate transportation thousand oaks,phrase,E1 · Corporate VC,1,
+corporate car service simi valley,phrase,E1 · Corporate VC,1,
+executive car service ventura county,phrase,E1 · Corporate VC,1,
+corporate transportation services near me,phrase,E1 · Corporate VC,2,Geo restringida hace el trabajo aquí
+corporate account car service,phrase,E2 · Cuenta corporativa,1,Intención de cuenta — la más valiosa del grupo
+corporate travel car service,phrase,E2 · Cuenta corporativa,1,
+business travel transportation los angeles,phrase,E2 · Cuenta corporativa,2,
+executive airport transportation,phrase,E2 · Cuenta corporativa,2,
+roadshow transportation los angeles,phrase,E2 · Cuenta corporativa,2,Financieras/IR — ticket alto y multi-vehículo
+hourly chauffeur service,phrase,F1 · Hourly,1,
+hourly car service los angeles,phrase,F1 · Hourly,1,
+chauffeur by the hour,phrase,F1 · Hourly,1,
+hourly limo service ventura county,phrase,F1 · Hourly,2,
+private driver for the day,phrase,F1 · Hourly,1,Intención clara de servicio por horas
+car and driver for a day los angeles,phrase,F1 · Hourly,2,
+as directed chauffeur service,phrase,F1 · Hourly,3,Término de industria — poco volumen, mucha intención
+event transportation ventura county,phrase,F2 · Eventos,2,
+wedding transportation ventura county,phrase,F2 · Eventos,2,Calificar: puede pedir vehículos que no están en flota
+group transportation ventura county,phrase,F2 · Eventos,2,
