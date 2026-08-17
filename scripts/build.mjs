@@ -57,6 +57,11 @@ for (const page of [
   "popular-routes.html",
   "service-areas.html",
   "faq.html",
+  // Legales. Van enlazadas desde el pie y desde el registro A2P 10DLC de
+  // Twilio: si dejan de publicarse, esas URLs se caen y la campana de SMS
+  // queda apuntando a un 404.
+  "privacy.html",
+  "terms.html",
   ...ROUTES.map((r) => `lax-to-${r.slug}.html`),
   ...CITIES.map((c) => `${c.slug}.html`),
 ]) {
