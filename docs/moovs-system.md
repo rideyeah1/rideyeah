@@ -143,7 +143,7 @@ Generado por `buildUrl()` en `rideyeah-home.html`.
 | Drop-off (autocomplete) | Drop-off → Address\* | ✅ mapea |
 | Date + Time (pickers a medida) | Pick-up Date & Time\* | ✅ hora literal correcta |
 | Return date/time (round trip) | Round Trip (regreso) | ✅ vía `returnDateTime` |
-| Duration (hourly) | **Duration\*** (obligatorio) | ⚠️ Moovs lo exige; el nuestro es opcional |
+| Duration (hourly) | **Duration\*** (obligatorio) | ✅ ahora también obligatorio en el hero (ver brecha 3) |
 | Passengers (default 1) | **Passenger Count\*** | ✅ default evita bloqueo |
 | **Airline + Flight** (modo aeropuerto) | **Airport mode**: Airline (dropdown) + Flight + **Confirm** | ⚠️ viajan como **`note`** (texto, visible para el operador). Los campos estructurados de Moovs **no** se pueden prefillear (límite del widget, §6) |
 | Validación de vuelo (AeroDataBox, propia) | Botón **Confirm** (validación de Moovs) | 🔁 se solapan; la nuestra valida **antes** del handoff |
@@ -157,9 +157,25 @@ Generado por `buildUrl()` en `rideyeah-home.html`.
    esta vía. Para tracking estructurado, el cliente debe activar Airport + meter el
    vuelo en la página de Moovs, o haría falta una integración por la **API del
    operador** (`api-production-v2.moovs.app`, GraphQL), no el widget.
-3. **Duration obligatorio en Hourly (Moovs).** Asegurar que nuestro UI de Hourly
-   envíe `totalDuration` siempre (hoy solo lo manda si `fld-duration` tiene valor).
-4. **Hourly muestra Drop-off en Moovs** pero el nuestro lo oculta. Diferencia menor.
+3. **Campos obligatorios — CORREGIDO 2026-08-20.** Moovs **no revalida** un `?trip=`
+   prefilleado: se salta el Step 1 y deja al huésped en "Choose Vehicle" con lo que
+   le mandemos. Verificado en vivo contra el widget de RideYeah:
+   - sin `totalDuration` en HOURLY → crea un viaje por horas **sin horas**
+     (el resumen ni siquiera muestra la línea DURATION);
+   - sin `dateTime` → Moovs **se inventa "ahora"** como hora de recogida.
+   Por eso `checkRequired()` en `rideyeah-home.html` bloquea el submit y marca el
+   campo que falta antes del handoff: pickup y drop-off siempre; duración en
+   Hourly; fecha y hora; y fecha/hora de regreso en Round trip.
+4. **Drop-off en Hourly — CORREGIDO 2026-08-20.** El Hourly de Moovs **sí** tiene
+   sección **Drop-off** con `Address *` obligatoria (verificado en vivo cargando
+   `request/new` limpio: Hourly es su default y renderiza Trip Type · Date & Time ·
+   Pick-up · **Drop-off** · Passenger Count). Pero **solo la renderiza si le
+   prefilleamos un segundo stop**: al mandarle un único stop la sección desaparece
+   y el huésped acaba en Step 2 con un campo obligatorio que nunca vio — ese era el
+   descontrol. Ojo con la trampa de diagnóstico: el resumen del Step 2 en Hourly
+   **no imprime** línea de drop-off aunque el dato esté cargado; hay que pulsar
+   *Edit* y mirar el Step 1 para comprobarlo. Ahora el hero muestra el drop-off en
+   las tres pestañas y `buildUrl()` lo manda siempre como `stops[1]`.
 5. **Orden de Trip Type** distinto (cosmético).
 6. **"I do not have my flight information"** — Moovs ofrece esta salida; podríamos
    reflejar algo similar.

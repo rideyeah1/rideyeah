@@ -1039,13 +1039,15 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
   if (!form) return;
   let tripCat = 'ONE_WAY';
   const tabs = form.querySelectorAll('.bk-tab');
-  const rowDrop = document.getElementById('row-dropoff');
   const rowDur  = document.getElementById('row-duration');
   const rowRet  = document.getElementById('row-return');
 
   function applyTab(){
     const hourly = tripCat === 'HOURLY', round = tripCat === 'ROUND_TRIP';
-    rowDrop.hidden = hourly;
+    /* Drop-off stays visible on HOURLY too. Moovs' own hourly Step 1 has a
+       required Drop-off address, but it only RENDERS that field when we prefill
+       a second stop (verified live). Sending a single stop dropped the guest on
+       Step 2 with a required field they were never shown — that was the bug. */
     rowDur.hidden  = !hourly;
     rowRet.hidden  = !round;
     updateAirportFields();
@@ -1200,6 +1202,75 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
     airlineEl.addEventListener('blur', () => setTimeout(close, 150));
   })();
 
+  /* ---- Required-field guard (runs BEFORE we open Moovs) ----
+     Moovs does NOT re-validate a prefilled `?trip=` URL: it skips step 1 and
+     drops the guest straight on vehicle selection with whatever we sent. Three
+     failure modes, all verified live against the RideYeah widget:
+       - no totalDuration on HOURLY -> an hourly trip with no hours at all;
+       - no dateTime                -> Moovs invents "now" as the pickup time;
+       - no second stop             -> its required Drop-off field never renders.
+     Any of them reaches the operator as a broken request, so the gate has to
+     live here. Every field Moovs needs is required before the hand-off. */
+  const RQ = isES ? {
+    pickup:'Indica el lugar de recogida.',
+    dropoff:'Indica el destino.',
+    duration:'Elige cuántas horas necesitas el chofer.',
+    date:'Elige la fecha de recogida.',
+    time:'Elige la hora de recogida.',
+    rdate:'Elige la fecha de regreso.',
+    rtime:'Elige la hora de regreso.'
+  } : {
+    pickup:'Enter a pickup location.',
+    dropoff:'Enter a drop-off destination.',
+    duration:'Choose how many hours you need the chauffeur.',
+    date:'Choose a pickup date.',
+    time:'Choose a pickup time.',
+    rdate:'Choose a return date.',
+    rtime:'Choose a return time.'
+  };
+  let reqNote = null;
+  /* Marks its own fields with bk-req-invalid so clearing never wipes the
+     separate flight-number error, which uses bk-invalid too. */
+  function clearReq(){
+    if (reqNote){ reqNote.remove(); reqNote = null; }
+    form.querySelectorAll('.bk-field.bk-req-invalid').forEach(f => {
+      f.classList.remove('bk-req-invalid', 'bk-invalid');
+      const i = f.querySelector('input,select');
+      if (i) i.setAttribute('aria-invalid', 'false');
+    });
+  }
+  function failReq(id, msg){
+    const el = document.getElementById(id), field = el && el.closest('.bk-field');
+    if (field){
+      field.classList.add('bk-invalid', 'bk-req-invalid');
+      el.setAttribute('aria-invalid', 'true');
+      reqNote = document.createElement('div');
+      reqNote.className = 'bk-note2 bk-err';
+      reqNote.setAttribute('role', 'alert');
+      reqNote.textContent = msg;
+      (field.closest('.bk-row') || field).insertAdjacentElement('afterend', reqNote);
+    }
+    if (el) el.focus();
+    return false;
+  }
+  function checkRequired(){
+    clearReq();
+    if (!val('fld-pickup')) return failReq('fld-pickup', RQ.pickup);
+    if (tripCat === 'HOURLY' && !val('fld-duration')) return failReq('fld-duration', RQ.duration);
+    if (!val('fld-dropoff')) return failReq('fld-dropoff', RQ.dropoff);
+    if (!mval('fld-date')) return failReq('fld-date', RQ.date);
+    if (!mval('fld-time')) return failReq('fld-time', RQ.time);
+    if (tripCat === 'ROUND_TRIP'){
+      if (!mval('fld-return-date')) return failReq('fld-return-date', RQ.rdate);
+      if (!mval('fld-return-time')) return failReq('fld-return-time', RQ.rtime);
+    }
+    return true;
+  }
+  // The custom date/time pickers dispatch a bubbling 'input', so one listener
+  // clears the warning however the guest fixes the field.
+  form.addEventListener('input', clearReq);
+  form.addEventListener('change', clearReq);
+
   function buildUrl(){
     const pickup = val('fld-pickup'), dropoff = val('fld-dropoff');
     const trip = { tripCategory: tripCat };
@@ -1209,7 +1280,7 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
       if (placeTypes('fld-pickup').length) s.pickUpGooglePlaceTypes = placeTypes('fld-pickup');
       stops.push(s);
     }
-    if (tripCat !== 'HOURLY' && dropoff){
+    if (dropoff){ // HOURLY included — Moovs maps stop 2 to its Drop-off field
       const s = { description: dropoff };
       if (placeTypes('fld-dropoff').length) s.pickUpGooglePlaceTypes = placeTypes('fld-dropoff');
       stops.push(s);
@@ -1244,6 +1315,7 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
 
   form.addEventListener('submit', e => {
     e.preventDefault();
+    if (!checkRequired()) return; // never hand Moovs an incomplete trip
     // On airport trips, refuse a malformed flight number before opening Moovs.
     if (isAirportTrip() && flightEl && flightEl.value.trim()){
       normFlight();
