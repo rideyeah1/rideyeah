@@ -42,7 +42,7 @@ SERVICES
 - City-to-city long-distance rides.
 
 PRICING — fixed, all-in fares; tolls + standard gratuity included; no surge, no meter. One-way from LAX (keep in sync with scripts/fares-data.mjs — the build validates this list):
-Santa Monica $150; Beverly Hills $150; Downtown LA $150; Long Beach $200; Pasadena $200; Calabasas $200; Anaheim $250; Disneyland $250; Orange County $250; Irvine $250; Newport Beach $250; Malibu $250; Simi Valley $250; Thousand Oaks $250; Camarillo $300; Santa Barbara $400.
+Santa Monica $119.99; Beverly Hills $150; Downtown LA $159.99; Long Beach $199.99; Pasadena $200; Calabasas $179.99; Anaheim $250; Disneyland $250; Orange County $250; Irvine $250; Newport Beach $250; Malibu $199.99; Simi Valley $219.99; Thousand Oaks $219.99; Camarillo $279.99; Santa Barbara $349.99.
 For any route NOT in this list, do NOT invent a price. Say it depends on distance and time, and invite them to get an instant fixed quote by tapping "Book a ride", or to call/text us.
 
 POLICIES (FAQ)

@@ -32,12 +32,12 @@ const rp = (slug) => {
 // (Confirmed by the owner, 2026-06-09, on the same scale as the route pages.)
 export const EXTRA = {
   "Beverly Hills": 150,
-  "Santa Monica": 150,
+  "Santa Monica": 119.99,
   Disneyland: 250,
   "Orange County": 250,
   Irvine: 250,
   "Newport Beach": 250,
-  Malibu: 250,
+  Malibu: 199.99,
 };
 
 // Ordered list the assistant quotes (cheapest/closest first). Prices are pulled

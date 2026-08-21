@@ -38,7 +38,7 @@ for (const r of ROUTES) {
     ["rideyeah-home.html", home],
     ["popular-routes.html", popular],
   ]) {
-    const m = html.match(new RegExp("LAX ⇄ " + esc(r.city) + "[^$]{0,200}?\\$(\\d+)"));
+    const m = html.match(new RegExp("LAX ⇄ " + esc(r.city) + "[^$]{0,200}?\\$(\\d+(?:\\.\\d+)?)"));
     if (m && Number(m[1]) !== r.price) {
       errors.push(`${name}: LAX ⇄ ${r.city} shows $${m[1]} but routes-data says $${r.price}`);
     }

@@ -10,7 +10,7 @@
  */
 export const ROUTES = [
   {
-    slug: "downtown-la", city: "Downtown LA", price: 150,
+    slug: "downtown-la", city: "Downtown LA", price: 159.99,
     min: 25, miles: "~18 mi", driveShort: "about 25 minutes",
     driveLong: "Roughly 25 minutes in typical traffic (about 18 miles)",
     driveLongEs: "Alrededor de 25 minutos con tráfico normal (unas 18 millas)",
@@ -19,7 +19,7 @@ export const ROUTES = [
     hero: "airport_pickup", media: "escalade-luxury-suv-exterior-rear",
   },
   {
-    slug: "long-beach", city: "Long Beach", price: 200,
+    slug: "long-beach", city: "Long Beach", price: 199.99,
     min: 30, miles: "~22 mi", driveShort: "about 30 minutes",
     driveLong: "Roughly 30 minutes in typical traffic (about 22 miles)",
     driveLongEs: "Alrededor de 30 minutos con tráfico normal (unas 22 millas)",
@@ -37,7 +37,7 @@ export const ROUTES = [
     hero: "chauffeur", media: "escalade-luxury-suv-exterior-front",
   },
   {
-    slug: "calabasas", city: "Calabasas", price: 200,
+    slug: "calabasas", city: "Calabasas", price: 179.99,
     min: 40, miles: "~30 mi", driveShort: "about 40 minutes",
     driveLong: "Roughly 40 minutes in typical traffic (about 30 miles)",
     driveLongEs: "Alrededor de 40 minutos con tráfico normal (unas 30 millas)",
@@ -55,7 +55,7 @@ export const ROUTES = [
     hero: "band_highway", media: "escalade-luxury-suv-dashboard",
   },
   {
-    slug: "simi-valley", city: "Simi Valley", price: 250,
+    slug: "simi-valley", city: "Simi Valley", price: 219.99,
     min: 55, miles: "~45 mi", driveShort: "about 55 minutes",
     driveLong: "Roughly 55 minutes in typical traffic (about 45 miles)",
     driveLongEs: "Alrededor de 55 minutos con tráfico normal (unas 45 millas)",
@@ -64,7 +64,7 @@ export const ROUTES = [
     hero: "hero_suburban", media: "escalade-luxury-suv-exterior-rear",
   },
   {
-    slug: "thousand-oaks", city: "Thousand Oaks", price: 250,
+    slug: "thousand-oaks", city: "Thousand Oaks", price: 219.99,
     min: 55, miles: "~45 mi", driveShort: "about 55 minutes",
     driveLong: "Roughly 55 minutes in typical traffic (about 45 miles)",
     driveLongEs: "Alrededor de 55 minutos con tráfico normal (unas 45 millas)",
@@ -73,7 +73,7 @@ export const ROUTES = [
     hero: "chauffeur", media: "escalade-luxury-suv-second-row-seats",
   },
   {
-    slug: "camarillo", city: "Camarillo", price: 300,
+    slug: "camarillo", city: "Camarillo", price: 279.99,
     min: 65, miles: "~55 mi", driveShort: "about 1 hour 5 minutes",
     driveLong: "Roughly 1 hour 5 minutes in typical traffic (about 55 miles)",
     driveLongEs: "Alrededor de 1 hora 5 minutos con tráfico normal (unas 55 millas)",
@@ -82,7 +82,7 @@ export const ROUTES = [
     hero: "airport_pickup", media: "escalade-luxury-suv-front-seats",
   },
   {
-    slug: "santa-barbara", city: "Santa Barbara", price: 400,
+    slug: "santa-barbara", city: "Santa Barbara", price: 349.99,
     min: 110, miles: "~95 mi", driveShort: "about 1 hour 50 minutes",
     driveLong: "Roughly 1 hour 50 minutes in typical traffic (about 95 miles)",
     driveLongEs: "Alrededor de 1 hora 50 minutos con tráfico normal (unas 95 millas)",
