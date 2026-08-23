@@ -46,6 +46,15 @@ export const ROUTES = [
     hero: "airport_pickup", media: "escalade-luxury-suv-second-row-seats",
   },
   {
+    slug: "glendale", city: "Glendale", price: 179.99,
+    min: 35, miles: "~25 mi", driveShort: "about 35 minutes",
+    driveLong: "Roughly 35 minutes in typical traffic (about 25 miles)",
+    driveLongEs: "Alrededor de 35 minutos con tráfico normal (unas 25 millas)",
+    landmarks: "the Americana at Brand, the Glendale Galleria and Brand Boulevard",
+    landmarksEs: "el Americana at Brand, el Glendale Galleria y Brand Boulevard",
+    hero: "chauffeur", media: "escalade-luxury-suv-dashboard",
+  },
+  {
     slug: "anaheim", city: "Anaheim", price: 179.99,
     min: 40, miles: "~35 mi", driveShort: "about 40 minutes",
     driveLong: "Roughly 40 minutes in typical traffic (about 35 miles)",
@@ -53,6 +62,15 @@ export const ROUTES = [
     landmarks: "the Disneyland Resort, the Convention Center and Honda Center",
     landmarksEs: "el Disneyland Resort, el Convention Center y el Honda Center",
     hero: "band_highway", media: "escalade-luxury-suv-dashboard",
+  },
+  {
+    slug: "huntington-beach", city: "Huntington Beach", price: 189.99,
+    min: 45, miles: "~38 mi", driveShort: "about 45 minutes",
+    driveLong: "Roughly 45 minutes in typical traffic (about 38 miles)",
+    driveLongEs: "Alrededor de 45 minutos con tráfico normal (unas 38 millas)",
+    landmarks: "the pier, Main Street, Pacific City and the beachfront hotels",
+    landmarksEs: "el muelle, Main Street, Pacific City y los hoteles frente al mar",
+    hero: "hero_suburban", media: "escalade-luxury-suv-front-seats",
   },
   {
     slug: "simi-valley", city: "Simi Valley", price: 219.99,
@@ -71,6 +89,15 @@ export const ROUTES = [
     landmarks: "Westlake Village, The Oaks and the Conejo Valley",
     landmarksEs: "Westlake Village, The Oaks y el valle de Conejo",
     hero: "chauffeur", media: "escalade-luxury-suv-second-row-seats",
+  },
+  {
+    slug: "laguna-beach", city: "Laguna Beach", price: 249.99,
+    min: 60, miles: "~55 mi", driveShort: "about 1 hour",
+    driveLong: "Roughly 1 hour in typical traffic (about 55 miles)",
+    driveLongEs: "Alrededor de 1 hora con tráfico normal (unas 55 millas)",
+    landmarks: "Main Beach, Heisler Park, the art galleries and the Montage",
+    landmarksEs: "Main Beach, Heisler Park, las galerías de arte y el Montage",
+    hero: "band_highway", media: "escalade-luxury-suv-second-row-seats",
   },
   {
     slug: "camarillo", city: "Camarillo", price: 279.99,

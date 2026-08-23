@@ -33,13 +33,10 @@ const rp = (slug) => {
 export const EXTRA = {
   "Beverly Hills": 119.99,
   "Santa Monica": 119.99,
-  Glendale: 179.99,
   Disneyland: 179.99,
-  "Huntington Beach": 189.99,
   Malibu: 199.99,
   "Newport Beach": 209.99,
   Irvine: 219.99,
-  "Laguna Beach": 249.99,
 };
 
 // Ordered list the assistant quotes (cheapest/closest first). Prices are pulled
@@ -49,10 +46,10 @@ export const CHAT_FARES = [
   { city: "Beverly Hills", price: EXTRA["Beverly Hills"] },
   { city: "Downtown LA", price: rp("downtown-la") },
   { city: "Calabasas", price: rp("calabasas") },
-  { city: "Glendale", price: EXTRA["Glendale"] },
+  { city: "Glendale", price: rp("glendale") },
   { city: "Anaheim", price: rp("anaheim") },
   { city: "Disneyland", price: EXTRA["Disneyland"] },
-  { city: "Huntington Beach", price: EXTRA["Huntington Beach"] },
+  { city: "Huntington Beach", price: rp("huntington-beach") },
   { city: "Long Beach", price: rp("long-beach") },
   { city: "Pasadena", price: rp("pasadena") },
   { city: "Malibu", price: EXTRA["Malibu"] },
@@ -60,7 +57,7 @@ export const CHAT_FARES = [
   { city: "Irvine", price: EXTRA["Irvine"] },
   { city: "Simi Valley", price: rp("simi-valley") },
   { city: "Thousand Oaks", price: rp("thousand-oaks") },
-  { city: "Laguna Beach", price: EXTRA["Laguna Beach"] },
+  { city: "Laguna Beach", price: rp("laguna-beach") },
   { city: "Camarillo", price: rp("camarillo") },
   { city: "Santa Barbara", price: rp("santa-barbara") },
 ];
