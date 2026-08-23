@@ -31,11 +31,11 @@ const rp = (slug) => {
 // Fixed one-way LAX fares for popular cities WITHOUT a dedicated route page.
 // (Confirmed by the owner, 2026-06-09, on the same scale as the route pages.)
 export const EXTRA = {
-  "Beverly Hills": 150,
+  "Beverly Hills": 119.99,
   "Santa Monica": 119.99,
-  Disneyland: 250,
+  Disneyland: 179.99,
   "Orange County": 250,
-  Irvine: 250,
+  Irvine: 219.99,
   "Newport Beach": 250,
   Malibu: 199.99,
 };

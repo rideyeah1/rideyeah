@@ -46,7 +46,7 @@ export const ROUTES = [
     hero: "airport_pickup", media: "escalade-luxury-suv-second-row-seats",
   },
   {
-    slug: "anaheim", city: "Anaheim", price: 250,
+    slug: "anaheim", city: "Anaheim", price: 179.99,
     min: 40, miles: "~35 mi", driveShort: "about 40 minutes",
     driveLong: "Roughly 40 minutes in typical traffic (about 35 miles)",
     driveLongEs: "Alrededor de 40 minutos con tráfico normal (unas 35 millas)",
