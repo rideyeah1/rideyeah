@@ -28,7 +28,7 @@ export const ROUTES = [
     hero: "hero_suburban", media: "fleet_suburban",
   },
   {
-    slug: "pasadena", city: "Pasadena", price: 200,
+    slug: "pasadena", city: "Pasadena", price: 199.99,
     min: 40, miles: "~28 mi", driveShort: "about 40 minutes",
     driveLong: "Roughly 40 minutes in typical traffic (about 28 miles)",
     driveLongEs: "Alrededor de 40 minutos con tráfico normal (unas 28 millas)",
