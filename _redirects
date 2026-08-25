@@ -1,0 +1,23 @@
+# Cloudflare Pages redirects
+# ---------------------------------------------------------------------------
+# El Travel Hub vive en /travel, pero Google tiene 41 URLs suyas indexadas SIN
+# ese prefijo (/attractions/disneyland, /airports/sna, /guides/...), y todas
+# devuelven 404. Search Console las lleva reintentando desde hace meses.
+#
+# Estas reglas las mandan a su página real en vez de dejarlas morir: el visitante
+# que llega de Google ve la página correcta, y el enlace externo que apunte ahí
+# deja de perderse. Son 301 (permanente) porque esas URLs efectivamente se
+# mudaron a /travel.
+#
+# Ningún archivo del sitio principal empieza con estos prefijos, así que no
+# pueden tapar una página existente. Cloudflare aplica _redirects solo cuando la
+# ruta NO corresponde a un archivo real, así que /travel/... sigue sirviéndose
+# directo.
+/attractions/*        /travel/attractions/:splat        301
+/airports/*           /travel/airports/:splat           301
+/guides/*             /travel/guides/:splat             301
+/convention-centers/* /travel/convention-centers/:splat 301
+/attractions          /travel/attractions               301
+/airports             /travel/airports                  301
+/guides               /travel/guides                    301
+/convention-centers   /travel/convention-centers        301

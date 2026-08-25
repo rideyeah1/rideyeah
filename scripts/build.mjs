@@ -97,7 +97,8 @@ if (existsSync("assets")) {
 }
 
 // Root static assets (copy when present)
-for (const file of ["404.html", "favicon.svg", "apple-touch-icon.png", "robots.txt", "sitemap.xml"]) {
+// `_redirects` va en la raíz de dist/: es donde Cloudflare Pages lo lee.
+for (const file of ["404.html", "favicon.svg", "apple-touch-icon.png", "robots.txt", "sitemap.xml", "_redirects"]) {
   if (existsSync(file)) copyFileSync(file, join(DIST, file));
 }
 
