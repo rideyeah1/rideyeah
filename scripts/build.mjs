@@ -125,6 +125,40 @@ for (const file of readdirSync("images")) {
   imgCount++;
 }
 
+// --- Google Analytics (GA4) ---------------------------------------------
+// La etiqueta se inyecta ACÁ, en la construcción, y no en los HTML de origen.
+// El sitio no tiene plantilla compartida: son 60+ archivos, cada uno con su
+// propio <head>. Ponerla a mano sería tocarlos todos, y cada página nueva
+// nacería sin medición. Desde el build, toda página que exista —o que se
+// agregue después— sale medida sola.
+//
+// Va lo más arriba posible del <head> y con `async`: si Google tarda o falla,
+// la página se pinta igual. No toca el Pixel de Meta, que vive en su propio
+// lugar (assets/site.js y el <head> de las dos portadas) y sigue funcionando
+// igual, en paralelo.
+//
+// La propiedad es "rideyeah.com" en la cuenta rideyeah1@gmail.com. Con la
+// medición mejorada encendida, GA4 ya cuenta solo los clics salientes — o sea
+// el botón que se va a Moovs — sin necesidad de nada más.
+const GA4_ID = "G-0R33641W80";
+const GA4_TAG =
+  `<!-- Google tag (gtag.js) -->\n` +
+  `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA4_ID}"></script>\n` +
+  `<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}` +
+  `gtag('js',new Date());gtag('config','${GA4_ID}');</script>\n` +
+  `<!-- End Google tag -->`;
+
+// Va después del <meta charset>, no antes: el charset debe ser lo primero del
+// <head> para que el navegador no tenga que reinterpretar lo ya leído. Si la
+// página no declarara charset, cae a ponerla justo después de <head>.
+const inyectarGA4 = (html) => {
+  if (html.includes(GA4_ID)) return html; // ya la trae: no duplicar
+  if (/<meta[^>]+charset[^>]*>/i.test(html)) {
+    return html.replace(/<meta[^>]+charset[^>]*>/i, (m) => `${m}\n${GA4_TAG}`);
+  }
+  return html.replace(/<head(\s[^>]*)?>/i, (m) => `${m}\n${GA4_TAG}`);
+};
+
 // --- Clean URLs ---------------------------------------------------------
 // Cloudflare Pages serves extension-less URLs (and 308-redirects *.html → it).
 // Strip `.html` from internal links + SEO tags in the BUILT output so the live
@@ -132,6 +166,7 @@ for (const file of readdirSync("images")) {
 // indexes — no redirect hops, no "Page with redirect" noise in Search Console.
 // Sources keep `.html` (simpler to author); this pass only rewrites dist/.
 const cleanHtml = (s) => {
+  s = inyectarGA4(s);
   s = s.split('href="index.html#').join('href="/#');
   s = s.split('href="index.html"').join('href="/"');
   s = s.split("es/index.html").join("es/"); // home language pill + auto-detect
@@ -211,8 +246,17 @@ if (existsSync("travel-static")) {
     for (const entry of readdirSync(from)) {
       if (entry === "README.txt") continue; // internal marker, don't publish
       const s = join(from, entry), d = join(to, entry);
-      if (statSync(s).isDirectory()) copyTravel(s, d);
-      else { copyFileSync(s, d); travelCount++; }
+      if (statSync(s).isDirectory()) { copyTravel(s, d); continue; }
+      // /travel son 59 páginas enlazadas desde 41 del sitio principal: sin medir,
+      // el visitante que entra ahí simplemente desaparece del informe. Se le pone
+      // SOLO la etiqueta de GA4 en el <head> — nada de los pases de URLs limpias
+      // ni de cache-busting, que son los que sí romperían este export de Next.
+      if (entry.endsWith(".html")) {
+        writeFileSync(d, inyectarGA4(readFileSync(s, "utf8")), "utf8");
+      } else {
+        copyFileSync(s, d);
+      }
+      travelCount++;
     }
   };
   copyTravel("travel-static", join(DIST, "travel"));
