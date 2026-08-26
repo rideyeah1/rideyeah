@@ -5,3 +5,10 @@ Allow: /
 Disallow: /api/
 
 Sitemap: https://rideyeah.com/sitemap.xml
+
+# El Travel Hub tiene su propio sitemap y hasta ahora no lo declaraba nadie.
+# Son 32 páginas ya escritas (8 aeropuertos, 8 atracciones, 6 centros de
+# convenciones, 5 guías de hoteles y sus 5 índices) que Google solo podía
+# encontrar siguiendo enlaces del pie, o por las URLs viejas que redirige
+# _redirects. Declararlo aquí se las entrega directamente en su dirección buena.
+Sitemap: https://rideyeah.com/travel/sitemap.xml

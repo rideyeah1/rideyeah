@@ -108,8 +108,18 @@ function page(c) {
   const url = `https://rideyeah.com/${c.slug}`;
   const route = c.laxRoute ? ROUTES.find((r) => r.slug === c.laxRoute) : null;
 
-  const title = `Chauffeur Service in ${c.city} | Luxury Black SUV | RideYeah`;
-  const desc = `Private chauffeur & luxury black SUV service in ${c.city}: airport transfers, hourly hire and door-to-door rides with professional drivers and fixed, all-in pricing.`;
+  // "car service", no "chauffeur service".
+  //
+  // El autocompletado de Google (verificado el 26-ago-2026 contra su endpoint de
+  // sugerencias) devuelve "car service" y "limo service"; "chauffeur service" es
+  // la palabra de la industria, no la del cliente. El titulo anterior era
+  // `Chauffeur Service in <Ciudad> | Luxury Black SUV | RideYeah`: 65 caracteres,
+  // que Google corta, y encabezado por un termino que casi nadie escribe.
+  //
+  // El patron `<palabra clave> | Book Online | RideYeah` es el que usan los
+  // competidores que si ranquean, y cabe en 60.
+  const title = `${c.city} Car Service | Book Online | RideYeah`;
+  const desc = `${c.city} car service with fixed, all-in pricing: airport transfers, hourly hire and door-to-door rides in a luxury black SUV with a professional chauffeur.`;
 
   const airportLine = route
     ? `Flying in or out? Our fixed <a href="lax-to-${route.slug}.html">LAX ⇄ ${c.city}</a> fare starts at $${route.price}, door to door in about ${route.min} minutes.`
@@ -160,7 +170,7 @@ function page(c) {
     <div class="wrap inner">
       <div class="crumb"><a href="index.html">Home</a> · <a href="service-areas.html">Service areas</a> · ${c.city}</div>
       <div class="eyebrow"><span class="ln"></span><span>${c.area} · 24/7 · Luxury Black SUV</span></div>
-      <h1>Chauffeur service<br><span class="em">in ${c.city}.</span></h1>
+      <h1>${c.city}<br><span class="em">car service.</span></h1>
       <p class="lead">${c.intro}</p>
       <div style="margin-top:28px"><a href="index.html#book" class="btn btn-gold" style="padding:15px 32px;font-size:14px">Get your quote ${A}</a></div>
     </div>

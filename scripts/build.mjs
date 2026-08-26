@@ -240,6 +240,27 @@ if (existsSync(smPath)) {
 // /travel-prefixed links and its own content-hashed _next assets, so it must NOT
 // go through the clean-URL or cache-bust passes above — it's copied last and
 // untouched. One Cloudflare deploy then serves both the main site and /travel.
+/**
+ * Pone barra final a las <loc> del sitemap del Travel Hub.
+ *
+ * El export de Next las escribe SIN barra, pero el sitio las sirve CON barra
+ * (308) y el <link rel="canonical"> de cada página también la lleva. Asi que el
+ * sitemap apuntaba a 56 redirecciones en vez de a las páginas: le hace gastar
+ * rastreo a Google para llegar al mismo sitio, y le manda una señal que
+ * contradice a la canónica de la propia página.
+ *
+ * Se normaliza AQUI, en el copiado, y no editando travel-static/sitemap.xml:
+ * esa carpeta la reemplaza entera `sync-travel-hub.mjs` cada vez que corre, y
+ * el arreglo se perderia sin que nadie se diera cuenta.
+ */
+const barraFinalEnSitemap = (xml) =>
+  xml.replace(/<loc>([^<]+)<\/loc>/g, (todo, url) => {
+    const limpia = url.trim();
+    // Se deja igual lo que ya termina en barra y lo que apunta a un archivo.
+    if (limpia.endsWith("/") || /\.[a-z0-9]{2,5}$/i.test(limpia)) return todo;
+    return `<loc>${limpia}/</loc>`;
+  });
+
 let travelCount = 0;
 if (existsSync("travel-static")) {
   const copyTravel = (from, to) => {
@@ -254,6 +275,8 @@ if (existsSync("travel-static")) {
       // ni de cache-busting, que son los que sí romperían este export de Next.
       if (entry.endsWith(".html")) {
         writeFileSync(d, inyectarGA4(readFileSync(s, "utf8")), "utf8");
+      } else if (entry === "sitemap.xml") {
+        writeFileSync(d, barraFinalEnSitemap(readFileSync(s, "utf8")), "utf8");
       } else {
         copyFileSync(s, d);
       }
