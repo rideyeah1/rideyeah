@@ -160,6 +160,40 @@ const inyectarGA4 = (html) => {
   return html.replace(/<head(\s[^>]*)?>/i, (m) => `${m}\n${GA4_TAG}`);
 };
 
+// --- Píxel de Meta ------------------------------------------------------
+// Estaba escrito a mano SOLO en rideyeah-home.html y es/index.html, así que de
+// las 58 páginas del sitemap lo llevaban 2. Las otras 56 —rutas, ciudades,
+// blog y todo el Travel Hub— no medían nada para Meta: sin píxel no hay
+// retargeting, ni optimización de campaña, ni forma de atribuir una reserva al
+// anuncio que la trajo. Y no avisa: la página se ve igual de bien sin él.
+//
+// Se inyecta igual que GA4 y con el mismo bloque exacto que ya usa la portada,
+// para que no haya dos comportamientos distintos según en qué página caiga el
+// visitante.
+const PIXEL_ID = "449193533104630";
+const PIXEL_TAG =
+  `<!-- Meta Pixel -->\n` +
+  `<script>\n` +
+  `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');\n` +
+  `fbq('init','${PIXEL_ID}');\n` +
+  `fbq('track','PageView');\n` +
+  `/* Lead on call/text intent */\n` +
+  `document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('a[href^="tel:"],a[href^="sms:"]');if(t&&window.fbq)fbq('track','Lead',{content_name:'call'});});\n` +
+  `</script>\n` +
+  `<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${PIXEL_ID}&ev=PageView&noscript=1" alt=""/></noscript>\n` +
+  `<!-- End Meta Pixel -->`;
+
+const inyectarPixel = (html) => {
+  if (html.includes(PIXEL_ID)) return html; // la portada ya lo trae a mano
+  if (/<\/head>/i.test(html)) {
+    return html.replace(/<\/head>/i, `${PIXEL_TAG}\n</head>`);
+  }
+  return html.replace(/<head(\s[^>]*)?>/i, (m) => `${m}\n${PIXEL_TAG}`);
+};
+
+/** Las dos etiquetas de medición, en el orden en que van. */
+const inyectarMedicion = (html) => inyectarPixel(inyectarGA4(html));
+
 // --- Clean URLs ---------------------------------------------------------
 // Cloudflare Pages serves extension-less URLs (and 308-redirects *.html → it).
 // Strip `.html` from internal links + SEO tags in the BUILT output so the live
@@ -167,7 +201,7 @@ const inyectarGA4 = (html) => {
 // indexes — no redirect hops, no "Page with redirect" noise in Search Console.
 // Sources keep `.html` (simpler to author); this pass only rewrites dist/.
 const cleanHtml = (s) => {
-  s = inyectarGA4(s);
+  s = inyectarMedicion(s);
   s = s.split('href="index.html#').join('href="/#');
   s = s.split('href="index.html"').join('href="/"');
   s = s.split("es/index.html").join("es/"); // home language pill + auto-detect
@@ -274,7 +308,7 @@ if (existsSync("travel-static")) {
       // SOLO la etiqueta de GA4 en el <head> — nada de los pases de URLs limpias
       // ni de cache-busting, que son los que sí romperían este export de Next.
       if (entry.endsWith(".html")) {
-        writeFileSync(d, inyectarGA4(readFileSync(s, "utf8")), "utf8");
+        writeFileSync(d, inyectarMedicion(readFileSync(s, "utf8")), "utf8");
       } else if (entry === "sitemap.xml") {
         writeFileSync(d, barraFinalEnSitemap(readFileSync(s, "utf8")), "utf8");
       } else {
