@@ -1459,3 +1459,17 @@ footer {
   text-transform: uppercase;
   color: var(--mute-2, #8a887f);
 }
+
+/* Enlaces a las guias del Travel Hub desde el cuerpo de las paginas.
+   La regla global es  { color: inherit; text-decoration: none }, asi que sin
+   esto un enlace es indistinguible del texto: se sigue para el SEO, pero nadie
+   lo pulsa. Subrayado fino en el dorado de la marca, sin cambiar el color del
+   texto ni el peso. */
+.guia-aeropuerto {
+  text-decoration: underline;
+  text-decoration-color: var(--gold-soft);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color .2s ease;
+}
+.guia-aeropuerto:hover { text-decoration-color: var(--gold); }
