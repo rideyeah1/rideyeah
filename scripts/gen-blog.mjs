@@ -11,7 +11,7 @@
  * clean-URL pass strips ".html" in dist/. Imported by scripts/build.mjs.
  */
 import { writeFileSync, mkdirSync } from "node:fs";
-import { POSTS, SITE } from "./blog-data.mjs";
+import { POSTS, SITE, REDIRIGIDOS } from "./blog-data.mjs";
 import { ROUTES } from "./routes-data.mjs";
 
 const LOGO = `<svg class="brand-logo" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="8" y="8" width="84" height="84" rx="22" stroke="var(--bone)" stroke-width="4"/><rect x="18" y="18" width="64" height="64" rx="14" fill="var(--bone)"/><path d="M 37 68 V 50 H 50" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 37 32 L 63 68" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 37 32 H 52 C 61 32 64 38 64 45 C 64 52 58 50 50 50" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
@@ -268,7 +268,8 @@ ${footer}
 
 function hub() {
   const url = `${SITE}/blog/`;
-  const sorted = [...POSTS].sort((a, b) => (a.date < b.date ? 1 : -1));
+  const sorted = [...POSTS].filter((p) => !REDIRIGIDOS.has(p.slug))
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
   const ld = [
     {
       "@context": "https://schema.org",
@@ -351,7 +352,8 @@ ${footer}
 }
 
 function rss() {
-  const sorted = [...POSTS].sort((a, b) => (a.date < b.date ? 1 : -1));
+  const sorted = [...POSTS].filter((p) => !REDIRIGIDOS.has(p.slug))
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
   const items = sorted
     .map(
       (p) => `    <item>

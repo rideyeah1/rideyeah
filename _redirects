@@ -21,3 +21,18 @@
 /airports             /travel/airports                  301
 /guides               /travel/guides                    301
 /convention-centers   /travel/convention-centers        301
+
+# ---------------------------------------------------------------------------
+# Dos entradas del blog competían con su propia página de ruta por la MISMA
+# búsqueda. El blog de Thousand Oaks acumulaba 2.691 impresiones en 90 días
+# (contra 4 clics) que le tocaban a /lax-to-thousand-oaks, y encima anunciaba
+# una tarifa vieja de $250 cuando la página de ruta dice $219.99: dos precios
+# distintos para el mismo viaje, en el mismo sitio.
+#
+# Se mandan a la página de ruta, que es la que tiene el botón de reservar
+# arriba y la tarifa buena. 301 porque el contenido se considera mudado, no
+# retirado: así el peso acumulado pasa a la página de ruta en vez de perderse.
+#
+# Las dos URLs salen también del sitemap (ver REDIRIGIDOS en gen-sitemap.mjs).
+/blog/best-lax-airport-transportation-to-thousand-oaks   /lax-to-thousand-oaks   301
+/blog/lax-to-calabasas-luxury-transportation             /lax-to-calabasas       301

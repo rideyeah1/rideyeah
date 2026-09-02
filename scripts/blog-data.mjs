@@ -445,6 +445,29 @@ try {
 }
 
 const seen = new Set();
+/**
+ * Entradas del blog RETIRADAS: canibalizaban a su propia página de ruta por la
+ * misma búsqueda y ahora responden 301 hacia ella (ver `_redirects`).
+ *
+ * ESTA LISTA MANDA EN TRES SITIOS A LA VEZ, y los tres hacen falta:
+ *   1. `gen-sitemap.mjs` las saca del sitemap (una URL redirigida dentro del
+ *      sitemap es un error en Search Console).
+ *   2. `build.mjs` NO copia su archivo a `dist/`.
+ *   3. `_redirects` manda la URL vieja a la página de ruta.
+ *
+ * EL PUNTO 2 ES EL QUE NO SE PUEDE OLVIDAR: Cloudflare Pages aplica
+ * `_redirects` **sólo cuando la ruta no corresponde a un archivo real**. Si el
+ * HTML sigue en `dist/`, gana el archivo y la redirección no llega a
+ * ejecutarse nunca — el 301 quedaría escrito y sin efecto.
+ *
+ * El texto de los posts se deja en el repo a propósito: si algún día se quiere
+ * recuperar uno, basta con sacarlo de esta lista.
+ */
+export const REDIRIGIDOS = new Set([
+  "best-lax-airport-transportation-to-thousand-oaks",
+  "lax-to-calabasas-luxury-transportation",
+]);
+
 export const POSTS = [...AUTHORED, ...generated].filter((p) => {
   if (!p || !p.slug || seen.has(p.slug)) return false;
   seen.add(p.slug);

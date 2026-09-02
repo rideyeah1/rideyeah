@@ -8,7 +8,8 @@
  */
 import { writeFileSync } from "node:fs";
 import { ROUTES } from "./routes-data.mjs";
-import { POSTS } from "./blog-data.mjs";
+import { POSTS, REDIRIGIDOS } from "./blog-data.mjs";
+
 import { CITIES } from "./cities-data.mjs";
 
 const B = "https://rideyeah.com";
@@ -45,9 +46,25 @@ p.push(u(`${B}/service-areas`, "", "monthly", "0.8"));
 for (const c of CITIES) p.push(u(`${B}/${c.slug}`, "", "monthly", "0.8"));
 // FAQ hub (EN-only, clean URL)
 p.push(u(`${B}/faq`, "", "monthly", "0.6"));
+// Legal (EN-only). Van en el sitemap aunque no traigan visitas: son las páginas
+// que Google espera encontrar en un sitio que cobra, y su ausencia se lee como
+// sitio incompleto.
+p.push(u(`${B}/privacy`, "", "yearly", "0.3"));
+p.push(u(`${B}/terms`, "", "yearly", "0.3"));
+
 // Blog (EN-only, clean URLs)
+//
+// LOS QUE SE REDIRIGEN NO ENTRAN. Dos entradas del blog competían con su propia
+// página de ruta por la misma búsqueda —el de Thousand Oaks se llevaba 2.691
+// impresiones que le tocaban a /lax-to-thousand-oaks— y ahora responden 301
+// hacia ella (ver `_redirects`). Una URL redirigida dentro del sitemap es una
+// contradicción: se le pide a Google que indexe algo que se le dice que ya no
+// existe, y Search Console lo marca como error.
 p.push(u(`${B}/blog/`, "", "weekly", "0.7"));
-for (const post of POSTS) p.push(u(`${B}/blog/${post.slug}`, "", "monthly", "0.6"));
+for (const post of POSTS) {
+  if (REDIRIGIDOS.has(post.slug)) continue;
+  p.push(u(`${B}/blog/${post.slug}`, "", "monthly", "0.6"));
+}
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${p.join("\n")}\n</urlset>\n`;
 writeFileSync("sitemap.xml", xml, "utf8");

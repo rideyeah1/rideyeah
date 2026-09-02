@@ -3,7 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<script>(function(){try{var s=localStorage.getItem('ry_lang');if(s==='en'){location.replace('/');}}catch(e){}})();</script>
+<!-- INGLES SIEMPRE PRIMERO.
+     Antes esto miraba el idioma del navegador y mandaba a /es/ a cualquiera
+     que lo tuviera en espanol. La empresa opera en Estados Unidos y el cliente
+     que llega de Google, de un anuncio o de una tarjeta espera ingles: ese es
+     el idioma de la casa, y el que pone el ES lo elige el visitante, no su
+     configuracion.
+     Lo que SI se respeta es la eleccion: quien ya apreto ES queda guardado en
+     `ry_lang` y vuelve a caer en espanol cada vez. -->
+<script>(function(){try{if(localStorage.getItem('ry_lang')==='es'){location.replace('es/index.html');}}catch(e){}})();</script>
 <title>Servicio de Auto de Lujo y Traslados al Aeropuerto LAX · Los Ángeles | RideYeah</title>
 <meta name="description" content="Servicio black car premium, traslados a los aeropuertos LAX y SNA y chofer privado en Los Ángeles y Orange County. Tarifas fijas y seguimiento de vuelos — siempre puntuales.">
 <meta name="theme-color" content="#0A0A0B">

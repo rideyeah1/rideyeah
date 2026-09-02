@@ -22,6 +22,7 @@ import { join } from "node:path";
 import { createHash } from "node:crypto";
 import { ROUTES } from "./routes-data.mjs";
 import { CITIES } from "./cities-data.mjs";
+import { REDIRIGIDOS } from "./blog-data.mjs";
 
 // Guard: fail fast if any displayed fare drifted from the single source of truth
 // (scripts/fares-data.mjs) before we build anything.
@@ -80,9 +81,16 @@ if (existsSync("es")) {
 }
 
 // Blog (blog/*.html + feed.xml)
+//
+// LAS ENTRADAS REDIRIGIDAS NO SE COPIAN, y esto no es limpieza: es lo que hace
+// que su 301 funcione. Cloudflare Pages aplica `_redirects` **sólo cuando la
+// ruta no corresponde a un archivo real**. Si el HTML llega a `dist/`, gana el
+// archivo, Cloudflare lo sirve con un 200 y la regla del 301 no se ejecuta
+// nunca: quedaría escrita en `_redirects` y sin ningún efecto.
 if (existsSync("blog")) {
   mkdirSync(join(DIST, "blog"), { recursive: true });
   for (const file of readdirSync("blog")) {
+    if (REDIRIGIDOS.has(file.replace(/\.html$/, ""))) continue;
     const src = join("blog", file);
     if (!statSync(src).isDirectory()) copyFileSync(src, join(DIST, "blog", file));
   }

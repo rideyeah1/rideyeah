@@ -133,10 +133,16 @@ function page(r, lang) {
         svcDesc: `Servicio de auto privado de lujo entre Los Ángeles Internacional (LAX) y ${r.city} en una SUV negra de lujo con chofer, con seguimiento de vuelos, recibimiento personal y tarifas fijas.`,
         q1: `¿Cuánto dura el trayecto entre LAX y ${r.city}?`,
         a1: `${r.driveLongEs}. Tu chofer monitorea las condiciones en vivo y elige la ruta más rápida.`,
-        q2: `¿Cuánto cuesta un auto entre LAX y ${r.city}?`,
+        q2: `¿Cuánto cuesta el servicio de auto de LAX a ${r.city}?`,
         a2: `Nuestra tarifa fija comienza en $${r.price} en una SUV negra de lujo — todo incluido, con peajes y propina, sin recargos por demanda. Las tarifas pueden cambiar sin previo aviso; usa el buscador de viajes para una cotización exacta al instante.`,
         q3: `¿Ofrecen recibimiento personal en LAX?`,
         a3: `Sí. Tu chofer sigue tu vuelo y te recibe en la acera o en llegadas, te ayuda con el equipaje y te acompaña a la SUV negra de lujo.`,
+        q4: `¿La tarifa de LAX a ${r.city} es fija?`,
+        a4: `Sí. Cada viaje de LAX a ${r.city} lleva una tarifa fija cerrada antes de reservar — sin taxímetro, sin tarifa dinámica y sin recargo nocturno. El precio es el mismo si el vuelo llega a tiempo o con horas de retraso. Las tarifas pueden cambiar sin aviso; usa el buscador para una cotización exacta.`,
+        q5: `¿Puedo reservar de ${r.city} a LAX para un vuelo de madrugada?`,
+        a5: `Sí. Los viajes de regreso de ${r.city} a LAX operan las 24 horas, incluyendo recogidas de 3 a 5 de la mañana para vuelos de madrugada. Tu chofer confirma la hora la noche anterior, según tu vuelo y el tráfico.`,
+        q6: `¿Incluyen silla para niños en el viaje de LAX a ${r.city}?`,
+        a6: `Sí. Hay sillas para bebé, para niño pequeño y elevadores, sin costo adicional. Pídelo al reservar para que el chofer la lleve instalada antes de la recogida.`,
         crumbHome: "Inicio", crumbRoutes: "Rutas",
         eyebrow: `~${r.min} min · desde $${r.price} · SUV negra de lujo`,
         h1a: `LAX ⇄ ${r.city},`, h1b: "en silencioso lujo.",
@@ -155,23 +161,29 @@ function page(r, lang) {
         ctaP: `Precio fijo, seguimiento de vuelo y chofer profesional en una SUV negra de lujo privada.`,
       }
     : {
-        title: `LAX ⇄ ${r.city} Car Service | Private Luxury Black SUV | RideYeah`,
-        desc: `Private LAX ⇄ ${r.city} car service in a luxury black SUV. Flight tracking, meet-and-greet and a fixed fare from $${r.price} — ${r.driveShort}, door to door.`,
+        title: `LAX to ${r.city} Car Service | Private Luxury Black SUV | RideYeah`,
+        desc: `Private LAX to ${r.city} car service in a luxury black SUV. Flight tracking, meet-and-greet and a fixed fare from $${r.price} — ${r.driveShort}, door to door.`,
         keywords: `LAX to ${r.city} car service, ${r.city} airport transfer, LAX ${r.city} chauffeur, ${r.city} black car service`,
-        ogt: `LAX ⇄ ${r.city} Car Service | RideYeah`,
-        ogd: `Private LAX ⇄ ${r.city} luxury black SUV service. Flight tracking, meet-and-greet, fixed fare from $${r.price}.`,
-        svcType: `Airport car service — LAX ⇄ ${r.city}`,
-        svcName: `LAX ⇄ ${r.city} Car Service`,
+        ogt: `LAX to ${r.city} Car Service | RideYeah`,
+        ogd: `Private LAX to ${r.city} luxury black SUV service. Flight tracking, meet-and-greet, fixed fare from $${r.price}.`,
+        svcType: `Airport car service — LAX to ${r.city}`,
+        svcName: `LAX to ${r.city} Car Service`,
         svcDesc: `Private luxury car service between Los Angeles International (LAX) and ${r.city} in a chauffeured luxury black SUV, with flight tracking, meet-and-greet and fixed pricing.`,
         q1: `How long is the drive between LAX and ${r.city}?`,
         a1: `${r.driveLong}. Your chauffeur monitors live conditions and chooses the fastest route.`,
-        q2: `How much is a car between LAX and ${r.city}?`,
+        q2: `How much is car service from LAX to ${r.city}?`,
         a2: `Our fixed fare starts at $${r.price} in a luxury black SUV — all-in, with tolls and gratuity included and no surge pricing. Fares may change without notice; use the booking search for an exact, instant quote.`,
         q3: `Do you offer meet-and-greet at LAX?`,
         a3: `Yes. Your chauffeur tracks your flight and meets you at the curb or in arrivals, helps with luggage and walks you to the luxury black SUV.`,
+        q4: `Is there a flat-rate car service from LAX to ${r.city}?`,
+        a4: `Yes. Every LAX to ${r.city} ride is a flat rate locked in before you book — no meter, no surge, no late-night surcharge. The price is the same whether your flight lands on schedule or hours late. Fares may change without notice; use the booking search for an exact quote.`,
+        q5: `Can I book a ${r.city} to LAX car service for an early-morning flight?`,
+        a5: `Yes. Return trips from ${r.city} to LAX run 24 hours a day, including 3–5 a.m. pickups for red-eye and early departures. Your chauffeur confirms the pickup time the night before, based on your flight and live traffic.`,
+        q6: `Do you provide a child car seat for the LAX to ${r.city} ride?`,
+        a6: `Yes. Infant, toddler and booster seats are available at no extra charge. Add the request when you book so the chauffeur has the correct seat installed before pickup.`,
         crumbHome: "Home", crumbRoutes: "Routes",
         eyebrow: `~${r.min} min · from $${r.price} · Luxury Black SUV`,
-        h1a: `LAX ⇄ ${r.city},`, h1b: "in quiet luxury.",
+        h1a: `LAX to ${r.city} Car Service,`, h1b: "in quiet luxury.",
         lead: `Private door-to-door between LAX and ${r.city} — landing or catching a flight, you ride in a luxury black SUV. Flight tracked, fixed price, always on time.`,
         cta: "Get your fixed quote",
         st1: "Typical drive time", st2: "Fixed fare, all-in",
@@ -182,10 +194,26 @@ function page(r, lang) {
         tick3: `Live flight tracking &amp; <span>complimentary wait time on arrivals</span>`,
         tick4: `Fixed, all-in price <span>· no surge, no meter</span>`,
         reserve: "Reserve this route",
-        faqEyebrow: "Good to know", faqH2: `LAX ⇄ ${r.city} FAQ.`,
-        ctaEyebrow: `${r.city}, the easy way`, ctaH2: `Book LAX ⇄ ${r.city}.`,
+        faqEyebrow: "Good to know", faqH2: `LAX to ${r.city} FAQ.`,
+        ctaEyebrow: `${r.city}, the easy way`, ctaH2: `Book LAX to ${r.city}.`,
         ctaP: `Fixed price, flight tracking, professional chauffeur in a private luxury black SUV.`,
       };
+
+  /**
+   * Las preguntas de la página, UNA SOLA VEZ.
+   *
+   * Se pintan en dos sitios —el bloque `<details>` que ve la gente y el
+   * `FAQPage` en JSON-LD que lee Google— y **si los dos textos no son idénticos
+   * Google descarta el marcado entero**. Teniéndolas en una lista no pueden
+   * separarse: los dos sitios recorren esta misma variable.
+   *
+   * El `filter` deja añadir preguntas a un idioma antes que al otro sin que el
+   * que va detrás saque un "undefined" en la página.
+   */
+  const faqs = [
+    [t.q1, t.a1], [t.q2, t.a2], [t.q3, t.a3],
+    [t.q4, t.a4], [t.q5, t.a5], [t.q6, t.a6],
+  ].filter(([q, a]) => q && a);
 
   const ld = (o) => JSON.stringify(o, null, 2);
   const serviceLd = ld({
@@ -198,9 +226,7 @@ function page(r, lang) {
   const faqLd = ld({
     "@context": "https://schema.org", "@type": "FAQPage",
     mainEntity: [
-      { "@type": "Question", name: t.q1, acceptedAnswer: { "@type": "Answer", text: t.a1 } },
-      { "@type": "Question", name: t.q2, acceptedAnswer: { "@type": "Answer", text: t.a2 } },
-      { "@type": "Question", name: t.q3, acceptedAnswer: { "@type": "Answer", text: t.a3 } },
+      ...faqs.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
     ],
   });
 
@@ -298,9 +324,7 @@ ${menu}
     <div class="wrap">
       <div class="sec-head reveal"><span class="eyebrow">${t.faqEyebrow}</span><h2>${t.faqH2}</h2></div>
       <div class="faq-wrap">
-        <details class="faq reveal"><summary>${t.q1}<span class="ico" aria-hidden="true"></span></summary><div class="ans">${t.a1}</div></details>
-        <details class="faq reveal"><summary>${t.q2}<span class="ico" aria-hidden="true"></span></summary><div class="ans">${t.a2}</div></details>
-        <details class="faq reveal"><summary>${t.q3}<span class="ico" aria-hidden="true"></span></summary><div class="ans">${t.a3}</div></details>
+        ${faqs.map(([q, a]) => `<details class="faq reveal"><summary>${q}<span class="ico" aria-hidden="true"></span></summary><div class="ans">${a}</div></details>`).join("\n        ")}
       </div>
     </div>
   </section>
