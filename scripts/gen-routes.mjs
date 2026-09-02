@@ -123,13 +123,13 @@ function page(r, lang) {
   // ---- localized content ----
   const t = es
     ? {
-        title: `Servicio de Auto LAX ⇄ ${r.city} | SUV Negra de Lujo Privada | RideYeah`,
-        desc: `Servicio de auto privado LAX ⇄ ${r.city} en una SUV negra de lujo. Seguimiento de vuelos, recibimiento personal y tarifa fija desde $${r.price} — ${r.miles.replace("~", "~")}, puerta a puerta.`,
+        title: `Servicio de Auto LAX a ${r.city} | SUV Negra de Lujo Privada | RideYeah`,
+        desc: `Servicio de auto privado de LAX a ${r.city} en una SUV negra de lujo. Seguimiento de vuelos, recibimiento personal y tarifa fija desde $${r.price} — ${r.miles.replace("~", "~")}, puerta a puerta.`,
         keywords: `servicio de auto LAX a ${r.city}, traslado al aeropuerto ${r.city}, chofer LAX ${r.city}, servicio black car ${r.city}`,
-        ogt: `Servicio de Auto LAX ⇄ ${r.city} | RideYeah`,
-        ogd: `Servicio privado LAX ⇄ ${r.city} en SUV negra de lujo. Seguimiento de vuelos, recibimiento, tarifa fija desde $${r.price}.`,
-        svcType: `Servicio de auto al aeropuerto — LAX ⇄ ${r.city}`,
-        svcName: `Servicio de Auto LAX ⇄ ${r.city}`,
+        ogt: `Servicio de Auto LAX a ${r.city} | RideYeah`,
+        ogd: `Servicio privado de LAX a ${r.city} en SUV negra de lujo. Seguimiento de vuelos, recibimiento, tarifa fija desde $${r.price}.`,
+        svcType: `Servicio de auto al aeropuerto — LAX a ${r.city}`,
+        svcName: `Servicio de Auto LAX a ${r.city}`,
         svcDesc: `Servicio de auto privado de lujo entre Los Ángeles Internacional (LAX) y ${r.city} en una SUV negra de lujo con chofer, con seguimiento de vuelos, recibimiento personal y tarifas fijas.`,
         q1: `¿Cuánto dura el trayecto entre LAX y ${r.city}?`,
         a1: `${r.driveLongEs}. Tu chofer monitorea las condiciones en vivo y elige la ruta más rápida.`,
@@ -145,7 +145,7 @@ function page(r, lang) {
         a6: `Sí. Hay sillas para bebé, para niño pequeño y elevadores, sin costo adicional. Pídelo al reservar para que el chofer la lleve instalada antes de la recogida.`,
         crumbHome: "Inicio", crumbRoutes: "Rutas",
         eyebrow: `~${r.min} min · desde $${r.price} · SUV negra de lujo`,
-        h1a: `LAX ⇄ ${r.city},`, h1b: "en silencioso lujo.",
+        h1a: `Servicio de Auto LAX a ${r.city},`, h1b: "en silencioso lujo.",
         lead: `Puerta a puerta entre LAX y ${r.city} — ya sea que aterrices o tomes un vuelo, viajas en una SUV negra de lujo privada. Vuelo monitoreado, precio fijo, siempre puntual.`,
         cta: "Obtén tu tarifa fija",
         st1: "Tiempo de viaje habitual", st2: "Tarifa fija, todo incluido",
@@ -156,8 +156,8 @@ function page(r, lang) {
         tick3: `Seguimiento de vuelo en vivo y <span>tiempo de espera de cortesía en llegadas</span>`,
         tick4: `Precio fijo, todo incluido <span>· sin recargos, sin taxímetro</span>`,
         reserve: "Reserva esta ruta",
-        faqEyebrow: "Bueno saberlo", faqH2: `Preguntas frecuentes: LAX ⇄ ${r.city}.`,
-        ctaEyebrow: `${r.city}, sin complicaciones`, ctaH2: `Reserva LAX ⇄ ${r.city}.`,
+        faqEyebrow: "Bueno saberlo", faqH2: `Preguntas frecuentes: LAX a ${r.city}.`,
+        ctaEyebrow: `${r.city}, sin complicaciones`, ctaH2: `Reserva LAX a ${r.city}.`,
         ctaP: `Precio fijo, seguimiento de vuelo y chofer profesional en una SUV negra de lujo privada.`,
       }
     : {
