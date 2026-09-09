@@ -106,7 +106,9 @@ if (existsSync("assets")) {
 
 // Root static assets (copy when present)
 // `_redirects` va en la raíz de dist/: es donde Cloudflare Pages lo lee.
-for (const file of ["404.html", "favicon.svg", "apple-touch-icon.png", "robots.txt", "sitemap.xml", "_redirects"]) {
+// El `tiktok*.txt` es la firma con la que TikTok for Developers verifica que
+// rideyeah.com es nuestro (URL property de la app "RideYeah Panel", 9-sep-2026).
+for (const file of ["404.html", "favicon.svg", "apple-touch-icon.png", "robots.txt", "sitemap.xml", "_redirects", "tiktokxCknGW8D3IOuBiGnOn6PvmG5Zzmq1m2T.txt"]) {
   if (existsSync(file)) copyFileSync(file, join(DIST, file));
 }
 
