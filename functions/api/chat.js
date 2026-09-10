@@ -37,7 +37,7 @@ WHAT RIDEYEAH IS
 
 SERVICES
 - Airport transfers: LAX, John Wayne (SNA), Burbank (BUR), Long Beach (LGB) and private terminals. Meet-and-greet with a name sign, real-time flight tracking, automatic pickup adjustment for delays, complimentary wait time on airport pickups.
-- Hourly chauffeur (as-directed; typical 3-hour minimum) for meetings, shopping, events, nights out.
+- Hourly chauffeur (as-directed; typical 2-hour minimum) for meetings, shopping, events, nights out.
 - Black car for corporate travel and events.
 - City-to-city long-distance rides.
 

@@ -4,9 +4,16 @@ on:
   push:
     branches: [main]
   workflow_dispatch: {}
+  # Los precios se sincronizan con el sistema (rysistema.com → Tarifas):
+  # una vez al día por si acaso, y al instante cuando el panel avisa con un
+  # repository_dispatch de tipo "tarifas" (9-sep-2026).
+  schedule:
+    - cron: "15 13 * * *" # 13:15 UTC ≈ 6:15 am Los Ángeles
+  repository_dispatch:
+    types: [tarifas]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   deploy:
@@ -19,6 +26,26 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: 24
+
+      # Los precios del sitio salen del SISTEMA. Si el sistema no contesta, el
+      # script no toca nada y se publica lo que hay.
+      - name: Sincronizar precios con rysistema.com
+        run: node scripts/sync-tarifas.mjs
+
+      # Si cambió algún precio, queda escrito en el repo (para que el próximo
+      # clon y el build local tengan lo mismo). "[skip ci]" evita un segundo
+      # despliegue por este mismo push: el de abajo ya publica lo nuevo.
+      - name: Guardar los precios sincronizados
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "rideyeah-bot"
+            git config user.email "rideyeah1@gmail.com"
+            git add -A
+            git commit -m "Precios sincronizados con el sistema [skip ci]"
+            git push
+          else
+            echo "Los precios ya coincidian con el sistema."
+          fi
 
       # The build only copies files (no npm deps needed at build time).
       - name: Build dist/

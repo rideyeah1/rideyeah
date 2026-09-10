@@ -50,6 +50,39 @@ if (!read("faq.html").includes(`fixed, all-in fare from $${FARE_OF["Malibu"]}`))
   errors.push(`faq.html Malibu answer is stale (expected $${FARE_OF["Malibu"]}).`);
 }
 
+// 5) airport-transfers (EN + ES): las tres tarjetas deben ser rutas del sistema
+//    con su precio (antes decian $129/$95/$89, que no existen; 9-sep-2026).
+const TARJETAS = [
+  ["LAX → Downtown LA", FARE_OF["Downtown LA"]],
+  ["LAX → Centro de LA", FARE_OF["Downtown LA"]],
+  ["LAX → Long Beach", FARE_OF["Long Beach"]],
+  ["LAX → Anaheim / Disneyland", FARE_OF["Anaheim"]],
+];
+for (const f of ["airport-transfers.html", "es/traslados-aeropuerto-lax.html"]) {
+  let html;
+  try { html = read(f); } catch { continue; }
+  for (const [rotulo, precio] of TARJETAS) {
+    const m = html.match(new RegExp(esc(rotulo) + "</div>[\\s\\S]{0,400}?>\\$(\\d+(?:\\.\\d+)?)</div>"));
+    if (m && Number(m[1]) !== precio) errors.push(`${f}: tarjeta "${rotulo}" muestra $${m[1]} y el sistema dice $${precio}`);
+  }
+}
+
+// 6) Blog (scripts/blog-data.mjs, la fuente): una entrada cuyo slug nombra una
+//    ruta debe decir la tarifa de routes-data. El HTML de blog/ se regenera de aqui.
+{
+  let fuente = "";
+  try { fuente = read("scripts/blog-data.mjs"); } catch { /* sin blog */ }
+  for (const parte of fuente.split(/(?=\n\s*slug: ")/)) {
+    const m = parte.match(/^\n\s*slug: "([^"]+)"/);
+    if (!m) continue;
+    const ruta = ROUTES.find((r) => m[1].includes(r.slug));
+    if (!ruta) continue;
+    for (const x of parte.matchAll(/fixed \$(\d+(?:\.\d{2})?) fare/g)) {
+      if (Number(x[1]) !== ruta.price) { errors.push(`scripts/blog-data.mjs: la entrada "${m[1]}" dice "fixed $${x[1]} fare" y la ruta ${ruta.city} vale $${ruta.price}`); break; }
+    }
+  }
+}
+
 if (errors.length) {
   console.error("✗ Fare consistency check FAILED:\n  - " + errors.join("\n  - "));
   console.error(
