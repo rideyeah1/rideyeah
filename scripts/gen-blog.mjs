@@ -46,6 +46,7 @@ const nav = `<nav class="nav-links" aria-label="Primary">
       <a href="/fleet.html">Fleet</a>
       <a href="/popular-routes.html">Routes</a>
       <a href="/blog/">Blog</a>
+      <a href="https://rysistema.com/driver/signup" rel="noopener">Drive with us</a><a href="https://rysistema.com/partners/apply" rel="noopener">Partners</a>
       <a href="/#book" class="btn btn-gold">Book now ${A}</a>
     </nav>`;
 const menu = `<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu">
@@ -57,6 +58,7 @@ const menu = `<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal=
   <a href="/fleet.html">Fleet</a>
   <a href="/travel/">Travel guides</a><a href="/faq.html">FAQ</a>
   <a href="/blog/">Blog</a>
+  <a href="https://rysistema.com/driver/signup" rel="noopener">Drive with us</a><a href="https://rysistema.com/partners/apply" rel="noopener">Partners</a>
   <a href="/#book" class="btn btn-gold">Book your ride</a>
 </div>`;
 const footer = `<footer>

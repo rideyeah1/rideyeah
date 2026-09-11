@@ -42,6 +42,7 @@ rep(">Fleet</a>", ">Flota</a>");
 rep(">About</a>", ">Nosotros</a>");
 rep(">Careers</a>", ">Empleo</a>");
 rep(">Contact</a>", ">Contacto</a>");
+rep(">Drive with us</a>", ">Conduce con nosotros</a>");
 rep(">Book now <svg", ">Reservar <svg");
 rep(">Book your ride</a>", ">Reserva tu viaje</a>");
 

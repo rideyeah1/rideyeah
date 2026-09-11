@@ -37,6 +37,7 @@ const SHARED = [
   [">About</a>", ">Nosotros</a>"],
   [">Services</a>", ">Servicios</a>"],
   [">Careers</a>", ">Empleo</a>"],
+  [">Drive with us</a>", ">Conduce con nosotros</a>"],
   [">Routes</a>", ">Rutas</a>"],
   [">Book now <svg", ">Reservar <svg"],
   /* mobile menu */

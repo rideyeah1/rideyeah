@@ -42,6 +42,7 @@ function page(r, lang) {
       <a href="/es/servicio-black-car.html">Black car</a>
       <a href="/es/flota.html">Flota</a>
       <a href="/es/rutas-populares.html">Rutas</a>
+      <a href="https://rysistema.com/driver/signup" rel="noopener">Conduce con nosotros</a><a href="https://rysistema.com/partners/apply" rel="noopener">Partners</a>
       <a href="${enUrl.replace("https://rideyeah.com", "")}" class="lang-pill" onclick="try{localStorage.setItem('ry_lang','en')}catch(e){}" aria-label="View in English">EN</a>
       <a href="/es/#book" class="btn btn-gold">Reservar ${A}</a>
     </nav>`
@@ -50,6 +51,7 @@ function page(r, lang) {
       <a href="black-car-service.html">Black car</a>
       <a href="fleet.html">Fleet</a>
       <a href="popular-routes.html">Routes</a>
+      <a href="https://rysistema.com/driver/signup" rel="noopener">Drive with us</a><a href="https://rysistema.com/partners/apply" rel="noopener">Partners</a>
       <a href="es/lax-a-${r.slug}.html" class="lang-pill" onclick="try{localStorage.setItem('ry_lang','es')}catch(e){}" aria-label="Ver en español">ES</a>
       <a href="index.html#book" class="btn btn-gold">Book now ${A}</a>
     </nav>`;
@@ -61,6 +63,7 @@ function page(r, lang) {
   <a href="/es/servicio-black-car.html">Servicio black car</a>
   <a href="/es/rutas-populares.html">Rutas populares</a>
   <a href="/es/flota.html">Flota</a>
+  <a href="https://rysistema.com/driver/signup" rel="noopener">Conduce con nosotros</a><a href="https://rysistema.com/partners/apply" rel="noopener">Partners</a>
   <a href="${enUrl.replace("https://rideyeah.com", "")}" class="lang-pill" onclick="try{localStorage.setItem('ry_lang','en')}catch(e){}">EN · English</a>
   <a href="/es/#book" class="btn btn-gold">Reserva tu viaje</a>
 </div>`
@@ -72,6 +75,7 @@ function page(r, lang) {
   <a href="popular-routes.html">Popular routes</a>
   <a href="fleet.html">Fleet</a>
   <a href="/travel/">Travel guides</a><a href="faq.html">FAQ</a>
+  <a href="https://rysistema.com/driver/signup" rel="noopener">Drive with us</a><a href="https://rysistema.com/partners/apply" rel="noopener">Partners</a>
   <a href="es/lax-a-${r.slug}.html" class="lang-pill" onclick="try{localStorage.setItem('ry_lang','es')}catch(e){}">ES · Español</a>
   <a href="index.html#book" class="btn btn-gold">Book your ride</a>
 </div>`;
@@ -398,6 +402,7 @@ function hub(lang) {
       <a href="/es/servicio-black-car.html">Black car</a>
       <a href="/es/flota.html">Flota</a>
       <a href="/es/nosotros.html">Nosotros</a>
+      <a href="https://rysistema.com/driver/signup" rel="noopener">Conduce con nosotros</a><a href="https://rysistema.com/partners/apply" rel="noopener">Partners</a>
       <a href="/popular-routes.html" class="lang-pill" onclick="try{localStorage.setItem('ry_lang','en')}catch(e){}" aria-label="View in English">EN</a>
       <a href="/es/#book" class="btn btn-gold">Reservar ${A}</a>
     </nav>`
@@ -406,6 +411,7 @@ function hub(lang) {
       <a href="black-car-service.html">Black car</a>
       <a href="fleet.html">Fleet</a>
       <a href="about.html">About</a>
+      <a href="https://rysistema.com/driver/signup" rel="noopener">Drive with us</a><a href="https://rysistema.com/partners/apply" rel="noopener">Partners</a>
       <a href="es/rutas-populares.html" class="lang-pill" onclick="try{localStorage.setItem('ry_lang','es')}catch(e){}" aria-label="Ver en español">ES</a>
       <a href="index.html#book" class="btn btn-gold">Book now ${A}</a>
     </nav>`;
@@ -417,6 +423,7 @@ function hub(lang) {
   <a href="/es/servicio-black-car.html">Servicio black car</a>
   <a href="/es/chofer-por-horas.html">Por horas</a>
   <a href="/es/flota.html">Flota</a>
+  <a href="https://rysistema.com/driver/signup" rel="noopener">Conduce con nosotros</a><a href="https://rysistema.com/partners/apply" rel="noopener">Partners</a>
   <a href="/popular-routes.html" class="lang-pill" onclick="try{localStorage.setItem('ry_lang','en')}catch(e){}">EN · English</a>
   <a href="/es/#book" class="btn btn-gold">Reserva tu viaje</a>
 </div>`
@@ -426,6 +433,7 @@ function hub(lang) {
   <a href="black-car-service.html">Black car service</a>
   <a href="hourly-chauffeur.html">By the hour</a>
   <a href="fleet.html">Fleet</a>
+  <a href="https://rysistema.com/driver/signup" rel="noopener">Drive with us</a><a href="https://rysistema.com/partners/apply" rel="noopener">Partners</a>
   <a href="es/rutas-populares.html" class="lang-pill" onclick="try{localStorage.setItem('ry_lang','es')}catch(e){}">ES · Español</a>
   <a href="index.html#book" class="btn btn-gold">Book your ride</a>
 </div>`;
