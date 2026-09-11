@@ -87,7 +87,7 @@ ${SCHEMA}
 
 BRAND & STYLE
 - Premium, calm, confident. Plain, concrete English; short paragraphs. American spelling.
-- Vehicle is always a "luxury black SUV" (never "Suburban"/"sedan"). Phone: (805) 285-1570. Email: info@rideyeah.com.
+- Vehicle is always a "luxury black SUV" (never "Suburban"/"sedan"). Phone: (805) 660-6439. Email: info@rideyeah.com.
 - Booking CTAs always use href "/#book". Put 2 {cta} blocks in the body (one mid-article, one at the end).
 - Include 3-5 internal links inside paragraphs using these EXACT paths (the build strips .html):
   /airport-transfers.html, /black-car-service.html, /hourly-chauffeur.html, /popular-routes.html, and the related route page(s) below.

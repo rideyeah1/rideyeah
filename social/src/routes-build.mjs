@@ -138,7 +138,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:${INK}}
 
     <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
       <span style="display:inline-flex;align-items:center;background:${GOLD};color:#15110a;font-weight:800;font-size:${ctaPx}px;padding:${isStory ? 18 : 16}px ${isStory ? 36 : 32}px;border-radius:999px;box-shadow:0 8px 26px rgba(0,0,0,.4)">Book at rideyeah.com</span>
-      <span style="font-size:${ctaPx}px;font-weight:700;color:${BONE};text-shadow:0 1px 10px rgba(0,0,0,.8)">(805) 285-1570</span>
+      <span style="font-size:${ctaPx}px;font-weight:700;color:${BONE};text-shadow:0 1px 10px rgba(0,0,0,.8)">(805) 660-6439</span>
     </div>
     <div style="margin-top:${isStory ? 24 : 18}px;font-size:${isStory ? 22 : 21}px;font-weight:600;letter-spacing:.04em;color:${MUTE};text-shadow:0 1px 8px rgba(0,0,0,.8)">
       Licensed &amp; insured <span style="color:rgba(201,168,106,.7);margin:0 10px">&#9670;</span> Flight tracking <span style="color:rgba(201,168,106,.7);margin:0 10px">&#9670;</span> 24/7
@@ -172,7 +172,7 @@ ${flavor[r.slug]} — we’ll get you there (or back to your flight) in a privat
 ✦ Professional chauffeur · licensed & insured · 24/7
 
 Book in seconds 👉 ${url}
-Or call/text (805) 285-1570`;
+Or call/text (805) 660-6439`;
 };
 const TAGS = {
   'downtown-la': '#DowntownLA #DTLA',

@@ -18,7 +18,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 export const SITE = "https://rideyeah.com";
-export const PHONE = "+1 (805) 285-1570";
+export const PHONE = "+1 (805) 660-6439";
 
 // Hand-written articles live here. The weekly agent never edits these — it only
 // appends to content/blog-generated.json (merged into POSTS below), so authored
@@ -277,7 +277,7 @@ const AUTHORED = [
       },
       {
         q: "Can I set up an account for repeat executive travel?",
-        a: "Yes. For frequent or company travel we can arrange standing bookings and consolidated billing so trips are simple to schedule, approve and expense. Contact us at info@rideyeah.com or (805) 285-1570.",
+        a: "Yes. For frequent or company travel we can arrange standing bookings and consolidated billing so trips are simple to schedule, approve and expense. Contact us at info@rideyeah.com or (805) 660-6439.",
       },
     ],
   },
@@ -409,7 +409,7 @@ const AUTHORED = [
       },
       { h2: "Setting up corporate transportation" },
       {
-        p: "Start a single booking online for an instant quote, or reach out to arrange an account for recurring travel, events and consolidated billing. Email info@rideyeah.com or call (805) 285-1570 and we'll tailor it to how your company travels.",
+        p: "Start a single booking online for an instant quote, or reach out to arrange an account for recurring travel, events and consolidated billing. Email info@rideyeah.com or call (805) 660-6439 and we'll tailor it to how your company travels.",
       },
       { cta: { label: "Get a corporate quote", href: "/#book" } },
     ],
@@ -420,7 +420,7 @@ const AUTHORED = [
       },
       {
         q: "Can we set up a company account with consolidated billing?",
-        a: "Yes. We arrange standing bookings, recurring routes and consolidated invoicing so corporate travel is easy to schedule, approve and expense. Contact info@rideyeah.com or (805) 285-1570 to set it up.",
+        a: "Yes. We arrange standing bookings, recurring routes and consolidated invoicing so corporate travel is easy to schedule, approve and expense. Contact info@rideyeah.com or (805) 660-6439 to set it up.",
       },
       {
         q: "Do you handle group and event transportation in Los Angeles?",

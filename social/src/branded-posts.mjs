@@ -69,7 +69,7 @@ const textBlock = (t, leftPad, bottom, headPx, eyebrowPx, urlPx) => `
     <div class="eyebrow" style="font-size:${eyebrowPx}px">${t.eyebrow}</div>
     <div class="serif" style="font-size:${headPx}px;line-height:1.02;font-weight:600;letter-spacing:-.02em;margin-top:${Math.round(headPx*0.22)}px;text-shadow:0 3px 22px rgba(0,0,0,.45)">${t.headline}</div>
     <div style="width:${Math.round(headPx*1.3)}px;height:2px;background:linear-gradient(90deg,${GOLD},transparent);margin:${Math.round(headPx*0.3)}px 0 ${Math.round(headPx*0.22)}px"></div>
-    <div style="font-size:${urlPx}px;font-weight:800;letter-spacing:.01em;color:${BONE}">rideyeah.com<span style="color:rgba(201,168,106,.7);margin:0 14px">&#9670;</span><span style="color:${GOLDSOFT}">(805) 285-1570</span></div>
+    <div style="font-size:${urlPx}px;font-weight:800;letter-spacing:.01em;color:${BONE}">rideyeah.com<span style="color:rgba(201,168,106,.7);margin:0 14px">&#9670;</span><span style="color:${GOLDSOFT}">(805) 660-6439</span></div>
   </div>`;
 
 const head = `<!doctype html><html><head><meta charset="utf-8"><style>

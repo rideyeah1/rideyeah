@@ -394,8 +394,8 @@ const PAGES = [
       /* apply CTA */
       [">Join the team</span>", ">Únete al equipo</span>"],
       ["Ready to drive with us?", "¿Listo para conducir con nosotros?"],
-      ['Tap below to email your application — or write us directly at <a href="mailto:info@rideyeah.com" style="color:var(--gold)">info@rideyeah.com</a> / call <a href="tel:+18052851570" style="color:var(--gold)">+1 (805) 285-1570</a>.',
-       'Toca abajo para enviar tu solicitud por correo — o escríbenos directamente a <a href="mailto:info@rideyeah.com" style="color:var(--gold)">info@rideyeah.com</a> / llama al <a href="tel:+18052851570" style="color:var(--gold)">+1 (805) 285-1570</a>.'],
+      ['Tap below to email your application — or write us directly at <a href="mailto:info@rideyeah.com" style="color:var(--gold)">info@rideyeah.com</a> / call <a href="tel:+18056606439" style="color:var(--gold)">+1 (805) 660-6439</a>.',
+       'Toca abajo para enviar tu solicitud por correo — o escríbenos directamente a <a href="mailto:info@rideyeah.com" style="color:var(--gold)">info@rideyeah.com</a> / llama al <a href="tel:+18056606439" style="color:var(--gold)">+1 (805) 660-6439</a>.'],
       ["subject=Driver%20Application%20-%20RideYeah&body=Hi%20RideYeah%20team%2C%0D%0A%0D%0AI%27d%20like%20to%20apply%20for%20the%20chauffeur%20%2F%20driver%20position.%0D%0A%0D%0AFull%20name%3A%0D%0APhone%3A%0D%0ACity%3A%0D%0ADriver%27s%20license%20%23%3A%0D%0AYears%20of%20driving%20experience%3A%0D%0ALivery%2FTCP%20experience%20(if%20any)%3A%0D%0AAvailability%20(full%2Fpart-time)%3A%0D%0A%0D%0AThank%20you.",
        "subject=Solicitud%20de%20Driver%20-%20RideYeah&body=Hola%20equipo%20RideYeah%2C%0D%0A%0D%0AMe%20gustar%C3%ADa%20postularme%20para%20el%20puesto%20de%20chofer%20%2F%20driver.%0D%0A%0D%0ANombre%20completo%3A%0D%0ATel%C3%A9fono%3A%0D%0ACiudad%3A%0D%0AN%C3%BAmero%20de%20licencia%20de%20conducir%3A%0D%0AA%C3%B1os%20de%20experiencia%20conduciendo%3A%0D%0AExperiencia%20Livery%2FTCP%20(si%20tienes)%3A%0D%0ADisponibilidad%20(tiempo%20completo%2Fparcial)%3A%0D%0A%0D%0AGracias."],
       ["Apply by email <svg", "Postúlate por correo <svg"],

@@ -86,7 +86,7 @@ function page(r, lang) {
       </div>
       <div class="foot-col"><h3>Servicios</h3><a href="/es/traslados-aeropuerto-lax.html">Traslados al aeropuerto</a><a href="/es/chofer-por-horas.html">Por horas</a><a href="/es/servicio-black-car.html">Servicio black car</a><a href="/es/rutas-populares.html">Rutas populares</a></div>
       <div class="foot-col"><h3>Empresa</h3><a href="/es/nosotros.html">Nosotros</a><a href="/es/flota.html">Nuestra flota</a><a href="/es/empleo.html">Empleo</a><a href="https://rysistema.com/driver/signup" rel="noopener">Conduce con nosotros</a><a href="https://rysistema.com/partners/apply" rel="noopener">Partners</a><a href="/es/#contact">Contacto</a></div>
-      <div class="foot-col"><h3>Contacto</h3><a href="tel:+18052851570">+1 (805) 285-1570</a><a href="mailto:info@rideyeah.com">info@rideyeah.com</a><a href="https://maps.google.com/?q=Los+Angeles,+CA" target="_blank" rel="noopener">Los Ángeles, CA</a><div class="socials" style="margin-top:16px">
+      <div class="foot-col"><h3>Contacto</h3><a href="tel:+18056606439">+1 (805) 660-6439</a><a href="mailto:info@rideyeah.com">info@rideyeah.com</a><a href="https://maps.google.com/?q=Los+Angeles,+CA" target="_blank" rel="noopener">Los Ángeles, CA</a><div class="socials" style="margin-top:16px">
         <a href="https://www.facebook.com/RideYeah.LA" target="_blank" rel="noopener me" aria-label="RideYeah en Facebook">${FB}</a>
         <a href="https://www.instagram.com/rideyeah/" target="_blank" rel="noopener me" aria-label="RideYeah en Instagram">${IG}</a>
         <a href="https://www.tiktok.com/@rideyeah" target="_blank" rel="noopener me" aria-label="RideYeah en TikTok">${TT}</a>
@@ -107,7 +107,7 @@ function page(r, lang) {
       </div>
       <div class="foot-col"><h3>Services</h3><a href="airport-transfers.html">Airport transfers</a><a href="hourly-chauffeur.html">By the hour</a><a href="black-car-service.html">Black car service</a><a href="corporate-transportation.html">Corporate travel</a><a href="popular-routes.html">Popular routes</a></div>
       <div class="foot-col"><h3>Company</h3><a href="about.html">About us</a><a href="fleet.html">Our fleet</a><a href="careers.html">Careers</a><a href="https://rysistema.com/driver/signup" rel="noopener">Drive with us</a><a href="https://rysistema.com/partners/apply" rel="noopener">Partners</a><a href="/travel/">Travel guides</a><a href="faq.html">FAQ</a><a href="index.html#contact">Contact</a></div>
-      <div class="foot-col"><h3>Contact</h3><a href="tel:+18052851570">+1 (805) 285-1570</a><a href="mailto:info@rideyeah.com">info@rideyeah.com</a><a href="https://maps.google.com/?q=Los+Angeles,+CA" target="_blank" rel="noopener">Los Angeles, CA</a><div class="socials" style="margin-top:16px">
+      <div class="foot-col"><h3>Contact</h3><a href="tel:+18056606439">+1 (805) 660-6439</a><a href="mailto:info@rideyeah.com">info@rideyeah.com</a><a href="https://maps.google.com/?q=Los+Angeles,+CA" target="_blank" rel="noopener">Los Angeles, CA</a><div class="socials" style="margin-top:16px">
         <a href="https://www.facebook.com/RideYeah.LA" target="_blank" rel="noopener me" aria-label="RideYeah on Facebook">${FB}</a>
         <a href="https://www.instagram.com/rideyeah/" target="_blank" rel="noopener me" aria-label="RideYeah on Instagram">${IG}</a>
         <a href="https://www.tiktok.com/@rideyeah" target="_blank" rel="noopener me" aria-label="RideYeah on TikTok">${TT}</a>
@@ -353,7 +353,7 @@ function footerHtml(es) {
       </div>
       <div class="foot-col"><h3>Servicios</h3><a href="/es/traslados-aeropuerto-lax.html">Traslados al aeropuerto</a><a href="/es/chofer-por-horas.html">Por horas</a><a href="/es/servicio-black-car.html">Servicio black car</a><a href="/es/rutas-populares.html">Rutas populares</a></div>
       <div class="foot-col"><h3>Empresa</h3><a href="/es/nosotros.html">Nosotros</a><a href="/es/flota.html">Nuestra flota</a><a href="/es/empleo.html">Empleo</a><a href="https://rysistema.com/driver/signup" rel="noopener">Conduce con nosotros</a><a href="https://rysistema.com/partners/apply" rel="noopener">Partners</a><a href="/es/#contact">Contacto</a></div>
-      <div class="foot-col"><h3>Contacto</h3><a href="tel:+18052851570">+1 (805) 285-1570</a><a href="mailto:info@rideyeah.com">info@rideyeah.com</a><a href="https://maps.google.com/?q=Los+Angeles,+CA" target="_blank" rel="noopener">Los Ángeles, CA</a><div class="socials" style="margin-top:16px">
+      <div class="foot-col"><h3>Contacto</h3><a href="tel:+18056606439">+1 (805) 660-6439</a><a href="mailto:info@rideyeah.com">info@rideyeah.com</a><a href="https://maps.google.com/?q=Los+Angeles,+CA" target="_blank" rel="noopener">Los Ángeles, CA</a><div class="socials" style="margin-top:16px">
         <a href="https://www.facebook.com/RideYeah.LA" target="_blank" rel="noopener me" aria-label="RideYeah en Facebook">${FB}</a>
         <a href="https://www.instagram.com/rideyeah/" target="_blank" rel="noopener me" aria-label="RideYeah en Instagram">${IG}</a>
         <a href="https://www.tiktok.com/@rideyeah" target="_blank" rel="noopener me" aria-label="RideYeah en TikTok">${TT}</a>
@@ -362,7 +362,7 @@ function footerHtml(es) {
       </div>
       <div class="foot-col"><h3>Services</h3><a href="airport-transfers.html">Airport transfers</a><a href="hourly-chauffeur.html">By the hour</a><a href="black-car-service.html">Black car service</a><a href="corporate-transportation.html">Corporate travel</a><a href="popular-routes.html">Popular routes</a></div>
       <div class="foot-col"><h3>Company</h3><a href="about.html">About us</a><a href="fleet.html">Our fleet</a><a href="careers.html">Careers</a><a href="https://rysistema.com/driver/signup" rel="noopener">Drive with us</a><a href="https://rysistema.com/partners/apply" rel="noopener">Partners</a><a href="/travel/">Travel guides</a><a href="faq.html">FAQ</a><a href="index.html#contact">Contact</a></div>
-      <div class="foot-col"><h3>Contact</h3><a href="tel:+18052851570">+1 (805) 285-1570</a><a href="mailto:info@rideyeah.com">info@rideyeah.com</a><a href="https://maps.google.com/?q=Los+Angeles,+CA" target="_blank" rel="noopener">Los Angeles, CA</a><div class="socials" style="margin-top:16px">
+      <div class="foot-col"><h3>Contact</h3><a href="tel:+18056606439">+1 (805) 660-6439</a><a href="mailto:info@rideyeah.com">info@rideyeah.com</a><a href="https://maps.google.com/?q=Los+Angeles,+CA" target="_blank" rel="noopener">Los Angeles, CA</a><div class="socials" style="margin-top:16px">
         <a href="https://www.facebook.com/RideYeah.LA" target="_blank" rel="noopener me" aria-label="RideYeah on Facebook">${FB}</a>
         <a href="https://www.instagram.com/rideyeah/" target="_blank" rel="noopener me" aria-label="RideYeah on Instagram">${IG}</a>
         <a href="https://www.tiktok.com/@rideyeah" target="_blank" rel="noopener me" aria-label="RideYeah on TikTok">${TT}</a>

@@ -123,7 +123,7 @@ Greet visiting clients and executives with a spotless black SUV and a discreet, 
 
 Recurring rides, last-minute pickups, airport runs — a RideYeah corporate account flexes to your needs with dedicated support and priority 24/7 booking. Tell us how your company moves; we'll build the plan around it.
 
-📲 Start today: rideyeah.com · (805) 285-1570`,
+📲 Start today: rideyeah.com · (805) 660-6439`,
     tags: '#RideYeah #CorporateTravel #BusinessTravel #ExecutiveTransport #FleetForBusiness #B2B #LosAngeles #OrangeCounty',
   },
 ];
@@ -162,7 +162,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:${INK}}
     <div style="margin-top:26px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
       <span style="font-size:29px;font-weight:800;color:${BONE};letter-spacing:.01em">Book at rideyeah.com</span>
       <span style="color:rgba(201,168,106,.6)">&#9670;</span>
-      <span style="font-size:27px;font-weight:700;color:${GOLDSOFT}">(805) 285-1570</span>
+      <span style="font-size:27px;font-weight:700;color:${GOLDSOFT}">(805) 660-6439</span>
     </div>
   </div>
 

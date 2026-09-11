@@ -96,14 +96,14 @@ const JOBS = [
     eyebrow: 'Match day &middot; Los Angeles 2026', h1Px: 80,
     h1: 'Get to every<br>game in style.',
     sub: 'Skip the traffic and parking chaos &mdash; your private black SUV drops you right at the gate.',
-    cta: 'Reserve your ride', phone: '(805) 285-1570', site: 'rideyeah.com',
+    cta: 'Reserve your ride', phone: '(805) 660-6439', site: 'rideyeah.com',
   },
   {
     name: 'post-worldcup-arrival', img: IMG2,
     eyebrow: 'Summer 2026 &middot; Los Angeles', h1Px: 80,
     h1: 'Travel like<br>the home team.',
     sub: 'Door-to-door chauffeur service for fans, families &amp; VIPs &mdash; LAX, hotels and stadiums.',
-    cta: 'Reserve your ride', phone: '(805) 285-1570', site: 'rideyeah.com',
+    cta: 'Reserve your ride', phone: '(805) 660-6439', site: 'rideyeah.com',
   },
 ];
 

@@ -137,7 +137,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:${INK}}
       <div style="flex:1">
         <div style="font-size:24px;font-weight:700;color:${GOLDSOFT};letter-spacing:.04em">Book your ride</div>
         <div class="serif" style="font-size:50px;font-weight:600;color:${BONE};margin-top:8px">rideyeah.com</div>
-        <div style="font-size:42px;font-weight:800;color:${BONE};margin-top:14px;letter-spacing:.01em">(805) 285-1570</div>
+        <div style="font-size:42px;font-weight:800;color:${BONE};margin-top:14px;letter-spacing:.01em">(805) 660-6439</div>
         <div style="font-size:23px;color:${MUTE};font-weight:600;margin-top:18px">Licensed &amp; Insured ${sep} Professional Chauffeurs ${sep} 24/7</div>
       </div>
     </div>

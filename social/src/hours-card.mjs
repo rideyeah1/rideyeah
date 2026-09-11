@@ -102,7 +102,7 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:${INK}}
       </div>
     </div>
     <div class="pad" style="background:linear-gradient(180deg,transparent,rgba(201,168,106,.06));border-top:1px solid rgba(201,168,106,.22);padding-top:34px;padding-bottom:40px;text-align:center">
-      <div style="font-size:40px;font-weight:800;color:${BONE};letter-spacing:.01em">(805) 285-1570</div>
+      <div style="font-size:40px;font-weight:800;color:${BONE};letter-spacing:.01em">(805) 660-6439</div>
       <div class="serif" style="font-size:36px;font-weight:600;color:${GOLDSOFT};margin-top:8px">rideyeah.com</div>
       <div style="font-size:22px;color:${MUTE};font-weight:600;margin-top:16px">By Reservation ${sep} Licensed &amp; Insured ${sep} Los Angeles &amp; Orange County</div>
     </div>
