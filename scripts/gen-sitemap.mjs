@@ -50,6 +50,7 @@ p.push(u(`${B}/faq`, "", "monthly", "0.6"));
 // que Google espera encontrar en un sitio que cobra, y su ausencia se lee como
 // sitio incompleto.
 p.push(u(`${B}/privacy`, "", "yearly", "0.3"));
+p.push(u(`${B}/delete-account`, "", "yearly", "0.2"));
 p.push(u(`${B}/terms`, "", "yearly", "0.3"));
 
 // Blog (EN-only, clean URLs)

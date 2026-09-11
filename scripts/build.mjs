@@ -63,6 +63,8 @@ for (const page of [
   // queda apuntando a un 404.
   "privacy.html",
   "terms.html",
+  // Borrado de cuenta: la exige Google Play (Data safety) para la app del chofer.
+  "delete-account.html",
   ...ROUTES.map((r) => `lax-to-${r.slug}.html`),
   ...CITIES.map((c) => `${c.slug}.html`),
 ]) {

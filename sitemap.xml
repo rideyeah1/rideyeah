@@ -387,6 +387,11 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://rideyeah.com/delete-account</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
     <loc>https://rideyeah.com/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
