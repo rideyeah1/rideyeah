@@ -33,7 +33,7 @@
         close: "Cerrar",
         ph: "Escribe tu mensaje…",
         fallback: "Tengo problemas para conectar ahora mismo. Reserva en línea, o llámanos/textea al " + PHONE_H + ".",
-        human: "Con gusto te conecto con nuestro equipo (24/7):",
+        human: "Si prefieres hablar con una persona del equipo:",
         call: "Llamar",
         sms: "Enviar SMS",
         chips: {
@@ -57,7 +57,7 @@
         close: "Close",
         ph: "Type your message…",
         fallback: "I’m having trouble connecting right now. Book online, or call/text us at " + PHONE_H + ".",
-        human: "Happy to connect you with our team (24/7):",
+        human: "If you’d rather talk to a person on our team:",
         call: "Call",
         sms: "Text us",
         chips: {
@@ -168,11 +168,20 @@
     });
     return nuevos;
   }
+  /* "Hablar con una persona" NO es una ficha a la vista (dueño, 12-sep-2026):
+   * si estuviera, todos la tocarían de entrada y Sofia no haría su trabajo.
+   * El servidor manda `ofrecerHumano` cuando hace falta (el cliente lo pidió y
+   * Sofia avisó a la oficina, Sofia falló, la oficina tomó el chat, o la
+   * conversación se alargó) y entonces se enseña, chiquito y una sola vez. */
+  var humanoOfrecido = false;
   function humanActions() {
+    if (humanoOfrecido) return;
+    humanoOfrecido = true;
+    bubble(T.human, "bot");
     var wrap = document.createElement("div");
     wrap.className = "chat-acts";
     var a1 = document.createElement("a");
-    a1.className = "chat-act";
+    a1.className = "chat-act ghost";
     a1.href = "tel:" + PHONE;
     a1.textContent = T.call;
     var a2 = document.createElement("a");
@@ -296,6 +305,7 @@
         });
         var n = pintar(d.mensajes);
         if (d.aviso && !n) bubble(d.aviso, "bot");
+        if (d.ofrecerHumano) humanActions();
         recordar();
       })
       .catch(function () {
@@ -330,14 +340,6 @@
       k: "airport",
       fn: function () {
         decir(T.say.airport);
-      },
-    },
-    {
-      k: "human",
-      fn: function () {
-        decir(T.say.human);
-        bubble(T.human, "bot");
-        humanActions();
       },
     },
     {
