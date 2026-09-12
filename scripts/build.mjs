@@ -210,7 +210,8 @@ const inyectarPixel = (html) => {
 // es uno solo y habla con Sofia (rysistema.com), que cotiza con el sistema.
 const CHAT_TAG = '<script src="/assets/chat.js" defer></script>';
 const inyectarChat = (html) => {
-  if (html.includes('assets/chat.js')) return html;
+  // Se mira la ETIQUETA, no el nombre: las portadas mencionan chat.js en un comentario.
+  if (html.includes('src="/assets/chat.js')) return html;
   return /<\/body>/i.test(html) ? html.replace(/<\/body>/i, `${CHAT_TAG}\n</body>`) : html + CHAT_TAG;
 };
 
