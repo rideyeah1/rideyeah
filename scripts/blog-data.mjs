@@ -70,7 +70,7 @@ const AUTHORED = [
       },
       { h2: "What it costs — and what's included" },
       {
-        p: 'RideYeah runs <strong>LAX ⇄ Thousand Oaks as a fixed $219.99 fare</strong> in a full-size luxury black SUV. "Fixed" means all-in: tolls and gratuity are already included, and there\'s no surge pricing if your flight lands at 6 p.m. on a Friday. You see the total before you reserve — never a metered surprise at the curb.',
+        p: 'RideYeah runs <strong>LAX ⇄ Thousand Oaks as a fixed $219.99 fare</strong> in a full-size luxury black SUV. "Fixed" means all-in: the online service fee, tolls and airport fees are already included (gratuity is optional), and there\'s no surge pricing if your flight lands at 6 p.m. on a Friday. You see the total before you reserve — never a metered surprise at the curb.',
       },
       {
         p: 'See the full route details and lock your price on the <a href="/lax-to-thousand-oaks.html">LAX ⇄ Thousand Oaks page</a>, or compare every Southern California route on our <a href="/popular-routes.html">fixed-fare routes</a> overview.',
@@ -108,7 +108,7 @@ const AUTHORED = [
     faq: [
       {
         q: "How much is a car from LAX to Thousand Oaks?",
-        a: "RideYeah's fixed fare for LAX ⇄ Thousand Oaks starts at $219.99 in a luxury black SUV — all-inclusive, with tolls and gratuity included and no surge pricing. Fares may change without notice; use the booking search for an exact, instant quote.",
+        a: "RideYeah's fixed fare for LAX ⇄ Thousand Oaks starts at $219.99 in a luxury black SUV — all-inclusive, with the online service fee, tolls and airport fees included, gratuity optional, and no surge pricing. Fares may change without notice; use the booking search for an exact, instant quote.",
       },
       {
         q: "How long does it take to drive from LAX to Thousand Oaks?",
@@ -164,7 +164,7 @@ const AUTHORED = [
       },
       { h2: "What LAX to Calabasas costs" },
       {
-        p: 'RideYeah runs <strong>LAX ⇄ Calabasas as a fixed $179.99 fare</strong> in a full-size luxury black SUV — all-in, tolls and gratuity included, with no surge. You approve the total before you book, so there\'s never a metered surprise after a long flight. Compare it with every other route on our <a href="/popular-routes.html">fixed-fare routes</a> page.',
+        p: 'RideYeah runs <strong>LAX ⇄ Calabasas as a fixed $179.99 fare</strong> in a full-size luxury black SUV — all-in, online service fee, tolls and airport fees included, gratuity optional, with no surge. You approve the total before you book, so there\'s never a metered surprise after a long flight. Compare it with every other route on our <a href="/popular-routes.html">fixed-fare routes</a> page.',
       },
       {
         quote:
@@ -187,7 +187,7 @@ const AUTHORED = [
     faq: [
       {
         q: "How much is a car service from LAX to Calabasas?",
-        a: "RideYeah's fixed fare for LAX ⇄ Calabasas starts at $179.99 in a luxury black SUV — all-inclusive, with tolls and gratuity included and no surge pricing. Fares may change without notice; use the booking search for an exact, instant quote.",
+        a: "RideYeah's fixed fare for LAX ⇄ Calabasas starts at $179.99 in a luxury black SUV — all-inclusive, with the online service fee, tolls and airport fees included, gratuity optional, and no surge pricing. Fares may change without notice; use the booking search for an exact, instant quote.",
       },
       {
         q: "How long is the drive from LAX to Calabasas?",

@@ -63,6 +63,8 @@ for (const page of [
   // queda apuntando a un 404.
   "privacy.html",
   "terms.html",
+  // Declaración de accesibilidad (ADA/Unruh), enlazada desde el pie (12-sep-2026).
+  "accessibility.html",
   // Borrado de cuenta: la exige Google Play (Data safety) para la app del chofer.
   "delete-account.html",
   ...ROUTES.map((r) => `lax-to-${r.slug}.html`),
@@ -187,7 +189,7 @@ const PIXEL_TAG =
   `<!-- Meta Pixel -->\n` +
   `<script>\n` +
   `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');\n` +
-  `fbq('init','${PIXEL_ID}');\n` +
+  `window.ryPixel=1;fbq('init','${PIXEL_ID}');\n` +
   `fbq('track','PageView');\n` +
   `/* Lead on call/text intent */\n` +
   `document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('a[href^="tel:"],a[href^="sms:"]');if(t&&window.fbq)fbq('track','Lead',{content_name:'call'});});\n` +
@@ -215,8 +217,38 @@ const inyectarChat = (html) => {
   return /<\/body>/i.test(html) ? html.replace(/<\/body>/i, `${CHAT_TAG}\n</body>`) : html + CHAT_TAG;
 };
 
-/** Las dos etiquetas de medición y el chat, en el orden en que van. */
-const inyectarMedicion = (html) => inyectarChat(inyectarPixel(inyectarGA4(html)));
+// --- Consentimiento de cookies (CIPA / CalOPPA, 12-sep-2026) ---------------
+// GA4 y el Pixel NO deben correr hasta que el visitante acepte. Aquí, en el
+// build, se dejan NEUTRALIZADAS todas las etiquetas que los cargan —las
+// inyectadas arriba y las escritas a mano en las dos portadas—: pasan a
+// type="text/plain" data-consent="ads" (y data-src si tenían src), que el
+// navegador no ejecuta. assets/consent.js va en el <head> ANTES que ellas:
+// si hay decisión "all" las reactiva (clon en el mismo sitio, mismo orden);
+// si no hay decisión, muestra el banner y activa solo al aceptar. El Pixel que
+// vive en assets/site.js se enciende solo cuando window.ryConsent === "all".
+// La imagen <noscript> del Pixel se quita: sin JS no hay forma de consentir.
+const CONSENT_TAG = '<script src="/assets/consent.js"></script>';
+const SCRIPT_INLINE = (marca) =>
+  new RegExp("<script(\\s[^>]*)?>((?:(?!<\\/script>)[\\s\\S])*?" + marca + "(?:(?!<\\/script>)[\\s\\S])*?)<\\/script>", "g");
+const neutralizarInline = (html, marca) =>
+  html.replace(SCRIPT_INLINE(marca), (todo, attrs, cuerpo) =>
+    /data-consent=/.test(attrs || "") ? todo : `<script type="text/plain" data-consent="ads"${attrs || ""}>${cuerpo}</script>`);
+const neutralizarSrc = (html, host) =>
+  html.replace(new RegExp('<script\\b([^>]*?)\\ssrc="(https://' + host + '[^"]*)"([^>]*)>', "g"), (todo, a, src, b) =>
+    /data-consent=/.test(a + b) ? todo : `<script type="text/plain" data-consent="ads"${a} data-src="${src}"${b}>`);
+const aplicarConsentimiento = (html) => {
+  html = neutralizarSrc(html, "www\\.googletagmanager\\.com/gtag/js");
+  html = neutralizarSrc(html, "connect\\.facebook\\.net/");
+  html = neutralizarInline(html, "gtag\\('config'");
+  html = neutralizarInline(html, "fbq\\('init'");
+  html = html.replace(/<noscript><img[^>]*facebook\.com\/tr\?[^>]*><\/noscript>\n?/g, "");
+  if (html.includes('src="/assets/consent.js')) return html;
+  if (/<meta[^>]+charset[^>]*>/i.test(html)) return html.replace(/<meta[^>]+charset[^>]*>/i, (m) => `${m}\n${CONSENT_TAG}`);
+  return html.replace(/<head(\s[^>]*)?>/i, (m) => `${m}\n${CONSENT_TAG}`);
+};
+
+/** Las dos etiquetas de medición (neutralizadas hasta el consentimiento) y el chat, en el orden en que van. */
+const inyectarMedicion = (html) => inyectarChat(aplicarConsentimiento(inyectarPixel(inyectarGA4(html))));
 
 // --- Clean URLs ---------------------------------------------------------
 // Cloudflare Pages serves extension-less URLs (and 308-redirects *.html → it).
@@ -268,10 +300,13 @@ const cssV = existsSync(cssPath) ? hashOf(cssPath) : "";
 const jsV = existsSync(jsPath) ? hashOf(jsPath) : "";
 const chatPath = join(DIST, "assets", "chat.js");
 const chatV = existsSync(chatPath) ? hashOf(chatPath) : "";
+const consentPath = join(DIST, "assets", "consent.js");
+const consentV = existsSync(consentPath) ? hashOf(consentPath) : "";
 const bust = (s) => {
   if (cssV) s = s.split('assets/site.css"').join(`assets/site.css?v=${cssV}"`);
   if (jsV) s = s.split('assets/site.js"').join(`assets/site.js?v=${jsV}"`);
   if (chatV) s = s.split('assets/chat.js"').join(`assets/chat.js?v=${chatV}"`);
+  if (consentV) s = s.split('assets/consent.js"').join(`assets/consent.js?v=${consentV}"`);
   return s;
 };
 const bustDir = (dir) => {

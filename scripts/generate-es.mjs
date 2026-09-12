@@ -186,8 +186,9 @@ rep('<div class="rl">City-to-city · Santa Barbara</div>', '<div class="rl">Entr
 
 /* ---------- FAQ (visible + JSON-LD) ---------- */
 rep("How does pricing work?", "¿Cómo funcionan las tarifas?");
-rep("Every ride is a fixed, all-in price quoted before you book — no surge pricing, no meter, no surprises. Tolls and standard gratuity are included in the quote you see at checkout.",
-    "Cada viaje tiene una tarifa fija y total cotizada antes de reservar — sin recargos por demanda, sin taxímetro, sin sorpresas. Peajes y propina estándar van incluidos en la tarifa que ves al reservar.");
+rep("All-inclusive pricing: the price you see is the total you pay (online service fee, tolls and airport fees included). Gratuity optional.", "Precio todo incluido: el precio que ves es el total que pagas (tarifa de servicio en línea, peajes y cuotas de aeropuerto incluidos). Propina opcional.");
+rep("Every ride is a fixed, all-in price quoted before you book — no surge pricing, no meter, no surprises. The online service fee, tolls and airport fees are included in the quote you see at checkout; gratuity is optional.",
+    "Cada viaje tiene una tarifa fija y total cotizada antes de reservar — sin recargos por demanda, sin taxímetro, sin sorpresas. Tarifa de servicio en línea, peajes y cuotas de aeropuerto van incluidos en la tarifa que ves al reservar.");
 rep("What happens if my flight is delayed?", "¿Qué pasa si mi vuelo se retrasa?");
 rep("We track your flight in real time and adjust the pickup automatically. For delays, your chauffeur will be there when you land — at no extra charge. Complimentary wait time is included on airport pickups.",
     "Monitoreamos tu vuelo en tiempo real y ajustamos la recogida automáticamente. Si hay retraso, tu chofer estará ahí cuando aterrices — sin cargo extra. El tiempo de espera de cortesía está incluido en las recogidas de aeropuerto.");
@@ -234,6 +235,9 @@ rep(">Popular routes</a>", ">Rutas populares</a>");
 rep(">About us</a>", ">Nosotros</a>");
 rep(">Our fleet</a>", ">Nuestra flota</a>");
 rep("All rights reserved.", "Todos los derechos reservados.");
+rep(">Privacy Policy</a>", ">Política de privacidad</a>");
+rep(">Terms of Service</a>", ">Términos de servicio</a>");
+rep(">Accessibility</a>", ">Accesibilidad</a>");
 rep(" Message</a>", " Mensaje</a>");
 rep('class="sc-book">Get Your Fixed Quote</button>', 'class="sc-book">Obtén tu tarifa fija</button>');
 

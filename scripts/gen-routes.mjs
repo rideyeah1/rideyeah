@@ -10,6 +10,10 @@
 import { writeFileSync } from "node:fs";
 import { ROUTES, DISCLAIMER_EN, DISCLAIMER_ES } from "./routes-data.mjs";
 
+// Bajo cada tabla/lista de precios (12-sep-2026): el precio mostrado es el total.
+const ALLIN_EN = "All-inclusive pricing: the price you see is the total you pay (online service fee, tolls and airport fees included). Gratuity optional.";
+const ALLIN_ES = "Precio todo incluido: el precio que ves es el total que pagas (tarifa de servicio en línea, peajes y cuotas de aeropuerto incluidos). Propina opcional.";
+
 const LOGO = `<svg class="brand-logo" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="8" y="8" width="84" height="84" rx="22" stroke="var(--bone)" stroke-width="4"/><rect x="18" y="18" width="64" height="64" rx="14" fill="var(--bone)"/><path d="M 37 68 V 50 H 50" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 37 32 L 63 68" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 37 32 H 52 C 61 32 64 38 64 45 C 64 52 58 50 50 50" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const WORD = `<span style="display:flex;align-items:center;text-transform:none;letter-spacing:0.18em;"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="height:16px;width:16px;margin-right:2px;stroke-width:2.5;"><path d="M 6 22 V 12 H 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 6 2 L 18 22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 6 2 H 12 C 17 2 19 5 19 8 C 19 11 16 12 12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>ideYeah</span>`;
 const A = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>`;
@@ -97,7 +101,8 @@ function page(r, lang) {
       </div></div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 RideYeah. Todos los derechos reservados.</span>
+      <span>© 2026 R Y Quiroz Luxury LLC dba RideYeah · TCP 41018-B. Todos los derechos reservados.</span>
+      <span class="foot-legal"><a href="/privacy.html">Política de privacidad</a> · <a href="/terms.html">Términos de servicio</a> · <a href="/accessibility.html">Accesibilidad</a></span>
     </div>
   </div>
 </footer>
@@ -118,7 +123,8 @@ function page(r, lang) {
       </div></div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 RideYeah. All rights reserved.</span>
+      <span>© 2026 R Y Quiroz Luxury LLC dba RideYeah · TCP 41018-B. All rights reserved.</span>
+      <span class="foot-legal"><a href="/privacy.html">Privacy Policy</a> · <a href="/terms.html">Terms of Service</a> · <a href="/accessibility.html">Accessibility</a></span>
     </div>
   </div>
 </footer>
@@ -138,7 +144,7 @@ function page(r, lang) {
         q1: `¿Cuánto dura el trayecto entre LAX y ${r.city}?`,
         a1: `${r.driveLongEs}. Tu chofer monitorea las condiciones en vivo y elige la ruta más rápida.`,
         q2: `¿Cuánto cuesta el servicio de auto de LAX a ${r.city}?`,
-        a2: `Nuestra tarifa fija comienza en $${r.price} en una SUV negra de lujo — todo incluido, con peajes y propina, sin recargos por demanda. Las tarifas pueden cambiar sin previo aviso; usa el buscador de viajes para una cotización exacta al instante.`,
+        a2: `Nuestra tarifa fija comienza en $${r.price} en una SUV negra de lujo — todo incluido, con tarifa de servicio en línea, peajes y cuotas de aeropuerto, propina opcional, sin recargos por demanda. Las tarifas pueden cambiar sin previo aviso; usa el buscador de viajes para una cotización exacta al instante.`,
         q3: `¿Ofrecen recibimiento personal en LAX?`,
         a3: `Sí. Tu chofer sigue tu vuelo y te recibe en la acera o en llegadas, te ayuda con el equipaje y te acompaña a la SUV negra de lujo.`,
         q4: `¿La tarifa de LAX a ${r.city} es fija?`,
@@ -176,7 +182,7 @@ function page(r, lang) {
         q1: `How long is the drive between LAX and ${r.city}?`,
         a1: `${r.driveLong}. Your chauffeur monitors live conditions and chooses the fastest route.`,
         q2: `How much is car service from LAX to ${r.city}?`,
-        a2: `Our fixed fare starts at $${r.price} in a luxury black SUV — all-in, with tolls and gratuity included and no surge pricing. Fares may change without notice; use the booking search for an exact, instant quote.`,
+        a2: `Our fixed fare starts at $${r.price} in a luxury black SUV — all-in, with the online service fee, tolls and airport fees included, gratuity optional, and no surge pricing. Fares may change without notice; use the booking search for an exact, instant quote.`,
         q3: `Do you offer meet-and-greet at LAX?`,
         a3: `Yes. Your chauffeur tracks your flight and meets you at the curb or in arrivals, helps with luggage and walks you to the luxury black SUV.`,
         q4: `Is there a flat-rate car service from LAX to ${r.city}?`,
@@ -302,6 +308,7 @@ ${menu}
         <div class="stat reveal"><div class="n">${r.miles}</div><div class="l">${route}</div></div>
       </div>
       <p style="text-align:center;font-size:12px;color:var(--mute-2);max-width:680px;margin:22px auto 0;line-height:1.5">${t.disc}</p>
+      <p style="text-align:center;font-size:12px;color:var(--mute-2);max-width:680px;margin:8px auto 0;line-height:1.5">${es ? ALLIN_ES : ALLIN_EN}</p>
     </div>
   </section>
 
@@ -371,7 +378,11 @@ function footerHtml(es) {
         <a href="https://www.instagram.com/rideyeah/" target="_blank" rel="noopener me" aria-label="RideYeah on Instagram">${IG}</a>
         <a href="https://www.tiktok.com/@rideyeah" target="_blank" rel="noopener me" aria-label="RideYeah on TikTok">${TT}</a>
       </div></div>`;
-  const rights = es ? "Todos los derechos reservados." : "All rights reserved.";
+  const legal = es
+    ? `<span>© 2026 R Y Quiroz Luxury LLC dba RideYeah · TCP 41018-B. Todos los derechos reservados.</span>
+      <span class="foot-legal"><a href="/privacy.html">Política de privacidad</a> · <a href="/terms.html">Términos de servicio</a> · <a href="/accessibility.html">Accesibilidad</a></span>`
+    : `<span>© 2026 R Y Quiroz Luxury LLC dba RideYeah · TCP 41018-B. All rights reserved.</span>
+      <span class="foot-legal"><a href="/privacy.html">Privacy Policy</a> · <a href="/terms.html">Terms of Service</a> · <a href="/accessibility.html">Accessibility</a></span>`;
   return `<footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -380,7 +391,7 @@ function footerHtml(es) {
         ${cols}
     </div>
     <div class="foot-bottom">
-      <span>© 2026 RideYeah. ${rights}</span>
+      ${legal}
     </div>
   </div>
 </footer>
@@ -552,6 +563,7 @@ ${menu}
       <div class="grid-3">
 ${cards}
       </div>
+      <p style="font-size:12px;color:var(--mute-2);margin-top:8px;line-height:1.5">${es ? ALLIN_ES : ALLIN_EN}</p>
       <p style="font-size:12px;color:var(--mute-2);margin-top:22px;line-height:1.5">${t.disc}</p>
     </div>
   </section>

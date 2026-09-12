@@ -61,7 +61,8 @@ const footer = `<footer>
       </div></div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 RideYeah. All rights reserved.</span>
+      <span>© 2026 R Y Quiroz Luxury LLC dba RideYeah · TCP 41018-B. All rights reserved.</span>
+      <span class="foot-legal"><a href="/privacy.html">Privacy Policy</a> · <a href="/terms.html">Terms of Service</a> · <a href="/accessibility.html">Accessibility</a></span>
     </div>
   </div>
 </footer>
@@ -128,8 +129,8 @@ function page(c) {
     : `For flights, we run private <a href="airport-transfers.html">airport transfers</a> to and from ${c.airports}, with live flight tracking and meet-and-greet.`;
 
   const q1a = route
-    ? `Pricing is fixed and all-in (tolls and gratuity included, no surge). Point-to-point rides are quoted before you book, and the fixed LAX ⇄ ${c.city} airport fare starts at $${route.price}. Fares may change without notice — use the booking search for an exact, instant quote.`
-    : `Pricing is fixed and all-in — tolls and gratuity included, with no surge. You approve the total before you book; enter your trip in the booking search for an exact, instant quote.`;
+    ? `Pricing is fixed and all-in (online service fee, tolls and airport fees included; gratuity optional; no surge). Point-to-point rides are quoted before you book, and the fixed LAX ⇄ ${c.city} airport fare starts at $${route.price}. Fares may change without notice — use the booking search for an exact, instant quote.`
+    : `Pricing is fixed and all-in — online service fee, tolls and airport fees included, gratuity optional, with no surge. You approve the total before you book; enter your trip in the booking search for an exact, instant quote.`;
 
   const ld = [
     {

@@ -1,7 +1,12 @@
 /* RideYeah · shared subpage behavior (nav, mobile menu, scroll reveal) */
 (function () {
-  // Meta Pixel — mirrors the chat-widget injection pattern; guarded against double-init.
-  if (!window.ryPixel) {
+  // Meta Pixel — guarded against double-init, and (12-sep-2026) it only runs
+  // with cookie consent: assets/consent.js sets window.ryConsent ("all" |
+  // "essential" | null) and fires "ry-consent" when the visitor decides.
+  // Every fbq('track', …) call in this file is guarded with window.fbq so it
+  // is harmless while the pixel is off.
+  var ryInitPixel = function () {
+    if (window.ryPixel) return;
     window.ryPixel = 1;
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '449193533104630');
@@ -10,7 +15,11 @@
       var t = e.target.closest && e.target.closest('a[href^="tel:"],a[href^="sms:"]');
       if (t && window.fbq) fbq('track', 'Lead', { content_name: 'call' });
     });
-  }
+  };
+  if (window.ryConsent === "all") ryInitPixel();
+  window.addEventListener("ry-consent", function (e) {
+    if ((e && e.detail) === "all" || window.ryConsent === "all") ryInitPixel();
+  });
   // nav scroll state
   var nav = document.getElementById("nav");
   if (nav) {
