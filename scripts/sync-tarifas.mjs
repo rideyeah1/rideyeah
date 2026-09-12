@@ -10,7 +10,6 @@
  *   1. scripts/routes-data.mjs   (precio de cada página LAX ⇄ ciudad; de ahí
  *      salen las páginas EN + ES, las páginas de ciudad y el sitemap)
  *   2. scripts/fares-data.mjs    (EXTRA: ciudades sin página propia)
- *   3. functions/api/chat.js     (la línea PRICING del asistente + mínimo de horas)
  *   4. rideyeah-home.html        (viñetas del asistente EN+ES y la rejilla de rutas)
  *   5. popular-routes.html       (la rejilla)
  *   6. faq.html                  (la respuesta de Malibu)
@@ -162,15 +161,7 @@ const nuevoSemicolon = CHAT_NUEVO.map((f) => `${f.city} $${f.price}`).join("; ")
 const nuevoBullets = CHAT_NUEVO.map((f) => `\\n• ${f.city} — $${f.price}`).join("");
 const horasMin = Number(datos.porHora.horasMinimas) || 2;
 
-// ── 4. functions/api/chat.js ─────────────────────────────────────────────────
-{
-  const p = "functions/api/chat.js";
-  let s = read(p);
-  const antes = s;
-  s = s.split(viejoSemicolon).join(nuevoSemicolon);
-  s = s.replace(/typical \d+-hour minimum/g, `typical ${horasMin}-hour minimum`);
-  write(p, antes, s);
-}
+// ── 4. (el chat ya no lleva precios: Sofia cotiza con el sistema, 12-sep-2026) ──
 
 // ── 5. rideyeah-home.html: viñetas del asistente (EN + ES) y la rejilla ─────
 function reemplazarRejilla(html) {
@@ -185,7 +176,6 @@ function reemplazarRejilla(html) {
   const p = "rideyeah-home.html";
   let s = read(p);
   const antes = s;
-  s = s.split(viejoBullets).join(nuevoBullets);
   s = reemplazarRejilla(s);
   write(p, antes, s);
 }

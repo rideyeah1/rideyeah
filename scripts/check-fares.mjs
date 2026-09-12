@@ -3,35 +3,24 @@
  * ---------------------------------
  * Runs at the start of the build. scripts/fares-data.mjs is the single source of
  * truth for fixed fares; this asserts every place that shows a price still
- * matches it — the chat assistant KB (functions/api/chat.js), the inline copy in
- * rideyeah-home.html (EN + ES), the home "Popular routes" grid, popular-routes.html
+ * matches it — the home "Popular routes" grid, popular-routes.html
  * and the Malibu answer in faq.html. If anything drifts, the build FAILS with the
  * exact file + city, so a price change can never go live half-applied.
  */
 import { readFileSync } from "node:fs";
-import { CHAT_FARES, faresSemicolon, faresBullets, FARE_OF } from "./fares-data.mjs";
+import { CHAT_FARES, FARE_OF } from "./fares-data.mjs";
 import { ROUTES } from "./routes-data.mjs";
 
 const read = (p) => readFileSync(p, "utf8");
 const errors = [];
 
-// 1) Chat assistant backend KB (functions/api/chat.js) — exact PRICING line.
-if (!read("functions/api/chat.js").includes(faresSemicolon())) {
-  errors.push(`functions/api/chat.js PRICING line is stale.\n      expected: ${faresSemicolon()}`);
-}
-
-// 2) Home inline chat KB bullets — language-neutral, must appear in BOTH EN & ES copies.
-// The home stores the KB inside a JS string literal, so newlines are the escaped
-// two-char sequence "\n" rather than real line breaks — compare against that form.
-const home = read("rideyeah-home.html");
-const bullets = faresBullets().replace(/\n/g, "\\n");
-const found = home.split(bullets).length - 1;
-if (found < 2) {
-  errors.push(`rideyeah-home.html inline chat KB fares stale (found ${found}/2 EN+ES blocks).`);
-}
+// 1-2) El chat ya no lleva precios escritos: Sofia (rysistema.com) cotiza con el
+//      sistema. Se quitaron las comprobaciones de functions/api/chat.js y de las
+//      viñetas inline de la portada (12-sep-2026).
 
 // 3) Displayed route prices (home grid + popular-routes.html) must match routes-data.
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const home = read("rideyeah-home.html");
 const popular = read("popular-routes.html");
 for (const r of ROUTES) {
   for (const [name, html] of [
@@ -92,5 +81,5 @@ if (errors.length) {
   process.exit(1);
 }
 console.log(
-  `✓ Fares consistent (chat KB, home, popular-routes, FAQ) · ${CHAT_FARES.length} cities`
+  `✓ Fares consistent (home, popular-routes, FAQ) · ${CHAT_FARES.length} cities`
 );

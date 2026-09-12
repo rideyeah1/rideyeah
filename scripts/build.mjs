@@ -203,8 +203,19 @@ const inyectarPixel = (html) => {
   return html.replace(/<head(\s[^>]*)?>/i, (m) => `${m}\n${PIXEL_TAG}`);
 };
 
-/** Las dos etiquetas de medición, en el orden en que van. */
-const inyectarMedicion = (html) => inyectarPixel(inyectarGA4(html));
+// --- El chat con Sofia ----------------------------------------------------
+// assets/chat.js (widget + su CSS) va antes de </body> en TODAS las páginas,
+// /travel incluido: antes el widget vivía en site.js (58 páginas) y copiado a
+// mano en las dos portadas, con precios escritos que se quedaban viejos. Ahora
+// es uno solo y habla con Sofia (rysistema.com), que cotiza con el sistema.
+const CHAT_TAG = '<script src="/assets/chat.js" defer></script>';
+const inyectarChat = (html) => {
+  if (html.includes('assets/chat.js')) return html;
+  return /<\/body>/i.test(html) ? html.replace(/<\/body>/i, `${CHAT_TAG}\n</body>`) : html + CHAT_TAG;
+};
+
+/** Las dos etiquetas de medición y el chat, en el orden en que van. */
+const inyectarMedicion = (html) => inyectarChat(inyectarPixel(inyectarGA4(html)));
 
 // --- Clean URLs ---------------------------------------------------------
 // Cloudflare Pages serves extension-less URLs (and 308-redirects *.html → it).
@@ -254,9 +265,12 @@ const cssPath = join(DIST, "assets", "site.css");
 const jsPath = join(DIST, "assets", "site.js");
 const cssV = existsSync(cssPath) ? hashOf(cssPath) : "";
 const jsV = existsSync(jsPath) ? hashOf(jsPath) : "";
+const chatPath = join(DIST, "assets", "chat.js");
+const chatV = existsSync(chatPath) ? hashOf(chatPath) : "";
 const bust = (s) => {
   if (cssV) s = s.split('assets/site.css"').join(`assets/site.css?v=${cssV}"`);
   if (jsV) s = s.split('assets/site.js"').join(`assets/site.js?v=${jsV}"`);
+  if (chatV) s = s.split('assets/chat.js"').join(`assets/chat.js?v=${chatV}"`);
   return s;
 };
 const bustDir = (dir) => {
