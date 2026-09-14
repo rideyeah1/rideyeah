@@ -90,89 +90,37 @@
   }
 })();
 
-/* ===== Booking (Moovs) + conversion UI for subpages ===== */
+/* ===== Booking (rysistema.com/book) + conversion UI for subpages ===== */
 (function () {
-  // Moovs request flow embedded on-site (modal). The home hero form passes a
-  // prefilled `?trip=<JSON>` URL; subpage CTAs open the plain form.
-  var MOOVS_REQUEST = "https://customer.moovs.app/ry-quiroz-luxury-llc/request/new";
+  // Our own booking portal. Subpage CTAs open its step 1 (no prefill); the home
+  // hero form builds the prefilled URL itself. Moovs se retiró tras la auditoría
+  // 13-sep-2026 (RY-120). The old <iframe> modal is gone: the portal refuses to
+  // be framed (X-Frame-Options: DENY), so the guest goes there in the same tab.
+  var BOOK_URL = "https://rysistema.com/book";
 
-  if (!window.goMoovs) {
-    var es = (document.documentElement.lang || "").toLowerCase().slice(0, 2) === "es";
-    var T = es
-      ? { title: "Reserva tu viaje", tab: "Abrir en pestaña nueva", close: "Cerrar" }
-      : { title: "Book your ride", tab: "Open in new tab", close: "Close" };
-    var modal,
-      frame,
-      newTab,
-      lastFocus,
-      lastUrl = "";
-
-    function build() {
-      modal = document.createElement("div");
-      modal.className = "bk-modal";
-      modal.setAttribute("role", "dialog");
-      modal.setAttribute("aria-modal", "true");
-      modal.setAttribute("aria-label", T.title);
-      modal.innerHTML =
-        '<div class="bk-modal-backdrop"></div>' +
-        '<div class="bk-modal-panel">' +
-        '<div class="bk-modal-head">' +
-        '<span class="bk-modal-title">' +
-        T.title +
-        "</span>" +
-        '<a class="bk-modal-new" target="_blank" rel="noopener">' +
-        T.tab +
-        ' <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>' +
-        '<button type="button" class="bk-modal-close" aria-label="' +
-        T.close +
-        '">' +
-        '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>' +
-        "</div>" +
-        '<div class="bk-modal-body"><iframe title="' +
-        T.title +
-        '" loading="lazy"></iframe></div>' +
-        "</div>";
-      frame = modal.querySelector("iframe");
-      newTab = modal.querySelector(".bk-modal-new");
-      modal.querySelector(".bk-modal-close").addEventListener("click", close);
-      modal.querySelector(".bk-modal-backdrop").addEventListener("click", close);
-      document.body.appendChild(modal);
-    }
-
-    function close() {
-      if (!modal) return;
-      modal.classList.remove("open");
-      document.body.style.overflow = "";
-      if (lastFocus && lastFocus.focus) lastFocus.focus();
-    }
-
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && modal && modal.classList.contains("open")) close();
-    });
-
-    window.goMoovs = function (url) {
+  if (!window.goBook) {
+    window.goBook = function (url) {
+      var target = url || BOOK_URL;
       if (window.fbq) fbq('track', 'Lead', { content_name: 'booking' });
-      var target = url || MOOVS_REQUEST;
-      lastFocus = document.activeElement;
-      if (!modal) build();
-      if (target !== lastUrl) {
-        frame.src = target;
-        lastUrl = target;
-      }
-      newTab.href = target;
-      modal.classList.add("open");
-      document.body.style.overflow = "hidden";
-      modal.querySelector(".bk-modal-close").focus();
+      var sent = false;
+      var go = function () { if (sent) return; sent = true; window.location.href = target; };
+      // GA4 enhanced measurement only sees <a> clicks, not location.href: without
+      // this event the move to our own domain would look like nobody books.
+      if (typeof window.gtag === "function") {
+        gtag("event", "book_click", { destination: target.split("?")[0], event_callback: go });
+        setTimeout(go, 300);
+      } else go();
     };
+    window.goMoovs = window.goBook; // alias for anything still calling the old name
   }
 
   // Every booking CTA links to a "#book" anchor (#book, /#book, /es/#book,
-  // index.html#book). Intercept those clicks and open the booking modal.
+  // index.html#book). Intercept those clicks and send the guest to the portal.
   document.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest('a[href$="#book"]');
     if (a) {
       e.preventDefault();
-      window.goMoovs();
+      window.goBook();
     }
   });
 

@@ -19,7 +19,7 @@ export const ROUTES = [
     hero: "airport_pickup", media: "escalade-luxury-suv-exterior-rear",
   },
   {
-    slug: "long-beach", city: "Long Beach", price: 206.27,
+    slug: "long-beach", city: "Long Beach", price: 185.67,
     min: 30, miles: "~22 mi", driveShort: "about 30 minutes",
     driveLong: "Roughly 30 minutes in typical traffic (about 22 miles)",
     driveLongEs: "Alrededor de 30 minutos con tráfico normal (unas 22 millas)",
@@ -28,7 +28,7 @@ export const ROUTES = [
     hero: "hero_suburban", media: "fleet_suburban",
   },
   {
-    slug: "pasadena", city: "Pasadena", price: 206.27,
+    slug: "pasadena", city: "Pasadena", price: 185.67,
     min: 40, miles: "~28 mi", driveShort: "about 40 minutes",
     driveLong: "Roughly 40 minutes in typical traffic (about 28 miles)",
     driveLongEs: "Alrededor de 40 minutos con tráfico normal (unas 28 millas)",

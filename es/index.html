@@ -579,7 +579,7 @@ footer{background:var(--ink-2);border-top:1px solid var(--line);padding:70px 0 3
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','449193533104630');
 fbq('track','PageView');
-/* Lead on call/text intent (booking Lead fires inside goMoovs below) */
+/* Lead on call/text intent (booking Lead fires inside goBook below) */
 document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('a[href^="tel:"],a[href^="sms:"]');if(t&&window.fbq)fbq('track','Lead',{content_name:'call'});});
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=449193533104630&ev=PageView&noscript=1" alt=""/></noscript>
@@ -678,7 +678,7 @@ document.addEventListener('click',function(e){var t=e.target.closest&&e.target.c
         </div>
         <div class="bk-field"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><input id="fld-pax" name="passengers" type="number" min="1" max="14" value="1" inputmode="numeric" aria-label="Pasajeros" placeholder="Pasajeros"></div>
         <button type="submit" class="btn btn-gold bk-submit">Reserva tu viaje de lujo <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
-        <div class="bk-note"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Reserva segura <b>con tecnología Moovs</b></div>
+        <div class="bk-note"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Reserva segura · <b>precio fijo antes de pagar</b></div>
       </form>
     </div>
   </div>
@@ -822,18 +822,18 @@ document.addEventListener('click',function(e){var t=e.target.closest&&e.target.c
       <h2>Tarifas fijas en las<br>que puedes confiar.</h2>
     </div>
     <div class="routes-grid">
-      <a class="route reveal" href="/es/lax-a-downtown-la.html"><div><div class="rt">LAX ⇄ Downtown LA</div><div class="rp">~25 min · SUV negra de lujo</div></div><div class="ra">$159.99</div></a>
-      <a class="route reveal" href="/es/lax-a-long-beach.html"><div><div class="rt">LAX ⇄ Long Beach</div><div class="rp">~30 min · SUV negra de lujo</div></div><div class="ra">$199.99</div></a>
-      <a class="route reveal" href="/es/lax-a-pasadena.html"><div><div class="rt">LAX ⇄ Pasadena</div><div class="rp">~40 min · SUV negra de lujo</div></div><div class="ra">$199.99</div></a>
-      <a class="route reveal" href="/es/lax-a-calabasas.html"><div><div class="rt">LAX ⇄ Calabasas</div><div class="rp">~40 min · SUV negra de lujo</div></div><div class="ra">$179.99</div></a>
-      <a class="route reveal" href="/es/lax-a-glendale.html"><div><div class="rt">LAX ⇄ Glendale</div><div class="rp">~35 min · SUV negra de lujo</div></div><div class="ra">$179.99</div></a>
-      <a class="route reveal" href="/es/lax-a-anaheim.html"><div><div class="rt">LAX ⇄ Anaheim</div><div class="rp">~40 min · SUV negra de lujo</div></div><div class="ra">$179.99</div></a>
-      <a class="route reveal" href="/es/lax-a-huntington-beach.html"><div><div class="rt">LAX ⇄ Huntington Beach</div><div class="rp">~45 min · SUV negra de lujo</div></div><div class="ra">$189.99</div></a>
-      <a class="route reveal" href="/es/lax-a-simi-valley.html"><div><div class="rt">LAX ⇄ Simi Valley</div><div class="rp">~55 min · SUV negra de lujo</div></div><div class="ra">$219.99</div></a>
-      <a class="route reveal" href="/es/lax-a-thousand-oaks.html"><div><div class="rt">LAX ⇄ Thousand Oaks</div><div class="rp">~55 min · SUV negra de lujo</div></div><div class="ra">$219.99</div></a>
-      <a class="route reveal" href="/es/lax-a-laguna-beach.html"><div><div class="rt">LAX ⇄ Laguna Beach</div><div class="rp">~60 min · SUV negra de lujo</div></div><div class="ra">$249.99</div></a>
-      <a class="route reveal" href="/es/lax-a-camarillo.html"><div><div class="rt">LAX ⇄ Camarillo</div><div class="rp">~65 min · SUV negra de lujo</div></div><div class="ra">$279.99</div></a>
-      <a class="route reveal" href="/es/lax-a-santa-barbara.html"><div><div class="rt">LAX ⇄ Santa Barbara</div><div class="rp">~110 min · SUV negra de lujo</div></div><div class="ra">$349.99</div></a>
+      <a class="route reveal" href="/es/lax-a-downtown-la.html"><div><div class="rt">LAX ⇄ Downtown LA</div><div class="rp">~25 min · SUV negra de lujo</div></div><div class="ra">$165.08</div></a>
+      <a class="route reveal" href="/es/lax-a-long-beach.html"><div><div class="rt">LAX ⇄ Long Beach</div><div class="rp">~30 min · SUV negra de lujo</div></div><div class="ra">$185.67</div></a>
+      <a class="route reveal" href="/es/lax-a-pasadena.html"><div><div class="rt">LAX ⇄ Pasadena</div><div class="rp">~40 min · SUV negra de lujo</div></div><div class="ra">$185.67</div></a>
+      <a class="route reveal" href="/es/lax-a-calabasas.html"><div><div class="rt">LAX ⇄ Calabasas</div><div class="rp">~40 min · SUV negra de lujo</div></div><div class="ra">$185.67</div></a>
+      <a class="route reveal" href="/es/lax-a-glendale.html"><div><div class="rt">LAX ⇄ Glendale</div><div class="rp">~35 min · SUV negra de lujo</div></div><div class="ra">$185.67</div></a>
+      <a class="route reveal" href="/es/lax-a-anaheim.html"><div><div class="rt">LAX ⇄ Anaheim</div><div class="rp">~40 min · SUV negra de lujo</div></div><div class="ra">$185.67</div></a>
+      <a class="route reveal" href="/es/lax-a-huntington-beach.html"><div><div class="rt">LAX ⇄ Huntington Beach</div><div class="rp">~45 min · SUV negra de lujo</div></div><div class="ra">$195.97</div></a>
+      <a class="route reveal" href="/es/lax-a-simi-valley.html"><div><div class="rt">LAX ⇄ Simi Valley</div><div class="rp">~55 min · SUV negra de lujo</div></div><div class="ra">$226.87</div></a>
+      <a class="route reveal" href="/es/lax-a-thousand-oaks.html"><div><div class="rt">LAX ⇄ Thousand Oaks</div><div class="rp">~55 min · SUV negra de lujo</div></div><div class="ra">$226.87</div></a>
+      <a class="route reveal" href="/es/lax-a-laguna-beach.html"><div><div class="rt">LAX ⇄ Laguna Beach</div><div class="rp">~60 min · SUV negra de lujo</div></div><div class="ra">$257.77</div></a>
+      <a class="route reveal" href="/es/lax-a-camarillo.html"><div><div class="rt">LAX ⇄ Camarillo</div><div class="rp">~65 min · SUV negra de lujo</div></div><div class="ra">$288.66</div></a>
+      <a class="route reveal" href="/es/lax-a-santa-barbara.html"><div><div class="rt">LAX ⇄ Santa Barbara</div><div class="rp">~110 min · SUV negra de lujo</div></div><div class="ra">$360.75</div></a>
     </div>
     <p style="font-size:12px;color:var(--mute-2);margin-top:22px">Las tarifas mostradas son estimadas y pueden cambiar sin previo aviso. Para un precio exacto y disponibilidad, ingresa tu viaje en el buscador y obtén una cotización al instante.</p>
     <p style="font-size:12px;color:var(--mute-2);margin-top:8px">Precio todo incluido: el precio que ves es el total que pagas (tarifa de servicio en línea, peajes y cuotas de aeropuerto incluidos). Propina opcional.</p>
@@ -905,7 +905,7 @@ document.addEventListener('click',function(e){var t=e.target.closest&&e.target.c
       <details class="faq reveal"><summary>¿Cómo funcionan las tarifas?<span class="ico" aria-hidden="true"></span></summary><div class="ans">Cada viaje tiene una tarifa fija y total cotizada antes de reservar — sin recargos por demanda, sin taxímetro, sin sorpresas. Tarifa de servicio en línea, peajes y cuotas de aeropuerto van incluidos en la tarifa que ves al reservar.</div></details>
       <details class="faq reveal"><summary>¿Qué pasa si mi vuelo se retrasa?<span class="ico" aria-hidden="true"></span></summary><div class="ans">Monitoreamos tu vuelo en tiempo real y ajustamos la recogida automáticamente. Si hay retraso, tu chofer estará ahí cuando aterrices — sin cargo extra. El tiempo de espera de cortesía está incluido en las recogidas de aeropuerto.</div></details>
       <details class="faq reveal"><summary>¿A qué aeropuertos y zonas dan servicio?<span class="ico" aria-hidden="true"></span></summary><div class="ans">Cubrimos LAX, John Wayne (SNA) y terminales privadas, además de servicio puerta a puerta en Los Ángeles y Orange County. También hacemos trayectos de larga distancia a San Diego, Santa Bárbara y Palm Springs.</div></details>
-      <details class="faq reveal"><summary>¿Cómo pago y es seguro?<span class="ico" aria-hidden="true"></span></summary><div class="ans">La reserva y el pago se gestionan de forma segura con nuestro socio de reservas, Moovs. Se aceptan las principales tarjetas de crédito y débito, y tu precio queda fijado al momento de reservar.</div></details>
+      <details class="faq reveal"><summary>¿Cómo pago y es seguro?<span class="ico" aria-hidden="true"></span></summary><div class="ans">Reservas y pagas de forma segura en nuestro propio portal de reservas; los pagos con tarjeta los procesa Stripe. Se aceptan las principales tarjetas de crédito y débito, y tu precio queda fijado al momento de reservar.</div></details>
       <details class="faq reveal"><summary>¿Puedo pedir silla para niños o espacio extra de equipaje?<span class="ico" aria-hidden="true"></span></summary><div class="ans">Sí. Añade una nota al reservar, o contáctanos, y disponemos sillas para niños — nuestras espaciosas SUV negras de lujo acomodan hasta 7 pasajeros con espacio para equipaje.</div></details>
       <details class="faq reveal"><summary>¿Cuál es la política de cancelación?<span class="ico" aria-hidden="true"></span></summary><div class="ans">Los planes cambian — lo entendemos. Las cancelaciones con suficiente antelación son gratuitas. Para los tiempos específicos de tu reserva, consulta tu confirmación o escríbenos a info@rideyeah.com.</div></details>
     </div>
@@ -919,7 +919,7 @@ document.addEventListener('click',function(e){var t=e.target.closest&&e.target.c
     { "@type": "Question", "name": "¿Cómo funcionan las tarifas?", "acceptedAnswer": { "@type": "Answer", "text": "Cada viaje tiene una tarifa fija y total cotizada antes de reservar — sin recargos por demanda, sin taxímetro, sin sorpresas. Tarifa de servicio en línea, peajes y cuotas de aeropuerto van incluidos en la tarifa que ves al reservar." } },
     { "@type": "Question", "name": "¿Qué pasa si mi vuelo se retrasa?", "acceptedAnswer": { "@type": "Answer", "text": "Monitoreamos tu vuelo en tiempo real y ajustamos la recogida automáticamente. Si hay retraso, tu chofer estará ahí cuando aterrices sin cargo extra. El tiempo de espera de cortesía está incluido en las recogidas de aeropuerto." } },
     { "@type": "Question", "name": "¿A qué aeropuertos y zonas dan servicio?", "acceptedAnswer": { "@type": "Answer", "text": "Cubrimos LAX, John Wayne (SNA) y terminales privadas, además de servicio puerta a puerta en Los Ángeles y Orange County, y trayectos de larga distancia a San Diego, Santa Bárbara y Palm Springs." } },
-    { "@type": "Question", "name": "¿Cómo pago y es seguro?", "acceptedAnswer": { "@type": "Answer", "text": "La reserva y el pago se gestionan de forma segura con nuestro socio de reservas, Moovs. Se aceptan las principales tarjetas de crédito y débito, y tu precio queda fijado al momento de reservar." } },
+    { "@type": "Question", "name": "¿Cómo pago y es seguro?", "acceptedAnswer": { "@type": "Answer", "text": "Reservas y pagas de forma segura en nuestro propio portal de reservas; los pagos con tarjeta los procesa Stripe. Se aceptan las principales tarjetas de crédito y débito, y tu precio queda fijado al momento de reservar." } },
     { "@type": "Question", "name": "¿Puedo pedir silla para niños o espacio extra de equipaje?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Añade una nota al reservar, o contáctanos, y disponemos sillas para niños. Nuestras espaciosas SUV negras de lujo acomodan hasta 7 pasajeros con espacio para equipaje." } },
     { "@type": "Question", "name": "¿Cuál es la política de cancelación?", "acceptedAnswer": { "@type": "Answer", "text": "Las cancelaciones con suficiente antelación son gratuitas. Para los tiempos específicos de tu reserva, consulta tu confirmación o escríbenos a info@rideyeah.com." } }
   ]
@@ -933,7 +933,7 @@ document.addEventListener('click',function(e){var t=e.target.closest&&e.target.c
       <span class="eyebrow">Cuando tú quieras</span>
       <h2>Tu auto está a<br>un toque.</h2>
       <p>Reserva en menos de un minuto. Precio fijo, chofer profesional, puntual — siempre.</p>
-      <button type="button" class="btn btn-gold" style="padding:16px 38px;font-size:15px" onclick="goMoovs()">Reserva tu viaje <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+      <button type="button" class="btn btn-gold" style="padding:16px 38px;font-size:15px" onclick="goBook()">Reserva tu viaje <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
     </div>
   </div>
 </section>
@@ -962,9 +962,11 @@ document.addEventListener('click',function(e){var t=e.target.closest&&e.target.c
 
 <script>
 /* ============ Config ============ */
-/* Moovs request flow. We prefill it with the hero form via the official
-   Booking Widget `?trip=<JSON>` param (stops/dateTime/totalGroupSize/…). */
-const MOOVS_REQUEST = 'https://customer.moovs.app/ry-quiroz-luxury-llc/request/new';
+/* Our own booking portal (rysistema.com). The hero form prefills its step 1
+   through the query the portal already reads: ?tipo=&de=&a=&cuando=&pax=…
+   Moovs se retiró de aquí tras la auditoría 13-sep-2026 (RY-120): el portal
+   propio enseña el precio antes de pagar y Moovs lo dejaba invisible. */
+const BOOK_URL = 'https://rysistema.com/book';
 /* Google Maps Platform key (HTTP-referrer–restricted to rideyeah.com / pages.dev /
    localhost, so it is safe in client code). Leave '' to disable autocomplete — the
    address fields then stay as plain text inputs and the form still works. */
@@ -989,64 +991,31 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 menu.addEventListener('click', e => { if (e.target === menu) closeMenu(); });
 addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu(); });
 
-/* ============ Moovs booking flow (on-site modal) ============ */
-/* goMoovs(url) opens the Moovs request flow in a branded modal so guests book
-   without leaving the site. The hero form passes a prefilled `?trip=` URL. */
+/* ============ Booking hand-off (rysistema.com/book) ============ */
+/* goBook(url) sends the guest to our own booking portal in the same tab. It
+   used to open Moovs inside an <iframe> modal; the portal refuses to be framed
+   (X-Frame-Options: DENY), so the modal is gone and the guest simply goes there.
+   El nombre viejo `goMoovs` queda como alias por si algo cacheado lo llama. */
 (function(){
-  const es = (document.documentElement.lang || '').toLowerCase().slice(0,2) === 'es';
-  const T = es
-    ? { title:'Reserva tu viaje', tab:'Abrir en pestaña nueva', close:'Cerrar' }
-    : { title:'Book your ride', tab:'Open in new tab', close:'Close' };
-  let modal, frame, newTab, lastFocus, lastUrl = '';
-
-  function build(){
-    modal = document.createElement('div');
-    modal.className = 'bk-modal';
-    modal.setAttribute('role','dialog');
-    modal.setAttribute('aria-modal','true');
-    modal.setAttribute('aria-label', T.title);
-    modal.innerHTML =
-      '<div class="bk-modal-backdrop"></div>' +
-      '<div class="bk-modal-panel">' +
-        '<div class="bk-modal-head">' +
-          '<span class="bk-modal-title">' + T.title + '</span>' +
-          '<a class="bk-modal-new" target="_blank" rel="noopener">' + T.tab +
-            ' <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>' +
-          '<button type="button" class="bk-modal-close" aria-label="' + T.close + '">' +
-            '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>' +
-        '</div>' +
-        '<div class="bk-modal-body"><iframe title="' + T.title + '" loading="lazy"></iframe></div>' +
-      '</div>';
-    frame = modal.querySelector('iframe');
-    newTab = modal.querySelector('.bk-modal-new');
-    modal.querySelector('.bk-modal-close').addEventListener('click', close);
-    modal.querySelector('.bk-modal-backdrop').addEventListener('click', close);
-    document.body.appendChild(modal);
-  }
-  function close(){
-    if (!modal) return;
-    modal.classList.remove('open');
-    document.body.style.overflow = '';
-    if (lastFocus && lastFocus.focus) lastFocus.focus();
-  }
-  addEventListener('keydown', e => { if (e.key === 'Escape' && modal && modal.classList.contains('open')) close(); });
-
-  window.goMoovs = function(url){
+  window.goBook = function(url){
+    const target = url || BOOK_URL;
     if (window.fbq) fbq('track','Lead',{content_name:'booking'});
-    const target = url || MOOVS_REQUEST;
-    lastFocus = document.activeElement;
-    if (!modal) build();
-    if (target !== lastUrl){ frame.src = target; lastUrl = target; } // (re)load only when the trip changes
-    newTab.href = target;
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    modal.querySelector('.bk-modal-close').focus();
+    let sent = false;
+    const go = () => { if (sent) return; sent = true; window.location.href = target; };
+    /* GA4: la "medición mejorada" de clics salientes solo ve <a>, no
+       location.href. Sin este evento, al mudarse a un dominio propio parecería
+       que nadie reserva. gtag solo existe con consentimiento: va protegido. */
+    if (typeof window.gtag === 'function'){
+      gtag('event','book_click',{ destination: target.split('?')[0], event_callback: go });
+      setTimeout(go, 300);
+    } else go();
   };
+  window.goMoovs = window.goBook;
 })();
 
-/* ============ Hero booking form → Moovs prefill ============ */
-/* Builds the Moovs Booking-Widget `?trip=<JSON>` URL from the hero form so the
-   request flow opens pre-filled with the guest's pickup/drop-off/date/pax. */
+/* ============ Hero booking form → portal prefill ============ */
+/* Builds the portal URL (rysistema.com/book?tipo=&de=&a=&cuando=&pax=…) from the
+   hero form so step 1 opens pre-filled and the guest goes straight to "See prices". */
 (function(){
   const form = document.getElementById('bookingForm');
   if (!form) return;
@@ -1054,13 +1023,13 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
   const tabs = form.querySelectorAll('.bk-tab');
   const rowDur  = document.getElementById('row-duration');
   const rowRet  = document.getElementById('row-return');
+  const rowDrop = document.getElementById('row-dropoff');
 
   function applyTab(){
     const hourly = tripCat === 'HOURLY', round = tripCat === 'ROUND_TRIP';
-    /* Drop-off stays visible on HOURLY too. Moovs' own hourly Step 1 has a
-       required Drop-off address, but it only RENDERS that field when we prefill
-       a second stop (verified live). Sending a single stop dropped the guest on
-       Step 2 with a required field they were never shown — that was the bug. */
+    /* HOURLY has no drop-off: the portal's hourly booking is pickup + hours only
+       (it was Moovs that needed a second stop; that quirk left with it, RY-120). */
+    if (rowDrop) rowDrop.hidden = hourly;
     rowDur.hidden  = !hourly;
     rowRet.hidden  = !round;
     updateAirportFields();
@@ -1078,10 +1047,9 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
 
   const val = id => (document.getElementById(id)?.value || '').trim();
   const mval = id => (document.getElementById(id)?.dataset.iso || '').trim(); // machine value from the custom pickers
-  /* Moovs renders the dateTime LITERALLY (it shows the hour written in the ISO),
-     so we pass the guest's wall-clock time as-is — no timezone conversion. The
-     pickup city is always Pacific, which is exactly what the guest is choosing. */
-  const iso = (d, t) => d ? (d + 'T' + (t || '12:00') + ':00.000Z') : undefined;
+  /* The portal reads `cuando=YYYY-MM-DDTHH:MM` as Los Angeles wall-clock time,
+     so we pass the guest's date and time as-is — no timezone conversion. */
+  const cuando = (d, t) => (d && t) ? (d + 'T' + t) : '';
 
   /* Airport detection: Google place types captured on selection (input._placeTypes),
      with a text fallback for airport names / IATA codes when not selected. */
@@ -1100,7 +1068,7 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
   function updateAirportFields(){ if (rowFlight) rowFlight.hidden = !isAirportTrip(); }
   form.addEventListener('ry:place', updateAirportFields);
 
-  /* ---- Flight number validation (before it reaches Moovs) ----
+  /* ---- Flight number validation (before the hand-off to the portal) ----
      1) Format check (client): IATA designator = 2-char airline code (letter first,
         e.g. AA, B6, DL) + 1–4 digit number. Normalizes "aa 327" → "AA327" and
         blocks submit on a malformed value so the driver never gets garbage.
@@ -1215,15 +1183,10 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
     airlineEl.addEventListener('blur', () => setTimeout(close, 150));
   })();
 
-  /* ---- Required-field guard (runs BEFORE we open Moovs) ----
-     Moovs does NOT re-validate a prefilled `?trip=` URL: it skips step 1 and
-     drops the guest straight on vehicle selection with whatever we sent. Three
-     failure modes, all verified live against the RideYeah widget:
-       - no totalDuration on HOURLY -> an hourly trip with no hours at all;
-       - no dateTime                -> Moovs invents "now" as the pickup time;
-       - no second stop             -> its required Drop-off field never renders.
-     Any of them reaches the operator as a broken request, so the gate has to
-     live here. Every field Moovs needs is required before the hand-off. */
+  /* ---- Required-field guard (runs BEFORE we leave for the portal) ----
+     The portal re-validates everything on its side (and prices server-side), so
+     this gate is for the guest, not the operator: it says what is missing HERE,
+     next to the field, instead of sending them to another page to find out. */
   const RQ = isES ? {
     pickup:'Indica el lugar de recogida.',
     dropoff:'Indica el destino.',
@@ -1270,7 +1233,7 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
     clearReq();
     if (!val('fld-pickup')) return failReq('fld-pickup', RQ.pickup);
     if (tripCat === 'HOURLY' && !val('fld-duration')) return failReq('fld-duration', RQ.duration);
-    if (!val('fld-dropoff')) return failReq('fld-dropoff', RQ.dropoff);
+    if (tripCat !== 'HOURLY' && !val('fld-dropoff')) return failReq('fld-dropoff', RQ.dropoff);
     if (!mval('fld-date')) return failReq('fld-date', RQ.date);
     if (!mval('fld-time')) return failReq('fld-time', RQ.time);
     if (tripCat === 'ROUND_TRIP'){
@@ -1284,57 +1247,69 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
   form.addEventListener('input', clearReq);
   form.addEventListener('change', clearReq);
 
+  /* Airport → portal code. The portal treats `de`/`a` as an airport ONLY when
+     the value is exactly one of its codes (LAX, BUR, LGB, ONT, SNA, VNY); anything
+     else is an address. Google hands us "Los Angeles International Airport (LAX),
+     …", so we map it — otherwise an airport pickup would go down the address path
+     and get the wrong price. With a Google place selected we trust its types; on
+     free text we only map when it clearly names an airport or is the bare code. */
+  const AIRPORT_CODES = [
+    ['LAX', /\blax\b|los angeles international/i],
+    ['BUR', /\bbur\b|burbank|bob hope/i],
+    ['LGB', /\blgb\b|long beach airport/i],
+    ['ONT', /\bont\b|ontario international/i],
+    ['SNA', /\bsna\b|john wayne/i],
+    ['VNY', /\bvny\b|van nuys airport/i]
+  ];
+  function portalPlace(id){
+    const text = val(id);
+    if (!text) return '';
+    const types = placeTypes(id);
+    const isAirport = types.length
+      ? types.includes('airport')
+      : (/\bairport\b|aeropuerto/i.test(text) || /^[A-Z]{3}$/.test(text.toUpperCase()));
+    if (isAirport){
+      for (const [code, re] of AIRPORT_CODES){ if (re.test(text)) return code; }
+    }
+    return text;
+  }
+
   function buildUrl(){
-    const pickup = val('fld-pickup'), dropoff = val('fld-dropoff');
-    const trip = { tripCategory: tripCat };
-    const stops = [];
-    if (pickup){
-      const s = { description: pickup };
-      if (placeTypes('fld-pickup').length) s.pickUpGooglePlaceTypes = placeTypes('fld-pickup');
-      stops.push(s);
-    }
-    if (dropoff){ // HOURLY included — Moovs maps stop 2 to its Drop-off field
-      const s = { description: dropoff };
-      if (placeTypes('fld-dropoff').length) s.pickUpGooglePlaceTypes = placeTypes('fld-dropoff');
-      stops.push(s);
-    }
-    trip.stops = stops;
-    const dt = iso(mval('fld-date'), mval('fld-time'));
-    if (dt) trip.dateTime = dt;
-    const pax = parseInt(val('fld-pax'), 10);
-    trip.totalGroupSize = pax > 0 ? pax : 1; // never empty — empty pax blocks Moovs on step 1
-    if (tripCat === 'HOURLY' && val('fld-duration')) trip.totalDuration = Number(val('fld-duration'));
+    const q = new URLSearchParams();
+    q.set('tipo', tripCat === 'ROUND_TRIP' ? 'roundtrip' : tripCat === 'HOURLY' ? 'hourly' : 'oneway');
+    const de = portalPlace('fld-pickup');
+    if (de) q.set('de', de);
+    if (tripCat !== 'HOURLY'){ const a = portalPlace('fld-dropoff'); if (a) q.set('a', a); }
+    const when = cuando(mval('fld-date'), mval('fld-time'));
+    if (when) q.set('cuando', when);
     if (tripCat === 'ROUND_TRIP'){
-      const r = iso(mval('fld-return-date'), mval('fld-return-time'));
-      if (r) trip.returnDateTime = r;
+      const back = cuando(mval('fld-return-date'), mval('fld-return-time'));
+      if (back) q.set('vuelta', back);
     }
-    // Order Type is a REQUIRED field in this Moovs widget — if it's left empty the
-    // guest hits "Please select an order type" and can't finish. So we ALWAYS prefill
-    // it. The widget matches the value (case-insensitively) against the operator's
-    // configured order types: "Airport" and "Corporate" are the two we map to
-    // (verified live). Airport trips also forward airline/flight to the driver via note.
+    // The duration <select> stores minutes; the portal wants whole hours.
+    if (tripCat === 'HOURLY' && val('fld-duration')) q.set('horas', String(Math.round(Number(val('fld-duration')) / 60)));
+    const pax = parseInt(val('fld-pax'), 10);
+    q.set('pax', String(pax > 0 ? pax : 1));
+    /* Airline + flight ride along so the portal can prefill its step 3. It does
+       not read them yet (pedido a rideyeah-web, RY-120); harmless while ignored. */
     if (isAirportTrip()){
-      trip.orderType = 'airport';
-      const airline = val('fld-airline'), flight = val('fld-flight'), parts = [];
-      if (airline) parts.push('Airline: ' + airline);
-      if (flight)  parts.push('Flight: ' + flight);
-      if (parts.length) trip.note = 'Airport transfer — ' + parts.join(', ') + '. Please track the flight.';
-    } else {
-      trip.orderType = 'corporate'; // neutral default for non-airport rides (only generic option configured)
+      const airline = val('fld-airline'), flight = val('fld-flight');
+      if (airline) q.set('aerolinea', airline);
+      if (flight) q.set('vuelo', flight);
     }
-    // Only prefill when there's at least a pickup; else open the plain form.
-    return stops.length ? (MOOVS_REQUEST + '?trip=' + encodeURIComponent(JSON.stringify(trip))) : MOOVS_REQUEST;
+    // Only prefill when there's at least a pickup; else open the plain portal.
+    return de ? (BOOK_URL + '?' + q.toString()) : BOOK_URL;
   }
 
   form.addEventListener('submit', e => {
     e.preventDefault();
-    if (!checkRequired()) return; // never hand Moovs an incomplete trip
-    // On airport trips, refuse a malformed flight number before opening Moovs.
+    if (!checkRequired()) return; // never leave with an incomplete trip
+    // On airport trips, refuse a malformed flight number before leaving for the portal.
     if (isAirportTrip() && flightEl && flightEl.value.trim()){
       normFlight();
       if (!flightOK()){ setNote('err', FT.bad); flightEl.focus(); return; }
     }
-    goMoovs(buildUrl());
+    goBook(buildUrl());
   });
 })();
 
@@ -1429,7 +1404,7 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
 /* ============ Google Places autocomplete (additive; degrades to plain text) ============ */
 /* Enhances the pickup/drop-off inputs with a custom dark dropdown of real Google
    places. If GMAPS_KEY is empty or the API fails to load, the inputs stay as plain
-   text fields and the form still submits the typed text to Moovs. */
+   text fields and the form still submits the typed text to the portal. */
 (function(){
   if (!GMAPS_KEY) return;
   const fields = ['fld-pickup','fld-dropoff'].map(id => document.getElementById(id)).filter(Boolean);
@@ -1532,15 +1507,15 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.cont
 })();
 
 /* Every booking CTA points at a "#book" anchor (#book, /#book, /es/#book,
-   index.html#book). Intercept those clicks and open the booking modal. */
+   index.html#book). Intercept those clicks and send the guest to the portal. */
 document.addEventListener('click', e => {
   const a = e.target.closest && e.target.closest('a[href$="#book"]');
-  if (a){ e.preventDefault(); goMoovs(); }
+  if (a){ e.preventDefault(); goBook(); }
 });
 
 /* Any element with [data-book] also opens booking */
 document.querySelectorAll('[data-book]').forEach(el => {
-  el.addEventListener('click', () => goMoovs());
+  el.addEventListener('click', () => goBook());
 });
 
 /* ============ Scroll reveal ============ */
@@ -1593,10 +1568,10 @@ if (!reduced){
   bar.innerHTML='<a class="sc-call" href="sms:'+PHONE+'" aria-label="Text RideYeah">'+msgSvg.replace(/WW/g,'16')+' Mensaje</a><button type="button" class="sc-book">Obtén tu tarifa fija</button>';
   document.body.appendChild(bar);
   /* The sticky quote button brings the guest back UP to the hero booking form
-     (it does not open Moovs directly). */
+     (it does not go to the portal directly). */
   bar.querySelector('.sc-book').addEventListener('click',()=>{
     const f=document.getElementById('bookingForm');
-    if(f){ window.scrollTo({top:0,behavior:'smooth'}); } else { goMoovs(); }
+    if(f){ window.scrollTo({top:0,behavior:'smooth'}); } else { goBook(); }
   });
   const onScrollCta=()=>bar.classList.toggle('show', scrollY>600);
   addEventListener('scroll',onScrollCta,{passive:true}); onScrollCta();

@@ -20,9 +20,31 @@ import {
 } from "node:fs";
 import { join } from "node:path";
 import { createHash } from "node:crypto";
-import { ROUTES } from "./routes-data.mjs";
-import { CITIES } from "./cities-data.mjs";
-import { REDIRIGIDOS } from "./blog-data.mjs";
+// ROUTES, CITIES y REDIRIGIDOS se importan MAS ABAJO, en dinamico: un import
+// estatico se evalua antes que la sincronizacion de precios y check-fares
+// compararia contra la copia vieja en memoria (RY-168).
+
+// ── Precios vivos ANTES de comprobar nada (auditoría 13-sep-2026, RY-168) ──
+// La copia local se quedaba atrás de producción: el workflow sincroniza las
+// tarifas antes de publicar, pero un build LOCAL construía con lo que hubiera en
+// el repo, y un push desde ahí habría regresado los precios. Ahora TODO build
+// empieza pidiéndole los precios al sistema (rysistema.com/api/publico/tarifas).
+// Va en un proceso aparte porque el script hace `process.exit(0)` cuando el
+// sistema no contesta — y entonces se construye con los precios que ya están,
+// que es lo previsto (mejor el precio de ayer que un build roto). `RY_SIN_SYNC=1`
+// lo salta (por ejemplo, sin red).
+if (!process.env.RY_SIN_SYNC) {
+  const { execFileSync } = await import("node:child_process");
+  try {
+    execFileSync(process.execPath, ["scripts/sync-tarifas.mjs"], { stdio: "inherit" });
+  } catch (e) {
+    console.warn("⚠ sync-tarifas falló; se construye con los precios del repo.", e?.message || "");
+  }
+}
+
+const { ROUTES } = await import("./routes-data.mjs");
+const { CITIES } = await import("./cities-data.mjs");
+const { REDIRIGIDOS } = await import("./blog-data.mjs");
 
 // Guard: fail fast if any displayed fare drifted from the single source of truth
 // (scripts/fares-data.mjs) before we build anything.
@@ -153,8 +175,9 @@ for (const file of readdirSync("images")) {
 // igual, en paralelo.
 //
 // La propiedad es "rideyeah.com" en la cuenta rideyeah1@gmail.com. Con la
-// medición mejorada encendida, GA4 ya cuenta solo los clics salientes — o sea
-// el botón que se va a Moovs — sin necesidad de nada más.
+// medición mejorada encendida, GA4 cuenta solo los clics salientes hechos por
+// <a>. El botón de reservar YA NO es uno de esos: desde RY-120 va a
+// rysistema.com por JS (goBook), y por eso goBook manda el evento `book_click`.
 const GA4_ID = "G-0R33641W80";
 const GA4_TAG =
   `<!-- Google tag (gtag.js) -->\n` +

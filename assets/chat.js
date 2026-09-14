@@ -340,8 +340,9 @@
     {
       k: "book",
       fn: function () {
-        if (window.goMoovs) window.goMoovs();
-        else location.href = "/#book";
+        // Portal propio (RY-120). En /travel no carga site.js: se va directo.
+        if (window.goBook) window.goBook();
+        else location.href = "https://rysistema.com/book";
       },
     },
     {

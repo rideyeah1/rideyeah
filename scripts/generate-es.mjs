@@ -75,7 +75,7 @@ rep('aria-label="Airline" placeholder="Airline (e.g. American)"', 'aria-label="A
 rep('aria-label="Flight number" placeholder="Flight no. (e.g. AA327)"', 'aria-label="Número de vuelo" placeholder="N° de vuelo (ej. AA327)"');
 rep('aria-label="Passengers" placeholder="Passengers"', 'aria-label="Pasajeros" placeholder="Pasajeros"');
 rep(" Secure booking ", " Reserva segura ");
-rep("powered by Moovs", "con tecnología Moovs");
+rep("fixed price before you pay", "precio fijo antes de pagar");
 
 /* ---------- trust badges ---------- */
 rep('<div class="tt">Licensed &amp; Insured</div><div class="ts">Fully covered fleet</div>',
@@ -200,8 +200,8 @@ rep("We cover LAX, John Wayne (SNA) and private terminals, plus door-to-door ser
 rep("We cover LAX, John Wayne (SNA) and private terminals, plus door-to-door service across Los Angeles and Orange County, and long-distance rides to San Diego, Santa Barbara and Palm Springs.",
     "Cubrimos LAX, John Wayne (SNA) y terminales privadas, además de servicio puerta a puerta en Los Ángeles y Orange County, y trayectos de larga distancia a San Diego, Santa Bárbara y Palm Springs.");
 rep("How do I pay, and is it secure?", "¿Cómo pago y es seguro?");
-rep("Booking and payment are handled securely through our booking partner, Moovs. All major credit and debit cards are accepted, and your price is locked in at the time of booking.",
-    "La reserva y el pago se gestionan de forma segura con nuestro socio de reservas, Moovs. Se aceptan las principales tarjetas de crédito y débito, y tu precio queda fijado al momento de reservar.");
+rep("You book and pay securely on our own booking portal; card payments are processed by Stripe. All major credit and debit cards are accepted, and your price is locked in at the time of booking.",
+    "Reservas y pagas de forma segura en nuestro propio portal de reservas; los pagos con tarjeta los procesa Stripe. Se aceptan las principales tarjetas de crédito y débito, y tu precio queda fijado al momento de reservar.");
 rep("Can I request a child seat or extra luggage space?", "¿Puedo pedir silla para niños o espacio extra de equipaje?");
 rep("Yes. Add a note when you book, or contact us, and we'll arrange child seats — our spacious luxury black SUVs seat up to 7 guests with room for luggage.",
     "Sí. Añade una nota al reservar, o contáctanos, y disponemos sillas para niños — nuestras espaciosas SUV negras de lujo acomodan hasta 7 pasajeros con espacio para equipaje.");
